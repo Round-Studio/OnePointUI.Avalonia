@@ -1,0 +1,140 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!-- Add Controls for Previewer Here -->
+            <StackPanel>
+                <Button Margin="5" Width="200" Height="40">Button</Button>
+                <Button Margin="5" Width="200" Height="40" IsEnabled="False">Button</Button>
+                <Button Margin="5" Width="200" Height="40" Classes="Accent">Button</Button>
+                <Button Margin="5" Width="200" Height="40" Classes="Accent" IsEnabled="False">Button</Button>
+            </StackPanel>
+        </Border>
+    </Design.PreviewWith>
+    
+    <!-- Add Styles Here -->
+    <Style Selector="Button">
+        <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBrush}"></Setter>
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBorderBrush}"></Setter>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid>
+                    <Border Name="Path_Border"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            BorderThickness="2"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}">
+                        <Grid>
+                            <Border Name="Path_Background"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch"
+                                    CornerRadius="{TemplateBinding CornerRadius}"
+                                    Background="{DynamicResource PrimaryBackgroundOverBrush}"
+                                    Opacity="0"></Border>
+                        </Grid>
+                    </Border>
+                    
+                    <ContentPresenter Content="{TemplateBinding Content}" 
+                                      Foreground="{TemplateBinding Foreground}"
+                                      HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"></ContentPresenter>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="CornerRadius" Value="6"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}"></Setter>
+        
+        <Style Selector="^:disabled">
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryDisabledForegroundBrush}"></Setter>
+        </Style>
+        
+        <Style Selector="^:disabled Border#Path_Background">
+            <Setter Property="Opacity" Value="0.3"></Setter>
+        </Style>
+    </Style>
+    
+    <Style Selector="Border#Path_Border">
+        <Setter Property="Transitions">
+            <Transitions>
+                <ThicknessTransition Property="BorderThickness" Duration="0:0:0.18" Easing="BackEaseOut"></ThicknessTransition>
+            </Transitions>
+        </Setter>
+    </Style>
+    
+    <Style Selector="Border#Path_Background">
+        <Setter Property="Transitions">
+            <Transitions>
+                <DoubleTransition Property="Opacity" Duration="0:0:0.18" Easing="QuinticEaseOut"></DoubleTransition>
+            </Transitions>
+        </Setter>
+    </Style>
+    
+    <Style Selector="Button:pointerover Border#Path_Border">
+        <Setter Property="BorderThickness" Value="2,2,2,4"></Setter>
+    </Style>
+    
+    <Style Selector="Button:pointerover Border#Path_Background">
+        <Setter Property="Opacity" Value="0.3"></Setter>
+    </Style>
+    
+    <Style Selector="Button:pressed Border#Path_Border">
+        <Setter Property="BorderThickness" Value="2,2,2,2"></Setter>
+    </Style>
+    
+    <Style Selector="Button:pressed Border#Path_Background">
+        <Setter Property="Opacity" Value="1"></Setter>
+    </Style>
+    
+    <!--Accent-->
+    <Style Selector="Button.Accent">
+        <Setter Property="Background" Value="{DynamicResource AccentBackgroundBrush}"></Setter>
+        <Setter Property="BorderBrush" Value="{DynamicResource AccentBorderBrush}"></Setter>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid>
+                    <Border Name="Path_Border"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            BorderThickness="2"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}">
+                        <Grid>
+                            <Border Name="Path_Background"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch"
+                                    CornerRadius="{TemplateBinding CornerRadius}"
+                                    Background="{DynamicResource AccentBackgroundOverBrush}"
+                                    Opacity="0"></Border>
+                        </Grid>
+                    </Border>
+                    
+                    <ContentPresenter Content="{TemplateBinding Content}" 
+                                      Foreground="{TemplateBinding Foreground}"
+                                      HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"></ContentPresenter>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="CornerRadius" Value="6"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource AccentForegroundBrush}"></Setter>
+        
+        <Style Selector="^:disabled Border#Path_Border">
+            <Setter Property="Background" Value="{DynamicResource PrimaryDisabledForegroundBrush}"></Setter>
+        </Style>
+    </Style>
+    
+    <Style Selector="Button.Accent:pointerover Border#Path_Border">
+        <Setter Property="BorderThickness" Value="2,2,2,4"></Setter>
+    </Style>
+    
+    <Style Selector="Button.Accent:pointerover Border#Path_Background">
+        <Setter Property="Opacity" Value="0.3"></Setter>
+    </Style>
+    
+    <Style Selector="Button.Accent:pressed Border#Path_Border">
+        <Setter Property="BorderThickness" Value="2,2,2,2"></Setter>
+    </Style>
+    
+    <Style Selector="Button.Accent:pressed Border#Path_Background">
+        <Setter Property="Opacity" Value="1"></Setter>
+    </Style>
+</Styles>

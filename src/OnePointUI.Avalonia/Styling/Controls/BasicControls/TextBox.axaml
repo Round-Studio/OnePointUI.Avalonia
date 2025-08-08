@@ -1,0 +1,99 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!-- Add Controls for Previewer Here -->
+            <StackPanel>
+                <TextBox Text="TextBox" Margin="5"/>
+                <TextBox Text="TextBox" Margin="5" IsEnabled="False"/>
+            </StackPanel>
+        </Border>
+    </Design.PreviewWith>
+
+    <!-- Add Styles Here -->
+    <Style Selector="TextBox">
+        <Setter Property="CornerRadius" Value="6"></Setter>
+        <Setter Property="Width" Value="120"></Setter>
+        <Setter Property="Height" Value="32"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}"></Setter>
+        <Setter Property="CaretBrush" Value="{DynamicResource PrimaryForegroundBrush}"></Setter>
+        <Setter Property="SelectionBrush" Value="{DynamicResource AccentBackgroundBrush}"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Left"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        <Setter Property="SelectionForegroundBrush" Value="{DynamicResource PrimaryForegroundBrush}"></Setter>
+        
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid>
+                    <Border Name="Path_BackgroundBorder" 
+                            BorderThickness="2"
+                            BorderBrush="{DynamicResource PrimaryBorderBrush}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Background="{DynamicResource PrimaryBackgroundBrush}"
+                            Width="{TemplateBinding Width}"
+                            Height="{TemplateBinding Height}">
+                        <Border Name="Path_Background"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                Background="{DynamicResource PrimaryBackgroundOverBrush}"
+                                Opacity="0"></Border>
+                    </Border>
+                    <TextPresenter Name="PART_TextPresenter"
+                                   Margin="7"
+                                   Text="{TemplateBinding Text}"
+                                   PasswordChar="{TemplateBinding PasswordChar}"
+                                   RevealPassword="{TemplateBinding RevealPassword}"
+                                   SelectionBrush="{TemplateBinding SelectionBrush}"
+                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                   SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                                   CaretBrush="{TemplateBinding CaretBrush}"
+                                   TextAlignment="{TemplateBinding TextAlignment}"
+                                   TextWrapping="{TemplateBinding TextWrapping}"/>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+        
+        <Style Selector="^:disabled">
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryDisabledForegroundBrush}"></Setter>
+        </Style>
+        
+        <Style Selector="^:disabled Border#Path_Background">
+            <Setter Property="Opacity" Value="0.3"></Setter>
+        </Style>
+        
+        <Style Selector="^:pointerover Border#Path_BackgroundBorder">
+            <Setter Property="BorderThickness" Value="2,2,2,4"></Setter>
+        </Style>
+        
+        <Style Selector="^:focus Border#Path_BackgroundBorder">
+            <Setter Property="BorderThickness" Value="2,2,2,4"></Setter>
+            <!--<Setter Property="BorderBrush" Value="{DynamicResource AccentBorderBrush}"></Setter>-->
+        </Style>
+    </Style>
+    
+    <Style Selector="Border#Path_Background">
+        <Setter Property="Transitions">
+            <Transitions>
+                <DoubleTransition Property="Opacity" Duration="0:0:0.18" Easing="QuinticEaseOut"></DoubleTransition>
+            </Transitions>
+        </Setter>
+    </Style>
+    
+    <Style Selector="Border#Path_BackgroundBorder">
+        <Setter Property="Transitions">
+            <Transitions>
+                <ThicknessTransition Property="BorderThickness" Duration="0:0:0.18" Easing="BackEaseOut"></ThicknessTransition>
+            </Transitions>
+        </Setter>
+    </Style>
+    
+    <Style Selector="TextBox:pointerover Border#Path_Background">
+        <Setter Property="Opacity" Value="0.3"></Setter>
+    </Style>
+    
+    <Style Selector="TextBox:focus Border#Path_Background">
+        <Setter Property="Opacity" Value="1"></Setter>
+    </Style>
+</Styles>

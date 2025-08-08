@@ -1,0 +1,19 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!-- Add Controls for Previewer Here -->
+        </Border>
+    </Design.PreviewWith>
+
+    <!-- Add Styles Here -->
+    <StyleInclude Source="BasicControls/Window.axaml"></StyleInclude>
+    <StyleInclude Source="BasicControls/Button.axaml"></StyleInclude>
+    <StyleInclude Source="BasicControls/TabControl.axaml"></StyleInclude>
+    <StyleInclude Source="BasicControls/TextBox.axaml"></StyleInclude>
+    <StyleInclude Source="BasicControls/CheckBox.axaml"></StyleInclude>
+    <StyleInclude Source="BasicControls/ComboBox.axaml"></StyleInclude>
+    <StyleInclude Source="BasicControls/Slider.axaml"></StyleInclude>
+    <StyleInclude Source="BasicControls/ToggleSwitch.axaml"></StyleInclude>
+    <StyleInclude Source="BasicControls/ToggleButton.axaml"></StyleInclude>
+</Styles>

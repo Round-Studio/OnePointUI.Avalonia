@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnePointUI.Avalonia", "src\OnePointUI.Avalonia\OnePointUI.Avalonia.csproj", "{E3900BA9-6C86-4DF3-B9BF-79705358D695}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnePointUI.Avalonia.Test", "src\OnePointUI.Avalonia.Test\OnePointUI.Avalonia.Test.csproj", "{6FCD8013-C3E8-4272-9FA0-9E74E0ACB3B2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E3900BA9-6C86-4DF3-B9BF-79705358D695}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3900BA9-6C86-4DF3-B9BF-79705358D695}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3900BA9-6C86-4DF3-B9BF-79705358D695}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3900BA9-6C86-4DF3-B9BF-79705358D695}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FCD8013-C3E8-4272-9FA0-9E74E0ACB3B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FCD8013-C3E8-4272-9FA0-9E74E0ACB3B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FCD8013-C3E8-4272-9FA0-9E74E0ACB3B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FCD8013-C3E8-4272-9FA0-9E74E0ACB3B2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

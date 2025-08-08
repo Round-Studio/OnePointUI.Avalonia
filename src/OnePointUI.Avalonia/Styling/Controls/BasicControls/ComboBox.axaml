@@ -1,0 +1,24 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <StackPanel Spacing="10">
+                <ComboBox Width="200">
+                    <ComboBoxItem Content="Item 1"/>
+                    <ComboBoxItem Content="Item 2"/>
+                    <ComboBoxItem Content="Item 3"/>
+                </ComboBox>
+                <ComboBox Width="200" PlaceholderText="Select an item...">
+                    <ComboBoxItem Content="Option A"/>
+                    <ComboBoxItem Content="Option B"/>
+                    <ComboBoxItem Content="Option C"/>
+                </ComboBox>
+                <ComboBox Width="200" IsEnabled="False" PlaceholderText="Disabled"/>
+                <ComboBox Width="200">
+                    <ComboBoxItem Content="Selected Item" IsSelected="True"/>
+                    <ComboBoxItem Content="Another Item"/>
+                </ComboBox>
+            </StackPanel>
+        </Border>
+    </Design.PreviewWith>
+</Styles>
