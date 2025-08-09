@@ -2,6 +2,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:core="clr-namespace:OnePointUI.Avalonia.Style.Core;assembly=OnePointUI.Avalonia"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="OnePointUI.Avalonia.Test.MainWindow"
         Width="800" Height="450"
@@ -50,8 +51,27 @@
                 </StackPanel>
             </StackPanel>
         </TabItem>
-        <TabItem Header="One Point UI Controls">
-            
+        <TabItem Header="主题设置">
+            <StackPanel Margin="20">
+                <TextBlock Text="主题切换" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                    <Button Content="切换深色/浅色主题" Click="ToggleTheme_Click" Width="200" Height="40" Margin="0,0,10,0"/>
+                    <TextBlock Text="当前主题：" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <TextBlock x:Name="CurrentThemeText" Text="深色" VerticalAlignment="Center"/>
+                </StackPanel>
+                
+                <TextBlock Text="主题色选择" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
+                <!-- 使用手动创建的按钮代替ItemsControl绑定 -->
+                <WrapPanel x:Name="ColorPanel" Margin="0,0,0,20">
+                    <!-- 按钮将在代码中动态添加 -->
+                </WrapPanel>
+                
+                <TextBlock Text="自定义主题色" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="CustomColorTextBox" Width="200" Watermark="输入十六进制颜色值，例如 #FF0000" Margin="0,0,10,0"/>
+                    <Button Content="应用" Click="ApplyCustomColor_Click" Width="100"/>
+                </StackPanel>
+            </StackPanel>
         </TabItem>
     </TabControl>
 </Window>

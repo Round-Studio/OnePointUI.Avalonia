@@ -1,22 +1,7 @@
-﻿<Styles xmlns="https://github.com/avaloniaui"
+<Styles xmlns="https://github.com/avaloniaui"
          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
          x:Class="OnePointUI.Avalonia.Style.Core.OnePointTheme">
-    <Styles.Resources>
-        <ResourceDictionary>
-            <SolidColorBrush x:Key="BackgroundBrush" Color="#161616"></SolidColorBrush>
-            <SolidColorBrush x:Key="PrimaryForegroundBrush" Color="#fff"></SolidColorBrush>
-            <SolidColorBrush x:Key="PrimaryDisabledForegroundBrush" Color="#858585"></SolidColorBrush>
-            <SolidColorBrush x:Key="PrimaryDisabled2ForegroundBrush" Color="#C4C4C4"></SolidColorBrush>
-            
-            <SolidColorBrush x:Key="PrimaryBorderBrush" Color="#313131"></SolidColorBrush>
-            <SolidColorBrush x:Key="PrimaryBackgroundBrush" Color="#242424"></SolidColorBrush>
-            <SolidColorBrush x:Key="PrimaryBackgroundOverBrush" Color="#121212"></SolidColorBrush>
-            
-            <SolidColorBrush x:Key="AccentBorderBrush" Color="#C97612"></SolidColorBrush>
-            <SolidColorBrush x:Key="AccentBackgroundBrush" Color="#FFBB00"></SolidColorBrush>
-            <SolidColorBrush x:Key="AccentBackgroundOverBrush" Color="#6E3D0E"></SolidColorBrush>
-        </ResourceDictionary>
-    </Styles.Resources>
+    <!-- 样式资源已移至ThemeColors.axaml，由ThemeManager动态加载 -->
     
     <StyleInclude Source="/Styling/Controls/Controls.axaml" />
 </Styles>

@@ -16,4 +16,5 @@
     <StyleInclude Source="BasicControls/Slider.axaml"></StyleInclude>
     <StyleInclude Source="BasicControls/ToggleSwitch.axaml"></StyleInclude>
     <StyleInclude Source="BasicControls/ToggleButton.axaml"></StyleInclude>
+    <StyleInclude Source="BasicControls/TextBlock.axaml"></StyleInclude>
 </Styles>
