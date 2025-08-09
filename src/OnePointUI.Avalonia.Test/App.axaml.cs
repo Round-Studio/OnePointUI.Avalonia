@@ -10,18 +10,12 @@ public partial class App : Application
 {
     public override void Initialize()
     {
+        ThemeManager.Initialize(this);
         AvaloniaXamlLoader.Load(this);
     }
 
     public override void OnFrameworkInitializationCompleted()
     {
-        // 首先初始化ThemeManager
-        ThemeManager.Initialize(this);
-        
-        // 设置初始主题色
-        ThemeColorSelector.ApplyPredefinedColor("橙色");
-        ThemeManager.Instance.SetThemeModel(ThemeVariant.Dark);
-        
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             desktop.MainWindow = new MainWindow();

@@ -3,11 +3,39 @@ using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using Avalonia.Styling;
 using System;
+using Avalonia.Media;
 
 namespace OnePointUI.Avalonia.Style.Core;
 
 public class OnePointTheme : Styles, IResourceProvider
 {
+    public Color AccentColor
+    {
+        get
+        {
+            return _AccentColor;
+        }
+        set
+        {
+            _AccentColor = value;
+            ThemeManager.Instance.SetAccentColor(_AccentColor);
+        }
+    }
+
+    public ThemeVariant ThemeVariant
+    {
+        get
+        {
+            return _ThemeVariant;
+        }
+        set
+        {
+            _ThemeVariant = value;
+            ThemeManager.Instance.SetTheme(_ThemeVariant);
+        }
+    }
+    private Color _AccentColor = Colors.Orange;
+    private ThemeVariant _ThemeVariant = ThemeVariant.Dark;
     public OnePointTheme()
     {
         // 加载XAML
@@ -15,6 +43,7 @@ public class OnePointTheme : Styles, IResourceProvider
         
         // 在应用程序初始化完成后注册主题资源
         Application.Current!.ResourcesChanged += OnApplicationResourcesChanged;
+        ThemeManager.Instance.SetTheme(ThemeVariant);
     }
 
     private void OnApplicationResourcesChanged(object? sender, EventArgs e)
@@ -40,5 +69,7 @@ public class OnePointTheme : Styles, IResourceProvider
                 System.Diagnostics.Debug.WriteLine($"主题资源应用失败: {ex.Message}");
             }
         }
+        
+        ThemeManager.Instance.SetAccentColor(AccentColor);
     }
 }

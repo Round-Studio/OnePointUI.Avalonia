@@ -11,8 +11,6 @@ namespace OnePointUI.Avalonia.Test;
 
 public partial class MainWindow : Window
 {
-    // 移除ColorItem类，因为我们现在使用直接创建按钮的方式
-    
     public MainWindow()
     {
         InitializeComponent();
