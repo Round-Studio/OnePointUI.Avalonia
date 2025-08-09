@@ -1,0 +1,34 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- 深色主题颜色 -->
+    <ResourceDictionary x:Key="DarkTheme">
+        <SolidColorBrush x:Key="BackgroundBrush" Color="#161616"/>
+        <SolidColorBrush x:Key="PrimaryForegroundBrush" Color="#FFFFFF"/>
+        <SolidColorBrush x:Key="PrimaryDisabledForegroundBrush" Color="#858585"/>
+        <SolidColorBrush x:Key="PrimaryDisabled2ForegroundBrush" Color="#C4C4C4"/>
+        
+        <SolidColorBrush x:Key="PrimaryBorderBrush" Color="#313131"/>
+        <SolidColorBrush x:Key="PrimaryBackgroundBrush" Color="#242424"/>
+        <SolidColorBrush x:Key="PrimaryBackgroundOverBrush" Color="#121212"/>
+        
+        <SolidColorBrush x:Key="AccentBorderBrush" Color="#C97612"/>
+        <SolidColorBrush x:Key="AccentBackgroundBrush" Color="#FFBB00"/>
+        <SolidColorBrush x:Key="AccentBackgroundOverBrush" Color="#6E3D0E"/>
+    </ResourceDictionary>
+    
+    <!-- 浅色主题颜色 -->
+    <ResourceDictionary x:Key="LightTheme">
+        <SolidColorBrush x:Key="BackgroundBrush" Color="#F5F5F5"/>
+        <SolidColorBrush x:Key="PrimaryForegroundBrush" Color="#000000"/>
+        <SolidColorBrush x:Key="PrimaryDisabledForegroundBrush" Color="#A0A0A0"/>
+        <SolidColorBrush x:Key="PrimaryDisabled2ForegroundBrush" Color="#707070"/>
+        
+        <SolidColorBrush x:Key="PrimaryBorderBrush" Color="#DDDDDD"/>
+        <SolidColorBrush x:Key="PrimaryBackgroundBrush" Color="#EEEEEE"/>
+        <SolidColorBrush x:Key="PrimaryBackgroundOverBrush" Color="#E0E0E0"/>
+        
+        <SolidColorBrush x:Key="AccentBorderBrush" Color="#C97612"/>
+        <SolidColorBrush x:Key="AccentBackgroundBrush" Color="#FFBB00"/>
+        <SolidColorBrush x:Key="AccentBackgroundOverBrush" Color="#FFC933"/>
+    </ResourceDictionary>
+</ResourceDictionary>
