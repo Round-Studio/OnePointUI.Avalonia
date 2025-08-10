@@ -6,6 +6,6 @@
              <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
     <Application.Styles>
-        <core:OnePointTheme AccentColor="Red" ThemeVariant="Light"/>
+        <core:OnePointTheme AccentColor="DeepPink" ThemeVariant="Light"/>
     </Application.Styles>
 </Application>

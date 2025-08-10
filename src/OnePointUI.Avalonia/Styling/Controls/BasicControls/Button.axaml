@@ -16,6 +16,8 @@
     <Style Selector="Button">
         <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBrush}"></Setter>
         <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBorderBrush}"></Setter>
+        <Setter Property="CornerRadius" Value="6"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}"></Setter>
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid>
@@ -41,8 +43,6 @@
                 </Grid>
             </ControlTemplate>
         </Setter>
-        <Setter Property="CornerRadius" Value="6"></Setter>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}"></Setter>
         
         <Style Selector="^:disabled">
             <Setter Property="Foreground" Value="{DynamicResource PrimaryDisabledForegroundBrush}"></Setter>

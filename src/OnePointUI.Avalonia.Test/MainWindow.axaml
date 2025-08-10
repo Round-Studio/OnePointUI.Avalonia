@@ -32,6 +32,11 @@
                     
                     <Slider Width="420" Minimum="0" Maximum="100" Value="50" Margin="5"/>
                     <Slider Width="420" Minimum="0" Maximum="100" Value="50" Margin="5" IsEnabled="False"/>
+                    
+                    <Expander Margin="5" 
+                              Header="111">
+                        <Button>111</Button>
+                    </Expander>
                 </StackPanel>
                 <StackPanel Margin="5">
                     <TextBox Margin="5" Height="40" Width="200">TextBox</TextBox>

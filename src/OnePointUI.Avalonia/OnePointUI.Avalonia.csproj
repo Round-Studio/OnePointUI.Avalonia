@@ -10,4 +10,8 @@
       <PackageReference Include="Avalonia" Version="11.3.3" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Styling\Controls\OnePointControls\" />
+    </ItemGroup>
+
 </Project>
