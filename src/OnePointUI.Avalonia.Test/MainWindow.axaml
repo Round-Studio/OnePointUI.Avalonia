@@ -3,6 +3,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:core="clr-namespace:OnePointUI.Avalonia.Style.Core;assembly=OnePointUI.Avalonia"
+        xmlns:onePointControls="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls;assembly=OnePointUI.Avalonia"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="OnePointUI.Avalonia.Test.MainWindow"
         Width="800" Height="450"
@@ -56,7 +57,15 @@
                 </StackPanel>
             </StackPanel>
         </TabItem>
-        <TabItem Header="主题设置">
+        <TabItem Header="OnePointUI Controls">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Margin="5">
+                    <onePointControls:LineTextBlock Text="Test TextBlock"
+                                                    Margin="5" />
+                </StackPanel>
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="Settings">
             <StackPanel Margin="20">
                 <TextBlock Text="主题切换" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,20">

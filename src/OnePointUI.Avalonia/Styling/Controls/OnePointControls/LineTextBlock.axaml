@@ -1,0 +1,46 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:OnePointUI.Avalonia.Styling.Controls.OnePointControls">
+    <Design.PreviewWith>
+        <controls:LineTextBlock Text="Test"/>
+    </Design.PreviewWith>
+
+    <Style Selector="controls|LineTextBlock">
+        <!-- Set Defaults -->
+        <Setter Property="Margin" Value="5"></Setter>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid>
+                    <Border Height="6"
+                            Background="{DynamicResource AccentBorderBrush}"
+                            VerticalAlignment="Bottom"
+                            CornerRadius="3"
+                            Name="PATH_LineBorder"></Border>
+                    
+                    <TextBlock Text="{TemplateBinding Text}"
+                               FontSize="30"
+                               Margin="5,0"
+                               Name="PATH_TextBlock"></TextBlock>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+        
+        <Style Selector="^ Border#PATH_LineBorder">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <DoubleTransition Property="Height"
+                                      Duration="0:0:0.2"
+                                      Easing="ExponentialEaseOut"></DoubleTransition>
+                </Transitions>
+            </Setter>
+        </Style>
+        
+        <Style Selector="^:pointerover Border#PATH_LineBorder">
+            <Setter Property="Height" Value="38"></Setter>
+        </Style>
+        
+        <Style Selector="^:pointerover TextBlock#PATH_TextBlock">
+            <Setter Property="Foreground" Value="White"></Setter>
+        </Style>
+    </Style>
+</Styles>
