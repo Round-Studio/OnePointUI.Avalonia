@@ -26,7 +26,7 @@
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
                     
-                        <ToggleButton Width="{TemplateBinding Width}" Height="40"  Name="HeardBtn">
+                        <ToggleButton Width="{TemplateBinding Width}" Height="40"  Name="HeardBtn" Classes="Expander">
                             <Grid Width="{TemplateBinding Width}">
                                 <ContentPresenter Content="{TemplateBinding Header}"
                                                   HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10"></ContentPresenter>

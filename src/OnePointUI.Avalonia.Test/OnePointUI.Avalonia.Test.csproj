@@ -23,4 +23,9 @@
     <ItemGroup>
       <ProjectReference Include="..\OnePointUI.Avalonia\OnePointUI.Avalonia.csproj" />
     </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="OnePointUI.Icon.png" />
+      <AvaloniaResource Include="OnePointUI.Icon.png" />
+    </ItemGroup>
 </Project>

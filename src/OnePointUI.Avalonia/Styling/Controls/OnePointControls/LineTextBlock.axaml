@@ -2,25 +2,29 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="using:OnePointUI.Avalonia.Styling.Controls.OnePointControls">
     <Design.PreviewWith>
-        <controls:LineTextBlock Text="Test"/>
+        <controls:LineTextBlock Text="Test" FontSize="120"/> <!-- 可以在这里调整预览的 LineHeight -->
     </Design.PreviewWith>
 
     <Style Selector="controls|LineTextBlock">
         <!-- Set Defaults -->
-        <Setter Property="Margin" Value="5"></Setter>
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="Margin" Value="5"/>
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid>
-                    <Border Height="6"
-                            Background="{DynamicResource AccentBorderBrush}"
+                    <!-- 修改 Border 的 Height 绑定 -->
+                    <Border Background="{DynamicResource AccentBorderBrush}"
                             VerticalAlignment="Bottom"
                             CornerRadius="3"
-                            Name="PATH_LineBorder"></Border>
+                            Margin="0,0,0,0"
+                            Name="PATH_LineBorder"
+                            Height="6">
+                    </Border>
                     
                     <TextBlock Text="{TemplateBinding Text}"
-                               FontSize="30"
+                               FontSize="{TemplateBinding FontSize}"
                                Margin="5,0"
-                               Name="PATH_TextBlock"></TextBlock>
+                               Name="PATH_TextBlock"/>
                 </Grid>
             </ControlTemplate>
         </Setter>
@@ -30,17 +34,18 @@
                 <Transitions>
                     <DoubleTransition Property="Height"
                                       Duration="0:0:0.2"
-                                      Easing="ExponentialEaseOut"></DoubleTransition>
+                                      Easing="ExponentialEaseOut"/>
                 </Transitions>
             </Setter>
         </Style>
         
+        <!-- 悬停时改变 Border 的高度 -->
         <Style Selector="^:pointerover Border#PATH_LineBorder">
-            <Setter Property="Height" Value="38"></Setter>
+            <Setter Property="Height" Value="{Binding LineHeight, RelativeSource={RelativeSource TemplatedParent}}"/>
         </Style>
         
         <Style Selector="^:pointerover TextBlock#PATH_TextBlock">
-            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="Foreground" Value="White"/>
         </Style>
     </Style>
 </Styles>

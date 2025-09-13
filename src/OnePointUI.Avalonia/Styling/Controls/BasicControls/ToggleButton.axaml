@@ -9,6 +9,13 @@
                 <ToggleButton Margin="5" Width="200" Height="40" Content="Disabled Standard ToggleButton" IsEnabled="False"/>
                 <ToggleButton Margin="5" Width="200" Height="40" Content="Disabled Transparent ToggleButton" 
                               Background="Transparent" BorderBrush="Transparent" IsEnabled="False"/>
+                <Expander Width="200" Header="111" IsExpanded="True">
+                    <StackPanel>
+                        <Button>111</Button>
+                        <Button>111</Button>
+                        <Button>111</Button>
+                    </StackPanel>
+                </Expander>
             </StackPanel>
         </Border>
     </Design.PreviewWith>
@@ -83,6 +90,28 @@
                 <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundOverBrush}"></Setter>
                 <Setter Property="Opacity" Value="1"></Setter>
             </Style>
+        </Style>
+    </Style>
+    
+    <Style Selector="ToggleButton.Expander">
+        <Setter Property="Background" Value="{DynamicResource PrimaryBorderBrush}"></Setter>
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBorderBrush}"></Setter>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentControl>
+                    <Border Background="{TemplateBinding BorderBrush}"
+                            CornerRadius="6,6,6,6"
+                            Name="HeadButton">
+                        <Grid>
+                            <ContentPresenter Content="{TemplateBinding Content}"></ContentPresenter>
+                        </Grid>
+                    </Border>
+                </ContentControl>
+            </ControlTemplate>
+        </Setter>
+        
+        <Style Selector="^:checked Border#HeadButton">
+            <Setter Property="CornerRadius" Value="6,6,0,0"></Setter>
         </Style>
     </Style>
 </Styles>
