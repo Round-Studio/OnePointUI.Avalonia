@@ -16,6 +16,7 @@
                         <Border Margin="0,0,0,0"
                                 Height="28" Width="58"
                                 CornerRadius="100"
+                                ClipToBounds="False"
                                 HorizontalAlignment="Left"
                                 Name="Path_Background"
                                 BorderBrush="{DynamicResource PrimaryBorderBrush}"
@@ -25,9 +26,11 @@
                         <Canvas x:Name="PART_SwitchKnob" Width="30" HorizontalAlignment="Left" Margin="4">
                             <Grid x:Name="PART_MovingKnobs">
                                 <Border Name="PART_Knob"  HorizontalAlignment="Left"
+                                        ClipToBounds="False"
                                         Margin="0,0,0,0">
                                     <Border Height="18" Width="18"
                                             CornerRadius="100"
+                                            ClipToBounds="False"
                                             Margin="1,1,0,1"
                                             Background="{DynamicResource PrimaryBorderBrush}" Name="PART_Knob_Net">
                                    
