@@ -27,6 +27,16 @@
                      Width="280"
                      Opacity="0"
                      Height="280">
+                <Ellipse.Styles>
+                    <Style Selector="Ellipse#MovingRing">
+                        <Setter Property="Transitions">
+                            <Transitions>
+                                <DoubleTransition Property="Opacity"
+                                                  Duration="0:0:0.18"></DoubleTransition>
+                            </Transitions>
+                        </Setter>
+                    </Style>
+                </Ellipse.Styles>
                 <Ellipse.Fill>
                     <RadialGradientBrush Center="140,140" 
                                          GradientOrigin="140,140">

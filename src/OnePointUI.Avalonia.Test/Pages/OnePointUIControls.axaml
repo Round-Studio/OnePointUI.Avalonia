@@ -27,7 +27,7 @@
         <StackPanel Margin="5">
             <Border Width="200" Height="200"
                     BorderThickness="3"
-                    BorderBrush="AliceBlue"
+                    BorderBrush="White"
                     CornerRadius="12">
                 <onePointControls:PointHalo/>
             </Border>
