@@ -18,6 +18,7 @@
     <StyleInclude Source="BasicControls/ToggleButton.axaml"></StyleInclude>
     <StyleInclude Source="BasicControls/TextBlock.axaml"></StyleInclude>
     <StyleInclude Source="BasicControls/Expander.axaml"></StyleInclude>
+    <StyleInclude Source="BasicControls/Border.axaml"></StyleInclude>
     
     <StyleInclude Source="OnePointControls/LineTextBlock.axaml"></StyleInclude>
 </Styles>

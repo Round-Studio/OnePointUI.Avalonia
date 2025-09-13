@@ -15,7 +15,7 @@
                     <!-- 修改 Border 的 Height 绑定 -->
                     <Border Background="{DynamicResource AccentBorderBrush}"
                             VerticalAlignment="Bottom"
-                            CornerRadius="3"
+                            CornerRadius="6"
                             Margin="0,0,0,0"
                             Name="PATH_LineBorder"
                             Height="6">
@@ -25,6 +25,12 @@
                                FontSize="{TemplateBinding FontSize}"
                                Margin="5,0"
                                Name="PATH_TextBlock"/>
+                    
+                    <Border Height="6"
+                            Name="PATH_HaloBorder"
+                            VerticalAlignment="Bottom">
+                        <controls:PointHalo CornerRadius="3"></controls:PointHalo>
+                    </Border>
                 </Grid>
             </ControlTemplate>
         </Setter>
@@ -39,8 +45,21 @@
             </Setter>
         </Style>
         
+        <Style Selector="^ Border#PATH_HaloBorder">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <DoubleTransition Property="Height"
+                                      Duration="0:0:0.2"
+                                      Easing="ExponentialEaseOut"/>
+                </Transitions>
+            </Setter>
+        </Style>
+        
         <!-- 悬停时改变 Border 的高度 -->
         <Style Selector="^:pointerover Border#PATH_LineBorder">
+            <Setter Property="Height" Value="{Binding LineHeight, RelativeSource={RelativeSource TemplatedParent}}"/>
+        </Style>
+        <Style Selector="^:pointerover Border#PATH_HaloBorder">
             <Setter Property="Height" Value="{Binding LineHeight, RelativeSource={RelativeSource TemplatedParent}}"/>
         </Style>
         

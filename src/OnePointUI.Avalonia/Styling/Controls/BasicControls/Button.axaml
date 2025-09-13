@@ -1,5 +1,6 @@
 ﻿<Styles xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:onePointControls="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls">
     <Design.PreviewWith>
         <Border Padding="20">
             <!-- Add Controls for Previewer Here -->
@@ -40,6 +41,8 @@
                                       Foreground="{TemplateBinding Foreground}"
                                       HorizontalAlignment="Center"
                                       VerticalAlignment="Center"></ContentPresenter>
+                    
+                    <onePointControls:PointHalo CornerRadius="6"/>
                 </Grid>
             </ControlTemplate>
         </Setter>
