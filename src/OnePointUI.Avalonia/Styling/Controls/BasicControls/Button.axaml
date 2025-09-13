@@ -114,6 +114,8 @@
                                       Foreground="{TemplateBinding Foreground}"
                                       HorizontalAlignment="Center"
                                       VerticalAlignment="Center"></ContentPresenter>
+                    
+                    <onePointControls:PointHalo CornerRadius="6"/>
                 </Grid>
             </ControlTemplate>
         </Setter>
