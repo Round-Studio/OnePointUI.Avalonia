@@ -11,7 +11,8 @@
                 <Button Margin="5" Width="200" Height="40" Classes="Accent">Button</Button>
                 <Button Margin="5" Width="200" Height="40" Classes="Accent" IsEnabled="False">Button</Button>
                 <onePointControls:LineTextBlock Text="无边框按钮"></onePointControls:LineTextBlock>
-                <Button Margin="5" Width="200" Height="40" Classes="NoBorder">Button</Button>
+                <Button Margin="5" Width="200" Height="40" Classes="NoBorder"
+                        Background="DeepPink">Button</Button>
             </StackPanel>
         </Border>
     </Design.PreviewWith>
@@ -158,10 +159,12 @@
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}"></Setter>
         <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
         <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        <Setter Property="Background" Value="Transparent"></Setter>
         
         <Setter Property="Template">
             <ControlTemplate>
-                <Border>
+                <Border Background="{TemplateBinding Background}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
                     <Grid>
                         <Border Name="PATH_Background"
                                 HorizontalAlignment="Stretch"

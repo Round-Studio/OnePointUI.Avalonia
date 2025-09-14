@@ -168,14 +168,31 @@
                    PlacementTarget="Background"
                    IsLightDismissEnabled="True"
                    InheritsTransform="True">
-              <Border x:Name="PopupBorder"
+              <Border Name="PopupBorder"
                       Background="{DynamicResource PrimaryBackgroundBrush}"
                       BorderBrush="{DynamicResource PrimaryBorderBrush}"
                       BorderThickness="1"
-                      Margin="0,5,0,0"
                       Padding="0"
+                      Margin="0,5,0,0"
                       HorizontalAlignment="Stretch"
                       CornerRadius="6">
+                <Border.Styles>
+                  <Style>
+                    <Style.Animations>
+                      <!-- 弹出动画 -->
+                      <Animation Duration="0:0:0.3" Easing="ExponentialEaseOut">
+                        <KeyFrame Cue="0%">
+                          <Setter Property="Margin" Value="0"/>
+                          <Setter Property="Opacity" Value="0"/>
+                        </KeyFrame>
+                        <KeyFrame Cue="100%">
+                          <Setter Property="Margin" Value="0,5,0,0"/>
+                          <Setter Property="Opacity" Value="1"/>
+                        </KeyFrame>
+                      </Animation>
+                    </Style.Animations>
+                  </Style>
+                </Border.Styles>
                 <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
                               VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"
                               IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}">
