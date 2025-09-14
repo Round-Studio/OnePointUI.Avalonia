@@ -5,7 +5,8 @@
              xmlns:onePointControls="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls;assembly=OnePointUI.Avalonia"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="OnePointUI.Avalonia.Test.Pages.BasicControls">
-    <StackPanel Orientation="Horizontal">
+    <ScrollViewer>
+        <StackPanel Orientation="Horizontal">
                 <StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <StackPanel Margin="5">
@@ -52,4 +53,5 @@
                     </DockPanel>
                 </StackPanel>
             </StackPanel>
+    </ScrollViewer>
 </UserControl>
