@@ -20,14 +20,17 @@
     <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
     <Setter Property="CornerRadius" Value="6"></Setter>
     <Setter Property="Margin" Value="1"></Setter>
-    <Setter Property="Padding" Value="4" />
+    <Setter Property="Padding" Value="4,5" />
     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
     <Setter Property="Template">
       <ControlTemplate>
         <Border CornerRadius="{TemplateBinding  CornerRadius}"
-                Background="{TemplateBinding Background}"
-                Name="PATH_Background">
+                Background="{TemplateBinding Background}">
           <Grid Background="#01000000">
+            <Border Name="PATH_Background"
+                    Background="{DynamicResource PrimaryBackgroundOverBrush}"
+                    Opacity="0"></Border>
+            
             <Border Width="2" Height="10"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
@@ -45,19 +48,33 @@
                               VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                               Padding="{TemplateBinding Padding}" />
             
-            <onePointControls:PointHalo/>
+            <!--<onePointControls:PointHalo/>-->
           </Grid>
         </Border>
       </ControlTemplate>
     </Setter>
     
+    <Style Selector="^ /template/ Border#PATH_Background">
+      <Setter Property="Transitions">
+        <Transitions>
+          <DoubleTransition Property="Opacity"
+                            Duration="0:0:0.18"
+                            Easing="QuinticEaseOut"></DoubleTransition>
+        </Transitions>
+      </Setter>
+    </Style>
+    
     <Style Selector="^:pointerover /template/ Border#PATH_Background">
-      <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundOverBrush}"></Setter>
+      <Setter Property="Opacity" Value="0.3"></Setter>
+    </Style>
+    
+    <Style Selector="^:pressed /template/ Border#PATH_Background">
+      <Setter Property="Opacity" Value="1"></Setter>
     </Style>
     
     <Style Selector="^:selected">
       <Style Selector="^  /template/ Border#PATH_Background">
-        <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundOverBrush}"></Setter>
+        <Setter Property="Opacity" Value="0.8"></Setter>
       </Style>
     </Style>
   </Style>

@@ -25,6 +25,13 @@
                             <ToggleButton Margin="5" Width="200" Height="40" Content="Disabled Standard ToggleButton" IsEnabled="False"/>
                             <ToggleButton Margin="5" Width="200" Height="40" Content="Disabled Transparent ToggleButton" 
                                           Background="Transparent" BorderBrush="Transparent" IsEnabled="False"/>
+                            <ComboBox Margin="5" Width="200"
+                                      SelectedIndex="0">
+                                <ComboBoxItem>A11</ComboBoxItem>
+                                <ComboBoxItem>B11</ComboBoxItem>
+                                <ComboBoxItem>C11</ComboBoxItem>
+                                <ComboBoxItem>D11</ComboBoxItem>
+                            </ComboBox>
                         </StackPanel>
                     </StackPanel>
                     
