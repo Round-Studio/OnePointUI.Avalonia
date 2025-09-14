@@ -5,10 +5,13 @@
         <Border Padding="20">
             <!-- Add Controls for Previewer Here -->
             <StackPanel>
+                <onePointControls:LineTextBlock Text="普通按钮"></onePointControls:LineTextBlock>
                 <Button Margin="5" Width="200" Height="40">Button</Button>
                 <Button Margin="5" Width="200" Height="40" IsEnabled="False">Button</Button>
                 <Button Margin="5" Width="200" Height="40" Classes="Accent">Button</Button>
                 <Button Margin="5" Width="200" Height="40" Classes="Accent" IsEnabled="False">Button</Button>
+                <onePointControls:LineTextBlock Text="无边框按钮"></onePointControls:LineTextBlock>
+                <Button Margin="5" Width="200" Height="40" Classes="NoBorder">Button</Button>
             </StackPanel>
         </Border>
     </Design.PreviewWith>
@@ -19,6 +22,8 @@
         <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBorderBrush}"></Setter>
         <Setter Property="CornerRadius" Value="6"></Setter>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid>
@@ -39,8 +44,8 @@
                     
                     <ContentPresenter Content="{TemplateBinding Content}" 
                                       Foreground="{TemplateBinding Foreground}"
-                                      HorizontalAlignment="Center"
-                                      VerticalAlignment="Center"></ContentPresenter>
+                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"></ContentPresenter>
                     
                     <onePointControls:PointHalo CornerRadius="6"/>
                 </Grid>
@@ -54,44 +59,47 @@
         <Style Selector="^:disabled Border#Path_Background">
             <Setter Property="Opacity" Value="0.3"></Setter>
         </Style>
+        
+        <Style Selector="^:pointerover Border#Path_Border">
+            <Setter Property="BorderThickness" Value="2,2,2,4"></Setter>
+        </Style>
+    
+        <Style Selector="^:pointerover Border#Path_Background">
+            <Setter Property="Opacity" Value="0.3"></Setter>
+        </Style>
+    
+        <Style Selector="^:pressed Border#Path_Border">
+            <Setter Property="BorderThickness" Value="2,2,2,2"></Setter>
+        </Style>
+    
+        <Style Selector="^:pressed Border#Path_Background">
+            <Setter Property="Opacity" Value="1"></Setter>
+        </Style>
+    
+        <Style Selector="^ /template/ Border#Path_Border">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <ThicknessTransition Property="BorderThickness" Duration="0:0:0.18" Easing="BackEaseOut"></ThicknessTransition>
+                </Transitions>
+            </Setter>
+        </Style>
+    
+        <Style Selector="^ /template/ Border#Path_Background">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <DoubleTransition Property="Opacity" Duration="0:0:0.18" Easing="QuinticEaseOut"></DoubleTransition>
+                </Transitions>
+            </Setter>
+        </Style>
     </Style>
     
-    <Style Selector="Border#Path_Border">
-        <Setter Property="Transitions">
-            <Transitions>
-                <ThicknessTransition Property="BorderThickness" Duration="0:0:0.18" Easing="BackEaseOut"></ThicknessTransition>
-            </Transitions>
-        </Setter>
-    </Style>
-    
-    <Style Selector="Border#Path_Background">
-        <Setter Property="Transitions">
-            <Transitions>
-                <DoubleTransition Property="Opacity" Duration="0:0:0.18" Easing="QuinticEaseOut"></DoubleTransition>
-            </Transitions>
-        </Setter>
-    </Style>
-    
-    <Style Selector="Button:pointerover Border#Path_Border">
-        <Setter Property="BorderThickness" Value="2,2,2,4"></Setter>
-    </Style>
-    
-    <Style Selector="Button:pointerover Border#Path_Background">
-        <Setter Property="Opacity" Value="0.3"></Setter>
-    </Style>
-    
-    <Style Selector="Button:pressed Border#Path_Border">
-        <Setter Property="BorderThickness" Value="2,2,2,2"></Setter>
-    </Style>
-    
-    <Style Selector="Button:pressed Border#Path_Background">
-        <Setter Property="Opacity" Value="1"></Setter>
-    </Style>
     
     <!--Accent-->
     <Style Selector="Button.Accent">
         <Setter Property="Background" Value="{DynamicResource AccentBackgroundBrush}"></Setter>
         <Setter Property="BorderBrush" Value="{DynamicResource AccentBorderBrush}"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid>
@@ -112,8 +120,8 @@
                     
                     <ContentPresenter Content="{TemplateBinding Content}" 
                                       Foreground="{TemplateBinding Foreground}"
-                                      HorizontalAlignment="Center"
-                                      VerticalAlignment="Center"></ContentPresenter>
+                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"></ContentPresenter>
                     
                     <onePointControls:PointHalo CornerRadius="6"/>
                 </Grid>
@@ -125,21 +133,66 @@
         <Style Selector="^:disabled Border#Path_Border">
             <Setter Property="Background" Value="{DynamicResource PrimaryDisabledForegroundBrush}"></Setter>
         </Style>
+    
+        <Style Selector="^:pointerover Border#Path_Border">
+            <Setter Property="BorderThickness" Value="2,2,2,4"></Setter>
+        </Style>
+    
+        <Style Selector="^:pointerover Border#Path_Background">
+            <Setter Property="Opacity" Value="0.3"></Setter>
+        </Style>
+    
+        <Style Selector="^:pressed Border#Path_Border">
+            <Setter Property="BorderThickness" Value="2,2,2,2"></Setter>
+        </Style>
+    
+        <Style Selector="^:pressed Border#Path_Background">
+            <Setter Property="Opacity" Value="1"></Setter>
+        </Style>
     </Style>
     
-    <Style Selector="Button.Accent:pointerover Border#Path_Border">
-        <Setter Property="BorderThickness" Value="2,2,2,4"></Setter>
-    </Style>
     
-    <Style Selector="Button.Accent:pointerover Border#Path_Background">
-        <Setter Property="Opacity" Value="0.3"></Setter>
-    </Style>
-    
-    <Style Selector="Button.Accent:pressed Border#Path_Border">
-        <Setter Property="BorderThickness" Value="2,2,2,2"></Setter>
-    </Style>
-    
-    <Style Selector="Button.Accent:pressed Border#Path_Background">
-        <Setter Property="Opacity" Value="1"></Setter>
+    <!--无边框-->
+    <Style Selector="Button.NoBorder">
+        <Setter Property="CornerRadius" Value="6"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border>
+                    <Grid>
+                        <Border Name="PATH_Background"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Opacity="0"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                Background="{DynamicResource PrimaryBackgroundBrush}"></Border>
+                        
+                        <ContentPresenter Content="{TemplateBinding Content}" 
+                                          Foreground="{TemplateBinding Foreground}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"></ContentPresenter>
+                    
+                        <onePointControls:PointHalo CornerRadius="6"/>
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        
+        <Style Selector="^ /template/ Border#PATH_Background">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <DoubleTransition Property="Opacity"
+                                      Duration="0:0:0.18"
+                                      Easing="QuinticEaseOut"></DoubleTransition>
+                </Transitions>
+            </Setter>
+        </Style>
+        
+        <Style Selector="^:pressed Border#PATH_Background">
+            <Setter Property="Opacity" Value="0.2"></Setter>
+        </Style>
     </Style>
 </Styles>
