@@ -41,16 +41,22 @@
                     </Border>
                     <TextPresenter Name="PART_TextPresenter"
                                    Margin="7"
-                                   Text="{TemplateBinding Text}"
+                                   Text="{TemplateBinding Text, Mode=TwoWay}"
+                                   CaretIndex="{TemplateBinding CaretIndex}"
+                                   CaretBrush="{TemplateBinding CaretBrush}"
+                                   LineHeight="{TemplateBinding LineHeight}"
+                                   TextWrapping="{TemplateBinding TextWrapping}"
                                    PasswordChar="{TemplateBinding PasswordChar}"
+                                   LetterSpacing="{TemplateBinding LetterSpacing}"
+                                   TextAlignment="{TemplateBinding TextAlignment}"
                                    RevealPassword="{TemplateBinding RevealPassword}"
                                    SelectionBrush="{TemplateBinding SelectionBrush}"
-                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                   SelectionStart="{TemplateBinding SelectionStart}"
                                    SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
-                                   CaretBrush="{TemplateBinding CaretBrush}"
-                                   TextAlignment="{TemplateBinding TextAlignment}"
-                                   TextWrapping="{TemplateBinding TextWrapping}"/>
+                                   SelectionEnd="{TemplateBinding SelectionEnd}"
+                                   CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
+                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                   HorizontalAlignment="Stretch"/>
                 </Grid>
             </ControlTemplate>
         </Setter>
