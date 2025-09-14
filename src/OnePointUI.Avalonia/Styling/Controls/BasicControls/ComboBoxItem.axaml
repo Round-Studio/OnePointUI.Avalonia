@@ -1,0 +1,64 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:onePointControls="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls">
+  <Design.PreviewWith>
+    <Border Padding="20">
+      <Border Background="{DynamicResource ComboBoxDropDownBackground}" BorderBrush="{DynamicResource ComboBoxDropDownBorderBrush}" BorderThickness="{DynamicResource ComboBoxDropdownBorderThickness}" Margin="0,-1,0,-1" Padding="{DynamicResource ComboBoxDropdownBorderPadding}" CornerRadius="{DynamicResource OverlayCornerRadius}">
+        <StackPanel HorizontalAlignment="Stretch">
+          <ComboBoxItem>Item 1</ComboBoxItem>
+          <ComboBoxItem>Item 2 long</ComboBoxItem>
+          <ComboBoxItem>Item 2 long</ComboBoxItem>
+          <ComboBoxItem>Item 2 long</ComboBoxItem>
+          <ComboBoxItem IsSelected="True">Item 2 long</ComboBoxItem>
+          <ComboBoxItem IsEnabled="False">Item 4</ComboBoxItem>
+        </StackPanel>
+      </Border>
+    </Border>
+  </Design.PreviewWith>
+
+  <Style Selector="ComboBoxItem">
+    <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
+    <Setter Property="CornerRadius" Value="6"></Setter>
+    <Setter Property="Margin" Value="1"></Setter>
+    <Setter Property="Padding" Value="4" />
+    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border CornerRadius="{TemplateBinding  CornerRadius}"
+                Background="{TemplateBinding Background}"
+                Name="PATH_Background">
+          <Grid Background="#01000000">
+            <Border Width="2" Height="10"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    CornerRadius="1"
+                    Margin="1,0,0,0"
+                    Background="{DynamicResource AccentBackgroundBrush}"
+                    IsVisible="{TemplateBinding IsSelected}"></Border>
+            
+            <ContentPresenter Name="PART_ContentPresenter"
+                              Margin="4,0,0,0"
+                              Foreground="{TemplateBinding Foreground}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                              Content="{TemplateBinding Content}"
+                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                              Padding="{TemplateBinding Padding}" />
+            
+            <onePointControls:PointHalo/>
+          </Grid>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    
+    <Style Selector="^:pointerover /template/ Border#PATH_Background">
+      <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundOverBrush}"></Setter>
+    </Style>
+    
+    <Style Selector="^:selected">
+      <Style Selector="^  /template/ Border#PATH_Background">
+        <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundOverBrush}"></Setter>
+      </Style>
+    </Style>
+  </Style>
+</Styles>
