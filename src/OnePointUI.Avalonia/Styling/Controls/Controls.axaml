@@ -26,4 +26,5 @@
     <StyleInclude Source="BasicControls/PopupRoot.axaml"></StyleInclude>
     
     <StyleInclude Source="OnePointControls/LineTextBlock.axaml"></StyleInclude>
+    <StyleInclude Source="OnePointControls/FontIcon.axaml"></StyleInclude>
 </Styles>

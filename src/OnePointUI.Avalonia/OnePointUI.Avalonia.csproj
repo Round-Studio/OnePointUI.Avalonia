@@ -10,4 +10,9 @@
       <PackageReference Include="Avalonia" Version="11.3.3" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="Assets\Fonts\SegoeFluentIcons.ttf" />
+      <EmbeddedResource Include="Assets\Fonts\SegoeFluentIcons.ttf" />
+    </ItemGroup>
+
 </Project>
