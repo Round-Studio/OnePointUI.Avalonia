@@ -13,6 +13,7 @@
                 <TextBlock UseLayoutRounding="False"
                            Text="{TemplateBinding Glyph}"
                            FontSize="{TemplateBinding FontSize}"
+                           Foreground="{TemplateBinding Foreground}"
                            FontFamily="{TemplateBinding FontFamily}"
                            Background="{TemplateBinding Background}"/>
             </ControlTemplate>
