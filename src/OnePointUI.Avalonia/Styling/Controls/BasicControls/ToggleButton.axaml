@@ -49,6 +49,7 @@
                                       VerticalAlignment="Center"></ContentPresenter>
                     
                     <onePointControls:PointHalo CornerRadius="{TemplateBinding CornerRadius}"></onePointControls:PointHalo>
+                    
                 </Grid>
             </ControlTemplate>
         </Setter>
