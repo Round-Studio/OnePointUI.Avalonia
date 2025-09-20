@@ -218,6 +218,10 @@
     <Setter Property="Opacity" Value="1" />
   </Style>
   
+  <Style Selector="ComboBox:pressed /template/ Border#PATH_Cross">
+    <Setter Property="Margin" Value="0,4,6,0"></Setter>
+  </Style>
+  
   <Style Selector="ComboBox:dropdownopen /template/ Border#PATH_Cross">
     <Setter Property="RenderTransform" Value="rotate(135deg)"/>
     <Setter Property="Margin" Value="0,4,6,0"></Setter>

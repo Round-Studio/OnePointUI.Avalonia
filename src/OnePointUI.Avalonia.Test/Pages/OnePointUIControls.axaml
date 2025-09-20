@@ -5,32 +5,37 @@
              xmlns:onePointControls="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls;assembly=OnePointUI.Avalonia"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="OnePointUI.Avalonia.Test.Pages.OnePointUIControls">
-    <StackPanel Orientation="Horizontal">
-        <StackPanel Margin="5">
-            <onePointControls:LineTextBlock Text="Test TextBlock 40"
-                                            Margin="5" 
-                                            HorizontalAlignment="Left"
-                                            FontSize="40"/>
-            <onePointControls:LineTextBlock Text="Test TextBlock 30"
-                                            Margin="5" 
-                                            HorizontalAlignment="Left"
-                                            FontSize="30"/>
-            <onePointControls:LineTextBlock Text="Test TextBlock 20"
-                                            Margin="5" 
-                                            HorizontalAlignment="Left"
-                                            FontSize="20"/>
-            <onePointControls:LineTextBlock Text="Test TextBlock 10"
-                                            Margin="5" 
-                                            HorizontalAlignment="Left"
-                                            FontSize="10"/>
+    <ScrollViewer>
+        <StackPanel>
+            
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Margin="5">
+                    <onePointControls:LineTextBlock Text="Test TextBlock 40"
+                                                    Margin="5" 
+                                                    HorizontalAlignment="Left"
+                                                    FontSize="40"/>
+                    <onePointControls:LineTextBlock Text="Test TextBlock 30"
+                                                    Margin="5" 
+                                                    HorizontalAlignment="Left"
+                                                    FontSize="30"/>
+                    <onePointControls:LineTextBlock Text="Test TextBlock 20"
+                                                    Margin="5" 
+                                                    HorizontalAlignment="Left"
+                                                    FontSize="20"/>
+                    <onePointControls:LineTextBlock Text="Test TextBlock 10"
+                                                    Margin="5" 
+                                                    HorizontalAlignment="Left"
+                                                    FontSize="10"/>
+                </StackPanel>
+                <StackPanel Margin="5">
+                    <Border Width="200" Height="200"
+                            BorderThickness="3"
+                            BorderBrush="White"
+                            CornerRadius="12">
+                        <onePointControls:PointHalo/>
+                    </Border>
+                </StackPanel>
+            </StackPanel>
         </StackPanel>
-        <StackPanel Margin="5">
-            <Border Width="200" Height="200"
-                    BorderThickness="3"
-                    BorderBrush="White"
-                    CornerRadius="12">
-                <onePointControls:PointHalo/>
-            </Border>
-        </StackPanel>
-    </StackPanel>
+    </ScrollViewer>
 </UserControl>

@@ -15,4 +15,8 @@
       <EmbeddedResource Include="Assets\Fonts\SegoeFluentIcons.ttf" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\CompositionScroll\CompositionScroll.csproj" />
+    </ItemGroup>
+
 </Project>
