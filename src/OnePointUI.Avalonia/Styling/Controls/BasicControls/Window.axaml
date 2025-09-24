@@ -9,5 +9,6 @@
     <!-- Add Styles Here -->
     <Style Selector="Window">
         <Setter Property="Background" Value="{DynamicResource BackgroundBrush}"></Setter>
+        <Setter Property="FontFamily" Value="{DynamicResource DinPro}"></Setter>
     </Style>
 </Styles>

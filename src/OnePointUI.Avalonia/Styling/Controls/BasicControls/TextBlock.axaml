@@ -10,4 +10,7 @@
     <Style Selector="TextBlock">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}"></Setter>
     </Style>
+    <Style Selector="TextBlock.Accent">
+        <Setter Property="Foreground" Value="{DynamicResource AccentBackgroundBrush}"></Setter>
+    </Style>
 </Styles>
