@@ -34,6 +34,7 @@
                             CornerRadius="12">
                         <onePointControls:PointHalo/>
                     </Border>
+                    <onePointControls:SettingCard/>
                 </StackPanel>
             </StackPanel>
         </StackPanel>

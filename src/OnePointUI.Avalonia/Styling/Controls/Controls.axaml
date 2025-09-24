@@ -28,4 +28,5 @@
     
     <StyleInclude Source="OnePointControls/LineTextBlock.axaml"></StyleInclude>
     <StyleInclude Source="OnePointControls/FontIcon.axaml"></StyleInclude>
+    <StyleInclude Source="OnePointControls/SettingCard.axaml"></StyleInclude>
 </Styles>
