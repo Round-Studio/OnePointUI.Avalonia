@@ -17,9 +17,9 @@
             <ControlTemplate>
                 <Button Name="PATH_Button">
                     <Border CornerRadius="6"
-                            BorderThickness="1"
+                            BorderThickness="3"
                             Name="PATH_Border"
-                            BorderBrush="{DynamicResource PrimaryForegroundBrush}">
+                            BorderBrush="{DynamicResource PrimaryBorderBrush}">
                         <Grid>
                             <Border HorizontalAlignment="Stretch"
                                     VerticalAlignment="Stretch"
