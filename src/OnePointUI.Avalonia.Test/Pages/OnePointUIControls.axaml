@@ -35,6 +35,11 @@
                         <onePointControls:PointHalo/>
                     </Border>
                     <onePointControls:SettingCard/>
+                    
+                    <onePointControls:LabelBox Text="LabelBox"></onePointControls:LabelBox>
+                    <onePointControls:ProgressRing HorizontalAlignment="Left"
+                                                   VerticalAlignment="Top"
+                                                   Margin="10"></onePointControls:ProgressRing>
                 </StackPanel>
             </StackPanel>
         </StackPanel>
