@@ -30,7 +30,7 @@
                             <Border Padding="8">
                                 <Grid>
                                     <controls:FontIcon Glyph="{TemplateBinding Glyph}"
-                                                       FontSize="32"
+                                                       FontSize="28"
                                                        Margin="8,0,0,0"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Center"></controls:FontIcon>
