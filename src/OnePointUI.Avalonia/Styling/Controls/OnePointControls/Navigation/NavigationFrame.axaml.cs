@@ -39,7 +39,7 @@ public partial class NavigationFrame : UserControl
             try
             {
                 // 等待400毫秒，但如果token被取消，这里会抛出异常
-                await Task.Delay(190, token);
+                await Task.Delay(290, token);
             
                 // 只有当token未被取消时，才执行隐藏操作
                 if (!token.IsCancellationRequested)
@@ -66,7 +66,7 @@ public partial class NavigationFrame : UserControl
 
             try
             {
-                await Task.Delay(190, token);
+                await Task.Delay(290, token);
                 if (!token.IsCancellationRequested)
                 {
                     Frame1.IsVisible = false;
