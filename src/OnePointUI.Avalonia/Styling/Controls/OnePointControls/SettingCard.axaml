@@ -17,6 +17,7 @@
             <ControlTemplate>
                 <Button Name="PATH_Button">
                     <Border CornerRadius="6"
+                            ClipToBounds="True"
                             BorderThickness="3"
                             Name="PATH_Border"
                             BorderBrush="{DynamicResource PrimaryBorderBrush}">
@@ -24,10 +25,13 @@
                             <Border HorizontalAlignment="Stretch"
                                     VerticalAlignment="Stretch"
                                     Name="PATH_Background"
+                                    CornerRadius="4"
+                                    ClipToBounds="True"
                                     Background="{DynamicResource PrimaryForegroundBrush}"
                                     Opacity="0"></Border>
                             
-                            <Border Padding="8">
+                            <Border Padding="8"
+                                    ClipToBounds="True">
                                 <Grid>
                                     <controls:FontIcon Glyph="{TemplateBinding Glyph}"
                                                        FontSize="28"
