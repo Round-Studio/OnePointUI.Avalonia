@@ -25,16 +25,19 @@
     <Setter Property="Template">
       <ControlTemplate>
         <Border CornerRadius="{TemplateBinding  CornerRadius}"
+                ClipToBounds="True"
                 Background="{TemplateBinding Background}">
           <Grid Background="#01000000">
             <Border Name="PATH_Background"
                     Background="{DynamicResource PrimaryBackgroundOverBrush}"
+                    ClipToBounds="True"
                     Opacity="0"></Border>
             
             <Border Width="2" Height="10"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
                     CornerRadius="1"
+                    ClipToBounds="True"
                     Margin="1,0,0,0"
                     Background="{DynamicResource AccentBackgroundBrush}"
                     IsVisible="{TemplateBinding IsSelected}"></Border>

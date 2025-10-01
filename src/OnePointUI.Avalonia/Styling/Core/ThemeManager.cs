@@ -81,7 +81,7 @@ namespace OnePointUI.Avalonia.Style.Core
                 lightTheme["PrimaryDisabledForegroundBrush"] = new SolidColorBrush(Color.Parse("#A0A0A0"));
                 lightTheme["PrimaryDisabled2ForegroundBrush"] = new SolidColorBrush(Color.Parse("#707070"));
                 
-                lightTheme["PrimaryBorderBrush"] = new SolidColorBrush(Color.Parse("#DDDDDD"));
+                lightTheme["PrimaryBorderBrush"] = new SolidColorBrush(Color.Parse("#B8B8B8"));
                 lightTheme["PrimaryBackgroundBrush"] = new SolidColorBrush(Color.Parse("#EEEEEE"));
                 lightTheme["PrimaryBackgroundOverBrush"] = new SolidColorBrush(Color.Parse("#E0E0E0"));
                 
