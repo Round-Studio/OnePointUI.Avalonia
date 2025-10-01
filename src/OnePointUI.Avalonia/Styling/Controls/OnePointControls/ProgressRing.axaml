@@ -8,7 +8,6 @@
     <Style Selector="controls|ProgressRing">
         <Setter Property="MinWidth" Value="24" />
         <Setter Property="MinHeight" Value="24" />
-        <Setter Property="BorderThickness" Value="5" />
         <Setter Property="Foreground" Value="{DynamicResource AccentBackgroundBrush}"/>
         <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBrush}"/>
         <!-- Set Defaults -->
@@ -19,21 +18,21 @@
                              Width="{TemplateBinding Width}"
                              Height="{TemplateBinding Height}"
                              Stroke="{TemplateBinding Background}"
-                             StrokeThickness="{ReflectionBinding BorderThickness.Left, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                             StrokeThickness="{TemplateBinding RingWidth}" />
 
                     <Arc Name="Fill"
                          StrokeLineCap="Round"
                          Width="{TemplateBinding Width}"
                          Height="{TemplateBinding Height}"
                          Stroke="{TemplateBinding Foreground}"
-                         StrokeThickness="{ReflectionBinding BorderThickness.Left, RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
+                         StrokeThickness="{TemplateBinding RingWidth}"/>
                 </Panel>
             </ControlTemplate>
         </Setter>
         
         <Style Selector="^ /template/ Arc#Fill">
             <Style.Animations>
-                <Animation Duration="0:0:3"
+                <Animation Duration="0:0:2.5"
                            Easing="LinearEasing"
                            IterationCount="INFINITE"
                            FillMode="Both">
