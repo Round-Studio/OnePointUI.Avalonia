@@ -20,11 +20,11 @@
                                 Background="{TemplateBinding Backcolor}" />
                         
                         <Grid ColumnDefinitions="32,*">
-                            <onePointControls:FontIcon Foreground="#FF99A4"
+                            <onePointControls:FontIcon Foreground="{TemplateBinding IconColor}"
                                                        Opacity="0.6"
                                                        HorizontalAlignment="Center"
                                                        VerticalAlignment="Center"
-                                                       Glyph="&#xEB90;"/>
+                                                       Glyph="{TemplateBinding Glyph}"/>
                             
                             <Grid Grid.Column="1" VerticalAlignment="Center">
                                 <Grid.ColumnDefinitions>

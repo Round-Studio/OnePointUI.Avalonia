@@ -52,6 +52,8 @@ public class InfoBar : TemplatedControl
         {
             SetValue(StateProperty, value);
             SetValue(BackcolorProperty, GetColor());
+            SetValue(GlyphProperty, GetGlyph());
+            SetValue(IconColorProperty, GetIconColor());
         }
     }
 
@@ -64,11 +66,35 @@ public class InfoBar : TemplatedControl
         set => SetValue(BackcolorProperty, value); // 即使内部不存储，也需要setter
     }
 
+    public static readonly StyledProperty<IBrush> IconColorProperty =
+        AvaloniaProperty.Register<InfoBar, IBrush>(nameof(IconColor));
+
+    public IBrush IconColor
+    {
+        get => GetValue(IconColorProperty);
+        set => SetValue(IconColorProperty, value); // 即使内部不存储，也需要setter
+    }
+
+    public IBrush GetIconColor() => State switch
+    {
+        InfoBarType.Error => Brush.Parse("#FF99A4"),
+        InfoBarType.Warning => Brush.Parse("#FCE100"),
+        InfoBarType.Info => Brush.Parse("#0F64A3"),
+        InfoBarType.Success => Brush.Parse("#6CCB5F")
+    };
+
     public IBrush GetColor() => State switch
     {
         InfoBarType.Error => Brushes.DarkRed,
         InfoBarType.Warning => Brushes.Orange,
         InfoBarType.Info => Brushes.Transparent,
         InfoBarType.Success => Brushes.Green
+    };
+    public string GetGlyph() => State switch
+    {
+        InfoBarType.Error => "\uEB90",
+        InfoBarType.Warning => "\uE814",
+        InfoBarType.Info => "\uF167",
+        InfoBarType.Success => "\uEC61"
     };
 }
