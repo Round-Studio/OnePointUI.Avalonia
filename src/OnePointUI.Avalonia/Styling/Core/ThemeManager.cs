@@ -179,9 +179,7 @@ namespace OnePointUI.Avalonia.Style.Core
                 _application.Resources["AccentBorderBrush"] = new SolidColorBrush(borderColor);
                 
                 // 创建悬停色（根据当前主题决定是变亮还是变暗）
-                var hoverColor = _currentThemeVariant == ThemeVariant.Dark 
-                    ? _accentColor.Darken(0.5) 
-                    : _accentColor.Lighten(0.2);
+                var hoverColor = _accentColor.Darken(0.5);
                 _application.Resources["AccentBackgroundOverBrush"] = new SolidColorBrush(hoverColor);
             }
             finally

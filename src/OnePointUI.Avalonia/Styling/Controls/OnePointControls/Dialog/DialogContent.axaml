@@ -6,44 +6,63 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              MinWidth="220" MinHeight="180"
              x:Class="OnePointUI.Avalonia.Styling.Controls.OnePointControls.Dialog.DialogContent">
-    <UserControl.Styles>
-        <Style Selector="dialog|DialogContent">
-            <Style.Animations>
-                <Animation Duration="0:0:0.48"
-                           Easing="ExponentialEaseOut">
-                    <KeyFrame Cue="0%">
-                        <Setter Property="ScaleTransform.ScaleX" Value="1.1"/>
-                        <Setter Property="ScaleTransform.ScaleY" Value="1.1"/>
-                        <Setter Property="Opacity" Value="0"/>
-                    </KeyFrame>
-                    <KeyFrame Cue="100%">
-                        <Setter Property="ScaleTransform.ScaleX" Value="1"/>
-                        <Setter Property="ScaleTransform.ScaleY" Value="1"/>
-                        <Setter Property="Opacity" Value="1"/>
-                    </KeyFrame>
-                </Animation>
-            </Style.Animations>
-        </Style>
-    </UserControl.Styles>
     <Grid>
-        <Border Margin="20"
-                CornerRadius="12"
-                Background="{DynamicResource PrimaryBackgroundOverBrush}"
-                BoxShadow="0 0 10 0 Black">
-            <Border ClipToBounds="True"
-                    CornerRadius="12">
-                <Grid RowDefinitions="64,*,64">
+        <Grid RowDefinitions="64,*,64">
                     <TextBlock Foreground="{DynamicResource AccentBackgroundBrush}"
                                Margin="20,0"
                                VerticalAlignment="Center"
                                FontSize="18"
                                Name="TitleBox"
-                               FontWeight="Bold">Title</TextBlock>
+                               FontWeight="Bold">
+                        <TextBlock.Styles>
+                            <Style Selector="TextBlock#TitleBox">
+                                <Style.Animations>
+                                    <Animation Duration="0:0:1"
+                                               Easing="ExponentialEaseOut">
+                                        <KeyFrame Cue="0%">
+                                            <Setter Property="Margin" Value="20,-40,20,40"/>
+                                        </KeyFrame>
+                                        <KeyFrame Cue="40%">
+                                            <Setter Property="Margin" Value="20,-40,20,40"/>
+                                        </KeyFrame>
+                                        <KeyFrame Cue="100%">
+                                            <Setter Property="Margin" Value="20,0"/>
+                                        </KeyFrame>
+                                    </Animation>
+                                </Style.Animations>
+                            </Style>
+                        </TextBlock.Styles>
+                        Title
+                    </TextBlock>
                     
                     <Border Grid.Row="2" Height="64"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Bottom"
+                            Name="BtnBorder"
                             Background="{DynamicResource BackgroundBrush}">
+                        <Border.Styles>
+                            <Style Selector="Button">
+                                <Style.Animations>
+                                    <Animation Duration="0:0:1"
+                                               Easing="ExponentialEaseOut">
+                                        <KeyFrame Cue="0%">
+                                            <Setter Property="ScaleTransform.ScaleX" Value="1.1"/>
+                                            <Setter Property="ScaleTransform.ScaleY" Value="1.1"/>
+                                            <Setter Property="Margin" Value="0,40,0,-40"/>
+                                        </KeyFrame>
+                                        <KeyFrame Cue="98%">
+                                            <Setter Property="ScaleTransform.ScaleX" Value="1.1"/>
+                                            <Setter Property="ScaleTransform.ScaleY" Value="1.1"/>
+                                            <Setter Property="Margin" Value="0"/>
+                                        </KeyFrame>
+                                        <KeyFrame Cue="100%">
+                                            <Setter Property="ScaleTransform.ScaleX" Value="1"/>
+                                            <Setter Property="ScaleTransform.ScaleY" Value="1"/>
+                                        </KeyFrame>
+                                    </Animation>
+                                </Style.Animations>
+                            </Style>
+                        </Border.Styles>
                         <Grid Grid.ColumnDefinitions="Auto,Auto,Auto"
                               HorizontalAlignment="Right"
                               Margin="0,0,20,0">
@@ -72,10 +91,28 @@
                     <ContentControl Grid.Row="1"
                                     Name="ContentBox"
                                     Margin="20,0,20,20">
-                        
+                        <ContentControl.Styles>
+                            <Style Selector="ContentControl#ContentBox">
+                                <Style.Animations>
+                                    <Animation Duration="0:0:1"
+                                               Easing="ExponentialEaseOut">
+                                        <KeyFrame Cue="0%">
+                                            <Setter Property="ScaleTransform.ScaleX" Value="1.1"/>
+                                            <Setter Property="ScaleTransform.ScaleY" Value="1.1"/>
+                                        </KeyFrame>
+                                        <KeyFrame Cue="40%">
+                                            <Setter Property="ScaleTransform.ScaleX" Value="1.1"/>
+                                            <Setter Property="ScaleTransform.ScaleY" Value="1.1"/>
+                                        </KeyFrame>
+                                        <KeyFrame Cue="100%">
+                                            <Setter Property="ScaleTransform.ScaleX" Value="1"/>
+                                            <Setter Property="ScaleTransform.ScaleY" Value="1"/>
+                                        </KeyFrame>
+                                    </Animation>
+                                </Style.Animations>
+                            </Style>
+                        </ContentControl.Styles>
                     </ContentControl>
                 </Grid>
-            </Border>
-        </Border>
     </Grid>
 </UserControl>

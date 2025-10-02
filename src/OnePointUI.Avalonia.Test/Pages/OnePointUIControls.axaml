@@ -3,6 +3,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:onePointControls="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls;assembly=OnePointUI.Avalonia"
+             xmlns:notice="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls.Notice;assembly=OnePointUI.Avalonia"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="OnePointUI.Avalonia.Test.Pages.OnePointUIControls">
     <ScrollViewer>
@@ -40,6 +41,8 @@
                     <onePointControls:ProgressRing HorizontalAlignment="Left"
                                                    VerticalAlignment="Top"
                                                    Margin="10"></onePointControls:ProgressRing>
+                    <notice:InfoBar Title="测试" Message="警告"
+                                      State="Success"/>
                 </StackPanel>
             </StackPanel>
         </StackPanel>
