@@ -15,7 +15,7 @@ public partial class DialogHost : UserControl
         if (_host == null) throw new NullReferenceException("必须初始化 DialogHost");
 
         _host.IsVisible = true;
-        _host.BackgroundGrid.Opacity = 0.3;
+        _host.BackgroundGrid.Opacity = 0.8;
         _host.DialogBox.Content = new DialogContent(info);
         
         return DialogButtons.CloseButton;
