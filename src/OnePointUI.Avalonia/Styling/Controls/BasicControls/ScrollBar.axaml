@@ -21,7 +21,7 @@
   <!-- Thumb Style -->
   <Style Selector="Thumb.scrollbar">
     <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBrush}"/>
-    <Setter Property="CornerRadius" Value="3"/>
+    <Setter Property="CornerRadius" Value="6"/>
     <Setter Property="Template">
       <ControlTemplate>
         <Border Background="{TemplateBinding Background}"
@@ -108,7 +108,7 @@
 
   <!-- Vertical ScrollBar -->
   <Style Selector="ScrollBar:vertical">
-    <Setter Property="Width" Value="3" />
+    <Setter Property="Width" Value="6" />
     <Setter Property="Template">
       <ControlTemplate>
         <Grid x:Name="Root">
@@ -143,7 +143,7 @@
                                 Focusable="False" />
                 </Track.IncreaseButton>
                 <Thumb Classes="scrollbar"
-                       Width="3"
+                       Width="5"
                        MinHeight="24"/>
               </Track>
             </Grid>
@@ -189,7 +189,7 @@
                                 Focusable="False" />
                 </Track.IncreaseButton>
                 <Thumb Classes="scrollbar"
-                       Height="3"
+                       Height="5"
                        MinWidth="12"/>
               </Track>
             </Grid>

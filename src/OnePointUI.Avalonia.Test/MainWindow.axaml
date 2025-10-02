@@ -5,6 +5,7 @@
         xmlns:core="clr-namespace:OnePointUI.Avalonia.Style.Core;assembly=OnePointUI.Avalonia"
         xmlns:onePointControls="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls;assembly=OnePointUI.Avalonia"
         xmlns:pages="clr-namespace:OnePointUI.Avalonia.Test.Pages"
+        xmlns:dialog="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls.Dialog;assembly=OnePointUI.Avalonia"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="OnePointUI.Avalonia.Test.MainWindow"
         Width="800" Height="450"
@@ -12,36 +13,40 @@
         WindowStartupLocation="CenterScreen"
         Icon="OnePointUI.Icon.png"
         Title="OnePointUI.Avalonia.Test">
-    <TabControl>
-        <TabItem Header="Basic Controls">
-            <pages:BasicControls/>
-        </TabItem>
-        <TabItem Header="OnePointUI Controls">
-            <pages:OnePointUIControls/>
-        </TabItem>
-        <TabItem Header="Settings">
-            <StackPanel Margin="20">
-                <onePointControls:LineTextBlock Text="主题切换" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"
-                                                HorizontalAlignment="Left"/>
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
-                    <Button Content="切换深色/浅色主题" Click="ToggleTheme_Click" Width="200" Height="40" Margin="0,0,10,0"/>
-                    <TextBlock Text="当前主题：" VerticalAlignment="Center" Margin="0,0,5,0"/>
-                    <TextBlock x:Name="CurrentThemeText" Text="深色" VerticalAlignment="Center"/>
-                </StackPanel>
+    <Grid>
+        <TabControl>
+            <TabItem Header="Basic Controls">
+                <pages:BasicControls/>
+            </TabItem>
+            <TabItem Header="OnePointUI Controls">
+                <pages:OnePointUIControls/>
+            </TabItem>
+            <TabItem Header="Settings">
+                <StackPanel Margin="20">
+                    <onePointControls:LineTextBlock Text="主题切换" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"
+                                                    HorizontalAlignment="Left"/>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                        <Button Content="切换深色/浅色主题" Click="ToggleTheme_Click" Width="200" Height="40" Margin="0,0,10,0"/>
+                        <TextBlock Text="当前主题：" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                        <TextBlock x:Name="CurrentThemeText" Text="深色" VerticalAlignment="Center"/>
+                    </StackPanel>
                 
-                <onePointControls:LineTextBlock Text="主题色选择" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"
-                                                HorizontalAlignment="Left"/>
-                <!-- 使用手动创建的按钮代替ItemsControl绑定 -->
-                <WrapPanel x:Name="ColorPanel" Margin="0,0,0,20">
-                    <!-- 按钮将在代码中动态添加 -->
-                </WrapPanel>
+                    <onePointControls:LineTextBlock Text="主题色选择" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"
+                                                    HorizontalAlignment="Left"/>
+                    <!-- 使用手动创建的按钮代替ItemsControl绑定 -->
+                    <WrapPanel x:Name="ColorPanel" Margin="0,0,0,20">
+                        <!-- 按钮将在代码中动态添加 -->
+                    </WrapPanel>
                 
-                <TextBlock Text="自定义主题色" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
-                <StackPanel Orientation="Horizontal">
-                    <TextBox x:Name="CustomColorTextBox" Width="200" Watermark="输入十六进制颜色值，例如 #FF0000" Margin="0,0,10,0"/>
-                    <Button Content="应用" Click="ApplyCustomColor_Click" Width="100"/>
+                    <TextBlock Text="自定义主题色" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox x:Name="CustomColorTextBox" Width="200" Watermark="输入十六进制颜色值，例如 #FF0000" Margin="0,0,10,0"/>
+                        <Button Content="应用" Click="ApplyCustomColor_Click" Width="100"/>
+                    </StackPanel>
                 </StackPanel>
-            </StackPanel>
-        </TabItem>
-    </TabControl>
+            </TabItem>
+        </TabControl>
+        
+        <dialog:DialogHost/>
+    </Grid>
 </Window>

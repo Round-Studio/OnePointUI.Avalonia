@@ -11,7 +11,7 @@
                     <StackPanel Orientation="Horizontal">
                         <StackPanel Margin="5">
                             <onePointControls:LineTextBlock FontSize="14" Text="普通按钮" HorizontalAlignment="Left"/>
-                            <Button Margin="5" Width="200" Height="40">Button</Button>
+                            <Button Margin="5" Width="200" Height="40" Click="Button_OnClick">Button</Button>
                             <Button Margin="5" Width="200" Height="40" Classes="Accent">Accent Button</Button>
                             <Button Margin="5" Width="200" Height="40" IsEnabled="False">Disabled Button</Button>
                             <Button Margin="5" Width="200" Height="40" Classes="Accent" IsEnabled="False">Disabled Accent Button</Button>    
