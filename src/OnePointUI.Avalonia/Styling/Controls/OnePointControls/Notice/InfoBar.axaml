@@ -4,7 +4,7 @@
         xmlns:onePointControls="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls">
     <Design.PreviewWith>
         <controls:InfoBar Title="测试" Message="警告"
-                          State="Error"/>
+                          State="Success"/>
     </Design.PreviewWith>
 
     <Style Selector="controls|InfoBar">
@@ -16,7 +16,7 @@
                         MinHeight="38" MinWidth="120">
                     <Grid>
                         <Border Name="BackgroundBorder"
-                                Opacity="0.4"
+                                Opacity="0.7"
                                 Background="{TemplateBinding Backcolor}" />
                         
                         <Grid ColumnDefinitions="32,*">

@@ -27,7 +27,7 @@
     <Border Margin="20"
             CornerRadius="12"
             Background="{DynamicResource PrimaryBackgroundOverBrush}"
-            BoxShadow="0 0 10 0 Black">
+            BoxShadow="0 0 20 0 Gray">
         <Border ClipToBounds="True"
                 CornerRadius="12"
                 Name="ContentBorder">

@@ -86,7 +86,7 @@ public class InfoBar : TemplatedControl
     public IBrush GetColor() => State switch
     {
         InfoBarType.Error => Brushes.DarkRed,
-        InfoBarType.Warning => Brushes.Orange,
+        InfoBarType.Warning => Brushes.DarkGoldenrod,
         InfoBarType.Info => Brushes.Transparent,
         InfoBarType.Success => Brushes.Green
     };
