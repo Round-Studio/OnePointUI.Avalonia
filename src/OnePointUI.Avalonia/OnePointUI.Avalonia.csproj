@@ -19,4 +19,8 @@
       <ProjectReference Include="..\CompositionScroll\CompositionScroll.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <AvaloniaResource Include="Assets\OnePointUI.Icon.png" />
+    </ItemGroup>
+
 </Project>

@@ -5,6 +5,8 @@
         <StackPanel Width="500" Height="300">
             <controls:SettingCard Header="111"
                                   Description="介绍"
+                                  IsFontIcon="False"
+                                  ImageIcon="../../../Assets/OnePointUI.Icon.png"
                                   IsClickable="True">
                 <ToggleSwitch></ToggleSwitch>
             </controls:SettingCard>
@@ -36,8 +38,18 @@
                                     <controls:FontIcon Glyph="{TemplateBinding Glyph}"
                                                        FontSize="28"
                                                        Margin="8,0,0,0"
+                                                       IsVisible="{TemplateBinding IsFontIcon}"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Center"></controls:FontIcon>
+                                    
+                                    <Image Width="32" Height="32"
+                                           Stretch="UniformToFill"
+                                           Margin="6,0,0,0"
+                                           IsVisible="{TemplateBinding IsNotFontIcon}"
+                                           Source="{TemplateBinding ImageIcon}"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"></Image>
+                                    
                                     <StackPanel VerticalAlignment="Center"
                                                 Margin="50,0,0,0">
                                         <TextBlock Text="{TemplateBinding Header}"

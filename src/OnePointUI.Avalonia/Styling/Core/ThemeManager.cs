@@ -33,10 +33,12 @@ namespace OnePointUI.Avalonia.Style.Core
 
         private ThemeManager(Application application)
         {
+            Console.WriteLine("初始化主题");
             _application = application;
             
             // 加载主题颜色资源
             LoadThemeColors();
+            Console.WriteLine("主题初始化完毕");
         }
 
         public static void Initialize(Application application)
