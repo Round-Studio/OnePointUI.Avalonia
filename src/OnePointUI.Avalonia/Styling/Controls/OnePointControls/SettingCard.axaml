@@ -20,7 +20,7 @@
                 <Button Name="PATH_Button">
                     <Border CornerRadius="6"
                             ClipToBounds="True"
-                            BorderThickness="3"
+                            BorderThickness="2"
                             Name="PATH_Border"
                             BorderBrush="{DynamicResource PrimaryBorderBrush}">
                         <Grid>

@@ -105,7 +105,7 @@
             <Border Width="14" Height="8"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center"
-                    Margin="0,-4,6,0"
+                    Margin="0,-4,12,0"
                     Name="PATH_Cross" RenderTransform="rotate(-45deg)">
               <Grid>
                 <Border Width="8" Height="2"
@@ -220,11 +220,11 @@
   </Style>
   
   <Style Selector="ComboBox:pressed /template/ Border#PATH_Cross">
-    <Setter Property="Margin" Value="0,4,6,0"></Setter>
+    <Setter Property="Margin" Value="0,4,12,0"></Setter>
   </Style>
   
   <Style Selector="ComboBox:dropdownopen /template/ Border#PATH_Cross">
     <Setter Property="RenderTransform" Value="rotate(135deg)"/>
-    <Setter Property="Margin" Value="0,4,6,0"></Setter>
+    <Setter Property="Margin" Value="0,4,12,0"></Setter>
   </Style>
 </Styles>
