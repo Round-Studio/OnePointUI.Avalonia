@@ -73,12 +73,12 @@
         </Style>
         
         <Style Selector="^:pointerover Border#Path_BackgroundBorder">
-            <Setter Property="BorderThickness" Value="2,2,2,4"></Setter>
+            <Setter Property="BorderThickness" Value="2,2,2,2"></Setter>
         </Style>
         
         <Style Selector="^:focus Border#Path_BackgroundBorder">
             <Setter Property="BorderThickness" Value="2,2,2,4"></Setter>
-            <!--<Setter Property="BorderBrush" Value="{DynamicResource AccentBorderBrush}"></Setter>-->
+            <Setter Property="BorderBrush" Value="{DynamicResource AccentBorderBrush}"></Setter>
         </Style>
     </Style>
     
