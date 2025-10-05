@@ -13,7 +13,7 @@
     <!-- Add Styles Here -->
     <Style Selector="TextBox">
         <Setter Property="CornerRadius" Value="6"></Setter>
-        <Setter Property="MinWidth" Value="120"></Setter>
+        <Setter Property="Width" Value="120"></Setter>
         <Setter Property="Height" Value="32"></Setter>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}"></Setter>
         <Setter Property="CaretBrush" Value="{DynamicResource PrimaryForegroundBrush}"></Setter>
@@ -24,11 +24,8 @@
         
         <Setter Property="Template">
             <ControlTemplate>
-                <Grid HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
-                      VerticalAlignment="{TemplateBinding VerticalAlignment}">
-                    <Border Name="Path_BackgroundBorder"  
-                            HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
-                            VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                <Grid>
+                    <Border Name="Path_BackgroundBorder" 
                             BorderThickness="2"
                             BorderBrush="{DynamicResource PrimaryBorderBrush}"
                             CornerRadius="{TemplateBinding CornerRadius}"
