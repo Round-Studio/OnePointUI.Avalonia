@@ -21,6 +21,7 @@
 
     <ItemGroup>
       <AvaloniaResource Include="Assets\OnePointUI.Icon.png" />
+      <None Remove="Assets\Shader\voronoi.sksl" />
     </ItemGroup>
 
 </Project>
