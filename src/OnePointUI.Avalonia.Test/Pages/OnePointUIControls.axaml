@@ -43,6 +43,15 @@
                                                    Margin="10"></onePointControls:ProgressRing>
                     <notice:InfoBar Title="测试" Message="警告"
                                       State="Success"/>
+                    
+                    <ListBox Classes="Segmented">
+                        <ListBoxItem>111</ListBoxItem>
+                        <ListBoxItem>111</ListBoxItem>
+                        <ListBoxItem>111</ListBoxItem>
+                        <ListBoxItem>111</ListBoxItem>
+                        <ListBoxItem>111</ListBoxItem>
+                        <ListBoxItem>111</ListBoxItem>
+                    </ListBox>
                 </StackPanel>
             </StackPanel>
         </StackPanel>
