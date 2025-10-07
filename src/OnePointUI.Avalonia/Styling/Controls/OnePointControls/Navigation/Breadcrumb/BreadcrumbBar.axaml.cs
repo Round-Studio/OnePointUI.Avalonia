@@ -70,7 +70,7 @@ public partial class BreadcrumbBar : UserControl
                 Glyph = "\uE76C",
                 VerticalAlignment = VerticalAlignment.Center,
                 FontSize = 18,
-                Foreground = GetFontColorResourceFromApp()
+                // Foreground = GetFontColorResourceFromApp()
             };
 
             newTtem.Click += (_, __) =>

@@ -134,7 +134,7 @@
               </Border.Transitions>
             </Border>
             
-            <onePointControls:PointHalo/>
+            <!--<onePointControls:PointHalo/>-->
 
             <TextBox Name="PART_EditableTextBox"
                      Grid.Column="0"
@@ -161,7 +161,7 @@
                     HorizontalAlignment="Right" />
 
             <Popup Name="PART_Popup"
-                   WindowManagerAddShadowHint="True"
+                   WindowManagerAddShadowHint="False"
                    IsOpen="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
                    MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
                    MaxHeight="{TemplateBinding MaxDropDownHeight}"

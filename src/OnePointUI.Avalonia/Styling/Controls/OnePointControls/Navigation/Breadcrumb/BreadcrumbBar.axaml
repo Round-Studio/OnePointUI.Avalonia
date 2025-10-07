@@ -5,6 +5,12 @@
              xmlns:onePointControls="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="OnePointUI.Avalonia.Styling.Controls.OnePointControls.Navigation.Breadcrumb.BreadcrumbBar">
+    <UserControl.Styles>
+        <Style Selector="onePointControls|FontIcon">
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}"></Setter>
+        </Style>
+    </UserControl.Styles>
+    
     <ScrollViewer>
         <StackPanel Orientation="Horizontal">
             <Button Classes="NoBorder"

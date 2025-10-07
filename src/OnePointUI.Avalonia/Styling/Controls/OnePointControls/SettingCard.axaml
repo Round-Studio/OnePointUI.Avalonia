@@ -24,6 +24,10 @@
                             Name="PATH_Border"
                             BorderBrush="{DynamicResource PrimaryBorderBrush}">
                         <Grid>
+                            <Border Background="{DynamicResource PrimaryBackgroundBrush}"
+                                    CornerRadius="4"
+                                    Opacity="0.85"></Border>
+                            
                             <Border HorizontalAlignment="Stretch"
                                     VerticalAlignment="Stretch"
                                     Name="PATH_Background"
