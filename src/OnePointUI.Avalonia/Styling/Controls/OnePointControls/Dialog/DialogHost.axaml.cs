@@ -6,24 +6,34 @@ using Avalonia.Media;
 using Avalonia.Platform;
 using OnePointUI.Avalonia.Base.Entry;
 using OnePointUI.Avalonia.Base.Enum;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace OnePointUI.Avalonia.Styling.Controls.OnePointControls.Dialog;
 
 public partial class DialogHost : UserControl
 {
     private static DialogHost? _host;
+    private static readonly Queue<DialogInfo> _dialogQueue = new Queue<DialogInfo>();
+    private static bool _isShowingDialog = false;
 
     public static DialogButtons Show(DialogInfo info)
     { 
+        // 如果当前正在显示对话框，将新对话框加入队列并返回默认值
+        if (_isShowingDialog)
+        {
+            _dialogQueue.Enqueue(info);
+            return DialogButtons.CloseButton;
+        }
+
+        _isShowingDialog = true;
+        
         IBrush GetDynamicResourceFromApp()
         {
-            // Application.Current 是一个全局的入口点
             var app = Application.Current;
     
             if (app != null)
             {
-                // 从应用程序的资源中查找 :cite[1]
-                // 注意：这里查找的是 Application.Resources 里定义的资源
                 if (app.TryFindResource("PrimaryBackgroundOverBrush", out var resourceValue))
                 {
                     return resourceValue as IBrush;
@@ -65,6 +75,18 @@ public partial class DialogHost : UserControl
                 window.BeginMoveDrag(args);
             };
 
+            // 为窗口对话框添加关闭事件处理
+            window.Closed += (sender, args) =>
+            {
+                _isShowingDialog = false;
+                // 检查队列中是否有下一个对话框
+                if (_dialogQueue.Count > 0)
+                {
+                    var nextInfo = _dialogQueue.Dequeue();
+                    Show(nextInfo);
+                }
+            };
+
             window.Show();
         }
         
@@ -79,11 +101,19 @@ public partial class DialogHost : UserControl
         await Task.Delay(400);
         
         _host.IsVisible = false;
+        _isShowingDialog = false;
+        
+        // 检查队列中是否有下一个对话框
+        if (_dialogQueue.Count > 0)
+        {
+            var nextInfo = _dialogQueue.Dequeue();
+            Show(nextInfo);
+        }
     }
+
     public DialogHost()
     {
         InitializeComponent();
-
         _host = this;
     }
 }

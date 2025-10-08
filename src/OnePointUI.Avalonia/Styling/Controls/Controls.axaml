@@ -32,4 +32,7 @@
     <StyleInclude Source="OnePointControls/LabelBox.axaml"></StyleInclude>
     <StyleInclude Source="OnePointControls/ProgressRing.axaml"></StyleInclude>
     <StyleInclude Source="OnePointControls/Notice/InfoBar.axaml"></StyleInclude>
+    <StyleInclude Source="OnePointControls/Notice/IconNotice.axaml"></StyleInclude>
+    <StyleInclude Source="OnePointControls/View/ItemView.axaml"></StyleInclude>
+    <StyleInclude Source="OnePointControls/View/ItemViewItem.axaml"></StyleInclude>
 </Styles>

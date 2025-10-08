@@ -26,7 +26,7 @@
     </UserControl.Styles>
     <Border Margin="20"
             CornerRadius="12"
-            Background="{DynamicResource PrimaryBackgroundOverBrush}"
+            Background="{DynamicResource BackgroundBrush}"
             BoxShadow="0 0 2 0 Gray">
         <Border ClipToBounds="True"
                 CornerRadius="12"

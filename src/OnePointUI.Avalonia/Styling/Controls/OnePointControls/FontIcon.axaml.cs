@@ -6,7 +6,6 @@ namespace OnePointUI.Avalonia.Styling.Controls.OnePointControls;
 
 public class FontIcon : TemplatedControl
 {
-    
     public static readonly StyledProperty<string> GlyphProperty =
         AvaloniaProperty.Register<FontIcon, string>(nameof(Glyph), "");
 

@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:onePointControls="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls;assembly=OnePointUI.Avalonia"
              xmlns:notice="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls.Notice;assembly=OnePointUI.Avalonia"
+             xmlns:view="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls.View;assembly=OnePointUI.Avalonia"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="OnePointUI.Avalonia.Test.Pages.OnePointUIControls">
     <ScrollViewer>
@@ -52,6 +53,25 @@
                         <ListBoxItem>111</ListBoxItem>
                         <ListBoxItem>111</ListBoxItem>
                     </ListBox>
+                    
+                    
+                    <view:ItemView>
+                        <view:ItemViewItem>
+                            <Grid Width="200"
+                                  Height="80"
+                                  Background="Aqua"></Grid>
+                        </view:ItemViewItem>
+                        <view:ItemViewItem>
+                            <Grid Width="200"
+                                  Height="80"
+                                  Background="Aqua"></Grid>
+                        </view:ItemViewItem>
+                        <view:ItemViewItem>
+                            <Grid Width="200"
+                                  Height="80"
+                                  Background="Aqua"></Grid>
+                        </view:ItemViewItem>
+                    </view:ItemView>
                 </StackPanel>
             </StackPanel>
         </StackPanel>

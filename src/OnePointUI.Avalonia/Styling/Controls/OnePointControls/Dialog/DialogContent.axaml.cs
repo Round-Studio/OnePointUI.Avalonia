@@ -9,8 +9,10 @@ namespace OnePointUI.Avalonia.Styling.Controls.OnePointControls.Dialog;
 
 public partial class DialogContent : UserControl
 {
+    private DialogInfo _info;
     public DialogContent(DialogInfo info)
     {
+        _info = info;
         InitializeComponent();
         
         this.TitleBox.Text = info.Title;
@@ -19,13 +21,13 @@ public partial class DialogContent : UserControl
         switch (info.AccountButton)
         {
             case DialogButtons.CloseButton:
-                CloseBtn.Classes.Add("Accent");
+                CloseBtn.Classes.Add("AccentBorder");
                 break;
             case DialogButtons.PrimaryButton:
-                PrimaryBtn.Classes.Add("Accent");
+                PrimaryBtn.Classes.Add("AccentBorder");
                 break;
             case DialogButtons.SecondaryButton:
-                SecondaryBtn.Classes.Add("Accent");
+                SecondaryBtn.Classes.Add("AccentBorder");
                 break;
         }
 
@@ -49,5 +51,18 @@ public partial class DialogContent : UserControl
     private void CloseBtn_OnClick(object? sender, RoutedEventArgs e)
     {
         DialogHost.Close();
+        _info.CloseAction?.Invoke();
+    }
+
+    private void PrimaryBtn_OnClick(object? sender, RoutedEventArgs e)
+    {
+        DialogHost.Close();
+        _info.PrimaryAction?.Invoke();
+    }
+
+    private void SecondaryBtn_OnClick(object? sender, RoutedEventArgs e)
+    {
+        DialogHost.Close();
+        _info.SecondaryAction?.Invoke();
     }
 }

@@ -6,6 +6,12 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              MinWidth="220" MinHeight="180"
              x:Class="OnePointUI.Avalonia.Styling.Controls.OnePointControls.Dialog.DialogContent">
+    <UserControl.Styles>
+        <Style Selector="Button.AccentBorder">
+            <Setter Property="Background"
+                    Value="{DynamicResource AccentBackgroundBrush}"></Setter>
+        </Style>
+    </UserControl.Styles>
     <Grid>
         <Grid RowDefinitions="64,*,64">
                     <TextBlock Foreground="{DynamicResource AccentBackgroundBrush}"
@@ -39,7 +45,7 @@
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Bottom"
                             Name="BtnBorder"
-                            Background="{DynamicResource BackgroundBrush}">
+                            Background="{DynamicResource PrimaryBackgroundBrush}">
                         <Border.Styles>
                             <Style Selector="Button">
                                 <Style.Animations>
@@ -68,21 +74,26 @@
                               Margin="0,0,20,0">
                             <Button Margin="10,0,0,0"
                                     VerticalAlignment="Center"
-                                    Padding="12,2"
+                                    Padding="18,2"
                                     Name="SecondaryBtn"
                                     IsVisible="False"
+                                    Classes="NoBorder"
+                                    Click="SecondaryBtn_OnClick"
                                     Height="32"></Button>
                             <Button Grid.Column="1" Margin="10,0,0,0"
                                     VerticalAlignment="Center"
-                                    Padding="12,2"
+                                    Padding="18,2"
                                     Name="PrimaryBtn"
                                     IsVisible="False"
+                                    Classes="NoBorder"
+                                    Click="PrimaryBtn_OnClick"
                                     Height="32"></Button>
                             <Button Grid.Column="2" Margin="10,0,0,0"
                                     VerticalAlignment="Center"
-                                    Padding="12,2"
+                                    Padding="18,2"
                                     Name="CloseBtn"
                                     IsVisible="False"
+                                    Classes="NoBorder"
                                     Click="CloseBtn_OnClick"
                                     Height="32"></Button>
                         </Grid>

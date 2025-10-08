@@ -8,10 +8,11 @@
     </Design.PreviewWith>
 
     <Style Selector="controls|InfoBar">
+        <Setter Property="CornerRadius" Value="6"></Setter>
         <!-- Set Defaults -->
         <Setter Property="Template">
             <ControlTemplate>
-                <Border CornerRadius="3"
+                <Border CornerRadius="{TemplateBinding CornerRadius}"
                         ClipToBounds="True"
                         MinHeight="38" MinWidth="120">
                     <Grid>
