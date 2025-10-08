@@ -12,7 +12,7 @@
         </Border>
     </Design.PreviewWith>
 
-    <!-- ListBox comes from WinUI ListBox style -->
+	
     <Style Selector="ListBox">
         <Setter Property="BorderThickness" Value="{DynamicResource ListBoxBorderThemeThickness}" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
@@ -45,12 +45,6 @@
         </Setter>
     </Style>
 
-    <!-- 
-    ListBoxItem styles use the WinUI ListViewItem style, however, WinUI is missing a bunch of 
-    necessary parts in their public release... (primarily missing ListViewItemPresenter style)
-    So, this is faked to look like what it should
-    Use the 21h1 Styles!
-    -->
     <Style Selector="ListBoxItem">
         <Setter Property="CornerRadius" Value="6" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
@@ -89,8 +83,7 @@
                                       CornerRadius="{TemplateBinding CornerRadius}"
                                       Margin="2"/>
 
-                    <!-- added 1px left margin, otherwise we can get strange artifacts while
-                         animating, I'm guessing from bad invalidation rects? -->
+                    
                     <Rectangle Name="SelectionIndicator"
                                HorizontalAlignment="Left"
                                VerticalAlignment="Center"
