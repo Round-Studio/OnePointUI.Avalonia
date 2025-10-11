@@ -35,4 +35,6 @@
     <StyleInclude Source="OnePointControls/Notice/IconNotice.axaml"></StyleInclude>
     <StyleInclude Source="OnePointControls/View/ItemView.axaml"></StyleInclude>
     <StyleInclude Source="OnePointControls/View/ItemViewItem.axaml"></StyleInclude>
+    <StyleInclude Source="OnePointControls/Navigation/SelectBar/SelectBar.axaml"></StyleInclude>
+    <StyleInclude Source="OnePointControls/Navigation/SelectBar/SelectBarItem.axaml"></StyleInclude>
 </Styles>
