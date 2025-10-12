@@ -25,6 +25,7 @@
     <StyleInclude Source="BasicControls/PopupRoot.axaml"></StyleInclude>
     <StyleInclude Source="BasicControls/Flyout.axaml"></StyleInclude>
     <StyleInclude Source="BasicControls/ListBox.axaml"></StyleInclude>
+    <StyleInclude Source="BasicControls/ProgressBar.axaml"></StyleInclude>
     
     <StyleInclude Source="OnePointControls/LineTextBlock.axaml"></StyleInclude>
     <StyleInclude Source="OnePointControls/FontIcon.axaml"></StyleInclude>
