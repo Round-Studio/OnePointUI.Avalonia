@@ -45,6 +45,7 @@ public partial class NavigationFrame : UserControl
                 if (!token.IsCancellationRequested)
                 {
                     Frame2.IsVisible = false;
+                    Frame2.Content = null;
                 }
             }
             catch (TaskCanceledException)
@@ -70,6 +71,7 @@ public partial class NavigationFrame : UserControl
                 if (!token.IsCancellationRequested)
                 {
                     Frame1.IsVisible = false;
+                    Frame1.Content = null;
                 }
             }
             catch (TaskCanceledException)

@@ -209,6 +209,10 @@
         <Style Selector="^:pressed Border#PATH_Background">
             <Setter Property="Opacity" Value="0.2"></Setter>
         </Style>
+        
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="0.5"></Setter>
+        </Style>
     </Style>
     
     <Style Selector="Button.NoBorderAccent">
