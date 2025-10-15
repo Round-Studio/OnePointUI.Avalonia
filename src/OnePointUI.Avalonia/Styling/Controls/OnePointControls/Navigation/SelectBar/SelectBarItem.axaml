@@ -35,24 +35,24 @@
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch">
                         <Panel>
-                            <Border Height="0"
+                            <Border Width="0"
                                     Name="PART_AccentBackground"
-                                    VerticalAlignment="Bottom"
-                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch"
+                                    HorizontalAlignment="Center"
                                     Opacity="0"
                                     Background="{DynamicResource AccentBackgroundBrush}">
                                 <Border.Transitions>
                                     <Transitions>
                                         <DoubleTransition Property="Width"
-                                                          Duration="0:0:0.38"
+                                                          Duration="0:0:0.42"
                                                           Easing="ExponentialEaseOut"></DoubleTransition>
                                         
                                         <DoubleTransition Property="Height"
-                                                          Duration="0:0:0.38"
+                                                          Duration="0:0:0.42"
                                                           Easing="ExponentialEaseOut"></DoubleTransition>
                                         
                                         <DoubleTransition Property="Opacity"
-                                                          Duration="0:0:0.38"
+                                                          Duration="0:0:0.6"
                                                           Easing="QuarticEaseOut"></DoubleTransition>
                                     </Transitions>
                                 </Border.Transitions>
@@ -80,7 +80,7 @@
         
         <Style Selector="^:selected">
             <Style Selector="^ /template/ Border#PART_AccentBackground">
-                <Setter Property="Height" Value="{Binding Bounds.Height, RelativeSource={RelativeSource TemplatedParent}}"></Setter>
+                <Setter Property="Width" Value="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"></Setter>
                 <Setter Property="Opacity" Value="1"></Setter>
             </Style>
             
