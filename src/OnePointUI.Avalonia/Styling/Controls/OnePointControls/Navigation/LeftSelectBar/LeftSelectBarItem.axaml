@@ -1,0 +1,103 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:OnePointUI.Avalonia.Styling.Controls.OnePointControls.Navigation.LeftSelectBar"
+        xmlns:onePointControls="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls">
+    <Design.PreviewWith>
+        <controls:LeftSelectBar>
+            <controls:LeftSelectBarItem ItemText="111"></controls:LeftSelectBarItem>
+            <controls:LeftSelectBarItem ItemText="111"></controls:LeftSelectBarItem>
+            <controls:LeftSelectBarItem ItemText="111"></controls:LeftSelectBarItem>
+        </controls:LeftSelectBar>
+    </Design.PreviewWith>
+
+    <Style Selector="controls|LeftSelectBarItem">
+        <Setter Property="CornerRadius" Value="6"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}"></Setter>
+        <!-- Set Defaults -->
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <Border CornerRadius="{TemplateBinding CornerRadius}"
+                            Name="PART_Background"
+                            Background="{DynamicResource PrimaryBackgroundOverBrush}"
+                            Opacity="0.000001">
+                        <Border.Transitions>
+                            <Transitions>
+                                <DoubleTransition Property="Opacity"
+                                                  Duration="0:0:0.38"
+                                                  Easing="QuarticEaseOut"></DoubleTransition>
+                            </Transitions>
+                        </Border.Transitions>
+                    </Border>
+                    
+                    <Border CornerRadius="{TemplateBinding CornerRadius}"
+                            ClipToBounds="True"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch">
+                        <Panel>
+                            <Border Width="0"
+                                    Name="PART_AccentBackground"
+                                    VerticalAlignment="Stretch"
+                                    HorizontalAlignment="Left"
+                                    Opacity="0"
+                                    Background="{DynamicResource AccentBackgroundBrush}">
+                                <Border.Transitions>
+                                    <Transitions>
+                                        <DoubleTransition Property="Width"
+                                                          Duration="0:0:0.42"
+                                                          Easing="ExponentialEaseOut"></DoubleTransition>
+                                        
+                                        <DoubleTransition Property="Height"
+                                                          Duration="0:0:0.42"
+                                                          Easing="ExponentialEaseOut"></DoubleTransition>
+                                        
+                                        <DoubleTransition Property="Opacity"
+                                                          Duration="0:0:0.6"
+                                                          Easing="QuarticEaseOut"></DoubleTransition>
+                                    </Transitions>
+                                </Border.Transitions>
+                            </Border>
+                        </Panel>
+                    </Border>
+                    
+                    <Border CornerRadius="{TemplateBinding CornerRadius}"
+                            Padding="0,0">
+                        <Grid>
+                            <onePointControls:FontIcon Glyph="{TemplateBinding Glyph}"
+                                                       Name="PART_Icon"
+                                                       FontSize="18"
+                                                       VerticalAlignment="Center"
+                                                       Margin="18,10,18,21"/>
+                            
+                            <TextBlock Text="{TemplateBinding ItemText}"
+                                       Name="PART_Text"
+                                       FontSize="8"
+                                       Margin="0,0,0,2"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Bottom"></TextBlock>
+                        </Grid>
+                    </Border>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+        
+        <Style Selector="^:selected">
+            <Style Selector="^ /template/ Border#PART_AccentBackground">
+                <Setter Property="Width" Value="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"></Setter>
+                <Setter Property="Opacity" Value="1"></Setter>
+            </Style>
+            
+            <Style Selector="^ /template/ TextBlock#PART_Text">
+                <Setter Property="Foreground" Value="White"></Setter>
+            </Style>
+            
+            <Style Selector="^ /template/ onePointControls|FontIcon#PART_Icon">
+                <Setter Property="Foreground" Value="White"></Setter>
+            </Style>
+        </Style>
+            
+        <Style Selector="^:pointerover /template/ Border#PART_Background">
+            <Setter Property="Opacity" Value="0.8"></Setter>
+        </Style>
+    </Style>
+</Styles>

@@ -1,12 +1,15 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
+using OnePointUI.Avalonia.Base.Enum;
 
 namespace OnePointUI.Avalonia.Styling.Controls.OnePointControls.Navigation;
 
 public partial class NavigationFrame : UserControl
 {
+    public NavigationFrameDirection NavigationFrameDirection { get; set; } = NavigationFrameDirection.Top;
     private bool IsOneFrame = false;
+    private int ToPx = 50;
     public NavigationFrame()
     {
         InitializeComponent();
@@ -28,7 +31,8 @@ public partial class NavigationFrame : UserControl
 
             // 立即将即将隐藏的Frame设置为半透明和偏移
             Frame2.Opacity = 0;
-            Frame2.Margin = new Thickness(0, 20, 0, -20);
+            if(NavigationFrameDirection == NavigationFrameDirection.Top) Frame2.Margin = new Thickness(0, ToPx, 0, -ToPx);
+            else Frame2.Margin = new Thickness(ToPx, 0, -ToPx, 0);
 
             // 立即显示并重置目标Frame的状态
             Frame1.IsVisible = true;
@@ -58,7 +62,8 @@ public partial class NavigationFrame : UserControl
             IsOneFrame = false;
 
             Frame1.Opacity = 0;
-            Frame1.Margin = new Thickness(0, 20, 0, -20);
+            if(NavigationFrameDirection == NavigationFrameDirection.Top) Frame1.Margin = new Thickness(0, ToPx, 0, -ToPx);
+            else Frame1.Margin = new Thickness(ToPx, 0, -ToPx, 0);
 
             Frame2.IsVisible = true;
             Frame2.Opacity = 1;
