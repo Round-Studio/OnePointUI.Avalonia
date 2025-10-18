@@ -67,7 +67,17 @@
                                                        Name="PART_Icon"
                                                        FontSize="18"
                                                        VerticalAlignment="Center"
-                                                       Margin="18,10,18,21"/>
+                                                       HorizontalAlignment="Center"
+                                                       Margin="18,10,18,21">
+                                <onePointControls:FontIcon.Transitions>
+                                    <Transitions>
+                                        <DoubleTransition Property="FontSize"
+                                                          Duration="0:0:0.28"></DoubleTransition>
+                                        <ThicknessTransition Property="Margin"
+                                                             Duration="0:0:0.28"></ThicknessTransition>
+                                    </Transitions>
+                                </onePointControls:FontIcon.Transitions>
+                            </onePointControls:FontIcon>
                             
                             <TextBlock Text="{TemplateBinding ItemText}"
                                        Name="PART_Text"
