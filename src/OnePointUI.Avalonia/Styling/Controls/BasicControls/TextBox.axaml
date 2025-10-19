@@ -4,7 +4,8 @@
         <Border Padding="20">
             <!-- Add Controls for Previewer Here -->
             <StackPanel>
-                <TextBox Text="TextBox" Margin="5"/>
+                <TextBox Text="TextBox" Margin="5"
+                         Watermark="0000"/>
                 <TextBox Text="TextBox" Margin="5" IsEnabled="False"/>
             </StackPanel>
         </Border>
@@ -21,6 +22,7 @@
         <Setter Property="HorizontalContentAlignment" Value="Left"></Setter>
         <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
         <Setter Property="SelectionForegroundBrush" Value="{DynamicResource PrimaryForegroundBrush}"></Setter>
+        <Setter Property="Cursor" Value="Ibeam"></Setter>
         
         <Setter Property="Template">
             <ControlTemplate>
@@ -42,6 +44,21 @@
                                 Background="{DynamicResource PrimaryBackgroundOverBrush}"
                                 Opacity="0"></Border>
                     </Border>
+                    
+                    <TextBlock Name="PART_Watermark"
+                               Text="{TemplateBinding Watermark}"
+                               VerticalAlignment="Center"
+                               Foreground="Gray"
+                               Opacity="0"
+                               Margin="7">
+                        <TextBlock.Transitions>
+                            <Transitions>
+                                <DoubleTransition Duration="0:0:0.18"
+                                                  Property="Opacity"></DoubleTransition>
+                            </Transitions>
+                        </TextBlock.Transitions>
+                    </TextBlock>                    
+                    
                     <TextPresenter Name="PART_TextPresenter"
                                    Margin="7"
                                    Text="{TemplateBinding Text, Mode=TwoWay}"
@@ -79,6 +96,10 @@
         <Style Selector="^:focus Border#Path_BackgroundBorder">
             <Setter Property="BorderThickness" Value="2,2,2,4"></Setter>
             <Setter Property="BorderBrush" Value="{DynamicResource AccentBorderBrush}"></Setter>
+        </Style>
+        
+        <Style Selector="^:empty TextBlock#PART_Watermark">
+            <Setter Property="Opacity" Value="1"></Setter>
         </Style>
     </Style>
     

@@ -27,13 +27,14 @@
                             CornerRadius="{TemplateBinding CornerRadius}"
                             BorderThickness="2"
                             BorderBrush="{DynamicResource PrimaryBorderBrush}"
+                            ClipToBounds="True"
                             Width="24" Height="24"
                             Margin="0,0">
                         <Grid>
                             <Border Name="Path_Background"
                                     HorizontalAlignment="Stretch"
                                     VerticalAlignment="Stretch"
-                                    CornerRadius="{TemplateBinding CornerRadius}"
+                                    CornerRadius="5"
                                     Background="{DynamicResource PrimaryBackgroundOverBrush}"
                                     Opacity="0"></Border>
                             <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-3,0,0"
