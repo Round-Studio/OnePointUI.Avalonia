@@ -52,7 +52,7 @@
                                                           Easing="ExponentialEaseOut"></DoubleTransition>
                                         
                                         <DoubleTransition Property="Opacity"
-                                                          Duration="0:0:0.6"
+                                                          Duration="0:0:0.2"
                                                           Easing="QuarticEaseOut"></DoubleTransition>
                                     </Transitions>
                                 </Border.Transitions>
@@ -94,7 +94,7 @@
         <Style Selector="^:selected">
             <Style Selector="^ /template/ Border#PART_AccentBackground">
                 <Setter Property="Width" Value="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"></Setter>
-                <Setter Property="Opacity" Value="1"></Setter>
+                <Setter Property="Opacity" Value="0.2"></Setter>
             </Style>
             
             <Style Selector="^ /template/ TextBlock#PART_Text">
