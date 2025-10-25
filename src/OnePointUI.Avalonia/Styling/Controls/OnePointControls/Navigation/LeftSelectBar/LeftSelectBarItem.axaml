@@ -96,14 +96,6 @@
                 <Setter Property="Width" Value="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"></Setter>
                 <Setter Property="Opacity" Value="0.2"></Setter>
             </Style>
-            
-            <Style Selector="^ /template/ TextBlock#PART_Text">
-                <Setter Property="Foreground" Value="White"></Setter>
-            </Style>
-            
-            <Style Selector="^ /template/ onePointControls|FontIcon#PART_Icon">
-                <Setter Property="Foreground" Value="White"></Setter>
-            </Style>
         </Style>
             
         <Style Selector="^:pointerover /template/ Border#PART_Background">
