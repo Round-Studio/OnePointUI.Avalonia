@@ -19,7 +19,7 @@
                     <Border Width="200"
                             Height="120"
                             Background="{DynamicResource PrimaryBackgroundBrush}"
-                            BorderThickness="3"
+                            BorderThickness="1"
                             BorderBrush="{DynamicResource PrimaryBorderBrush}"
                             CornerRadius="6">
                     </Border>

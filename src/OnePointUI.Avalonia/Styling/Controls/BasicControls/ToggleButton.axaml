@@ -30,7 +30,7 @@
                 <Grid>
                     <Border Name="Path_Border"
                             CornerRadius="{TemplateBinding CornerRadius}"
-                            BorderThickness="2"
+                            BorderThickness="1"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}">
                         <Grid>

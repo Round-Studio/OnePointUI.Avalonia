@@ -31,7 +31,7 @@
                     <Border Name="Path_BackgroundBorder"  
                             HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                             VerticalAlignment="{TemplateBinding VerticalAlignment}"
-                            BorderThickness="2"
+                            BorderThickness="1"
                             BorderBrush="{DynamicResource PrimaryBorderBrush}"
                             CornerRadius="{TemplateBinding CornerRadius}"
                             Background="{DynamicResource PrimaryBackgroundBrush}"
