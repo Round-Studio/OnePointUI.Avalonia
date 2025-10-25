@@ -66,7 +66,7 @@
         </Style>
         
         <Style Selector="^:pointerover Border#Path_Border">
-            <Setter Property="BorderThickness" Value="2,2,2,4"></Setter>
+            <Setter Property="BorderThickness" Value="1,1,1,2"></Setter>
         </Style>
     
         <Style Selector="^:pointerover Border#Path_Background">
@@ -74,7 +74,7 @@
         </Style>
     
         <Style Selector="^:pressed Border#Path_Border">
-            <Setter Property="BorderThickness" Value="2,2,2,2"></Setter>
+            <Setter Property="BorderThickness" Value="1"></Setter>
         </Style>
     
         <Style Selector="^:pressed Border#Path_Background">
@@ -144,7 +144,7 @@
         </Style>
     
         <Style Selector="^:pointerover Border#Path_Border">
-            <Setter Property="BorderThickness" Value="2,2,2,4"></Setter>
+            <Setter Property="BorderThickness" Value="1,1,1,2"></Setter>
         </Style>
     
         <Style Selector="^:pointerover Border#Path_Background">
@@ -152,7 +152,7 @@
         </Style>
     
         <Style Selector="^:pressed Border#Path_Border">
-            <Setter Property="BorderThickness" Value="2,2,2,2"></Setter>
+            <Setter Property="BorderThickness" Value="1"></Setter>
         </Style>
     
         <Style Selector="^:pressed Border#Path_Background">
