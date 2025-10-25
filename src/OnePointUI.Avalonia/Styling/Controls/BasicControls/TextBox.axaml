@@ -89,12 +89,8 @@
             <Setter Property="Opacity" Value="0.3"></Setter>
         </Style>
         
-        <Style Selector="^:pointerover Border#Path_BackgroundBorder">
-            <Setter Property="BorderThickness" Value="2,2,2,2"></Setter>
-        </Style>
-        
         <Style Selector="^:focus Border#Path_BackgroundBorder">
-            <Setter Property="BorderThickness" Value="2,2,2,4"></Setter>
+            <Setter Property="BorderThickness" Value="1,1,1,4"></Setter>
             <Setter Property="BorderBrush" Value="{DynamicResource AccentBorderBrush}"></Setter>
         </Style>
         
