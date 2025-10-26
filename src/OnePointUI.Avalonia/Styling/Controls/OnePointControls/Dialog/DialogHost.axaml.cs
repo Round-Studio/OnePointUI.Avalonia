@@ -1,14 +1,9 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Layout;
-using Avalonia.Markup.Xaml;
-using Avalonia.Media;
-using Avalonia.Platform;
-using OnePointUI.Avalonia.Base.Entry;
-using OnePointUI.Avalonia.Base.Enum;
+using Avalonia.Threading;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Avalonia.Threading;
+using OnePointUI.Avalonia.Base.Entry;
 
 namespace OnePointUI.Avalonia.Styling.Controls.OnePointControls.Dialog;
 
@@ -20,29 +15,16 @@ public partial class DialogHost : UserControl
 
     public static void Show(DialogInfo info)
     {
-        if (_host == null) throw new NullReferenceException("必须初始化 DialogHost");
-        
-        IBrush GetDynamicResourceFromApp()
-        {
-            var app = Application.Current;
-
-            if (app != null)
-            {
-                if (app.TryFindResource("PrimaryBackgroundOverBrush", out var resourceValue))
-                {
-                    return resourceValue as IBrush;
-                }
-            }
-
-            return new SolidColorBrush(Colors.Gray);
-        }
+        if (_host == null) 
+            throw new NullReferenceException("必须初始化 DialogHost");
         
         Dispatcher.UIThread.Invoke(() =>
         {
-            // 如果当前正在显示对话框，将新对话框加入队列并返回默认值
+            // 如果当前正在显示对话框，将新对话框加入队列
             if (_isShowingDialog)
             {
                 _dialogQueue.Enqueue(info);
+                return;
             }
 
             _isShowingDialog = true;
@@ -53,53 +35,18 @@ public partial class DialogHost : UserControl
                 _host.BackgroundGrid.Opacity = 0.8;
                 _host.DialogBox.Content = new DialogBorder(info);
             }
-            else
-            {
-                var body = new DialogContent(info)
-                {
-                    HorizontalAlignment = HorizontalAlignment.Stretch,
-                    VerticalAlignment = VerticalAlignment.Stretch
-                };
-                var window = new Window()
-                {
-                    ExtendClientAreaToDecorationsHint = true,
-                    ExtendClientAreaTitleBarHeightHint = -1,
-                    ExtendClientAreaChromeHints = ExtendClientAreaChromeHints.NoChrome,
-                    WindowStartupLocation = WindowStartupLocation.CenterScreen,
-                    Content = body,
-                    Background = GetDynamicResourceFromApp(),
-                    CanResize = false,
-                    SizeToContent = SizeToContent.WidthAndHeight,
-                    Title = info.Title
-                };
-                window.PointerPressed += (sender, args) =>
-                {
-                    window.BeginMoveDrag(args);
-                };
-
-                // 为窗口对话框添加关闭事件处理
-                window.Closed += (sender, args) =>
-                {
-                    _isShowingDialog = false;
-                    // 检查队列中是否有下一个对话框
-                    if (_dialogQueue.Count > 0)
-                    {
-                        var nextInfo = _dialogQueue.Dequeue();
-                        Show(nextInfo);
-                    }
-                };
-
-                window.Show();
-            }
         });
     }
 
     public static async Task Close()
     {
+        if (_host == null) return;
+
+        // 淡出动画
         _host.DialogBox.Content = null;
         _host.BackgroundGrid.Opacity = 0;
         
-        await Task.Delay(400);
+        await Task.Delay(400); // 等待淡出动画完成
         
         _host.IsVisible = false;
         _isShowingDialog = false;
@@ -116,5 +63,9 @@ public partial class DialogHost : UserControl
     {
         InitializeComponent();
         _host = this;
+        
+        // 初始状态
+        IsVisible = false;
+        BackgroundGrid.Opacity = 0;
     }
 }
