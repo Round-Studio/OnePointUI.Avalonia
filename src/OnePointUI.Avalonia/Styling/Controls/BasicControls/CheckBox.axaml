@@ -62,7 +62,7 @@
             <Setter Property="Opacity" Value="0.3"></Setter>
         </Style>
         <Style Selector="^:pointerover Border#Path_BackgroundBorder">
-            <Setter Property="BorderThickness" Value="2,2,2,4"></Setter>
+            <Setter Property="BorderThickness" Value="1,1,1,2"></Setter>
         </Style>
         
         <Style Selector="^:checked Border#Path_Background">
@@ -79,7 +79,7 @@
             <Setter Property="Opacity" Value="0.7"></Setter>
         </Style>
         <Style Selector="^:pressed Border#Path_BackgroundBorder">
-            <Setter Property="BorderThickness" Value="2"></Setter>
+            <Setter Property="BorderThickness" Value="1"></Setter>
         </Style>
         
         <Style Selector="^:disabled Border#Path_Background">

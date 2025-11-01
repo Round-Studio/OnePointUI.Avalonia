@@ -18,7 +18,7 @@
                             CornerRadius="6"
                             Margin="0,0,0,0"
                             Name="PATH_LineBorder"
-                            Height="6">
+                            Height="12">
                     </Border>
                     
                     <TextBlock Text="{TemplateBinding Text}"

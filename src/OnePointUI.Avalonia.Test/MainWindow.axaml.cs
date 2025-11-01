@@ -6,10 +6,11 @@ using Avalonia.Layout;
 using OnePointUI.Avalonia.Style.Core;
 using System.Collections.Generic;
 using System.Linq;
+using OnePointUI.Avalonia.Styling.Controls.OnePointControls.WindowFrame;
 
 namespace OnePointUI.Avalonia.Test;
 
-public partial class MainWindow : Window
+public partial class MainWindow : OnePointWindow
 {
     public MainWindow()
     {
