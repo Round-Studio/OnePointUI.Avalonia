@@ -13,7 +13,6 @@
         WindowStartupLocation="CenterScreen"
         FontFamily="resm:OnePointUI.Avalonia.Assets.Fonts.DinPro.ttf?assembly=OnePointUI.Avalonia#DINPro"
         Title="OnePointUI.Avalonia">
-    
     <Grid>
         <Grid HorizontalAlignment="Stretch"
               VerticalAlignment="Top"
