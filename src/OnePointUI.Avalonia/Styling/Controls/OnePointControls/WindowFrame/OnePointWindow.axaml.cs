@@ -43,6 +43,9 @@ public partial class OnePointWindow : Window
                     if (WindowState == WindowState.Maximized) this.Padding = new Thickness(8);
                     else this.Padding = new Thickness(0);
                 }
+
+                if (WindowState == WindowState.Maximized) MaxBtnIcon.Glyph = "\uE923";
+                else MaxBtnIcon.Glyph = "\uE922";
             });
         });
         _stateTimer.Change(TimeSpan.FromMilliseconds(0), TimeSpan.FromMilliseconds(100));
