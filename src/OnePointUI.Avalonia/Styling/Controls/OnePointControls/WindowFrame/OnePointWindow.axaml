@@ -11,9 +11,10 @@
         ExtendClientAreaTitleBarHeightHint="-1"
         ExtendClientAreaChromeHints="NoChrome"
         WindowStartupLocation="CenterScreen"
-        Title="OnePointWindow">
+        FontFamily="resm:OnePointUI.Avalonia.Assets.Fonts.DinPro.ttf?assembly=OnePointUI.Avalonia#DINPro"
+        Title="OnePointUI.Avalonia">
+    
     <Grid>
-        
         <Grid HorizontalAlignment="Stretch"
               VerticalAlignment="Top"
               PointerPressed="InputElement_OnPointerPressed"

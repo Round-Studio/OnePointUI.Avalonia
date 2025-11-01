@@ -16,6 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <EmbeddedResource Include="Assets\Fonts\DinPro.ttf" />
       <AvaloniaResource Include="Assets\OnePointUI.Icon.png" />
       <None Remove="Assets\Shader\voronoi.sksl" />
     </ItemGroup>
