@@ -1,6 +1,5 @@
 ﻿<Styles xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:compositionScroll="clr-namespace:CompositionScroll;assembly=CompositionScroll">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
     <ScrollViewer Width="200" Height="200"
                   HorizontalScrollBarVisibility="Auto">
@@ -23,7 +22,7 @@
     <Setter Property="Template">
       <ControlTemplate>
         <Grid ColumnDefinitions="*,Auto" RowDefinitions="*,Auto">
-          <compositionScroll:CompositionScrollContentPresenter
+          <ScrollContentPresenter
             Name="PART_ContentPresenter"
             Grid.Row="0"
             Grid.Column="0"
@@ -35,8 +34,7 @@
             HorizontalSnapPointsAlignment="{TemplateBinding HorizontalSnapPointsAlignment}"
             VerticalSnapPointsAlignment="{TemplateBinding VerticalSnapPointsAlignment}"
             Padding="{TemplateBinding Padding}"
-            ScrollViewer.IsScrollInertiaEnabled="{TemplateBinding IsScrollInertiaEnabled}"
-            compositionScroll:CompositionScrollContentPresenter.ScrollFeatures="{TemplateBinding (compositionScroll:CompositionScrollContentPresenter.ScrollFeatures)}"/>
+            ScrollViewer.IsScrollInertiaEnabled="{TemplateBinding IsScrollInertiaEnabled}"/>
           <ScrollBar Name="PART_HorizontalScrollBar"
                      Orientation="Horizontal"
                      Margin="0,0,0,2"
