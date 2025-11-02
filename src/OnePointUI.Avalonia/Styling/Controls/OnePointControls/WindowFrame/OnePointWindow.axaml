@@ -13,64 +13,70 @@
         WindowStartupLocation="CenterScreen"
         FontFamily="resm:OnePointUI.Avalonia.Assets.Fonts.DinPro.ttf?assembly=OnePointUI.Avalonia#DINPro"
         Title="OnePointUI.Avalonia">
-    <Grid>
-        <ContentControl Content="Hello OnePointUI.Avalonia!"
-                        Margin="0,32,0,0"
-                        Name="PART_MainContent"></ContentControl>
+    <Border RenderTransformOrigin="0.5,0.5">
+        <Border.RenderTransform>
+            <ScaleTransform ScaleX="1" ScaleY="1" />
+        </Border.RenderTransform>
         
-        <dialog:DialogHost />
-        
-        <Grid HorizontalAlignment="Stretch"
-              VerticalAlignment="Top"
-              PointerPressed="InputElement_OnPointerPressed"
-              Height="32">
-            <Grid Background="{DynamicResource PrimaryBackgroundBrush}"
-                  Opacity="0.85"></Grid>
+        <Grid>
+            <ContentControl Content="Hello OnePointUI.Avalonia!"
+                            Margin="0,42,0,0"
+                            Name="PART_MainContent"></ContentControl>
             
-            <StackPanel Orientation="Horizontal"
-                        VerticalAlignment="Center"
-                        HorizontalAlignment="Left"
-                        Margin="15,0,0,0">
-                <TextBlock FontSize="16"
-                           Name="TitleBlock">OnePointUI.Avalonia</TextBlock>
-            </StackPanel>
+            <dialog:DialogHost />
             
-            <StackPanel Orientation="Horizontal"
-                        VerticalAlignment="Center"
-                        HorizontalAlignment="Right"
-                        Margin="0,0,15,0">
-                <Button Classes="NoBorder"
-                        Width="22" Height="22"
-                        Name="MinBtn"
-                        Click="MinBtn_OnClick"
-                        Margin="5,0,0,0">
-                    <onePointControls:FontIcon Glyph="&#xE921;"
-                                               FontSize="8"
-                                               HorizontalAlignment="Center"
-                                               VerticalAlignment="Center"/>
-                </Button>
-                <Button Classes="NoBorder"
-                        Width="22" Height="22"
-                        Name="MaxBtn"
-                        Click="MaxBtn_OnClick"
-                        Margin="5,0,0,0">
-                    <onePointControls:FontIcon Glyph="&#xE922;"
-                                               FontSize="8"
-                                               Name="MaxBtnIcon"
-                                               HorizontalAlignment="Center"
-                                               VerticalAlignment="Center"/>
-                </Button>
-                <Button Classes="NoBorder"
-                        Width="22" Height="22"
-                        Name="CloseBtn"
-                        Click="CloseBtn_OnClick"
-                        Margin="5,0,0,0">
-                    <onePointControls:FontIcon Glyph="&#xE8BB;"
-                                               FontSize="8"
-                                               HorizontalAlignment="Center"
-                                               VerticalAlignment="Center"/>
-                </Button>
-            </StackPanel>
+            <Grid HorizontalAlignment="Stretch"
+                  VerticalAlignment="Top"
+                  PointerPressed="InputElement_OnPointerPressed"
+                  Height="42">
+                <Grid Background="{DynamicResource PrimaryBackgroundBrush}"
+                      Opacity="0.85"></Grid>
+                
+                <StackPanel Orientation="Horizontal"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left"
+                            Margin="15,0,0,0">
+                    <TextBlock FontSize="16"
+                               Name="TitleBlock">OnePointUI.Avalonia</TextBlock>
+                </StackPanel>
+                
+                <StackPanel Orientation="Horizontal"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Right"
+                            Margin="0,0,15,0">
+                    <Button Classes="NoBorder"
+                            Width="22" Height="22"
+                            Name="MinBtn"
+                            Click="MinBtn_OnClick"
+                            Margin="5,0,0,0">
+                        <onePointControls:FontIcon Glyph="&#xE921;"
+                                                   FontSize="8"
+                                                   HorizontalAlignment="Center"
+                                                   VerticalAlignment="Center"/>
+                    </Button>
+                    <Button Classes="NoBorder"
+                            Width="22" Height="22"
+                            Name="MaxBtn"
+                            Click="MaxBtn_OnClick"
+                            Margin="5,0,0,0">
+                        <onePointControls:FontIcon Glyph="&#xE922;"
+                                                   FontSize="8"
+                                                   Name="MaxBtnIcon"
+                                                   HorizontalAlignment="Center"
+                                                   VerticalAlignment="Center"/>
+                    </Button>
+                    <Button Classes="NoBorder"
+                            Width="22" Height="22"
+                            Name="CloseBtn"
+                            Click="CloseBtn_OnClick"
+                            Margin="5,0,0,0">
+                        <onePointControls:FontIcon Glyph="&#xE8BB;"
+                                                   FontSize="8"
+                                                   HorizontalAlignment="Center"
+                                                   VerticalAlignment="Center"/>
+                    </Button>
+                </StackPanel>
+            </Grid>
         </Grid>
-    </Grid>
+    </Border>
 </Window>
