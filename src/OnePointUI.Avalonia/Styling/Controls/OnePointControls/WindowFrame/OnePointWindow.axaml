@@ -32,7 +32,7 @@
                       Name="BorderBackground">
                     <Grid.Transitions>
                         <Transitions>
-                            <DoubleTransition Duration="0:0:0.5"
+                            <DoubleTransition Duration="0:0:0.38"
                                               Property="Opacity"></DoubleTransition>
                         </Transitions>
                     </Grid.Transitions>
