@@ -72,4 +72,29 @@ public partial class OnePointWindow : Window
         
         Environment.Exit(0);
     }
+
+    public async Task SetBorderState(bool state)
+    {
+        if (state)
+        {
+            BottomBorder.Margin = new Thickness(0, this.Height, 0, -this.Height);
+            await Task.Delay(100);
+            BorderGrid.IsVisible = true;
+            BottomBorder.Margin = new Thickness(0, 100, 0, 0);
+            BorderBackground.Opacity = 0.1;
+            await Task.Delay(400);
+        }
+        else
+        {
+            BottomBorder.Margin = new Thickness(0, this.Height, 0, -this.Height);
+            BorderBackground.Opacity = 0;
+            await Task.Delay(400);
+            BorderGrid.IsVisible = false;
+        }
+    }
+
+    private void CloseBorderBtn_OnClick(object? sender, RoutedEventArgs e)
+    {
+        SetBorderState(false);
+    }
 }

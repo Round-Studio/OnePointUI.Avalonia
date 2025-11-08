@@ -47,6 +47,8 @@
                     </StackPanel>
                 </TabItem>
             </TabControl>
+            
+            <Button Click="Button_OnClick">1111</Button>
         </Grid>
     </windowFrame:OnePointWindow.MainContent>
 </windowFrame:OnePointWindow>

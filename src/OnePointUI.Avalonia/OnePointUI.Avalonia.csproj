@@ -21,4 +21,15 @@
       <None Remove="Assets\Shader\voronoi.sksl" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Update="Styling\Controls\OnePointControls\Notice\Info\NoticeBox.axaml.cs">
+        <DependentUpon>NoticeBox.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Styling\Controls\OnePointControls\Notice\Info\NoticePanel.axaml.cs">
+        <DependentUpon>NoticePanel.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+    </ItemGroup>
+
 </Project>

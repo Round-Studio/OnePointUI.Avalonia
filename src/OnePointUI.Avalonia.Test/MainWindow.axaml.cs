@@ -88,4 +88,9 @@ public partial class MainWindow : OnePointWindow
             }
         }
     }
+
+    private void Button_OnClick(object? sender, RoutedEventArgs e)
+    {
+        SetBorderState(true);
+    }
 }
