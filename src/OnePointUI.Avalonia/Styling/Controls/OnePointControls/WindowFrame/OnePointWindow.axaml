@@ -6,6 +6,7 @@
         xmlns:onePointControls="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls"
         xmlns:notice="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls.Notice"
         xmlns:info="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls.Notice.Info"
+        xmlns:navigation="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls.Navigation"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="OnePointUI.Avalonia.Styling.Controls.OnePointControls.WindowFrame.OnePointWindow"
         ExtendClientAreaToDecorationsHint="True"
@@ -53,7 +54,7 @@
                         </Transitions>
                     </Border.Transitions>
                     
-                    <Grid>
+                    <Grid Grid.RowDefinitions="Auto,*">
                         <Button CornerRadius="100"
                                 Width="36"
                                 Height="36"
@@ -70,7 +71,11 @@
                                                         VerticalAlignment="Top"
                                                         Margin="18,18,12,12"
                                                         FontSize="18"
+                                                        Name="BorderTitle"
                                                         Text="Title"></onePointControls:LineTextBlock>
+                        
+                        <navigation:NavigationFrame Grid.Row="1"
+                                                    Name="Frame"/>
                     </Grid>
                 </Border>
             </Grid>

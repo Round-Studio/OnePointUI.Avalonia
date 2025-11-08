@@ -73,7 +73,20 @@ public partial class OnePointWindow : Window
         Environment.Exit(0);
     }
 
-    public async Task SetBorderState(bool state)
+    public void CloseDraw()
+    {
+        SetBorderState(false);
+    }
+
+    public async void OpenDraw(object? page,string title)
+    {
+        BorderTitle.Text = title;
+        await SetBorderState(true);
+
+        Frame.NavigateTo(page);
+    }
+
+    private async Task SetBorderState(bool state)
     {
         if (state)
         {
@@ -90,6 +103,7 @@ public partial class OnePointWindow : Window
             BorderBackground.Opacity = 0;
             await Task.Delay(400);
             BorderGrid.IsVisible = false;
+            Frame.NavigateTo("");
         }
     }
 
