@@ -38,7 +38,7 @@
                     </Grid.Transitions>
                 </Grid>
                 
-                <Border CornerRadius="28,28,0,0"
+                <Border CornerRadius="16,16,0,0"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch"
                         BorderThickness="0,1,0,0"
@@ -55,7 +55,7 @@
                     </Border.Transitions>
                     
                     <Grid Grid.RowDefinitions="Auto,*">
-                        <Button CornerRadius="100"
+                        <Button CornerRadius="8"
                                 Width="36"
                                 Height="36"
                                 HorizontalAlignment="Right" VerticalAlignment="Top"
