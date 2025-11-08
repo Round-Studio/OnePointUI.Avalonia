@@ -39,7 +39,13 @@
                                     VerticalAlignment="Stretch"
                                     CornerRadius="{TemplateBinding CornerRadius}"
                                     Background="{DynamicResource PrimaryBackgroundOverBrush}"
-                                    Opacity="0"></Border>
+                                    Opacity="0">
+                                <Border.Transitions>
+                                    <Transitions>
+                                        <DoubleTransition Property="Opacity" Duration="0:0:0.2" Easing="QuinticEaseOut"></DoubleTransition>
+                                    </Transitions>
+                                </Border.Transitions>
+                            </Border>
                         </Grid>
                     </Border>
                     
@@ -48,11 +54,6 @@
                                       Padding="{TemplateBinding Padding}"
                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"></ContentPresenter>
-                    
-                    <Border ClipToBounds="True"
-                            CornerRadius="{TemplateBinding CornerRadius}">
-                        <onePointControls:PointHalo CornerRadius="6"/>
-                    </Border>
                 </Grid>
             </ControlTemplate>
         </Setter>
@@ -88,14 +89,6 @@
                 </Transitions>
             </Setter>
         </Style>
-    
-        <Style Selector="^ /template/ Border#Path_Background">
-            <Setter Property="Transitions">
-                <Transitions>
-                    <DoubleTransition Property="Opacity" Duration="0:0:0.18" Easing="QuinticEaseOut"></DoubleTransition>
-                </Transitions>
-            </Setter>
-        </Style>
     </Style>
     
     
@@ -119,7 +112,12 @@
                                     VerticalAlignment="Stretch"
                                     CornerRadius="{TemplateBinding CornerRadius}"
                                     Background="{DynamicResource AccentBackgroundOverBrush}"
-                                    Opacity="0"></Border>
+                                    Opacity="0">
+                                <Border.Transitions>
+                                    <Transitions>
+                                        <DoubleTransition Property="Opacity" Duration="0:0:0.2" Easing="QuinticEaseOut"></DoubleTransition>
+                                    </Transitions>
+                                </Border.Transitions></Border>
                         </Grid>
                     </Border>
                     
@@ -128,11 +126,6 @@
                                       Padding="{TemplateBinding Padding}"
                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"></ContentPresenter>
-                    
-                    <Border ClipToBounds="True"
-                            CornerRadius="{TemplateBinding CornerRadius}">
-                        <onePointControls:PointHalo CornerRadius="6"/>
-                    </Border>
                 </Grid>
             </ControlTemplate>
         </Setter>

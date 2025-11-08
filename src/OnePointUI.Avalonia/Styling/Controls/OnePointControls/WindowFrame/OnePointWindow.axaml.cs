@@ -34,6 +34,7 @@ public partial class OnePointWindow : Window
     {
         InitializeComponent();
 
+        Frame.NavigateTo("");
         _stateTimer = new(state =>
         {
             Dispatcher.UIThread.Invoke(() =>
