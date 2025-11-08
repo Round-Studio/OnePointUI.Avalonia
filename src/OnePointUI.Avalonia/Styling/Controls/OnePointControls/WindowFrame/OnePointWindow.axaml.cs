@@ -94,7 +94,7 @@ public partial class OnePointWindow : Window
             await Task.Delay(100);
             BorderGrid.IsVisible = true;
             BottomBorder.Margin = new Thickness(0, 100, 0, 0);
-            BorderBackground.Opacity = 0.1;
+            BorderBackground.Opacity = 0.6;
             await Task.Delay(400);
         }
         else

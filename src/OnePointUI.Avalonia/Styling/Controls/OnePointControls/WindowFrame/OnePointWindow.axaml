@@ -67,12 +67,15 @@
                                                        FontSize="12"></onePointControls:FontIcon>
                         </Button>
                         
-                        <onePointControls:LineTextBlock HorizontalAlignment="Left"
-                                                        VerticalAlignment="Top"
-                                                        Margin="18,18,12,12"
-                                                        FontSize="18"
-                                                        Name="BorderTitle"
-                                                        Text="Title"></onePointControls:LineTextBlock>
+                        <TextBlock Grid.Row="0" 
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Top"
+                                   Margin="18,18,12,12"
+                                   Foreground="{DynamicResource AccentBackgroundBrush}"
+                                   FontWeight="Bold"
+                                   FontSize="18"
+                                   Name="BorderTitle"
+                                   Text="Title"></TextBlock>
                         
                         <navigation:NavigationFrame Grid.Row="1"
                                                     Name="Frame"/>
