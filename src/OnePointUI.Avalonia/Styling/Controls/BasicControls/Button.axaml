@@ -59,7 +59,7 @@
         </Setter>
         
         <Style Selector="^:disabled">
-            <Setter Property="Foreground" Value="{DynamicResource PrimaryDisabledForegroundBrush}"></Setter>
+            <Setter Property="Opacity" Value="0.6"></Setter>
         </Style>
         
         <Style Selector="^:disabled Border#Path_Background">

@@ -48,7 +48,7 @@
                         Background="{DynamicResource BackgroundBrush}">
                     <Border.Transitions>
                         <Transitions>
-                            <ThicknessTransition Duration="0:0:0.5"
+                            <ThicknessTransition Duration="0:0:0.7"
                                               Easing="ExponentialEaseOut"
                                               Property="Margin"></ThicknessTransition>
                         </Transitions>
