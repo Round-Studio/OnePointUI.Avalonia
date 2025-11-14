@@ -1,6 +1,7 @@
 ﻿<Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:controls="using:OnePointUI.Avalonia.Styling.Controls.OnePointControls">
+        xmlns:controls="using:OnePointUI.Avalonia.Styling.Controls.OnePointControls"
+        xmlns:items="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls.Items">
     <Design.PreviewWith>
         <StackPanel Width="500" Height="300">
             <controls:SettingCard Header="111"
@@ -18,16 +19,11 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Button Name="PATH_Button">
-                    <Border CornerRadius="6"
-                            ClipToBounds="True"
-                            BorderThickness="1"
-                            Name="PATH_Border"
-                            BorderBrush="{DynamicResource PrimaryBorderBrush}">
+                    <items:BorderCard
+                                ClipToBounds="True"
+                                Padding="0"
+                                Name="PATH_Border">
                         <Grid>
-                            <Border Background="{DynamicResource PrimaryBackgroundBrush}"
-                                    CornerRadius="4"
-                                    Opacity="0.85"></Border>
-                            
                             <Border HorizontalAlignment="Stretch"
                                     VerticalAlignment="Stretch"
                                     Name="PATH_Background"
@@ -79,7 +75,7 @@
                                 </Grid>
                             </Border>
                         </Grid>
-                    </Border>
+                    </items:BorderCard>
                 </Button>
             </ControlTemplate>
         </Setter>
