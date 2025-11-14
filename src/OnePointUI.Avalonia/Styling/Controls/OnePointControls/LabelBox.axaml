@@ -8,11 +8,12 @@
     <Style Selector="controls|LabelBox">
         <!-- Set Defaults -->
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}"></Setter>
+        <Setter Property="Background" Value="{DynamicResource AccentBackgroundBrush}"></Setter>
         <Setter Property="FontSize" Value="9"></Setter>
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Padding="4,2"
-                        Background="{DynamicResource AccentBackgroundBrush}"
+                        Background="{TemplateBinding Background}"
                         CornerRadius="3">
                     <TextBlock Text="{TemplateBinding Text}"
                                Foreground="{TemplateBinding Foreground}"

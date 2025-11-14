@@ -43,4 +43,5 @@
     <StyleInclude Source="OnePointControls/Items/CardCheckBox.axaml"></StyleInclude>
     <StyleInclude Source="OnePointControls/Notice/InfoCard.axaml"></StyleInclude>
     <StyleInclude Source="OnePointControls/Notice/LoadCard.axaml"></StyleInclude>
+    <StyleInclude Source="OnePointControls/Items/BorderCard.axaml"></StyleInclude>
 </Styles>

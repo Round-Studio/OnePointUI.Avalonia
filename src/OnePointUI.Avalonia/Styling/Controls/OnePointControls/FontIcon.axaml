@@ -7,6 +7,7 @@
 
     <Style Selector="controls|FontIcon">
         <Setter Property="FontFamily" Value="resm:OnePointUI.Avalonia.Assets.Fonts.SegoeFluentIcons.ttf?assembly=OnePointUI.Avalonia#Segoe Fluent Icons"/>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}"></Setter>
         
         <Setter Property="Template">
             <ControlTemplate>
