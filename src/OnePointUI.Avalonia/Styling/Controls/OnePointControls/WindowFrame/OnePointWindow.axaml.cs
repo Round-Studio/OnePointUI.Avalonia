@@ -47,6 +47,8 @@ public partial class OnePointWindow : Window
 
                 if (WindowState == WindowState.Maximized) MaxBtnIcon.Glyph = "\uE923";
                 else MaxBtnIcon.Glyph = "\uE922";
+                
+                TitleBlock.Text = this.Title;
             });
         });
         _stateTimer.Change(TimeSpan.FromMilliseconds(0), TimeSpan.FromMilliseconds(100));
