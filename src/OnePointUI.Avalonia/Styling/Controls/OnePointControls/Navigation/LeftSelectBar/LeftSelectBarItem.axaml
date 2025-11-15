@@ -94,7 +94,7 @@
         <Style Selector="^:selected">
             <Style Selector="^ /template/ Border#PART_AccentBackground">
                 <Setter Property="Width" Value="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"></Setter>
-                <Setter Property="Opacity" Value="0.2"></Setter>
+                <Setter Property="Opacity" Value="1"></Setter>
             </Style>
         </Style>
             

@@ -16,13 +16,9 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
-                    <Border Width="200"
-                            Height="120"
-                            Background="{DynamicResource PrimaryBackgroundBrush}"
-                            BorderThickness="1"
-                            BorderBrush="{DynamicResource PrimaryBorderBrush}"
-                            CornerRadius="6">
-                    </Border>
+                    <controls:BorderCard Width="200"
+                                         Height="120">
+                    </controls:BorderCard>
                     
                     <Grid>
                         <onePointControls:FontIcon VerticalAlignment="Center"
