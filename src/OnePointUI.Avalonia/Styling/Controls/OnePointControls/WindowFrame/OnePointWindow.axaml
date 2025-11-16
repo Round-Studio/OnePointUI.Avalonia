@@ -103,6 +103,9 @@
                             Margin="15,0,0,0">
                     <TextBlock FontSize="16"
                                Name="TitleBlock">OnePointUI.Avalonia</TextBlock>
+                    
+                    <ContentControl Margin="8,0,0,0"
+                                    Name="TitleContent"></ContentControl>
                 </StackPanel>
                 
                 <StackPanel Orientation="Horizontal"

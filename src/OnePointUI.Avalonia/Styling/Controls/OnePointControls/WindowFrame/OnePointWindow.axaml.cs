@@ -21,14 +21,28 @@ public partial class OnePointWindow : Window
             UpdateUI();
         }
     }
+    public object? TitleBarContent
+    {
+        get
+        {
+            return _titleBarContent;
+        }
+        set
+        {
+            _titleBarContent = value;
+            UpdateUI();
+        }
+    }
 
     private void UpdateUI()
     {
         PART_MainContent.Content = _mainContent;
         TitleBlock.Text = this.Title;
+        TitleContent.Content = _titleBarContent;
     }
 
     private object? _mainContent { get; set; }
+    private object? _titleBarContent { get; set; }
     private Timer _stateTimer;
     public OnePointWindow()
     {
