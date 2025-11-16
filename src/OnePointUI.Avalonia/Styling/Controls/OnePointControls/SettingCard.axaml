@@ -1,8 +1,7 @@
 ﻿<Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="using:OnePointUI.Avalonia.Styling.Controls.OnePointControls"
-        xmlns:items="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls.Items"
-        xmlns:asyncImageLoader="clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia">
+        xmlns:items="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls.Items">
     <Design.PreviewWith>
         <StackPanel Width="500" Height="300">
             <controls:SettingCard Header="111"
@@ -45,12 +44,12 @@
                                                        VerticalAlignment="Center"></controls:FontIcon>
                                     
                                     <Image Width="32" Height="32"
-                                                   Stretch="UniformToFill"
-                                                   Margin="6,0,0,0"
-                                                   IsVisible="{TemplateBinding IsNotFontIcon}"
-                                                   asyncImageLoader:ImageLoader.Source="{TemplateBinding ImageIcon}"
-                                                   HorizontalAlignment="Left"
-                                                   VerticalAlignment="Center"></Image>
+                                           Stretch="UniformToFill"
+                                           Margin="6,0,0,0"
+                                           IsVisible="{TemplateBinding IsNotFontIcon}"
+                                           Source="{TemplateBinding ImageIcon}"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"></Image>
                                     
                                     <StackPanel VerticalAlignment="Center"
                                                 Margin="50,0,0,0">
