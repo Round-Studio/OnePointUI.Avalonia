@@ -44,13 +44,13 @@
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Center"></controls:FontIcon>
                                     
-                                    <asyncImageLoader:AdvancedImage Width="32" Height="32"
+                                    <Image Width="32" Height="32"
                                                    Stretch="UniformToFill"
                                                    Margin="6,0,0,0"
                                                    IsVisible="{TemplateBinding IsNotFontIcon}"
-                                                   Source="{TemplateBinding ImageIcon}"
+                                                   asyncImageLoader:ImageLoader.Source="{TemplateBinding ImageIcon}"
                                                    HorizontalAlignment="Left"
-                                                   VerticalAlignment="Center"></asyncImageLoader:AdvancedImage>
+                                                   VerticalAlignment="Center"></Image>
                                     
                                     <StackPanel VerticalAlignment="Center"
                                                 Margin="50,0,0,0">
