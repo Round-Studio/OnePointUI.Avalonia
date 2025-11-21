@@ -66,11 +66,13 @@
                                         <ContentControl Content="{TemplateBinding Content}"
                                                         Margin="0,0,12,0"></ContentControl>
                                 
-                                        <controls:FontIcon Glyph="&#xE974;"
-                                                           VerticalAlignment="Center"
-                                                           Margin="0,0,8,0"
-                                                           IsVisible="{TemplateBinding IsClickable}"
-                                                           FontSize="16"></controls:FontIcon>
+                                        <Border IsVisible="{TemplateBinding IsShowActionIcon}">
+                                            <controls:FontIcon Glyph="&#xE974;"
+                                                               VerticalAlignment="Center"
+                                                               Margin="0,0,8,0"
+                                                               IsVisible="{TemplateBinding IsClickable}"
+                                                               FontSize="16"></controls:FontIcon>
+                                        </Border>
                                     </StackPanel>
                                 </Grid>
                             </Border>

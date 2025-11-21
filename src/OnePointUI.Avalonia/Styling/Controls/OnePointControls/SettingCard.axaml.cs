@@ -20,6 +20,9 @@ public class SettingCard : Button
     public static readonly StyledProperty<bool> IsClickableProperty =
         AvaloniaProperty.Register<SettingCard, bool>(nameof(IsClickable));
 
+    public static readonly StyledProperty<bool> IsShowActionIconProperty =
+        AvaloniaProperty.Register<SettingCard, bool>(nameof(IsShowActionIcon), true);
+
     public static readonly StyledProperty<bool> IsFontIconProperty =
         AvaloniaProperty.Register<SettingCard, bool>(nameof(IsFontIcon), true);
 
@@ -51,6 +54,12 @@ public class SettingCard : Button
     {
         get => GetValue(IsClickableProperty);
         set => SetValue(IsClickableProperty, value);
+    }
+    
+    public bool IsShowActionIcon
+    {
+        get => GetValue(IsShowActionIconProperty);
+        set => SetValue(IsShowActionIconProperty, value);
     }
     
     public bool IsFontIcon
