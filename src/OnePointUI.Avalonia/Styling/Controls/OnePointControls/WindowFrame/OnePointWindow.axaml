@@ -43,7 +43,7 @@
                         VerticalAlignment="Stretch"
                         BorderThickness="0,1,0,0"
                         BorderBrush="{DynamicResource PrimaryBorderBrush}"
-                        Margin="0,0,0,0"
+                        Margin="10,0,10,0"
                         Name="BottomBorder"
                         Background="{DynamicResource BackgroundBrush}">
                     <Border.Transitions>

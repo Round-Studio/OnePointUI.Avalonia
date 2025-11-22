@@ -66,6 +66,7 @@ public partial class OnePointWindow : Window
             });
         });
         _stateTimer.Change(TimeSpan.FromMilliseconds(0), TimeSpan.FromMilliseconds(100));
+        BottomBorder.Margin = new Thickness(DrawMarginLR, 0, DrawMarginLR, 0);
     }
 
     private void InputElement_OnPointerPressed(object? sender, PointerPressedEventArgs e)
@@ -103,20 +104,21 @@ public partial class OnePointWindow : Window
         Frame.NavigateTo(page);
     }
 
+    public int DrawMarginLR = 10;
     private async Task SetBorderState(bool state)
     {
         if (state)
         {
-            BottomBorder.Margin = new Thickness(0, this.Height, 0, -this.Height);
+            BottomBorder.Margin = new Thickness(DrawMarginLR, this.Height, DrawMarginLR, -this.Height);
             await Task.Delay(100);
             BorderGrid.IsVisible = true;
-            BottomBorder.Margin = new Thickness(0, 100, 0, 0);
+            BottomBorder.Margin = new Thickness(DrawMarginLR, 100, DrawMarginLR, 0);
             BorderBackground.Opacity = 0.3;
             await Task.Delay(200);
         }
         else
         {
-            BottomBorder.Margin = new Thickness(0, this.Height, 0, -this.Height);
+            BottomBorder.Margin = new Thickness(DrawMarginLR, this.Height, DrawMarginLR, -this.Height);
             BorderBackground.Opacity = 0;
             await Task.Delay(800);
             BorderGrid.IsVisible = false;
