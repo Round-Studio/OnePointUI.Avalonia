@@ -41,7 +41,7 @@
                 <Border CornerRadius="16,16,0,0"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch"
-                        BorderThickness="0,1,0,0"
+                        BorderThickness="1,1,1,0"
                         BorderBrush="{DynamicResource PrimaryBorderBrush}"
                         Margin="10,0,10,0"
                         Name="BottomBorder"
