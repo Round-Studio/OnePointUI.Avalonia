@@ -4,6 +4,7 @@ using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Avalonia.Threading;
+using OnePointUI.Avalonia.Styling.Controls.OnePointControls.Notice.Info;
 
 namespace OnePointUI.Avalonia.Styling.Controls.OnePointControls.WindowFrame;
 
@@ -41,6 +42,7 @@ public partial class OnePointWindow : Window
         TitleContent.Content = _titleBarContent;
     }
 
+    public NoticePanel Notice => this.NoticePanel;
     private object? _mainContent { get; set; }
     private object? _titleBarContent { get; set; }
     private Timer _stateTimer;

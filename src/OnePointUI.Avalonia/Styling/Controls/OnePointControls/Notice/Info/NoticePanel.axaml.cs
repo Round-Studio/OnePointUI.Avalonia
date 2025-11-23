@@ -30,8 +30,8 @@ public partial class NoticePanel : UserControl
         noticeBox.OnClose = box => NoticesPanel.Children.Remove(box);
 
         // 添加到开头
-        // NoticesPanel.Children.Insert(0, noticeBox);
-        NoticesPanel.Children.Add(noticeBox);
+        NoticesPanel.Children.Insert(0, noticeBox);
+        // NoticesPanel.Children.Add(noticeBox);
 
         // 如果超过5个，删除最后一个（带淡出动画）
         if (NoticesPanel.Children.Count > 5)
