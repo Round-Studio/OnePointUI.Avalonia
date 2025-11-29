@@ -65,8 +65,8 @@
                     
                     <Border CornerRadius="{TemplateBinding CornerRadius}"
                             Padding="8">
-                        <Grid>
-                            <onePointControls:FontIcon Glyph="{TemplateBinding Glyph}"
+                        <Grid ColumnDefinitions="Auto,*">
+                            <onePointControls:FontIcon Grid.Column="0" Glyph="{TemplateBinding Glyph}"
                                                        Name="PART_Icon"
                                                        FontSize="16"
                                                        VerticalAlignment="Center"
@@ -80,7 +80,7 @@
                                 </onePointControls:FontIcon.Transitions>
                             </onePointControls:FontIcon>
                             
-                            <onePointControls:FontIcon Glyph="{TemplateBinding Glyph}"
+                            <onePointControls:FontIcon Grid.Column="0" Glyph="{TemplateBinding Glyph}"
                                                        Name="PART_ColorIcon"
                                                        Foreground="{DynamicResource AccentBackgroundBrush}"
                                                        FontSize="16"
@@ -96,6 +96,12 @@
                                     </Transitions>
                                 </onePointControls:FontIcon.Transitions>
                             </onePointControls:FontIcon>
+                            
+                            <TextBlock Grid.Column="1" IsVisible="False"
+                                       Margin="6,0,0,0"
+                                       Foreground="{DynamicResource AccentBackgroundBrush}"
+                                       Name="PART_ItemText"
+                                       Text="{TemplateBinding ItemText}"></TextBlock>
                         </Grid>
                     </Border>
                 </Panel>
@@ -112,6 +118,9 @@
             </Style>
             <Style Selector="^ /template/ onePointControls|FontIcon#PART_Icon">
                 <Setter Property="Opacity" Value="0"></Setter>
+            </Style>
+            <Style Selector="^ /template/ TextBlock#PART_ItemText">
+                <Setter Property="IsVisible" Value="True"></Setter>
             </Style>
             
             <Style Selector="^ /template/ Border#PART_Background">

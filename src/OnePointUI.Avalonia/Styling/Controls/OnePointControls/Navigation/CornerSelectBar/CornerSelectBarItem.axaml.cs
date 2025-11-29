@@ -12,6 +12,10 @@ public class CornerSelectBarItem : ListBoxItem
     
     public static readonly StyledProperty<string> ItemTextProperty =
         AvaloniaProperty.Register<CornerSelectBarItem, string>(nameof(ItemText), "Item");
+    
+    
+    public static readonly StyledProperty<double> OpenWidthProperty =
+        AvaloniaProperty.Register<CornerSelectBarItem, double>(nameof(ItemText));
 
     public string Glyph
     {
@@ -23,5 +27,11 @@ public class CornerSelectBarItem : ListBoxItem
     {
         get => GetValue(ItemTextProperty);
         set => SetValue(ItemTextProperty, value);
+    }
+
+    public double OpenWidth
+    {
+        get => GetValue(OpenWidthProperty);
+        set => SetValue(OpenWidthProperty, value);
     }
 }
