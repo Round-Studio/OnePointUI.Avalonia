@@ -22,7 +22,7 @@
                     
                     <TextBlock Margin="0,0"
                                Text="{TemplateBinding Message}"
-                               FontSize="9"></TextBlock>
+                               FontSize="11"></TextBlock>
                 </StackPanel>
             </ControlTemplate>
         </Setter>
