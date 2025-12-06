@@ -75,7 +75,8 @@ public partial class BreadcrumbBar : UserControl
 
             newTtem.Click += (_, __) =>
             {
-                item.ItemClickAction.Invoke(item);
+                if (item.ItemClickAction != null)
+                    item.ItemClickAction.Invoke(item);
             };
             
             ItemsBar.Children.Add(newItemIcon);

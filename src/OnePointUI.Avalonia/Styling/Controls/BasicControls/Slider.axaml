@@ -4,6 +4,7 @@
         <Border Padding="20">
             <StackPanel>
                 <Slider Width="200" Minimum="0" Maximum="100" Value="50" Margin="5"/>
+                <Slider Width="200" Minimum="0" Maximum="100" Value="50" Margin="5" Classes="Number"/>
                 <Slider Width="200" Minimum="0" Maximum="100" Value="50" IsEnabled="False" Margin="5"/>
             </StackPanel>
         </Border>
@@ -14,6 +15,58 @@
             <ControlTemplate>
                 <Grid>
                     <Track Name="PART_Track"
+                           Minimum="{TemplateBinding Minimum}"
+                           Maximum="{TemplateBinding Maximum}"
+                           Value="{TemplateBinding Value}"
+                           Orientation="Horizontal">
+                        <Track.DecreaseButton>
+                            <RepeatButton
+                                Name="PART_DecreaseButton"
+                                Focusable="False"/>
+                        </Track.DecreaseButton>
+                        <Track.IncreaseButton>
+                            <RepeatButton
+                                Name="PART_IncreaseButton"
+                                Focusable="False"/>
+                        </Track.IncreaseButton>
+                        <!-- 已填充部分 -->
+                        <Track.Thumb>
+                            <Thumb Name="PART_Thumb" >
+                                <Thumb.Template>
+                                    <ControlTemplate>
+                                        <Border Height="28" Width="4"
+                                                Background="{DynamicResource AccentBackgroundBrush}"
+                                                CornerRadius="5" Name="PART_Thumb_Border">
+                                        </Border>
+                                    </ControlTemplate>
+                                </Thumb.Template>
+                            </Thumb>
+                        </Track.Thumb>
+                    </Track>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <Style Selector="Slider.Number">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid ColumnDefinitions="Auto,*">
+                    <Grid Grid.Column="0"
+                          MinWidth="24"
+                          Margin="0,0,5,0">
+                        <TextBlock VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Foreground="Gray">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat='{}{0:0}'>
+                                    <Binding Path="Value" RelativeSource="{RelativeSource TemplatedParent}"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </Grid>
+                    
+                    <Track Grid.Column="1" Name="PART_Track"
                            Minimum="{TemplateBinding Minimum}"
                            Maximum="{TemplateBinding Maximum}"
                            Value="{TemplateBinding Value}"
