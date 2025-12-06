@@ -58,10 +58,15 @@
         
         <!-- 悬停时改变 Border 的高度 -->
         <Style Selector="^:pointerover Border#PATH_LineBorder">
-            <Setter Property="Height" Value="{Binding Bounds.Height, RelativeSource={RelativeSource TemplatedParent}}"/>
+            <Setter Property="Height" 
+                    Value="{Binding Bounds.Height, 
+                   RelativeSource={RelativeSource AncestorType=Control}}" />
         </Style>
+
         <Style Selector="^:pointerover Border#PATH_HaloBorder">
-            <Setter Property="Height" Value="{Binding Bounds.Height, RelativeSource={RelativeSource TemplatedParent}}"/>
+            <Setter Property="Height" 
+                    Value="{Binding Bounds.Height, 
+                   RelativeSource={RelativeSource AncestorType=Control}}" />
         </Style>
         
         <Style Selector="^:pointerover TextBlock#PATH_TextBlock">
