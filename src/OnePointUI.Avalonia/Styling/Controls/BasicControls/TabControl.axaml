@@ -134,8 +134,7 @@
 
         <!-- 禁用状态 -->
         <Style Selector="^:disabled">
-            <Setter Property="Background" Value="Transparent" />
-            <Setter Property="Foreground" Value="#CCCCCC" />  <!-- 禁用文本颜色 -->
+            <Setter Property="Opacity" Value="0.5" />
         </Style>
 
         <!-- 左侧放置样式 -->
