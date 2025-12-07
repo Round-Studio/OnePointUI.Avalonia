@@ -62,10 +62,11 @@ public partial class DialogHost : UserControl
     public DialogHost()
     {
         InitializeComponent();
-        _host = this;
         
         // 初始状态
         IsVisible = false;
         BackgroundGrid.Opacity = 0;
     }
+
+    public static void SetHost(DialogHost? host) => _host = host;
 }

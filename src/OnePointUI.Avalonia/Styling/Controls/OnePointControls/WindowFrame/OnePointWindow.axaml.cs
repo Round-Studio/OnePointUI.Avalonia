@@ -4,12 +4,22 @@ using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Avalonia.Threading;
+using OnePointUI.Avalonia.Styling.Controls.OnePointControls.Dialog;
 using OnePointUI.Avalonia.Styling.Controls.OnePointControls.Notice.Info;
 
 namespace OnePointUI.Avalonia.Styling.Controls.OnePointControls.WindowFrame;
 
 public partial class OnePointWindow : Window
 {
+    public bool IsMainWindow
+    {
+        get => _isMainWindow;
+        set 
+        {
+            _isMainWindow = value;
+            UpdateUI();
+        }
+    }
     public object? MainContent
     {
         get
@@ -35,16 +45,47 @@ public partial class OnePointWindow : Window
         }
     }
 
+    public bool IsMaxBtn
+    {
+        get => _isMaxBtn;
+        set
+        {
+            _isMaxBtn = value;
+            UpdateUI();
+        }
+    }
+
+    public bool IsMinBtn
+    {
+        get => _isMinBtn;
+        set
+        {
+            _isMinBtn = value;
+            UpdateUI();
+        }
+    }
+
     private void UpdateUI()
     {
         PART_MainContent.Content = _mainContent;
         TitleBlock.Text = this.Title;
         TitleContent.Content = _titleBarContent;
+        
+        MaxBtn.IsVisible = _isMaxBtn;
+        MinBtn.IsVisible = _isMaxBtn;
+
+        if (IsMainWindow)
+        {
+            DialogHost.SetHost(this.DialogHost);
+        }
     }
 
     public NoticePanel Notice => this.NoticePanel;
     private object? _mainContent { get; set; }
     private object? _titleBarContent { get; set; }
+    private bool _isMainWindow { get; set; } = false;
+    private bool _isMinBtn { get; set; } = true;
+    private bool _isMaxBtn { get; set; } = true;
     private Timer _stateTimer;
     public OnePointWindow()
     {
@@ -90,7 +131,7 @@ public partial class OnePointWindow : Window
     {
         this.Close();
         
-        Environment.Exit(0);
+        if(IsMainWindow) Environment.Exit(0);
     }
 
     public void CloseDraw()

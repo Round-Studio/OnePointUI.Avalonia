@@ -88,7 +88,7 @@
                               Name="NoticePanel"
                               Margin="0,0,0,10"/>
             
-            <dialog:DialogHost />
+            <dialog:DialogHost Name="DialogHost"/>
             
             <Grid HorizontalAlignment="Stretch"
                   VerticalAlignment="Top"
