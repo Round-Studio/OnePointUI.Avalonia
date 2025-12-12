@@ -3,8 +3,10 @@
         xmlns:controls="using:OnePointUI.Avalonia.Styling.Controls.OnePointControls.Notice"
         xmlns:onePointControls="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls">
     <Design.PreviewWith>
-        <controls:InfoBar Title="测试" Message="警告"
-                          State="Success"/>
+        <controls:InfoBar State="Warning"
+                        Height="64"
+                        Title="提示"
+                        Message="这个功能其实我根本不想加，因为加了肯定会有一大堆问题.jpg&#x0A;如果导入进去的游戏出了问题，启动不了，那就是你自己导入时的配置有问题。&#x0A;请前往你下载游戏安装包的地方核对信息..."/>
     </Design.PreviewWith>
 
     <Style Selector="controls|InfoBar">
@@ -23,8 +25,9 @@
                         <Grid ColumnDefinitions="32,*">
                             <onePointControls:FontIcon Foreground="{TemplateBinding IconColor}"
                                                        Opacity="0.6"
+                                                       Margin="0,11,0,11"
                                                        HorizontalAlignment="Center"
-                                                       VerticalAlignment="Center"
+                                                       VerticalAlignment="Top"
                                                        Glyph="{TemplateBinding Glyph}"/>
                             
                             <Grid Grid.Column="1" VerticalAlignment="Center">
