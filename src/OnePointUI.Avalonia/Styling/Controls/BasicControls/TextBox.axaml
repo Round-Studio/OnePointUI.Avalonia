@@ -14,7 +14,6 @@
     <!-- Add Styles Here -->
     <Style Selector="TextBox">
         <Setter Property="CornerRadius" Value="6"></Setter>
-        <Setter Property="MinWidth" Value="120"></Setter>
         <Setter Property="Height" Value="32"></Setter>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}"></Setter>
         <Setter Property="CaretBrush" Value="{DynamicResource PrimaryForegroundBrush}"></Setter>
