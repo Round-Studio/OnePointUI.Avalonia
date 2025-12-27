@@ -15,11 +15,11 @@
         WindowStartupLocation="CenterScreen"
         FontFamily="resm:OnePointUI.Avalonia.Assets.Fonts.DinPro.ttf?assembly=OnePointUI.Avalonia#DINPro"
         Title="OnePointUI.Avalonia">
-    <Border RenderTransformOrigin="0.5,0.5">
-        <Border.RenderTransform>
+    <!--<Border RenderTransformOrigin="0.5,0.5">-->
+        <!--<Border.RenderTransform>
             <ScaleTransform ScaleX="1" ScaleY="1" />
-        </Border.RenderTransform>
-        
+        </Border.RenderTransform>-->
+    <Border>
         <Grid>
             <ContentControl Content="Hello OnePointUI.Avalonia!"
                             Margin="0,42,0,0"
