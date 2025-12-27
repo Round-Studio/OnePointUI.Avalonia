@@ -1,5 +1,6 @@
 ﻿<Styles xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:onePointControls="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls">
     <Design.PreviewWith>
         <Border Padding="20">
             <!-- Add Controls for Previewer Here -->
@@ -37,14 +38,12 @@
                                     CornerRadius="5"
                                     Background="{DynamicResource PrimaryBackgroundOverBrush}"
                                     Opacity="0"></Border>
-                            <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-3,0,0"
-                                  Name="Path_Check" IsVisible="{TemplateBinding IsChecked}">
-                                <Grid.RenderTransform>
-                                    <RotateTransform Angle="45"></RotateTransform>
-                                </Grid.RenderTransform>
-                                <Border Width="2" Height="12" HorizontalAlignment="Right" Background="White"></Border>
-                                <Border Width="7" Height="2" VerticalAlignment="Bottom" Background="White"></Border>
-                            </Grid>
+                            
+                            <onePointControls:FontIcon Name="Path_Check" 
+                                                       IsVisible="{TemplateBinding IsChecked}"
+                                                       Glyph="&#xE73E;" 
+                                                       HorizontalAlignment="Center"
+                                                       VerticalAlignment="Center"/>
                         </Grid>
                     </Border>
                     
