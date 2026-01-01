@@ -46,6 +46,13 @@ public partial class DialogContent : UserControl
             SecondaryBtn.IsVisible = true;
             SecondaryBtn.Content = info.SecondaryButtonText;
         }
+
+        if (info.CloseButtonText == null &&
+            info.PrimaryButtonText == null &&
+            info.SecondaryButtonText == null)
+        {
+            BtnBorder.Height = 0;
+        }
     }
 
     private void CloseBtn_OnClick(object? sender, RoutedEventArgs e)

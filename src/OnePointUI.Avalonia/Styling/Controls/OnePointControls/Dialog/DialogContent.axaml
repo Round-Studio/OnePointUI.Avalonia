@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:dialog="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls.Dialog"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             MinWidth="220" MinHeight="180"
+             MinWidth="220" MinHeight="120"
              x:Class="OnePointUI.Avalonia.Styling.Controls.OnePointControls.Dialog.DialogContent">
     <UserControl.Styles>
         <Style Selector="Button.AccentBorder">
@@ -13,7 +13,7 @@
         </Style>
     </UserControl.Styles>
     <Grid>
-        <Grid RowDefinitions="64,*,64">
+        <Grid RowDefinitions="64,*,Auto">
                     <TextBlock Foreground="{DynamicResource AccentBackgroundBrush}"
                                Margin="20,0"
                                VerticalAlignment="Center"
