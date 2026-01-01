@@ -74,9 +74,6 @@
                         Padding="{TemplateBinding Padding}"
                         Background="{TemplateBinding Background}">
                     <Panel>
-                        <ContentPresenter Content="{TemplateBinding Header}" 
-                                          FontWeight="Bold"
-                                          Opacity="0"/>
                         <ContentPresenter Name="PART_ContentPresenter"
                                           ContentTemplate="{TemplateBinding HeaderTemplate}"
                                           Content="{TemplateBinding Header}"
