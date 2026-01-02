@@ -11,11 +11,11 @@ public class SettingCard : Button
     public static readonly StyledProperty<string> GlyphProperty =
         AvaloniaProperty.Register<SettingCard, string>(nameof(Glyph), "");
     
-    public static readonly StyledProperty<string> HeaderProperty =
-        AvaloniaProperty.Register<SettingCard, string>(nameof(Header));
+    public static readonly StyledProperty<object> HeaderProperty =
+        AvaloniaProperty.Register<SettingCard, object>(nameof(Header));
     
-    public static readonly StyledProperty<string> DescriptionProperty =
-        AvaloniaProperty.Register<SettingCard, string>(nameof(Description));
+    public static readonly StyledProperty<object> DescriptionProperty =
+        AvaloniaProperty.Register<SettingCard, object>(nameof(Description));
     
     public static readonly StyledProperty<bool> IsClickableProperty =
         AvaloniaProperty.Register<SettingCard, bool>(nameof(IsClickable));
@@ -38,13 +38,13 @@ public class SettingCard : Button
         set => SetValue(GlyphProperty, value);
     }
     
-    public string Header
+    public object Header
     {
         get => GetValue(HeaderProperty);
         set => SetValue(HeaderProperty, value);
     }
     
-    public string Description
+    public object Description
     {
         get => GetValue(DescriptionProperty);
         set => SetValue(DescriptionProperty, value);

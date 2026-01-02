@@ -53,11 +53,26 @@
                                     
                                     <StackPanel VerticalAlignment="Center"
                                                 Margin="50,0,0,0">
-                                        <TextBlock Text="{TemplateBinding Header}"
-                                                   FontSize="18"></TextBlock>
-                                        <TextBlock Text="{TemplateBinding Description}"
-                                                   FontSize="12"
-                                                   Foreground="Gray"></TextBlock>
+                                        <ContentPresenter Content="{TemplateBinding Header}"
+                                                          FontSize="18">
+                                            <ContentPresenter.Styles>
+                                                <Style Selector="TextBlock">
+                                                    <Setter Property="FontSize"
+                                                            Value="18"></Setter>
+                                                </Style>
+                                            </ContentPresenter.Styles>
+                                        </ContentPresenter>
+                                        
+                                        <ContentPresenter Content="{TemplateBinding Description}">
+                                            <ContentPresenter.Styles>
+                                                <Style Selector="TextBlock">
+                                                    <Setter Property="FontSize"
+                                                            Value="12"></Setter>
+                                                    <Setter Property="Foreground"
+                                                            Value="Gray"></Setter>
+                                                </Style>
+                                            </ContentPresenter.Styles>
+                                        </ContentPresenter>
                                     </StackPanel>
                             
                                     <StackPanel Orientation="Horizontal"
