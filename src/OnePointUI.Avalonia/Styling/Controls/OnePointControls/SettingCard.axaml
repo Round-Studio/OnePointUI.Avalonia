@@ -33,8 +33,7 @@
                                     Background="{DynamicResource PrimaryForegroundBrush}"
                                     Opacity="0"></Border>
                             
-                            <Border Padding="8"
-                                    ClipToBounds="True">
+                            <Border Padding="8">
                                 <Grid>
                                     <controls:FontIcon Glyph="{TemplateBinding Glyph}"
                                                        FontSize="28"
@@ -96,7 +95,7 @@
                 </Button>
             </ControlTemplate>
         </Setter>
-        <Setter Property="Height" Value="72"></Setter>
+        <Setter Property="MinHeight" Value="72"></Setter>
         
         <Style Selector="^ /template/ Border#PATH_Background">
             <Setter Property="Transitions">
