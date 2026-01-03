@@ -29,12 +29,17 @@ public partial class LotsPageFrame : UserControl
             RightBtn.IsEnabled = false;
         }
 
-        if (thisPage == 0)
+        if (thisPage == 1)
         {
             LeftBtn.IsEnabled = false;
         }
         
         NavigationFrame.NavigateTo(page);
+    }
+
+    public void CleanPage()
+    {
+        NavigationFrame.NavigateTo("");
     }
 
     private void LeftBtn_OnClick(object? sender, RoutedEventArgs e) => UpAction?.Invoke();
