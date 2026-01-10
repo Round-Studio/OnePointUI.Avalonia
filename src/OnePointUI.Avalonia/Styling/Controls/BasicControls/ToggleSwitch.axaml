@@ -3,7 +3,7 @@
     <Design.PreviewWith>
         <Border Padding="20">
             <!-- Add Controls for Previewer Here -->
-            <ToggleSwitch IsEnabled="False"></ToggleSwitch>
+            <ToggleSwitch></ToggleSwitch>
         </Border>
     </Design.PreviewWith>
 
@@ -19,7 +19,7 @@
                                 ClipToBounds="False"
                                 HorizontalAlignment="Left"
                                 Name="Path_Background"
-                                BorderBrush="{DynamicResource PrimaryBorderBrush}"
+                                BorderBrush="{DynamicResource PrimaryDisabled2ForegroundBrush}"
                                 BorderThickness="1">
                         </Border>
                         
@@ -32,7 +32,7 @@
                                             CornerRadius="100"
                                             ClipToBounds="False"
                                             Margin="1,1,0,1"
-                                            Background="{DynamicResource PrimaryBorderBrush}" Name="PART_Knob_Net">
+                                            Background="{DynamicResource PrimaryDisabled2ForegroundBrush}" Name="PART_Knob_Net">
                                    
                                     </Border>
                                 </Border>

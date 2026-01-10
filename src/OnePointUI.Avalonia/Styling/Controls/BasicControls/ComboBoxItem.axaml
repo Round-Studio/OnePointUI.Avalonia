@@ -19,8 +19,8 @@
   <Style Selector="ComboBoxItem">
     <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
     <Setter Property="CornerRadius" Value="6"></Setter>
-    <Setter Property="Margin" Value="1"></Setter>
-    <Setter Property="Padding" Value="4,5" />
+    <Setter Property="Margin" Value="2.5"></Setter>
+    <Setter Property="Padding" Value="8,8" />
     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
     <Setter Property="Template">
       <ControlTemplate>
@@ -50,8 +50,6 @@
                               HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                               VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                               Padding="{TemplateBinding Padding}" />
-            
-            <!--<onePointControls:PointHalo/>-->
           </Grid>
         </Border>
       </ControlTemplate>

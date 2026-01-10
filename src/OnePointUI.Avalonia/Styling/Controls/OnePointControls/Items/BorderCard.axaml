@@ -11,18 +11,21 @@
         <!-- Set Defaults -->
         <Setter Property="Template">
             <ControlTemplate>
-                <Border BorderThickness="1"
-                        BorderBrush="{DynamicResource PrimaryBorderBrush}"
-                        CornerRadius="{TemplateBinding CornerRadius}">
-                    <Panel>
-                        <Border Background="{DynamicResource PrimaryBackgroundBrush}"
-                                CornerRadius="5"
-                                Opacity="0.85"></Border>
+                <Panel>
+                    <Border BorderThickness="1"
+                            BorderBrush="{DynamicResource PrimaryBackgroundBrush}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Opacity="0.8">
+                    </Border>
                     
-                        <ContentPresenter Content="{TemplateBinding Content}"
-                                          Padding="{TemplateBinding Padding}"></ContentPresenter>
-                    </Panel>
-                </Border>
+                    <Border Background="{DynamicResource PrimaryBorderBrush}"
+                            CornerRadius="5"
+                            Margin="1"
+                            Opacity="0.6"></Border>
+                    
+                    <ContentPresenter Content="{TemplateBinding Content}"
+                                      Padding="{TemplateBinding Padding}"></ContentPresenter>
+                </Panel>
             </ControlTemplate>
         </Setter>
     </Style>

@@ -153,25 +153,20 @@
 			
 			<Setter Property="Template">
 				<ControlTemplate>
-					<Border Name="border" 
-					        BorderBrush="{TemplateBinding BorderBrush}"
-					        CornerRadius="{TemplateBinding CornerRadius}"
-					        BorderThickness="{TemplateBinding BorderThickness}">
-						<ScrollViewer Name="PART_ScrollViewer"
-						              Background="{TemplateBinding Background}"
-						              VerticalSnapPointsType="{TemplateBinding (ScrollViewer.VerticalSnapPointsType)}"
-						              HorizontalSnapPointsType="{TemplateBinding (ScrollViewer.HorizontalSnapPointsType)}"
-						              HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
-						              VerticalScrollBarVisibility="Disabled"
-						              IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
-						              IsScrollInertiaEnabled="{TemplateBinding (ScrollViewer.IsScrollInertiaEnabled)}"
-						              IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}"
-						              AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
-						              BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}">
-							<ItemsPresenter Name="PART_ItemsPresenter"
-							                ItemsPanel="{TemplateBinding ItemsPanel}"/>
-						</ScrollViewer>
-					</Border>
+					<ScrollViewer Name="PART_ScrollViewer"
+					              Background="{TemplateBinding Background}"
+					              VerticalSnapPointsType="{TemplateBinding (ScrollViewer.VerticalSnapPointsType)}"
+					              HorizontalSnapPointsType="{TemplateBinding (ScrollViewer.HorizontalSnapPointsType)}"
+					              HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+					              VerticalScrollBarVisibility="Disabled"
+					              IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+					              IsScrollInertiaEnabled="{TemplateBinding (ScrollViewer.IsScrollInertiaEnabled)}"
+					              IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}"
+					              AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
+					              BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}">
+						<ItemsPresenter Name="PART_ItemsPresenter"
+						                ItemsPanel="{TemplateBinding ItemsPanel}"/>
+					</ScrollViewer>
 				</ControlTemplate>
 			</Setter>
     </Style>
