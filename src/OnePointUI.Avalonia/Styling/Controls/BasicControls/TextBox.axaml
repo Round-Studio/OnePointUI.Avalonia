@@ -2,16 +2,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
         <Border Padding="20">
-            <!-- Add Controls for Previewer Here -->
-            <StackPanel>
-                <TextBox Text="TextBox" Margin="5"
+            <StackPanel Width="200">
+                <TextBox Margin="5"
+                         Text="1111111111111111111111111111111"
                          Watermark="0000"/>
                 <TextBox Text="TextBox" Margin="5" IsEnabled="False"/>
             </StackPanel>
         </Border>
     </Design.PreviewWith>
 
-    <!-- Add Styles Here -->
     <Style Selector="TextBox">
         <Setter Property="CornerRadius" Value="6"></Setter>
         <Setter Property="Height" Value="32"></Setter>
@@ -22,6 +21,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
         <Setter Property="SelectionForegroundBrush" Value="{DynamicResource PrimaryForegroundBrush}"></Setter>
         <Setter Property="Cursor" Value="Ibeam"></Setter>
+        <Setter Property="TextWrapping" Value="NoWrap"></Setter>
         
         <Setter Property="Template">
             <ControlTemplate>
@@ -41,7 +41,9 @@
                                 VerticalAlignment="Stretch"
                                 CornerRadius="{TemplateBinding CornerRadius}"
                                 Background="{DynamicResource PrimaryBackgroundOverBrush}"
-                                Opacity="0"></Border>
+                                Opacity="0">
+                            
+                        </Border>
                     </Border>
                     
                     <TextBlock Name="PART_Watermark"
@@ -49,7 +51,9 @@
                                VerticalAlignment="Center"
                                Foreground="Gray"
                                Opacity="0"
-                               Margin="7">
+                               Margin="7"
+                               TextTrimming="CharacterEllipsis"
+                               TextWrapping="NoWrap">
                         <TextBlock.Transitions>
                             <Transitions>
                                 <DoubleTransition Duration="0:0:0.18"
@@ -58,24 +62,26 @@
                         </TextBlock.Transitions>
                     </TextBlock>                    
                     
-                    <TextPresenter Name="PART_TextPresenter"
-                                   Margin="7"
-                                   Text="{TemplateBinding Text, Mode=TwoWay}"
-                                   CaretIndex="{TemplateBinding CaretIndex}"
-                                   CaretBrush="{TemplateBinding CaretBrush}"
-                                   LineHeight="{TemplateBinding LineHeight}"
-                                   TextWrapping="{TemplateBinding TextWrapping}"
-                                   PasswordChar="{TemplateBinding PasswordChar}"
-                                   LetterSpacing="{TemplateBinding LetterSpacing}"
-                                   TextAlignment="{TemplateBinding TextAlignment}"
-                                   RevealPassword="{TemplateBinding RevealPassword}"
-                                   SelectionBrush="{TemplateBinding SelectionBrush}"
-                                   SelectionStart="{TemplateBinding SelectionStart}"
-                                   SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
-                                   SelectionEnd="{TemplateBinding SelectionEnd}"
-                                   CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
-                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                   HorizontalAlignment="Stretch"/>
+                    <Border ClipToBounds="True"
+                            Margin="7">
+                        <TextPresenter Name="PART_TextPresenter"
+                                       Text="{TemplateBinding Text, Mode=TwoWay}"
+                                       CaretIndex="{TemplateBinding CaretIndex}"
+                                       CaretBrush="{TemplateBinding CaretBrush}"
+                                       LineHeight="{TemplateBinding LineHeight}"
+                                       TextWrapping="{TemplateBinding TextWrapping}"
+                                       PasswordChar="{TemplateBinding PasswordChar}"
+                                       LetterSpacing="{TemplateBinding LetterSpacing}"
+                                       TextAlignment="{TemplateBinding TextAlignment}"
+                                       RevealPassword="{TemplateBinding RevealPassword}"
+                                       SelectionBrush="{TemplateBinding SelectionBrush}"
+                                       SelectionStart="{TemplateBinding SelectionStart}"
+                                       SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                                       SelectionEnd="{TemplateBinding SelectionEnd}"
+                                       CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
+                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
+                    </Border>
                 </Grid>
             </ControlTemplate>
         </Setter>

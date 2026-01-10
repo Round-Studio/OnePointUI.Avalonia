@@ -6,10 +6,10 @@
     </Design.PreviewWith>
 
     <Style Selector="controls|ProgressRing">
-        <Setter Property="MinWidth" Value="24" />
-        <Setter Property="MinHeight" Value="24" />
+        <Setter Property="MinWidth" Value="32" />
+        <Setter Property="MinHeight" Value="32" />
         <Setter Property="Foreground" Value="{DynamicResource AccentBackgroundBrush}"/>
-        <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBrush}"/>
+        <Setter Property="Background" Value="Transparent"/>
         <!-- Set Defaults -->
         <Setter Property="Template">
             <ControlTemplate>

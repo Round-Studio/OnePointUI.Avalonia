@@ -34,9 +34,11 @@
                             <Thumb Name="PART_Thumb" >
                                 <Thumb.Template>
                                     <ControlTemplate>
-                                        <Border Height="28" Width="4"
+                                        <Border Height="22" Width="22"
+                                                BorderThickness="4"
+                                                BorderBrush="{DynamicResource PrimaryBorderBrush}"
                                                 Background="{DynamicResource AccentBackgroundBrush}"
-                                                CornerRadius="5" Name="PART_Thumb_Border">
+                                                CornerRadius="11" Name="PART_Thumb_Border">
                                         </Border>
                                     </ControlTemplate>
                                 </Thumb.Template>
@@ -53,7 +55,7 @@
             <ControlTemplate>
                 <Grid ColumnDefinitions="Auto,*">
                     <Grid Grid.Column="0"
-                          MinWidth="24"
+                          MinWidth="32"
                           Margin="0,0,5,0">
                         <TextBlock VerticalAlignment="Center"
                                    HorizontalAlignment="Center"
@@ -86,9 +88,11 @@
                             <Thumb Name="PART_Thumb" >
                                 <Thumb.Template>
                                     <ControlTemplate>
-                                        <Border Height="28" Width="4"
+                                        <Border Height="22" Width="22"
+                                                BorderThickness="4"
+                                                BorderBrush="{DynamicResource PrimaryBorderBrush}"
                                                 Background="{DynamicResource AccentBackgroundBrush}"
-                                                CornerRadius="5" Name="PART_Thumb_Border">
+                                                CornerRadius="11" Name="PART_Thumb_Border">
                                         </Border>
                                     </ControlTemplate>
                                 </Thumb.Template>
@@ -100,19 +104,34 @@
         </Setter>
     </Style>
         
+    <Style Selector="Slider Border#PART_Thumb_Border">
+        <Setter Property="Transitions">
+            <Transitions>
+                <ThicknessTransition Property="BorderThickness"
+                                     Easing="BackEaseOut"
+                                     Duration="0:0:0.2"></ThicknessTransition>
+            </Transitions>
+        </Setter>
+    </Style>
     <Style Selector="Slider:disabled Border#PART_DecreaseButton_Border">
         <Setter Property="Background" Value="{DynamicResource PrimaryDisabled2ForegroundBrush}"></Setter>
     </Style>
     <Style Selector="Slider:disabled Border#PART_Thumb_Border">
         <Setter Property="Background" Value="{DynamicResource PrimaryDisabled2ForegroundBrush}"></Setter>
     </Style>
+    <Style Selector="Slider:pointerover Border#PART_Thumb_Border">
+        <Setter Property="BorderThickness" Value="3"></Setter>
+    </Style>
+    <Style Selector="Slider:pressed Border#PART_Thumb_Border">
+        <Setter Property="BorderThickness" Value="6"></Setter>
+    </Style>
     
     <Style Selector="RepeatButton#PART_DecreaseButton">
         <Setter Property="Background" Value="Transparent"></Setter>
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Height="18" Width="{TemplateBinding Width}" CornerRadius="6"
-                        Margin="0,5,5,5" Name="PART_DecreaseButton_Border"
+                <Border Height="5" Width="{TemplateBinding Width}" CornerRadius="6"
+                        Margin="0,5,-5,5" Name="PART_DecreaseButton_Border"
                         Background="{DynamicResource AccentBackgroundBrush}">
                 </Border>
             </ControlTemplate>
@@ -123,8 +142,8 @@
         <Setter Property="Background" Value="Transparent"></Setter>
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Height="18" Width="{TemplateBinding Width}" CornerRadius="6"
-                        Margin="5,5,0,5"
+                <Border Height="5" Width="{TemplateBinding Width}" CornerRadius="6"
+                        Margin="-5,5,0,5"
                         Background="{DynamicResource PrimaryDisabledForegroundBrush}">
                 </Border>
             </ControlTemplate>
