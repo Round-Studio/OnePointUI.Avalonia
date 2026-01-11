@@ -28,7 +28,7 @@
                                     VerticalAlignment="Stretch"
                                     Name="PATH_Background"
                                     IsVisible="{TemplateBinding IsClickable}"
-                                    CornerRadius="4"
+                                    CornerRadius="6"
                                     ClipToBounds="True"
                                     Background="{DynamicResource PrimaryForegroundBrush}"
                                     Opacity="0"></Border>

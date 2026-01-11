@@ -147,7 +147,7 @@
 
 			<Setter Property="ItemsPanel">
 				<ItemsPanelTemplate>
-					<StackPanel Margin="5,0" Spacing="4" Orientation="Horizontal"/>
+					<StackPanel Margin="0,0" Spacing="2" Orientation="Horizontal"/>
 				</ItemsPanelTemplate>
 			</Setter>
 			
