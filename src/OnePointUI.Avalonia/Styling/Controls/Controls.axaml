@@ -30,6 +30,7 @@
     <StyleInclude Source="OnePointControls/LineTextBlock.axaml"></StyleInclude>
     <StyleInclude Source="OnePointControls/FontIcon.axaml"></StyleInclude>
     <StyleInclude Source="OnePointControls/SettingCard.axaml"></StyleInclude>
+    <StyleInclude Source="OnePointControls/SettingExpander.axaml"></StyleInclude>
     <StyleInclude Source="OnePointControls/LabelBox.axaml"></StyleInclude>
     <StyleInclude Source="OnePointControls/ProgressRing.axaml"></StyleInclude>
     <StyleInclude Source="OnePointControls/Notice/InfoBar.axaml"></StyleInclude>

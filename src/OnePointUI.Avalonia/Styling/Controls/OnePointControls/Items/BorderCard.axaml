@@ -19,7 +19,7 @@
                     </Border>
                     
                     <Border Background="{DynamicResource PrimaryBorderBrush}"
-                            CornerRadius="5"
+                            CornerRadius="{TemplateBinding CornerRadius}"
                             Margin="1"
                             Opacity="0.78"></Border>
                     

@@ -98,8 +98,8 @@
     </Style>
     
     <Style Selector="ToggleButton.Expander">
-        <Setter Property="Background" Value="{DynamicResource PrimaryBorderBrush}"></Setter>
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBorderBrush}"></Setter>
+        <Setter Property="Background" Value="Transparent"></Setter>
+        <Setter Property="BorderBrush" Value="Transparent"></Setter>
         <Setter Property="Template">
             <ControlTemplate>
                 <ContentControl>
@@ -108,7 +108,6 @@
                             Name="HeadButton">
                         <Grid>
                             <ContentPresenter Content="{TemplateBinding Content}"></ContentPresenter>
-                            <onePointControls:PointHalo/>
                         </Grid>
                     </Border>
                 </ContentControl>
@@ -116,6 +115,10 @@
         </Setter>
         
         <Style Selector="^:checked Border#HeadButton">
+            <Setter Property="CornerRadius" Value="6,6,0,0"></Setter>
+        </Style>
+        
+        <Style Selector="^:checked">
             <Setter Property="CornerRadius" Value="6,6,0,0"></Setter>
         </Style>
     </Style>
