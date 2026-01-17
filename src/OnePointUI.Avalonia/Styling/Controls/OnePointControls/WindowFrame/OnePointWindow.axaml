@@ -111,12 +111,13 @@
                 <StackPanel Orientation="Horizontal"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Right"
-                            Margin="0,0,15,0">
+                            Margin="0,0,15,0"
+                            Spacing="5">
+                    <ContentControl Name="TitleBarContentBarContent"></ContentControl>
                     <Button Classes="NoBorder"
                             Width="22" Height="22"
                             Name="MinBtn"
-                            Click="MinBtn_OnClick"
-                            Margin="5,0,0,0">
+                            Click="MinBtn_OnClick">
                         <onePointControls:FontIcon Glyph="&#xE921;"
                                                    FontSize="8"
                                                    HorizontalAlignment="Center"
@@ -125,8 +126,7 @@
                     <Button Classes="NoBorder"
                             Width="22" Height="22"
                             Name="MaxBtn"
-                            Click="MaxBtn_OnClick"
-                            Margin="5,0,0,0">
+                            Click="MaxBtn_OnClick">
                         <onePointControls:FontIcon Glyph="&#xE922;"
                                                    FontSize="8"
                                                    Name="MaxBtnIcon"
@@ -136,8 +136,7 @@
                     <Button Classes="NoBorder"
                             Width="22" Height="22"
                             Name="CloseBtn"
-                            Click="CloseBtn_OnClick"
-                            Margin="5,0,0,0">
+                            Click="CloseBtn_OnClick">
                         <onePointControls:FontIcon Glyph="&#xE8BB;"
                                                    FontSize="8"
                                                    HorizontalAlignment="Center"

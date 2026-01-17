@@ -44,6 +44,18 @@ public partial class OnePointWindow : Window
             UpdateUI();
         }
     }
+    public object? TitleBarContentContent
+    {
+        get
+        {
+            return _titleBarControlContent;
+        }
+        set
+        {
+            _titleBarControlContent = value;
+            UpdateUI();
+        }
+    }
 
     public bool IsMaxBtn
     {
@@ -70,6 +82,7 @@ public partial class OnePointWindow : Window
         PART_MainContent.Content = _mainContent;
         TitleBlock.Text = this.Title;
         TitleContent.Content = _titleBarContent;
+        TitleBarContentBarContent.Content = _titleBarControlContent;
         
         MaxBtn.IsVisible = _isMaxBtn;
         MinBtn.IsVisible = _isMaxBtn;
@@ -83,6 +96,7 @@ public partial class OnePointWindow : Window
     public NoticePanel Notice => this.NoticePanel;
     private object? _mainContent { get; set; }
     private object? _titleBarContent { get; set; }
+    private object? _titleBarControlContent { get; set; }
     private bool _isMainWindow { get; set; } = false;
     private bool _isMinBtn { get; set; } = true;
     private bool _isMaxBtn { get; set; } = true;
