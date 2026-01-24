@@ -12,7 +12,7 @@
     <Style Selector="controls|SelectBar">
         <Setter Property="ItemsPanel">
             <ItemsPanelTemplate>
-                <StackPanel Margin="5,0" Spacing="8" Orientation="Horizontal"/>
+                <StackPanel Margin="5,0" Spacing="10" Orientation="Horizontal"/>
             </ItemsPanelTemplate>
         </Setter>
         <!-- Set Defaults -->

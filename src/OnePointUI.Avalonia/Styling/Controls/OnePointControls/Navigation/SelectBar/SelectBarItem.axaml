@@ -37,8 +37,11 @@
                         <Panel>
                             <Border Width="0"
                                     Name="PART_AccentBackground"
-                                    VerticalAlignment="Stretch"
+                                    VerticalAlignment="Bottom"
                                     HorizontalAlignment="Center"
+                                    Height="4"
+                                    Margin="0,3,0,-3"
+                                    CornerRadius="5,5,0,0"
                                     Opacity="0"
                                     Background="{DynamicResource AccentBackgroundBrush}">
                                 <Border.Transitions>
@@ -47,13 +50,13 @@
                                                           Duration="0:0:0.42"
                                                           Easing="ExponentialEaseOut"></DoubleTransition>
                                         
-                                        <DoubleTransition Property="Height"
-                                                          Duration="0:0:0.42"
-                                                          Easing="ExponentialEaseOut"></DoubleTransition>
-                                        
                                         <DoubleTransition Property="Opacity"
                                                           Duration="0:0:0.6"
                                                           Easing="QuarticEaseOut"></DoubleTransition>
+                                        
+                                        <ThicknessTransition Property="Margin"
+                                                          Duration="0:0:0.3"
+                                                          Easing="QuarticEaseOut"></ThicknessTransition>
                                     </Transitions>
                                 </Border.Transitions>
                             </Border>
@@ -61,17 +64,25 @@
                     </Border>
                     
                     <Border CornerRadius="{TemplateBinding CornerRadius}"
-                            Padding="0,6">
+                            Padding="0,12">
                         <StackPanel Orientation="Horizontal">
                             <onePointControls:FontIcon Glyph="{TemplateBinding Glyph}"
                                                        Name="PART_Icon"
+                                                       FontSize="16"
                                                        VerticalAlignment="Center"
-                                                       Margin="8,0,0,0"/>
-                            
-                            <TextBlock Text="{TemplateBinding ItemText}"
-                                       Name="PART_Text"
-                                       Margin="8,0"
-                                       VerticalAlignment="Center"></TextBlock>
+                                                       Margin="8,0,8,0">
+                                <onePointControls:FontIcon.Transitions>
+                                    <Transitions>
+                                        <ThicknessTransition Property="Margin"
+                                                             Duration="0:0:0.3"
+                                                             Easing="QuarticEaseOut"></ThicknessTransition>
+                                        
+                                        <BrushTransition Property="Foreground"
+                                                             Duration="0:0:0.3"
+                                                             Easing="QuarticEaseOut"></BrushTransition>
+                                    </Transitions>
+                                </onePointControls:FontIcon.Transitions>
+                            </onePointControls:FontIcon>
                         </StackPanel>
                     </Border>
                 </Panel>
@@ -80,7 +91,8 @@
         
         <Style Selector="^:selected">
             <Style Selector="^ /template/ Border#PART_AccentBackground">
-                <Setter Property="Width" Value="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"></Setter>
+                <Setter Property="Width" Value="22"></Setter>
+                <Setter Property="Margin" Value="0"></Setter>
                 <Setter Property="Opacity" Value="1"></Setter>
             </Style>
             
@@ -89,12 +101,13 @@
             </Style>
             
             <Style Selector="^ /template/ onePointControls|FontIcon#PART_Icon">
-                <Setter Property="Foreground" Value="White"></Setter>
+                <Setter Property="Foreground" Value="{DynamicResource AccentBackgroundBrush}"></Setter>
+                <Setter Property="Margin" Value="8,-1,8,1"></Setter>
             </Style>
         </Style>
             
         <Style Selector="^:pointerover /template/ Border#PART_Background">
-            <Setter Property="Opacity" Value="0.8"></Setter>
+            <Setter Property="Opacity" Value="0.000001"></Setter>
         </Style>
     </Style>
 </Styles>
