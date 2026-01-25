@@ -78,5 +78,9 @@
         <Setter Property="Opacity" Value="0.8"></Setter>
       </Style>
     </Style>
+    
+    <Style Selector="^:disabled">
+      <Setter Property="Opacity" Value="0.6"></Setter>
+    </Style>
   </Style>
 </Styles>
