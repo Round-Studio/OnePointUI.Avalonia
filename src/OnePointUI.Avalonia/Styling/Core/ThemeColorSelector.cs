@@ -2,6 +2,7 @@ using Avalonia.Media;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using OnePointUI.Avalonia.Styling.Effect;
 
 namespace OnePointUI.Avalonia.Style.Core
 {

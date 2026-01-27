@@ -61,6 +61,7 @@ public partial class MainWindow : OnePointWindow
     private void ToggleTheme_Click(object sender, RoutedEventArgs e)
     {
         ThemeManager.Instance.SetThemeModel(ThemeManager.Instance.CurrentTheme == ThemeVariant.Dark ? ThemeVariant.Light : ThemeVariant.Dark);
+        AnimationBackground.Update();
         UpdateThemeText();
     }
     

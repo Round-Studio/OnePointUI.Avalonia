@@ -10,11 +10,15 @@
 
     <ItemGroup>
       <PackageReference Include="Avalonia" Version="11.3.10" />
+      <PackageReference Include="Avalonia.Skia" Version="11.3.10" />
+      <PackageReference Include="SkiaSharp" Version="2.88.9" />
     </ItemGroup>
 
     <ItemGroup>
       <None Remove="Assets\Fonts\SegoeFluentIcons.ttf" />
       <EmbeddedResource Include="Assets\Fonts\SegoeFluentIcons.ttf" />
+      <None Remove="Assets\Shader\bubble.sksl" />
+      <EmbeddedResource Include="Assets\Shader\bubble.sksl" />
     </ItemGroup>
 
     <ItemGroup>
@@ -32,6 +36,10 @@
         <DependentUpon>NoticePanel.axaml</DependentUpon>
         <SubType>Code</SubType>
       </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="Assets\Shader\voronoi.sksl" />
     </ItemGroup>
 
 </Project>

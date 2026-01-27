@@ -4,6 +4,7 @@ using Avalonia.Media;
 using Avalonia.Styling;
 using System;
 using System.Collections.Generic;
+using OnePointUI.Avalonia.Styling.Effect;
 
 namespace OnePointUI.Avalonia.Style.Core
 {
@@ -11,8 +12,8 @@ namespace OnePointUI.Avalonia.Style.Core
     {
         private static ThemeManager? _instance;
         private readonly Application _application;
-        private ThemeVariant _currentThemeVariant = ThemeVariant.Dark;
-        private Color _accentColor = Colors.Orange;
+        public static ThemeVariant CurrentThemeVariant = ThemeVariant.Dark;
+        public static Color AccentColor = Colors.Orange;
         
         /// <summary>
         /// 检查ThemeManager是否已初始化
@@ -115,8 +116,10 @@ namespace OnePointUI.Avalonia.Style.Core
         /// <param name="themeVariant">主题变体</param>
         public void SetTheme(ThemeVariant themeVariant)
         {
-            _currentThemeVariant = themeVariant;
+            CurrentThemeVariant = themeVariant;
             _application.RequestedThemeVariant = themeVariant;
+            
+            SkiaEffect.UpdateColor();
 
             // 应用主题资源
             ApplyThemeResources();
@@ -129,7 +132,8 @@ namespace OnePointUI.Avalonia.Style.Core
         private bool _isUpdatingAccentColors = false;
         public void SetAccentColor(Color color)
         {
-            _accentColor = color;
+            SkiaEffect.UpdateColor();
+            AccentColor = color;
             if (!_isUpdatingAccentColors)
             {
                 UpdateAccentColors();
@@ -145,7 +149,7 @@ namespace OnePointUI.Avalonia.Style.Core
             try
             {
                 // 获取当前主题的资源字典
-                var themeDictKey = _currentThemeVariant == ThemeVariant.Dark ? "DarkTheme" : "LightTheme";
+                var themeDictKey = CurrentThemeVariant == ThemeVariant.Dark ? "DarkTheme" : "LightTheme";
                 
                 // 从应用程序资源中查找主题资源字典
                 if (_application.Resources.TryGetValue(themeDictKey, out var themeDict) && themeDict is ResourceDictionary resourceDict)
@@ -174,14 +178,14 @@ namespace OnePointUI.Avalonia.Style.Core
             try
             {
                 // 更新主题色相关的资源
-                _application.Resources["AccentBackgroundBrush"] = new SolidColorBrush(_accentColor);
+                _application.Resources["AccentBackgroundBrush"] = new SolidColorBrush(AccentColor);
                 
                 // 创建边框色（稍暗的主题色）
-                var borderColor = _accentColor.Darken(0.3);
+                var borderColor = AccentColor.Darken(0.3);
                 _application.Resources["AccentBorderBrush"] = new SolidColorBrush(borderColor);
                 
                 // 创建悬停色（根据当前主题决定是变亮还是变暗）
-                var hoverColor = _accentColor.Darken(0.5);
+                var hoverColor = AccentColor.Darken(0.5);
                 _application.Resources["AccentBackgroundOverBrush"] = new SolidColorBrush(hoverColor);
             }
             finally
@@ -193,11 +197,11 @@ namespace OnePointUI.Avalonia.Style.Core
         /// <summary>
         /// 获取当前主题变体
         /// </summary>
-        public ThemeVariant CurrentTheme => _currentThemeVariant;
+        public ThemeVariant CurrentTheme => CurrentThemeVariant;
 
         /// <summary>
         /// 获取当前主题色
         /// </summary>
-        public Color CurrentAccentColor => _accentColor;
+        public Color CurrentAccentColor => AccentColor;
     }
 }

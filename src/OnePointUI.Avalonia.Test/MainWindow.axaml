@@ -7,6 +7,7 @@
                 xmlns:pages="clr-namespace:OnePointUI.Avalonia.Test.Pages"
                 xmlns:dialog="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls.Dialog;assembly=OnePointUI.Avalonia"
                 xmlns:windowFrame="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls.WindowFrame;assembly=OnePointUI.Avalonia"
+                xmlns:view="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls.View;assembly=OnePointUI.Avalonia"
                 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
                 x:Class="OnePointUI.Avalonia.Test.MainWindow"
                 Width="800" Height="450"
@@ -15,6 +16,8 @@
                 Title="OnePointUI.Avalonia.Test">
     <windowFrame:OnePointWindow.MainContent>
         <Grid>
+            <view:AnimationBackground BackgroundType="Bubble"
+                                      Name="AnimationBackground"/>
             <TabControl>
                 <TabItem Header="Basic Controls">
                     <pages:BasicControls/>
@@ -47,8 +50,6 @@
                     </StackPanel>
                 </TabItem>
             </TabControl>
-            
-            <Button Click="Button_OnClick">1111</Button>
         </Grid>
     </windowFrame:OnePointWindow.MainContent>
 </windowFrame:OnePointWindow>
