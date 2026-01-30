@@ -175,7 +175,7 @@
                       ClipToBounds="True"
                       Margin="0,5,0,0"
                       HorizontalAlignment="Stretch"
-                      CornerRadius="6">
+                      CornerRadius="10">
                 <Border.Styles>
                   <Style>
                     <Style.Animations>

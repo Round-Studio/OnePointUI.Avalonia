@@ -25,7 +25,15 @@
                                FontSize="{TemplateBinding FontSize}"
                                Margin="5,0"
                                VerticalAlignment="Center"
-                               Name="PATH_TextBlock"/>
+                               Name="PATH_TextBlock1"/>
+                    
+                    <TextBlock Text="{TemplateBinding Text}"
+                               FontSize="{TemplateBinding FontSize}"
+                               Margin="5,0"
+                               Opacity="0"
+                               Foreground="White"
+                               VerticalAlignment="Center"
+                               Name="PATH_TextBlock2"/>
                     
                     <Border Height="6"
                             Name="PATH_HaloBorder"
@@ -56,6 +64,16 @@
             </Setter>
         </Style>
         
+        <Style Selector="^ TextBlock#PATH_TextBlock2">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <DoubleTransition Property="Opacity"
+                                      Duration="0:0:0.38"
+                                      Easing="ExponentialEaseOut"/>
+                </Transitions>
+            </Setter>
+        </Style>
+        
         <!-- 悬停时改变 Border 的高度 -->
         <Style Selector="^:pointerover Border#PATH_LineBorder">
             <Setter Property="Height" 
@@ -69,8 +87,8 @@
                    RelativeSource={RelativeSource AncestorType=Control}}" />
         </Style>
         
-        <Style Selector="^:pointerover TextBlock#PATH_TextBlock">
-            <Setter Property="Foreground" Value="White"/>
+        <Style Selector="^:pointerover TextBlock#PATH_TextBlock2">
+            <Setter Property="Opacity" Value="1"/>
         </Style>
     </Style>
 </Styles>
