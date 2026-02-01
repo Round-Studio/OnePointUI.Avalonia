@@ -8,9 +8,9 @@
 
     <!-- Add Styles Here -->
     <Style Selector="TextBlock">
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
     </Style>
     <Style Selector="TextBlock.Accent">
-        <Setter Property="Foreground" Value="{DynamicResource AccentBackgroundBrush}"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource AccentBackgroundBrush}" />
     </Style>
 </Styles>

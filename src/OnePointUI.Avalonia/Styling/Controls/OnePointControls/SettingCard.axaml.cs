@@ -1,8 +1,6 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Controls.Primitives;
 using Avalonia.Media;
-using Avalonia.Media.Imaging;
 
 namespace OnePointUI.Avalonia.Styling.Controls.OnePointControls;
 
@@ -10,13 +8,13 @@ public class SettingCard : Button
 {
     public static readonly StyledProperty<string> GlyphProperty =
         AvaloniaProperty.Register<SettingCard, string>(nameof(Glyph), "");
-    
+
     public static readonly StyledProperty<object> HeaderProperty =
         AvaloniaProperty.Register<SettingCard, object>(nameof(Header));
-    
+
     public static readonly StyledProperty<object> DescriptionProperty =
         AvaloniaProperty.Register<SettingCard, object>(nameof(Description));
-    
+
     public static readonly StyledProperty<bool> IsClickableProperty =
         AvaloniaProperty.Register<SettingCard, bool>(nameof(IsClickable));
 
@@ -37,31 +35,31 @@ public class SettingCard : Button
         get => GetValue(GlyphProperty);
         set => SetValue(GlyphProperty, value);
     }
-    
+
     public object Header
     {
         get => GetValue(HeaderProperty);
         set => SetValue(HeaderProperty, value);
     }
-    
+
     public object Description
     {
         get => GetValue(DescriptionProperty);
         set => SetValue(DescriptionProperty, value);
     }
-    
+
     public bool IsClickable
     {
         get => GetValue(IsClickableProperty);
         set => SetValue(IsClickableProperty, value);
     }
-    
+
     public bool IsShowActionIcon
     {
         get => GetValue(IsShowActionIconProperty);
         set => SetValue(IsShowActionIconProperty, value);
     }
-    
+
     public bool IsFontIcon
     {
         get => GetValue(IsFontIconProperty);
@@ -72,13 +70,13 @@ public class SettingCard : Button
             SetValue(IsNotFontIconProperty, !value);
         }
     }
-    
+
     public bool IsNotFontIcon
     {
         get => GetValue(IsNotFontIconProperty);
         set => SetValue(IsNotFontIconProperty, value);
     }
-    
+
     public IImage ImageIcon
     {
         get => GetValue(ImageIconProperty);
@@ -91,9 +89,6 @@ public class SettingCard : Button
         base.OnPropertyChanged(change);
 
         // 当 IsFontIcon 属性改变时，自动更新 IsNotFontIcon
-        if (change.Property == IsFontIconProperty)
-        {
-            SetValue(IsNotFontIconProperty, !(bool)change.NewValue!);
-        }
+        if (change.Property == IsFontIconProperty) SetValue(IsNotFontIconProperty, !(bool)change.NewValue!);
     }
 }

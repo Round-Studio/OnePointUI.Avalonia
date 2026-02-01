@@ -1,16 +1,17 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Rendering.Composition;
-using OnePointUI.Avalonia.Style.Core;
 using SkiaSharp;
 
 namespace OnePointUI.Avalonia.Styling.Effect;
 
-public sealed class SkiaShaderRenderer : Control {
+public sealed class SkiaShaderRenderer : Control
+{
     private CompositionCustomVisual _customVisual;
     private SkiaEffect _sukiEffect;
 
-    protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e) {
+    protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
+    {
         base.OnAttachedToVisualTree(e);
         var comp = ElementComposition.GetElementVisual(this)?.Compositor;
         if (comp == null || _customVisual?.Compositor == comp)
@@ -20,59 +21,69 @@ public sealed class SkiaShaderRenderer : Control {
         _customVisual = comp.CreateCustomVisual(visualHandler);
         ElementComposition.SetElementChildVisual(this, _customVisual);
         _customVisual.SendHandlerMessage(EffectDrawBase.StartAnimations);
-        if (_sukiEffect != null) 
+        if (_sukiEffect != null)
             _customVisual.SendHandlerMessage(_sukiEffect);
 
         Update();
     }
 
-    private void Update() {
+    private void Update()
+    {
         if (_customVisual == null) return;
         _customVisual.Size = new Vector(Bounds.Width, Bounds.Height);
     }
 
-    public void Stop() {
+    public void Stop()
+    {
         IsVisible = false;
-        if(_customVisual!=null)
+        if (_customVisual != null)
             _customVisual.SendHandlerMessage(EffectDrawBase.StopAnimations);
     }
 
-    public void Start() {
+    public void Start()
+    {
         IsVisible = true;
-        if(_customVisual!=null)
+        if (_customVisual != null)
             _customVisual.SendHandlerMessage(EffectDrawBase.StartAnimations);
     }
 
-    public void SetEffect(SkiaEffect effect) {
+    public void SetEffect(SkiaEffect effect)
+    {
         _sukiEffect = effect;
         _customVisual?.SendHandlerMessage(effect);
     }
 
-    protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change) {
+    protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
+    {
         base.OnPropertyChanged(change);
 
         if (change.Property == BoundsProperty)
             Update();
     }
 
-    private class ShaderDraw : EffectDrawBase {
-        public ShaderDraw() {
+    private class ShaderDraw : EffectDrawBase
+    {
+        public ShaderDraw()
+        {
             AnimationEnabled = true;
             AnimationSpeedScale = 2f;
         }
 
-        protected override void Render(SKCanvas canvas, SKRect rect) {
+        protected override void Render(SKCanvas canvas, SKRect rect)
+        {
             using var mainShaderPaint = new SKPaint();
 
-            if (Effect is not null) {
+            if (Effect is not null)
+            {
                 using var shader = EffectWithUniforms();
                 mainShaderPaint.Shader = shader;
                 canvas.DrawRect(rect, mainShaderPaint);
             }
         }
 
-        protected override void RenderSoftware(SKCanvas canvas, SKRect rect) {
-            throw new System.NotImplementedException();
+        protected override void RenderSoftware(SKCanvas canvas, SKRect rect)
+        {
+            throw new NotImplementedException();
         }
     }
 }

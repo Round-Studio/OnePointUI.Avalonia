@@ -9,11 +9,12 @@
              x:Class="OnePointUI.Avalonia.Styling.Controls.OnePointControls.PointHalo">
     <UserControl.Styles>
         <Style Selector="onePointControls|PointHalo">
-            <Setter Property="CornerRadius" Value="6"></Setter>
-            <Setter Property="ClipToBounds" Value="True"></Setter>
-            
+            <Setter Property="CornerRadius" Value="6" />
+            <Setter Property="ClipToBounds" Value="True" />
+
             <Style Selector="^ /template/ Border#PATH_Border">
-                <Setter Property="CornerRadius" Value="{Binding CornerRadius, RelativeSource={RelativeSource TemplatedParent}}"></Setter>
+                <Setter Property="CornerRadius"
+                        Value="{Binding CornerRadius, RelativeSource={RelativeSource TemplatedParent}}" />
             </Style>
         </Style>
     </UserControl.Styles>
@@ -32,16 +33,16 @@
                         <Setter Property="Transitions">
                             <Transitions>
                                 <DoubleTransition Property="Opacity"
-                                                  Duration="0:0:0.18"></DoubleTransition>
+                                                  Duration="0:0:0.18" />
                             </Transitions>
                         </Setter>
                     </Style>
                 </Ellipse.Styles>
                 <Ellipse.Fill>
-                    <RadialGradientBrush Center="80,80" 
+                    <RadialGradientBrush Center="80,80"
                                          GradientOrigin="80,80">
-                        <GradientStop Color="Gray" Offset="0"/>
-                        <GradientStop Color="Transparent" Offset="0.8"/>
+                        <GradientStop Color="Gray" Offset="0" />
+                        <GradientStop Color="Transparent" Offset="0.8" />
                     </RadialGradientBrush>
                 </Ellipse.Fill>
             </Ellipse>

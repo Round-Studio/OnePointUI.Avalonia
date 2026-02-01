@@ -7,10 +7,10 @@
              x:Class="OnePointUI.Avalonia.Styling.Controls.OnePointControls.Navigation.Breadcrumb.BreadcrumbBar">
     <UserControl.Styles>
         <Style Selector="onePointControls|FontIcon">
-            <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}"></Setter>
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
         </Style>
     </UserControl.Styles>
-    
+
     <ScrollViewer>
         <StackPanel Orientation="Horizontal">
             <Button Classes="NoBorder"
@@ -18,10 +18,10 @@
                     FontSize="24"
                     Padding="8,4"
                     Margin="0,0,8,0"
-                    Click="RootItemBox_OnClick"/>
+                    Click="RootItemBox_OnClick" />
             <StackPanel Orientation="Horizontal"
                         VerticalAlignment="Center"
-                        Name="ItemsBar"></StackPanel>
+                        Name="ItemsBar" />
         </StackPanel>
     </ScrollViewer>
 </UserControl>

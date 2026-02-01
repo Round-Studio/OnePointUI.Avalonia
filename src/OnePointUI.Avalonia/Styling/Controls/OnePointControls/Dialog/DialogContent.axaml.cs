@@ -1,7 +1,5 @@
-﻿using Avalonia;
-using Avalonia.Controls;
+﻿using Avalonia.Controls;
 using Avalonia.Interactivity;
-using Avalonia.Markup.Xaml;
 using OnePointUI.Avalonia.Base.Entry;
 using OnePointUI.Avalonia.Base.Enum;
 
@@ -9,14 +7,15 @@ namespace OnePointUI.Avalonia.Styling.Controls.OnePointControls.Dialog;
 
 public partial class DialogContent : UserControl
 {
-    private DialogInfo _info;
+    private readonly DialogInfo _info;
+
     public DialogContent(DialogInfo info)
     {
         _info = info;
         InitializeComponent();
-        
-        this.TitleBox.Text = info.Title;
-        this.ContentBox.Content = info.Content;
+
+        TitleBox.Text = info.Title;
+        ContentBox.Content = info.Content;
 
         switch (info.AccountButton)
         {
@@ -36,11 +35,13 @@ public partial class DialogContent : UserControl
             CloseBtn.IsVisible = true;
             CloseBtn.Content = info.CloseButtonText;
         }
+
         if (info.PrimaryButtonText != null)
         {
             PrimaryBtn.IsVisible = true;
             PrimaryBtn.Content = info.PrimaryButtonText;
         }
+
         if (info.SecondaryButtonText != null)
         {
             SecondaryBtn.IsVisible = true;
@@ -50,9 +51,7 @@ public partial class DialogContent : UserControl
         if (info.CloseButtonText == null &&
             info.PrimaryButtonText == null &&
             info.SecondaryButtonText == null)
-        {
             BtnBorder.Height = 0;
-        }
     }
 
     private void CloseBtn_OnClick(object? sender, RoutedEventArgs e)

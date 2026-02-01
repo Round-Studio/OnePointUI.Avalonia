@@ -17,13 +17,13 @@
                 <Transitions>
                     <DoubleTransition Duration="0:0:0.5"
                                       Easing="ExponentialEaseOut"
-                                      Property="Opacity"></DoubleTransition>
+                                      Property="Opacity" />
                 </Transitions>
             </Grid.Transitions>
         </Grid>
-        
+
         <ContentControl HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Name="DialogBox"></ContentControl>
+                        Name="DialogBox" />
     </Grid>
 </UserControl>

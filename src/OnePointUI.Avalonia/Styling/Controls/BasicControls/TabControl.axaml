@@ -1,12 +1,12 @@
 ﻿<Styles xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    x:CompileBindings="True">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:CompileBindings="True">
     <Design.PreviewWith>
         <Border Width="400">
             <TabControl>
                 <TabItem Header="Arch">
                     <Border Height="100">
-                        <TextBlock Text="Content" Foreground="{DynamicResource PrimaryForegroundBrush}" FontSize="20"/>
+                        <TextBlock Text="Content" Foreground="{DynamicResource PrimaryForegroundBrush}" FontSize="20" />
                     </Border>
                 </TabItem>
                 <TabItem Header="Leafaa11111aaaaaa">
@@ -32,7 +32,7 @@
                     <DockPanel>
                         <ItemsPresenter Name="PART_ItemsPresenter"
                                         ItemsPanel="{TemplateBinding ItemsPanel}"
-                                        DockPanel.Dock="{TemplateBinding TabStripPlacement}"/>
+                                        DockPanel.Dock="{TemplateBinding TabStripPlacement}" />
                         <ContentPresenter Name="PART_SelectedContentHost"
                                           Margin="{TemplateBinding Padding}"
                                           HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -85,20 +85,18 @@
                         <Border HorizontalAlignment="Stretch"
                                 VerticalAlignment="Bottom"
                                 CornerRadius="10"
-                                Height="0" 
+                                Height="0"
                                 Name="PART_SelectedPipe"
-                                Background="{DynamicResource PrimaryForegroundBrush}">
-                            
-                        </Border>
+                                Background="{DynamicResource PrimaryForegroundBrush}" />
                     </Panel>
                 </Border>
             </ControlTemplate>
         </Setter>
-        
+
         <Style Selector="^ /template/ Border#PART_SelectedPipe">
             <Setter Property="Transitions">
                 <Transitions>
-                    <DoubleTransition Property="Height" Duration="0:0:0.18" Easing="BackEaseOut"></DoubleTransition>
+                    <DoubleTransition Property="Height" Duration="0:0:0.18" Easing="BackEaseOut" />
                 </Transitions>
             </Setter>
         </Style>
@@ -116,9 +114,9 @@
 
         <!-- 悬停状态 -->
         <Style Selector="^:pointerover">
-            <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" /> 
-            <Setter Property="Background" Value="Transparent"></Setter>
-            
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
+            <Setter Property="Background" Value="Transparent" />
+
             <Style Selector="^ /template/ Border#PART_SelectedPipe">
                 <Setter Property="Height" Value="4" />
             </Style>
@@ -161,7 +159,7 @@
         <!-- 右侧放置样式 -->
         <Style Selector="^[TabStripPlacement=Right]">
             <Setter Property="HorizontalContentAlignment" Value="Right" />
-            
+
             <Style Selector="^ /template/ Rectangle#PART_SelectedPipe">
                 <Setter Property="Width" Value="3" />
                 <Setter Property="Height" Value="24" />

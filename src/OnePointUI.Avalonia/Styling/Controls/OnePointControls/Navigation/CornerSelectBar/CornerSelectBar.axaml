@@ -8,14 +8,14 @@
     <Style Selector="controls|CornerSelectBar">
         <Setter Property="ItemsPanel">
             <ItemsPanelTemplate>
-                <StackPanel Margin="5,0" Spacing="8" Orientation="Horizontal"/>
+                <StackPanel Margin="5,0" Spacing="8" Orientation="Horizontal" />
             </ItemsPanelTemplate>
         </Setter>
         <!-- Set Defaults -->
         <Setter Property="Template">
             <ControlTemplate>
                 <ItemsPresenter Name="PART_ItemsPresenter"
-                                ItemsPanel="{TemplateBinding ItemsPanel}"/>
+                                ItemsPanel="{TemplateBinding ItemsPanel}" />
             </ControlTemplate>
         </Setter>
     </Style>

@@ -1,30 +1,29 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
-using OnePointUI.Avalonia.Base.Enum;
-using System.Threading;
 using Avalonia.Interactivity;
+using OnePointUI.Avalonia.Base.Enum;
 
 namespace OnePointUI.Avalonia.Styling.Controls.OnePointControls.Navigation;
 
 public partial class NavigationFrame : UserControl
 {
-    public NavigationFrameDirection NavigationFrameDirection { get; set; } = NavigationFrameDirection.Top;
-    private bool IsOneFrame = false;
-    private int ToPx = 50;
-    
-    private CancellationTokenSource _hideFrameCts;
-    
+    private readonly int ToPx = 50;
+    private ContentControl _currentFrame;
+
     // 存储当前和上一页的引用，用于销毁
     private object _currentPage;
-    private object _previousPage;
-    private ContentControl _currentFrame;
+
+    private CancellationTokenSource _hideFrameCts;
     private ContentControl _previousFrame;
+    private object _previousPage;
+    private bool IsOneFrame;
 
     public NavigationFrame()
     {
         InitializeComponent();
     }
+
+    public NavigationFrameDirection NavigationFrameDirection { get; set; } = NavigationFrameDirection.Top;
 
     public async void NavigateTo(object page)
     {
@@ -39,12 +38,12 @@ public partial class NavigationFrame : UserControl
         if (!IsOneFrame)
         {
             IsOneFrame = true;
-            
+
             // 设置即将隐藏的Frame（Frame2）
             Frame2.Opacity = 0;
-            if (NavigationFrameDirection == NavigationFrameDirection.Top) 
+            if (NavigationFrameDirection == NavigationFrameDirection.Top)
                 Frame2.Margin = new Thickness(0, ToPx, 0, -ToPx);
-            else 
+            else
                 Frame2.Margin = new Thickness(ToPx, 0, -ToPx, 0);
 
             // 立即显示并重置目标Frame（Frame1）的状态
@@ -52,7 +51,7 @@ public partial class NavigationFrame : UserControl
             Frame1.Opacity = 1;
             Frame1.Margin = new Thickness(0);
             Frame1.Content = page;
-            
+
             // 更新引用
             _previousPage = Frame2.Content;
             _previousFrame = Frame2;
@@ -62,7 +61,7 @@ public partial class NavigationFrame : UserControl
             try
             {
                 await Task.Delay(290, token);
-                
+
                 if (!token.IsCancellationRequested)
                 {
                     Frame2.IsVisible = false;
@@ -78,12 +77,12 @@ public partial class NavigationFrame : UserControl
         else
         {
             IsOneFrame = false;
-            
+
             // 设置即将隐藏的Frame（Frame1）
             Frame1.Opacity = 0;
-            if (NavigationFrameDirection == NavigationFrameDirection.Top) 
+            if (NavigationFrameDirection == NavigationFrameDirection.Top)
                 Frame1.Margin = new Thickness(0, ToPx, 0, -ToPx);
-            else 
+            else
                 Frame1.Margin = new Thickness(ToPx, 0, -ToPx, 0);
 
             // 立即显示并重置目标Frame（Frame2）的状态
@@ -91,7 +90,7 @@ public partial class NavigationFrame : UserControl
             Frame2.Opacity = 1;
             Frame2.Margin = new Thickness(0);
             Frame2.Content = page;
-            
+
             // 更新引用
             _previousPage = Frame1.Content;
             _previousFrame = Frame1;
@@ -101,7 +100,7 @@ public partial class NavigationFrame : UserControl
             try
             {
                 await Task.Delay(290, token);
-                
+
                 if (!token.IsCancellationRequested)
                 {
                     Frame1.IsVisible = false;
@@ -117,47 +116,34 @@ public partial class NavigationFrame : UserControl
     }
 
     /// <summary>
-    /// 销毁上一页的内容
+    ///     销毁上一页的内容
     /// </summary>
     private void DestroyPreviousPage()
     {
         if (_previousPage == null) return;
-        
+
         try
         {
             // 如果页面实现了 IDisposable，调用 Dispose()
-            if (_previousPage is IDisposable disposable)
-            {
-                disposable.Dispose();
-            }
-            
+            if (_previousPage is IDisposable disposable) disposable.Dispose();
+
             // 如果页面是 Control，从视觉树中移除
             if (_previousPage is Control control)
             {
                 // 清除所有绑定
                 control.DataContext = null;
-                
+
                 // 从父容器中移除
                 if (control.Parent is Panel panel)
-                {
                     panel.Children.Remove(control);
-                }
                 else if (control.Parent is Decorator decorator)
-                {
                     decorator.Child = null;
-                }
-                else if (control.Parent is ContentControl contentControl)
-                {
-                    contentControl.Content = null;
-                }
+                else if (control.Parent is ContentControl contentControl) contentControl.Content = null;
             }
-            
+
             // 清除 Frame 的内容
-            if (_previousFrame != null)
-            {
-                ClearFrameContent(_previousFrame);
-            }
-            
+            if (_previousFrame != null) ClearFrameContent(_previousFrame);
+
             // 清空引用，帮助垃圾回收
             _previousPage = null;
             _previousFrame = null;
@@ -170,36 +156,33 @@ public partial class NavigationFrame : UserControl
     }
 
     /// <summary>
-    /// 清除 Frame 的内容，并尝试释放资源
+    ///     清除 Frame 的内容，并尝试释放资源
     /// </summary>
     private void ClearFrameContent(ContentControl frame)
     {
         if (frame.Content == null) return;
-        
+
         try
         {
             var content = frame.Content;
-            
+
             // 首先清空 Frame 的内容
             frame.Content = null;
-            
+
             // 如果内容实现了 IDisposable，调用 Dispose()
-            if (content is IDisposable disposable)
-            {
-                disposable.Dispose();
-            }
-            
+            if (content is IDisposable disposable) disposable.Dispose();
+
             // 如果内容是 Control，清理资源
             if (content is Control control)
             {
                 // 清除数据上下文
                 control.DataContext = null;
-                
+
                 // 清除样式
                 control.Classes.Clear();
-                
+
                 // 触发卸载事件（如果页面有相应的处理逻辑）
-                control.RaiseEvent(new RoutedEventArgs(Control.UnloadedEvent));
+                control.RaiseEvent(new RoutedEventArgs(UnloadedEvent));
             }
         }
         catch (Exception ex)
@@ -209,7 +192,7 @@ public partial class NavigationFrame : UserControl
     }
 
     /// <summary>
-    /// 完全销毁导航器中的所有内容
+    ///     完全销毁导航器中的所有内容
     /// </summary>
     public void DestroyAll()
     {
@@ -219,17 +202,17 @@ public partial class NavigationFrame : UserControl
             _hideFrameCts?.Cancel();
             _hideFrameCts?.Dispose();
             _hideFrameCts = null;
-            
+
             // 销毁当前页
             DestroyPage(_currentPage, _currentFrame);
-            
+
             // 销毁上一页
             DestroyPage(_previousPage, _previousFrame);
-            
+
             // 清除 Frame 内容
             ClearFrameContent(Frame1);
             ClearFrameContent(Frame2);
-            
+
             // 重置状态
             _currentPage = null;
             _previousPage = null;
@@ -244,25 +227,19 @@ public partial class NavigationFrame : UserControl
     }
 
     /// <summary>
-    /// 销毁指定页面
+    ///     销毁指定页面
     /// </summary>
     private void DestroyPage(object page, ContentControl frame)
     {
         if (page == null) return;
-        
+
         try
         {
             // 如果是可释放对象
-            if (page is IDisposable disposable)
-            {
-                disposable.Dispose();
-            }
-            
+            if (page is IDisposable disposable) disposable.Dispose();
+
             // 清理 Frame
-            if (frame != null)
-            {
-                frame.Content = null;
-            }
+            if (frame != null) frame.Content = null;
         }
         catch (Exception ex)
         {
@@ -271,7 +248,7 @@ public partial class NavigationFrame : UserControl
     }
 
     /// <summary>
-    /// 获取当前页面
+    ///     获取当前页面
     /// </summary>
     public object GetCurrentPage()
     {
@@ -279,7 +256,7 @@ public partial class NavigationFrame : UserControl
     }
 
     /// <summary>
-    /// 当控件被卸载时，清理资源
+    ///     当控件被卸载时，清理资源
     /// </summary>
     protected override void OnUnloaded(RoutedEventArgs e)
     {
@@ -288,17 +265,17 @@ public partial class NavigationFrame : UserControl
     }
 
     /// <summary>
-    /// 直接清空导航器（不带动画）
+    ///     直接清空导航器（不带动画）
     /// </summary>
     public void Clear()
     {
         _hideFrameCts?.Cancel();
-        
+
         Frame1.Content = null;
         Frame2.Content = null;
         Frame1.IsVisible = false;
         Frame2.IsVisible = false;
-        
+
         _currentPage = null;
         _previousPage = null;
         _currentFrame = null;

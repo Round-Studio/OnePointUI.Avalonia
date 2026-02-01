@@ -1,6 +1,4 @@
-﻿using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
+﻿using Avalonia.Controls;
 using OnePointUI.Avalonia.Base.Entry;
 
 namespace OnePointUI.Avalonia.Styling.Controls.OnePointControls.Dialog;

@@ -10,19 +10,19 @@
                 <Transitions>
                     <ThicknessTransition Property="Margin"
                                          Easing="ExponentialEaseOut"
-                                         Duration="0:0:0.38"></ThicknessTransition>
-                    
+                                         Duration="0:0:0.38" />
+
                     <DoubleTransition Property="Opacity"
                                       Easing="ExponentialEaseOut"
-                                      Duration="0:0:0.38"></DoubleTransition>
+                                      Duration="0:0:0.38" />
                 </Transitions>
             </Setter>
         </Style>
     </UserControl.Styles>
     <Grid>
-        <ContentControl Name="Frame1"></ContentControl>
-        <ContentControl Name="Frame2" 
+        <ContentControl Name="Frame1" />
+        <ContentControl Name="Frame2"
                         Opacity="0"
-                        Margin="0,800,0,-800"></ContentControl>
+                        Margin="0,800,0,-800" />
     </Grid>
 </UserControl>

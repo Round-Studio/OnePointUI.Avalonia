@@ -3,9 +3,9 @@
              xmlns:core="clr-namespace:OnePointUI.Avalonia.Style.Core;assembly=OnePointUI.Avalonia"
              x:Class="OnePointUI.Avalonia.Test.App"
              RequestedThemeVariant="Dark">
-             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+    <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
     <Application.Styles>
-        <core:OnePointTheme AccentColor="DeepPink" ThemeVariant="Dark"/>
+        <core:OnePointTheme AccentColor="DeepPink" ThemeVariant="Dark" />
     </Application.Styles>
 </Application>

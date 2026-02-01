@@ -6,8 +6,8 @@
     </Design.PreviewWith>
 
     <Style Selector="controls|BorderCard">
-        <Setter Property="CornerRadius" Value="6"></Setter>
-        <Setter Property="Padding" Value="8"></Setter>
+        <Setter Property="CornerRadius" Value="6" />
+        <Setter Property="Padding" Value="8" />
         <!-- Set Defaults -->
         <Setter Property="Template">
             <ControlTemplate>
@@ -15,16 +15,15 @@
                     <Border BorderThickness="1"
                             BorderBrush="{DynamicResource PrimaryBackgroundBrush}"
                             CornerRadius="{TemplateBinding CornerRadius}"
-                            Opacity="0.8">
-                    </Border>
-                    
+                            Opacity="0.8" />
+
                     <Border Background="{DynamicResource PrimaryBorderBrush}"
                             CornerRadius="{TemplateBinding CornerRadius}"
                             Margin="1"
-                            Opacity="0.78"></Border>
-                    
+                            Opacity="0.78" />
+
                     <ContentPresenter Content="{TemplateBinding Content}"
-                                      Padding="{TemplateBinding Padding}"></ContentPresenter>
+                                      Padding="{TemplateBinding Padding}" />
                 </Panel>
             </ControlTemplate>
         </Setter>

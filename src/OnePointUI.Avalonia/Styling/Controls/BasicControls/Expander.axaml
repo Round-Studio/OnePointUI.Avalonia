@@ -22,32 +22,32 @@
                         BorderBrush="{DynamicResource PrimaryBorderBrush}">
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                    
-                        <ToggleButton Width="{TemplateBinding Width}" Height="40"  Name="HeardBtn" Classes="Expander">
+
+                        <ToggleButton Width="{TemplateBinding Width}" Height="40" Name="HeardBtn" Classes="Expander">
                             <Grid Width="{TemplateBinding Width}">
                                 <ContentPresenter Content="{TemplateBinding Header}"
-                                                  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10"></ContentPresenter>
+                                                  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10" />
                             </Grid>
                         </ToggleButton>
-                    
-                        <Border Grid.Row="1" Name="MainContent" 
+
+                        <Border Grid.Row="1" Name="MainContent"
                                 Padding="4"
                                 IsVisible="{Binding #HeardBtn.IsChecked}">
-                            <ContentPresenter Content="{TemplateBinding Content}"></ContentPresenter>
+                            <ContentPresenter Content="{TemplateBinding Content}" />
                         </Border>
                     </Grid>
                 </Border>
             </ControlTemplate>
         </Setter>
     </Style>
-    
+
     <Style Selector="ToggleButton#HeardBtn:checked Expander">
-        <Setter Property="IsExpanded" Value="True"></Setter>
+        <Setter Property="IsExpanded" Value="True" />
     </Style>
     <Style Selector="ToggleButton#HeardBtn:unchecked Expander">
-        <Setter Property="IsExpanded" Value="False"></Setter>
+        <Setter Property="IsExpanded" Value="False" />
     </Style>
 </Styles>

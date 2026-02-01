@@ -1,5 +1,4 @@
 ﻿using Avalonia;
-using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Media;
 
@@ -14,36 +13,42 @@ public class InfoBar : TemplatedControl
         Info,
         Success
     }
-    
+
     public static readonly StyledProperty<string> GlyphProperty =
         AvaloniaProperty.Register<InfoBar, string>(nameof(Glyph), "");
+
+    public static readonly StyledProperty<string> TitleProperty =
+        AvaloniaProperty.Register<InfoBar, string>(nameof(Title), "Title");
+
+    public static readonly StyledProperty<string> MessageProperty =
+        AvaloniaProperty.Register<InfoBar, string>(nameof(Message), "Message");
+
+    public static readonly StyledProperty<InfoBarType> StateProperty =
+        AvaloniaProperty.Register<InfoBar, InfoBarType>(nameof(State), InfoBarType.Info);
+
+    public static readonly StyledProperty<IBrush> BackcolorProperty =
+        AvaloniaProperty.Register<InfoBar, IBrush>(nameof(Backcolor));
+
+    public static readonly StyledProperty<IBrush> IconColorProperty =
+        AvaloniaProperty.Register<InfoBar, IBrush>(nameof(IconColor));
 
     public string Glyph
     {
         get => GetValue(GlyphProperty);
         set => SetValue(GlyphProperty, value);
     }
-    
-    public static readonly StyledProperty<string> TitleProperty =
-        AvaloniaProperty.Register<InfoBar, string>(nameof(Title), "Title");
 
     public string Title
     {
         get => GetValue(TitleProperty);
         set => SetValue(TitleProperty, value);
     }
-    
-    public static readonly StyledProperty<string> MessageProperty =
-        AvaloniaProperty.Register<InfoBar, string>(nameof(Message), "Message");
 
     public string Message
     {
         get => GetValue(MessageProperty);
         set => SetValue(MessageProperty, value);
     }
-    
-    public static readonly StyledProperty<InfoBarType> StateProperty =
-        AvaloniaProperty.Register<InfoBar, InfoBarType>(nameof(State), InfoBarType.Info);
 
     public InfoBarType State
     {
@@ -57,17 +62,11 @@ public class InfoBar : TemplatedControl
         }
     }
 
-    public static readonly StyledProperty<IBrush> BackcolorProperty =
-        AvaloniaProperty.Register<InfoBar, IBrush>(nameof(Backcolor));
-
     public IBrush Backcolor
     {
         get => GetValue(BackcolorProperty);
         set => SetValue(BackcolorProperty, value); // 即使内部不存储，也需要setter
     }
-
-    public static readonly StyledProperty<IBrush> IconColorProperty =
-        AvaloniaProperty.Register<InfoBar, IBrush>(nameof(IconColor));
 
     public IBrush IconColor
     {
@@ -75,26 +74,36 @@ public class InfoBar : TemplatedControl
         set => SetValue(IconColorProperty, value); // 即使内部不存储，也需要setter
     }
 
-    public IBrush GetIconColor() => State switch
+    public IBrush GetIconColor()
     {
-        InfoBarType.Error => Brush.Parse("#FF99A4"),
-        InfoBarType.Warning => Brush.Parse("#FCE100"),
-        InfoBarType.Info => Brush.Parse("#0F64A3"),
-        InfoBarType.Success => Brush.Parse("#6CCB5F")
-    };
+        return State switch
+        {
+            InfoBarType.Error => Brush.Parse("#FF99A4"),
+            InfoBarType.Warning => Brush.Parse("#FCE100"),
+            InfoBarType.Info => Brush.Parse("#0F64A3"),
+            InfoBarType.Success => Brush.Parse("#6CCB5F")
+        };
+    }
 
-    public IBrush GetColor() => State switch
+    public IBrush GetColor()
     {
-        InfoBarType.Error => Brushes.DarkRed,
-        InfoBarType.Warning => Brushes.DarkGoldenrod,
-        InfoBarType.Info => Brushes.Transparent,
-        InfoBarType.Success => Brushes.Green
-    };
-    public string GetGlyph() => State switch
+        return State switch
+        {
+            InfoBarType.Error => Brushes.DarkRed,
+            InfoBarType.Warning => Brushes.DarkGoldenrod,
+            InfoBarType.Info => Brushes.Transparent,
+            InfoBarType.Success => Brushes.Green
+        };
+    }
+
+    public string GetGlyph()
     {
-        InfoBarType.Error => "\uEB90",
-        InfoBarType.Warning => "\uE814",
-        InfoBarType.Info => "\uF167",
-        InfoBarType.Success => "\uEC61"
-    };
+        return State switch
+        {
+            InfoBarType.Error => "\uEB90",
+            InfoBarType.Warning => "\uE814",
+            InfoBarType.Info => "\uF167",
+            InfoBarType.Success => "\uEC61"
+        };
+    }
 }

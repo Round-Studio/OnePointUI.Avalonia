@@ -5,5 +5,5 @@
              xmlns:effect="clr-namespace:OnePointUI.Avalonia.Styling.Effect"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="OnePointUI.Avalonia.Styling.Controls.OnePointControls.View.AnimationBackground">
-    <effect:SkiaShaderRenderer Name="SkiaShaderRenderer"/>
+    <effect:SkiaShaderRenderer Name="SkiaShaderRenderer" />
 </UserControl>

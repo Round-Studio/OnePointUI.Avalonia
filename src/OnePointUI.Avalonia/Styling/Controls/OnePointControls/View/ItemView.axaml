@@ -8,9 +8,7 @@
     <Style Selector="controls|ItemView">
         <Setter Property="ItemsPanel">
             <ItemsPanelTemplate>
-                <WrapPanel Margin="5,0">
-                
-                </WrapPanel>
+                <WrapPanel Margin="5,0" />
             </ItemsPanelTemplate>
         </Setter>
         <!-- Set Defaults -->
@@ -28,7 +26,7 @@
                               AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
                               BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}">
                     <ItemsPresenter Name="PART_ItemsPresenter"
-                                    ItemsPanel="{TemplateBinding ItemsPanel}"/>
+                                    ItemsPanel="{TemplateBinding ItemsPanel}" />
                 </ScrollViewer>
             </ControlTemplate>
         </Setter>

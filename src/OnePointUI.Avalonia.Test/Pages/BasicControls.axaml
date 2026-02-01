@@ -7,59 +7,60 @@
              x:Class="OnePointUI.Avalonia.Test.Pages.BasicControls">
     <ScrollViewer>
         <StackPanel Orientation="Horizontal">
-                <StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <StackPanel Margin="5">
-                            <onePointControls:LineTextBlock FontSize="14" Text="普通按钮" HorizontalAlignment="Left"/>
-                            <Button Margin="5" Width="200" Height="40" Click="Button_OnClick">Button</Button>
-                            <Button Margin="5" Width="200" Height="40" Classes="Accent">Accent Button</Button>
-                            <Button Margin="5" Width="200" Height="40" IsEnabled="False">Disabled Button</Button>
-                            <Button Margin="5" Width="200" Height="40" Classes="Accent" IsEnabled="False">Disabled Accent Button</Button>    
-                            <onePointControls:LineTextBlock FontSize="14" Text="无边框按钮" HorizontalAlignment="Left"/>       
-                            <Button Margin="5" Width="200" Height="40" Classes="NoBorder">Button</Button>
-                            <Button Margin="5" Width="200" Height="40" Classes="NoBorder" Background="#465916">Button</Button>
-                        </StackPanel>
-                        <StackPanel Margin="5">
-                            <ToggleButton Margin="5" Width="200" Height="40" Content="Standard ToggleButton"/>
-                            <ToggleButton Margin="5" Width="200" Height="40" Content="Transparent ToggleButton" 
-                                          Background="Transparent" BorderBrush="Transparent"/>       
-                            <ToggleButton Margin="5" Width="200" Height="40" Content="Disabled Standard ToggleButton" IsEnabled="False"/>
-                            <ToggleButton Margin="5" Width="200" Height="40" Content="Disabled Transparent ToggleButton" 
-                                          Background="Transparent" BorderBrush="Transparent" IsEnabled="False"/>
-                            <ComboBox Margin="5" Width="200"
-                                      SelectedIndex="0">
-                                <ComboBoxItem>A11</ComboBoxItem>
-                                <ComboBoxItem>B11</ComboBoxItem>
-                                <ComboBoxItem>C11</ComboBoxItem>
-                                <ComboBoxItem>D11</ComboBoxItem>
-                            </ComboBox>
-                        </StackPanel>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Margin="5">
+                        <onePointControls:LineTextBlock FontSize="14" Text="普通按钮" HorizontalAlignment="Left" />
+                        <Button Margin="5" Width="200" Height="40" Click="Button_OnClick">Button</Button>
+                        <Button Margin="5" Width="200" Height="40" Classes="Accent">Accent Button</Button>
+                        <Button Margin="5" Width="200" Height="40" IsEnabled="False">Disabled Button</Button>
+                        <Button Margin="5" Width="200" Height="40" Classes="Accent" IsEnabled="False">Disabled Accent Button</Button>
+                        <onePointControls:LineTextBlock FontSize="14" Text="无边框按钮" HorizontalAlignment="Left" />
+                        <Button Margin="5" Width="200" Height="40" Classes="NoBorder">Button</Button>
+                        <Button Margin="5" Width="200" Height="40" Classes="NoBorder" Background="#465916">Button</Button>
                     </StackPanel>
-                    
-                    <Slider Width="420" Minimum="0" Maximum="100" Value="50" Margin="5"/>
-                    <Slider Width="420" Minimum="0" Maximum="100" Value="50" Margin="5" IsEnabled="False"/>
-                    
-                    <Expander Margin="5" 
-                              Header="111">
-                        <Button>111</Button>
-                    </Expander>
+                    <StackPanel Margin="5">
+                        <ToggleButton Margin="5" Width="200" Height="40" Content="Standard ToggleButton" />
+                        <ToggleButton Margin="5" Width="200" Height="40" Content="Transparent ToggleButton"
+                                      Background="Transparent" BorderBrush="Transparent" />
+                        <ToggleButton Margin="5" Width="200" Height="40" Content="Disabled Standard ToggleButton"
+                                      IsEnabled="False" />
+                        <ToggleButton Margin="5" Width="200" Height="40" Content="Disabled Transparent ToggleButton"
+                                      Background="Transparent" BorderBrush="Transparent" IsEnabled="False" />
+                        <ComboBox Margin="5" Width="200"
+                                  SelectedIndex="0">
+                            <ComboBoxItem>A11</ComboBoxItem>
+                            <ComboBoxItem>B11</ComboBoxItem>
+                            <ComboBoxItem>C11</ComboBoxItem>
+                            <ComboBoxItem>D11</ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
                 </StackPanel>
-                <StackPanel Margin="5">
-                    <TextBox Margin="5" Height="40" Width="200">TextBox</TextBox>
-                    <TextBox Margin="5" Height="40" Width="200" IsEnabled="False">TextBox</TextBox>
-                    <CheckBox Margin="5" IsChecked="True">CheckBox A</CheckBox>
-                    <CheckBox Margin="5">CheckBox B</CheckBox>                
-                    <CheckBox Margin="5" IsEnabled="False">CheckBox 1</CheckBox>
-                    <CheckBox Margin="5" IsChecked="True" IsEnabled="False">CheckBox 2</CheckBox>
-                    <DockPanel>
-                        <ToggleSwitch Margin="5"></ToggleSwitch>
-                        <ToggleSwitch Margin="5" IsChecked="True"></ToggleSwitch>
-                    </DockPanel>
-                    <DockPanel>
-                        <ToggleSwitch Margin="5" IsEnabled="False"></ToggleSwitch>
-                        <ToggleSwitch Margin="5" IsChecked="True" IsEnabled="False"></ToggleSwitch>
-                    </DockPanel>
-                </StackPanel>
+
+                <Slider Width="420" Minimum="0" Maximum="100" Value="50" Margin="5" />
+                <Slider Width="420" Minimum="0" Maximum="100" Value="50" Margin="5" IsEnabled="False" />
+
+                <Expander Margin="5"
+                          Header="111">
+                    <Button>111</Button>
+                </Expander>
             </StackPanel>
+            <StackPanel Margin="5">
+                <TextBox Margin="5" Height="40" Width="200">TextBox</TextBox>
+                <TextBox Margin="5" Height="40" Width="200" IsEnabled="False">TextBox</TextBox>
+                <CheckBox Margin="5" IsChecked="True">CheckBox A</CheckBox>
+                <CheckBox Margin="5">CheckBox B</CheckBox>
+                <CheckBox Margin="5" IsEnabled="False">CheckBox 1</CheckBox>
+                <CheckBox Margin="5" IsChecked="True" IsEnabled="False">CheckBox 2</CheckBox>
+                <DockPanel>
+                    <ToggleSwitch Margin="5" />
+                    <ToggleSwitch Margin="5" IsChecked="True" />
+                </DockPanel>
+                <DockPanel>
+                    <ToggleSwitch Margin="5" IsEnabled="False" />
+                    <ToggleSwitch Margin="5" IsChecked="True" IsEnabled="False" />
+                </DockPanel>
+            </StackPanel>
+        </StackPanel>
     </ScrollViewer>
 </UserControl>

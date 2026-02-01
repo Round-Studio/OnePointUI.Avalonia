@@ -6,24 +6,24 @@
         <controls:ItemView SelectedIndex="0">
             <controls:ItemViewItem>
                 <Grid Width="200"
-                      Height="80"></Grid>
+                      Height="80" />
             </controls:ItemViewItem>
             <controls:ItemViewItem>
                 <Grid Width="200"
-                      Height="80"></Grid>
+                      Height="80" />
             </controls:ItemViewItem>
             <controls:ItemViewItem>
                 <Grid Width="200"
-                      Height="80"></Grid>
+                      Height="80" />
             </controls:ItemViewItem>
         </controls:ItemView>
     </Design.PreviewWith>
 
     <Style Selector="controls|ItemViewItem">
         <Setter Property="CornerRadius"
-                Value="6"></Setter>
+                Value="6" />
         <Setter Property="Margin"
-                Value="5"></Setter>
+                Value="5" />
         <!-- Set Defaults -->
         <Setter Property="Template">
             <ControlTemplate>
@@ -35,11 +35,11 @@
                         <Border.Transitions>
                             <Transitions>
                                 <DoubleTransition Property="Opacity"
-                                                  Duration="0:0:0.1"></DoubleTransition>
+                                                  Duration="0:0:0.1" />
                             </Transitions>
                         </Border.Transitions>
                     </Border>
-                    
+
                     <Grid>
                         <ContentPresenter Name="PART_ContentPresenter"
                                           Background="{TemplateBinding Background}"
@@ -50,9 +50,9 @@
                                           Padding="{TemplateBinding Padding}"
                                           VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                           HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                          CornerRadius="{TemplateBinding CornerRadius}"/>
+                                          CornerRadius="{TemplateBinding CornerRadius}" />
                     </Grid>
-                    
+
                     <Border CornerRadius="{TemplateBinding CornerRadius}"
                             BorderThickness="1"
                             Name="PART_Border"
@@ -61,10 +61,10 @@
                         <Border.Transitions>
                             <Transitions>
                                 <ThicknessTransition Property="BorderThickness"
-                                                     Duration="0:0:0.1"></ThicknessTransition>
+                                                     Duration="0:0:0.1" />
                             </Transitions>
                         </Border.Transitions>
-                        
+
                         <Grid HorizontalAlignment="Right" VerticalAlignment="Bottom"
                               Name="PART_CheckIcon"
                               IsVisible="False"
@@ -77,42 +77,42 @@
                                     <Path.Data>
                                         <PathGeometry>
                                             <PathFigure StartPoint="0,1">
-                                                <LineSegment Point="1,1"/>
-                                                <LineSegment Point="1,0"/>
+                                                <LineSegment Point="1,1" />
+                                                <LineSegment Point="1,0" />
                                             </PathFigure>
                                         </PathGeometry>
                                     </Path.Data>
                                 </Path>
                             </Border>
-    
+
                             <onePointControls:FontIcon Glyph="&#xE73E;"
                                                        FontSize="14"
                                                        HorizontalAlignment="Right"
                                                        VerticalAlignment="Bottom"
                                                        Margin="0,0,1,0"
-                                                       Foreground="{DynamicResource BackgroundBrush}"/>
+                                                       Foreground="{DynamicResource BackgroundBrush}" />
                         </Grid>
                     </Border>
                 </Grid>
             </ControlTemplate>
         </Setter>
-        
+
         <Style Selector="^:selected">
             <Style Selector="^ /template/ Border#PART_Border">
-                <Setter Property="BorderThickness" Value="2"></Setter>
-                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryForegroundBrush}"></Setter>
+                <Setter Property="BorderThickness" Value="2" />
+                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryForegroundBrush}" />
             </Style>
             <Style Selector="^ /template/ Border#PART_Background">
-                <Setter Property="Opacity" Value="0.8"></Setter>
+                <Setter Property="Opacity" Value="0.8" />
             </Style>
             <Style Selector="^ /template/ Grid#PART_CheckIcon">
-                <Setter Property="IsVisible" Value="True"></Setter>
+                <Setter Property="IsVisible" Value="True" />
             </Style>
         </Style>
-        
+
         <Style Selector="^:pointerover">
             <Style Selector="^ /template/ Border#PART_Background">
-                <Setter Property="Opacity" Value="0.6"></Setter>
+                <Setter Property="Opacity" Value="0.6" />
             </Style>
         </Style>
     </Style>

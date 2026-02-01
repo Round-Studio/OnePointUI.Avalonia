@@ -1,8 +1,5 @@
-﻿using Avalonia;
-using Avalonia.Controls;
+﻿using Avalonia.Controls;
 using Avalonia.Threading;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using OnePointUI.Avalonia.Base.Entry;
 
 namespace OnePointUI.Avalonia.Styling.Controls.OnePointControls.Dialog;
@@ -10,14 +7,23 @@ namespace OnePointUI.Avalonia.Styling.Controls.OnePointControls.Dialog;
 public partial class DialogHost : UserControl
 {
     private static DialogHost? _host;
-    private static readonly Queue<DialogInfo> _dialogQueue = new Queue<DialogInfo>();
-    private static bool _isShowingDialog = false;
+    private static readonly Queue<DialogInfo> _dialogQueue = new();
+    private static bool _isShowingDialog;
+
+    public DialogHost()
+    {
+        InitializeComponent();
+
+        // 初始状态
+        IsVisible = false;
+        BackgroundGrid.Opacity = 0;
+    }
 
     public static void Show(DialogInfo info)
     {
-        if (_host == null) 
+        if (_host == null)
             throw new NullReferenceException("必须初始化 DialogHost");
-        
+
         Dispatcher.UIThread.Invoke(() =>
         {
             // 如果当前正在显示对话框，将新对话框加入队列
@@ -45,12 +51,12 @@ public partial class DialogHost : UserControl
         // 淡出动画
         _host.DialogBox.Content = null;
         _host.BackgroundGrid.Opacity = 0;
-        
+
         await Task.Delay(400); // 等待淡出动画完成
-        
+
         _host.IsVisible = false;
         _isShowingDialog = false;
-        
+
         // 检查队列中是否有下一个对话框
         if (_dialogQueue.Count > 0)
         {
@@ -59,14 +65,8 @@ public partial class DialogHost : UserControl
         }
     }
 
-    public DialogHost()
+    public static void SetHost(DialogHost? host)
     {
-        InitializeComponent();
-        
-        // 初始状态
-        IsVisible = false;
-        BackgroundGrid.Opacity = 0;
+        _host = host;
     }
-
-    public static void SetHost(DialogHost? host) => _host = host;
 }

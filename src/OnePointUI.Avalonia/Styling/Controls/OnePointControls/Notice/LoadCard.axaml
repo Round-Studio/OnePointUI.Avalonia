@@ -13,16 +13,16 @@
                 <StackPanel>
                     <onePointControls:ProgressRing HorizontalAlignment="Left"
                                                    Background="Transparent"
-                                                   Width="36" Height="36"></onePointControls:ProgressRing>
-                
+                                                   Width="36" Height="36" />
+
                     <onePointControls:LineTextBlock FontSize="22"
                                                     HorizontalAlignment="Left"
                                                     Text="{TemplateBinding BigTitle}"
-                                                    Margin="0,12,0,12"></onePointControls:LineTextBlock>
-                    
+                                                    Margin="0,12,0,12" />
+
                     <TextBlock Margin="0,0"
                                Text="{TemplateBinding Message}"
-                               FontSize="11"></TextBlock>
+                               FontSize="11" />
                 </StackPanel>
             </ControlTemplate>
         </Setter>

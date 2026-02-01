@@ -15,12 +15,12 @@
 
     <!-- Add Styles Here -->
     <Style Selector="CheckBox">
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}"></Setter>
-        <Setter Property="HorizontalContentAlignment" Value="Left"></Setter>
-        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
-        <Setter Property="FontSize" Value="13"></Setter>
-        <Setter Property="Margin" Value="5"></Setter>
-        <Setter Property="CornerRadius" Value="6"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="Margin" Value="5" />
+        <Setter Property="CornerRadius" Value="6" />
         <Setter Property="Template">
             <ControlTemplate>
                 <StackPanel Orientation="Horizontal">
@@ -37,63 +37,63 @@
                                     VerticalAlignment="Stretch"
                                     CornerRadius="5"
                                     Background="{DynamicResource PrimaryBackgroundOverBrush}"
-                                    Opacity="0"></Border>
-                            
-                            <onePointControls:FontIcon Name="Path_Check" 
+                                    Opacity="0" />
+
+                            <onePointControls:FontIcon Name="Path_Check"
                                                        IsVisible="{TemplateBinding IsChecked}"
-                                                       Glyph="&#xE73E;" 
+                                                       Glyph="&#xE73E;"
                                                        FontSize="16"
                                                        HorizontalAlignment="Center"
-                                                       VerticalAlignment="Center"/>
+                                                       VerticalAlignment="Center" />
                         </Grid>
                     </Border>
-                    
+
                     <ContentPresenter Content="{TemplateBinding Content}"
                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                       Margin="10,0,0,0"
                                       FontSize="{TemplateBinding FontSize}"
-                                      Foreground="{TemplateBinding Foreground}"></ContentPresenter>
+                                      Foreground="{TemplateBinding Foreground}" />
                 </StackPanel>
             </ControlTemplate>
         </Setter>
-        
+
         <Style Selector="^:pointerover Border#Path_Background">
-            <Setter Property="Opacity" Value="0.3"></Setter>
+            <Setter Property="Opacity" Value="0.3" />
         </Style>
         <Style Selector="^:pointerover Border#Path_BackgroundBorder">
-            <Setter Property="BorderThickness" Value="1,1,1,2"></Setter>
+            <Setter Property="BorderThickness" Value="1,1,1,2" />
         </Style>
-        
+
         <Style Selector="^:checked Border#Path_Background">
-            <Setter Property="Opacity" Value="0"></Setter>
+            <Setter Property="Opacity" Value="0" />
         </Style>
         <Style Selector="^:checked Border#Path_BackgroundBorder">
-            <Setter Property="Background" Value="{DynamicResource AccentBackgroundBrush}"></Setter>
+            <Setter Property="Background" Value="{DynamicResource AccentBackgroundBrush}" />
         </Style>
         <Style Selector="^:checked Grid#Path_Check">
-            <Setter Property="IsVisible" Value="True"></Setter>
+            <Setter Property="IsVisible" Value="True" />
         </Style>
-        
+
         <Style Selector="^:pressed Border#Path_Background">
-            <Setter Property="Opacity" Value="0.7"></Setter>
+            <Setter Property="Opacity" Value="0.7" />
         </Style>
         <Style Selector="^:pressed Border#Path_BackgroundBorder">
-            <Setter Property="BorderThickness" Value="1"></Setter>
+            <Setter Property="BorderThickness" Value="1" />
         </Style>
-        
+
         <Style Selector="^:disabled Border#Path_Background">
-            <Setter Property="Opacity" Value="0"></Setter>
+            <Setter Property="Opacity" Value="0" />
         </Style>
         <Style Selector="^:disabled Border#Path_BackgroundBorder">
-            <Setter Property="Background" Value="{DynamicResource PrimaryDisabledForegroundBrush}"></Setter>
+            <Setter Property="Background" Value="{DynamicResource PrimaryDisabledForegroundBrush}" />
         </Style>
     </Style>
-    
+
     <Style Selector="Border#Path_BackgroundBorder">
         <Setter Property="Transitions">
             <Transitions>
-                <ThicknessTransition Property="BorderThickness" Duration="0:0:0.18" Easing="QuinticEaseOut"></ThicknessTransition>
+                <ThicknessTransition Property="BorderThickness" Duration="0:0:0.18" Easing="QuinticEaseOut" />
             </Transitions>
         </Setter>
     </Style>

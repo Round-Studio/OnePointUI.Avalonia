@@ -2,14 +2,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="using:OnePointUI.Avalonia.Styling.Controls.OnePointControls">
     <Design.PreviewWith>
-        <controls:LabelBox Text="LabelBox"/>
+        <controls:LabelBox Text="LabelBox" />
     </Design.PreviewWith>
 
     <Style Selector="controls|LabelBox">
         <!-- Set Defaults -->
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}"></Setter>
-        <Setter Property="Background" Value="{DynamicResource AccentBackgroundBrush}"></Setter>
-        <Setter Property="FontSize" Value="9"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource AccentBackgroundBrush}" />
+        <Setter Property="FontSize" Value="9" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Padding="4,2"
@@ -19,7 +19,7 @@
                                Foreground="{TemplateBinding Foreground}"
                                FontSize="{TemplateBinding FontSize}"
                                FontFamily="{TemplateBinding FontFamily}"
-                               FontWeight="{TemplateBinding FontWeight}"></TextBlock>
+                               FontWeight="{TemplateBinding FontWeight}" />
                 </Border>
             </ControlTemplate>
         </Setter>

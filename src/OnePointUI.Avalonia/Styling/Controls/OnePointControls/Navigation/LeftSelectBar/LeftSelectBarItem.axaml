@@ -4,15 +4,15 @@
         xmlns:onePointControls="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls">
     <Design.PreviewWith>
         <controls:LeftSelectBar>
-            <controls:LeftSelectBarItem ItemText="111"></controls:LeftSelectBarItem>
-            <controls:LeftSelectBarItem ItemText="111"></controls:LeftSelectBarItem>
-            <controls:LeftSelectBarItem ItemText="111"></controls:LeftSelectBarItem>
+            <controls:LeftSelectBarItem ItemText="111" />
+            <controls:LeftSelectBarItem ItemText="111" />
+            <controls:LeftSelectBarItem ItemText="111" />
         </controls:LeftSelectBar>
     </Design.PreviewWith>
 
     <Style Selector="controls|LeftSelectBarItem">
-        <Setter Property="CornerRadius" Value="6"></Setter>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}"></Setter>
+        <Setter Property="CornerRadius" Value="6" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
         <!-- Set Defaults -->
         <Setter Property="Template">
             <ControlTemplate>
@@ -25,11 +25,11 @@
                             <Transitions>
                                 <DoubleTransition Property="Opacity"
                                                   Duration="0:0:0.38"
-                                                  Easing="QuarticEaseOut"></DoubleTransition>
+                                                  Easing="QuarticEaseOut" />
                             </Transitions>
                         </Border.Transitions>
                     </Border>
-                    
+
                     <Border CornerRadius="{TemplateBinding CornerRadius}"
                             ClipToBounds="True"
                             HorizontalAlignment="Stretch"
@@ -45,21 +45,21 @@
                                     <Transitions>
                                         <DoubleTransition Property="Width"
                                                           Duration="0:0:0.42"
-                                                          Easing="ExponentialEaseOut"></DoubleTransition>
-                                        
+                                                          Easing="ExponentialEaseOut" />
+
                                         <DoubleTransition Property="Height"
                                                           Duration="0:0:0.42"
-                                                          Easing="ExponentialEaseOut"></DoubleTransition>
-                                        
+                                                          Easing="ExponentialEaseOut" />
+
                                         <DoubleTransition Property="Opacity"
                                                           Duration="0:0:0.2"
-                                                          Easing="QuarticEaseOut"></DoubleTransition>
+                                                          Easing="QuarticEaseOut" />
                                     </Transitions>
                                 </Border.Transitions>
                             </Border>
                         </Panel>
                     </Border>
-                    
+
                     <Border CornerRadius="{TemplateBinding CornerRadius}"
                             Padding="0,0">
                         <Grid>
@@ -72,34 +72,35 @@
                                 <onePointControls:FontIcon.Transitions>
                                     <Transitions>
                                         <DoubleTransition Property="FontSize"
-                                                          Duration="0:0:0.28"></DoubleTransition>
+                                                          Duration="0:0:0.28" />
                                         <ThicknessTransition Property="Margin"
-                                                             Duration="0:0:0.28"></ThicknessTransition>
+                                                             Duration="0:0:0.28" />
                                     </Transitions>
                                 </onePointControls:FontIcon.Transitions>
                             </onePointControls:FontIcon>
-                            
+
                             <TextBlock Text="{TemplateBinding ItemText}"
                                        Name="PART_Text"
                                        FontSize="8"
                                        Margin="0,0,0,2"
                                        HorizontalAlignment="Center"
-                                       VerticalAlignment="Bottom"></TextBlock>
+                                       VerticalAlignment="Bottom" />
                         </Grid>
                     </Border>
                 </Panel>
             </ControlTemplate>
         </Setter>
-        
+
         <Style Selector="^:selected">
             <Style Selector="^ /template/ Border#PART_AccentBackground">
-                <Setter Property="Width" Value="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"></Setter>
-                <Setter Property="Opacity" Value="1"></Setter>
+                <Setter Property="Width"
+                        Value="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}" />
+                <Setter Property="Opacity" Value="1" />
             </Style>
         </Style>
-            
+
         <Style Selector="^:pointerover /template/ Border#PART_Background">
-            <Setter Property="Opacity" Value="0.8"></Setter>
+            <Setter Property="Opacity" Value="0.8" />
         </Style>
     </Style>
 </Styles>

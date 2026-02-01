@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using Avalonia;
-using Avalonia.Animation;
-using Avalonia.Animation.Easings;
-using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
-using Avalonia.Styling;
+﻿using Avalonia.Controls;
 using OnePointUI.Avalonia.Base.Entry;
 
 namespace OnePointUI.Avalonia.Styling.Controls.OnePointControls.Notice.Info;
@@ -14,7 +6,7 @@ namespace OnePointUI.Avalonia.Styling.Controls.OnePointControls.Notice.Info;
 public partial class NoticePanel : UserControl
 {
     public static NoticePanel? InstancePanel;
-    public static List<NoticeInfo> NoticeInfos = new ();
+    public static List<NoticeInfo> NoticeInfos = new();
 
     public NoticePanel()
     {
@@ -36,7 +28,7 @@ public partial class NoticePanel : UserControl
         // 如果超过5个，删除最后一个（带淡出动画）
         if (NoticesPanel.Children.Count > 5)
         {
-            var oldestNotice = ((NoticeBox)NoticesPanel.Children[NoticesPanel.Children.Count - 1]);
+            var oldestNotice = (NoticeBox)NoticesPanel.Children[NoticesPanel.Children.Count - 1];
             oldestNotice.CloseThis();
         }
     }

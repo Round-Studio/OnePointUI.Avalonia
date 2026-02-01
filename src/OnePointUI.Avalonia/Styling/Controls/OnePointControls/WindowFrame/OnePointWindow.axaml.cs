@@ -2,7 +2,6 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Interactivity;
-using Avalonia.Markup.Xaml;
 using Avalonia.Threading;
 using OnePointUI.Avalonia.Styling.Controls.OnePointControls.Dialog;
 using OnePointUI.Avalonia.Styling.Controls.OnePointControls.Notice.Info;
@@ -11,45 +10,68 @@ namespace OnePointUI.Avalonia.Styling.Controls.OnePointControls.WindowFrame;
 
 public partial class OnePointWindow : Window
 {
+    private readonly Timer _stateTimer;
+
+    public int DrawMarginLR = 10;
+
+    public OnePointWindow()
+    {
+        InitializeComponent();
+
+        Frame.NavigateTo("");
+        _stateTimer = new Timer(state =>
+        {
+            Dispatcher.UIThread.Invoke(() =>
+            {
+                if (OperatingSystem.IsWindows())
+                {
+                    if (WindowState == WindowState.Maximized) Padding = new Thickness(8);
+                    else Padding = new Thickness(0);
+                }
+
+                if (WindowState == WindowState.Maximized) MaxBtnIcon.Glyph = "\uE923";
+                else MaxBtnIcon.Glyph = "\uE922";
+
+                TitleBlock.Text = Title;
+            });
+        });
+        _stateTimer.Change(TimeSpan.FromMilliseconds(0), TimeSpan.FromMilliseconds(100));
+        BottomBorder.Margin = new Thickness(DrawMarginLR, 0, DrawMarginLR, 0);
+    }
+
     public bool IsMainWindow
     {
         get => _isMainWindow;
-        set 
+        set
         {
             _isMainWindow = value;
             UpdateUI();
         }
     }
+
     public object? MainContent
     {
-        get
-        {
-            return _mainContent;
-        }
+        get => _mainContent;
         set
         {
             _mainContent = value;
             UpdateUI();
         }
     }
+
     public object? TitleBarContent
     {
-        get
-        {
-            return _titleBarContent;
-        }
+        get => _titleBarContent;
         set
         {
             _titleBarContent = value;
             UpdateUI();
         }
     }
+
     public object? TitleBarContentContent
     {
-        get
-        {
-            return _titleBarControlContent;
-        }
+        get => _titleBarControlContent;
         set
         {
             _titleBarControlContent = value;
@@ -77,75 +99,47 @@ public partial class OnePointWindow : Window
         }
     }
 
-    private void UpdateUI()
-    {
-        PART_MainContent.Content = _mainContent;
-        TitleBlock.Text = this.Title;
-        TitleContent.Content = _titleBarContent;
-        TitleBarContentBarContent.Content = _titleBarControlContent;
-        
-        MaxBtn.IsVisible = _isMaxBtn;
-        MinBtn.IsVisible = _isMaxBtn;
-
-        if (IsMainWindow)
-        {
-            DialogHost.SetHost(this.DialogHost);
-        }
-    }
-
-    public NoticePanel Notice => this.NoticePanel;
+    public NoticePanel Notice => NoticePanel;
     private object? _mainContent { get; set; }
     private object? _titleBarContent { get; set; }
     private object? _titleBarControlContent { get; set; }
-    private bool _isMainWindow { get; set; } = false;
+    private bool _isMainWindow { get; set; }
     private bool _isMinBtn { get; set; } = true;
     private bool _isMaxBtn { get; set; } = true;
-    private Timer _stateTimer;
-    public OnePointWindow()
+
+    private void UpdateUI()
     {
-        InitializeComponent();
+        PART_MainContent.Content = _mainContent;
+        TitleBlock.Text = Title;
+        TitleContent.Content = _titleBarContent;
+        TitleBarContentBarContent.Content = _titleBarControlContent;
 
-        Frame.NavigateTo("");
-        _stateTimer = new(state =>
-        {
-            Dispatcher.UIThread.Invoke(() =>
-            {
-                if (OperatingSystem.IsWindows())
-                {
-                    if (WindowState == WindowState.Maximized) this.Padding = new Thickness(8);
-                    else this.Padding = new Thickness(0);
-                }
+        MaxBtn.IsVisible = _isMaxBtn;
+        MinBtn.IsVisible = _isMaxBtn;
 
-                if (WindowState == WindowState.Maximized) MaxBtnIcon.Glyph = "\uE923";
-                else MaxBtnIcon.Glyph = "\uE922";
-                
-                TitleBlock.Text = this.Title;
-            });
-        });
-        _stateTimer.Change(TimeSpan.FromMilliseconds(0), TimeSpan.FromMilliseconds(100));
-        BottomBorder.Margin = new Thickness(DrawMarginLR, 0, DrawMarginLR, 0);
+        if (IsMainWindow) DialogHost.SetHost(DialogHost);
     }
 
     private void InputElement_OnPointerPressed(object? sender, PointerPressedEventArgs e)
     {
-        this.BeginMoveDrag(e);
+        BeginMoveDrag(e);
     }
 
     private void MinBtn_OnClick(object? sender, RoutedEventArgs e)
     {
-        this.WindowState = WindowState.Minimized;
+        WindowState = WindowState.Minimized;
     }
 
     private void MaxBtn_OnClick(object? sender, RoutedEventArgs e)
     {
-        this.WindowState = WindowState == WindowState.Maximized ?  WindowState.Normal : WindowState.Maximized;
+        WindowState = WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
     }
 
     private void CloseBtn_OnClick(object? sender, RoutedEventArgs e)
     {
-        this.Close();
-        
-        if(IsMainWindow) Environment.Exit(0);
+        Close();
+
+        if (IsMainWindow) Environment.Exit(0);
     }
 
     public void CloseDraw()
@@ -153,7 +147,7 @@ public partial class OnePointWindow : Window
         SetBorderState(false);
     }
 
-    public async void OpenDraw(object? page,string title)
+    public async void OpenDraw(object? page, string title)
     {
         BorderTitle.Text = title;
         await SetBorderState(true);
@@ -161,12 +155,11 @@ public partial class OnePointWindow : Window
         Frame.NavigateTo(page);
     }
 
-    public int DrawMarginLR = 10;
     private async Task SetBorderState(bool state)
     {
         if (state)
         {
-            BottomBorder.Margin = new Thickness(DrawMarginLR, this.Height, DrawMarginLR, -this.Height);
+            BottomBorder.Margin = new Thickness(DrawMarginLR, Height, DrawMarginLR, -Height);
             await Task.Delay(100);
             BorderGrid.IsVisible = true;
             BottomBorder.Margin = new Thickness(DrawMarginLR, 100, DrawMarginLR, 0);
@@ -175,7 +168,7 @@ public partial class OnePointWindow : Window
         }
         else
         {
-            BottomBorder.Margin = new Thickness(DrawMarginLR, this.Height, DrawMarginLR, -this.Height);
+            BottomBorder.Margin = new Thickness(DrawMarginLR, Height, DrawMarginLR, -Height);
             BorderBackground.Opacity = 0;
             await Task.Delay(800);
             BorderGrid.IsVisible = false;

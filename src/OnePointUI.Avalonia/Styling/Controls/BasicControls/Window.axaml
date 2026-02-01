@@ -8,6 +8,6 @@
 
     <!-- Add Styles Here -->
     <Style Selector="Window">
-        <Setter Property="Background" Value="{DynamicResource BackgroundBrush}"></Setter>
+        <Setter Property="Background" Value="{DynamicResource BackgroundBrush}" />
     </Style>
 </Styles>

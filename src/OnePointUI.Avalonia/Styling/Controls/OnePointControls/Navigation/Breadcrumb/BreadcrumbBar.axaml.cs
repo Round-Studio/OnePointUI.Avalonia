@@ -2,7 +2,6 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Layout;
-using Avalonia.Markup.Xaml;
 using Avalonia.Media;
 using OnePointUI.Avalonia.Base.Entry;
 
@@ -11,6 +10,12 @@ namespace OnePointUI.Avalonia.Styling.Controls.OnePointControls.Navigation.Bread
 public partial class BreadcrumbBar : UserControl
 {
     private string _rootItem = "Item 1";
+
+    public BreadcrumbBar()
+    {
+        InitializeComponent();
+    }
+
     public Action RootItemClick { get; set; }
 
     public string RootItem
@@ -21,10 +26,6 @@ public partial class BreadcrumbBar : UserControl
             _rootItem = value;
             UpdateUI();
         }
-    }
-    public BreadcrumbBar()
-    {
-        InitializeComponent();
     }
 
     private void UpdateUI()
@@ -38,38 +39,34 @@ public partial class BreadcrumbBar : UserControl
         {
             // Application.Current 是一个全局的入口点
             var app = Application.Current;
-    
+
             if (app != null)
-            {
                 // 从应用程序的资源中查找 :cite[1]
                 // 注意：这里查找的是 Application.Resources 里定义的资源
                 if (app.TryFindResource("PrimaryForegroundBrush", out var resourceValue))
-                {
                     return resourceValue as IBrush;
-                }
-            }
-    
+
             return new SolidColorBrush(Colors.Gray);
         }
-        
+
         ItemsBar.Children.Clear();
 
         foreach (var item in items)
         {
-            var newTtem = new Button()
+            var newTtem = new Button
             {
                 Classes = { "NoBorder" },
                 Content = item.ItemName,
                 FontSize = 24,
-                Margin = new  Thickness(8,0),
-                Padding = new Thickness(8,4)
+                Margin = new Thickness(8, 0),
+                Padding = new Thickness(8, 4)
             };
 
-            var newItemIcon = new FontIcon()
+            var newItemIcon = new FontIcon
             {
                 Glyph = "\uE76C",
                 VerticalAlignment = VerticalAlignment.Center,
-                FontSize = 18,
+                FontSize = 18
                 // Foreground = GetFontColorResourceFromApp()
             };
 
@@ -78,7 +75,7 @@ public partial class BreadcrumbBar : UserControl
                 if (item.ItemClickAction != null)
                     item.ItemClickAction.Invoke(item);
             };
-            
+
             ItemsBar.Children.Add(newItemIcon);
             ItemsBar.Children.Add(newTtem);
         }

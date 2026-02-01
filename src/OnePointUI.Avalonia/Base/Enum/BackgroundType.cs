@@ -1,6 +1,7 @@
 ﻿namespace OnePointUI.Avalonia.Base.Enum;
 
-public enum BackgroundType {
+public enum BackgroundType
+{
     Voronoi,
     Bubble
 }

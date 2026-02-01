@@ -1,10 +1,7 @@
-﻿using System;
-using System.Threading.Tasks;
-using Avalonia;
+﻿using Avalonia;
 using Avalonia.Animation;
 using Avalonia.Animation.Easings;
 using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
 using Avalonia.Styling;
 using Avalonia.Threading;
 using OnePointUI.Avalonia.Base.Entry;
@@ -63,7 +60,7 @@ public partial class NoticeBox : UserControl
 
         animation.RunAsync(PATH_Border);
         await Task.Delay(600);
-        
+
         OnClose?.Invoke(this);
     }
 }

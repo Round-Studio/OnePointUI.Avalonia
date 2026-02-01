@@ -6,9 +6,10 @@
     </Design.PreviewWith>
 
     <Style Selector="controls|FontIcon">
-        <Setter Property="FontFamily" Value="resm:OnePointUI.Avalonia.Assets.Fonts.SegoeFluentIcons.ttf?assembly=OnePointUI.Avalonia#Segoe Fluent Icons"/>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}"></Setter>
-        
+        <Setter Property="FontFamily"
+                Value="resm:OnePointUI.Avalonia.Assets.Fonts.SegoeFluentIcons.ttf?assembly=OnePointUI.Avalonia#Segoe Fluent Icons" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
+
         <Setter Property="Template">
             <ControlTemplate>
                 <TextBlock UseLayoutRounding="False"
@@ -16,7 +17,7 @@
                            FontSize="{TemplateBinding FontSize}"
                            Foreground="{TemplateBinding Foreground}"
                            FontFamily="{TemplateBinding FontFamily}"
-                           Background="{TemplateBinding Background}"/>
+                           Background="{TemplateBinding Background}" />
             </ControlTemplate>
         </Setter>
     </Style>
