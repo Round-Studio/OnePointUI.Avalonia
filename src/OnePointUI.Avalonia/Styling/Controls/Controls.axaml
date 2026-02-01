@@ -26,6 +26,7 @@
     <StyleInclude Source="BasicControls/Flyout.axaml" />
     <StyleInclude Source="BasicControls/ListBox.axaml" />
     <StyleInclude Source="BasicControls/ProgressBar.axaml" />
+    <StyleInclude Source="BasicControls/HyperLink.axaml" />
 
     <StyleInclude Source="OnePointControls/LineTextBlock.axaml" />
     <StyleInclude Source="OnePointControls/FontIcon.axaml" />
