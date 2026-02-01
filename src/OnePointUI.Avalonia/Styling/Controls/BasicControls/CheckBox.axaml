@@ -23,38 +23,44 @@
         <Setter Property="CornerRadius" Value="6" />
         <Setter Property="Template">
             <ControlTemplate>
-                <StackPanel Orientation="Horizontal">
-                    <Border Name="Path_BackgroundBorder"
-                            CornerRadius="{TemplateBinding CornerRadius}"
-                            BorderThickness="1"
-                            BorderBrush="{DynamicResource PrimaryBorderBrush}"
-                            ClipToBounds="True"
-                            Width="24" Height="24"
-                            Margin="0,0">
-                        <Grid>
-                            <Border Name="Path_Background"
-                                    HorizontalAlignment="Stretch"
-                                    VerticalAlignment="Stretch"
-                                    CornerRadius="5"
-                                    Background="{DynamicResource PrimaryBackgroundOverBrush}"
-                                    Opacity="0" />
+                <Grid>
+                    <Border HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Background="#01FFFFFF"
+                            Opacity="0.0001"></Border>
+                    <StackPanel Orientation="Horizontal">
+                        <Border Name="Path_BackgroundBorder"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                BorderThickness="1"
+                                BorderBrush="{DynamicResource PrimaryBorderBrush}"
+                                ClipToBounds="True"
+                                Width="24" Height="24"
+                                Margin="0,0">
+                            <Grid>
+                                <Border Name="Path_Background"
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch"
+                                        CornerRadius="5"
+                                        Background="{DynamicResource PrimaryBackgroundOverBrush}"
+                                        Opacity="0" />
 
-                            <onePointControls:FontIcon Name="Path_Check"
-                                                       IsVisible="{TemplateBinding IsChecked}"
-                                                       Glyph="&#xE73E;"
-                                                       FontSize="16"
-                                                       HorizontalAlignment="Center"
-                                                       VerticalAlignment="Center" />
-                        </Grid>
-                    </Border>
+                                <onePointControls:FontIcon Name="Path_Check"
+                                                           IsVisible="{TemplateBinding IsChecked}"
+                                                           Glyph="&#xE73E;"
+                                                           FontSize="16"
+                                                           HorizontalAlignment="Center"
+                                                           VerticalAlignment="Center" />
+                            </Grid>
+                        </Border>
 
-                    <ContentPresenter Content="{TemplateBinding Content}"
-                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                      Margin="10,0,0,0"
-                                      FontSize="{TemplateBinding FontSize}"
-                                      Foreground="{TemplateBinding Foreground}" />
-                </StackPanel>
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Margin="10,0,0,0"
+                                          FontSize="{TemplateBinding FontSize}"
+                                          Foreground="{TemplateBinding Foreground}" />
+                    </StackPanel>
+                </Grid>
             </ControlTemplate>
         </Setter>
 
