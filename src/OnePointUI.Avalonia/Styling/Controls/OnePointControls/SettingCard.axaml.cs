@@ -77,7 +77,7 @@ public class SettingCard : Button
         set => SetValue(IsNotFontIconProperty, value);
     }
 
-    public IImage ImageIcon
+    public IImage? ImageIcon
     {
         get => GetValue(ImageIconProperty);
         set => SetValue(ImageIconProperty, value);
