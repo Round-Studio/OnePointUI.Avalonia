@@ -1,10 +1,19 @@
 ﻿<Styles xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:OnePointUI.Avalonia.Classes">
     <Design.PreviewWith>
         <Border Padding="20">
             <!-- Add Controls for Previewer Here -->
         </Border>
     </Design.PreviewWith>
+    
+    <Style Selector="local|ParallaxImage3D">
+        <Setter Property="Transitions">
+            <Transitions>
+                <DoubleTransition Property="ScaleValue" Duration="0:0:0.3" Easing="CubicEaseOut"/>
+            </Transitions>
+        </Setter>
+    </Style>
 
     <!-- Add Styles Here -->
     <StyleInclude Source="BasicControls/Window.axaml" />
