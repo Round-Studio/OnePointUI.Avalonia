@@ -151,7 +151,7 @@ public partial class NavigationFrame : UserControl
         catch (Exception ex)
         {
             // 记录错误但不要崩溃
-            Console.WriteLine($"销毁页面时出错: {ex.Message}");
+            Console.WriteLine($@"销毁页面时出错: {ex.Message}");
         }
     }
 
@@ -187,7 +187,7 @@ public partial class NavigationFrame : UserControl
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"清除 Frame 内容时出错: {ex.Message}");
+            Console.WriteLine($@"清除 Frame 内容时出错: {ex.Message}");
         }
     }
 
@@ -222,7 +222,7 @@ public partial class NavigationFrame : UserControl
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"销毁所有页面时出错: {ex.Message}");
+            Console.WriteLine($@"销毁所有页面时出错: {ex.Message}");
         }
     }
 
@@ -243,7 +243,7 @@ public partial class NavigationFrame : UserControl
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"销毁页面时出错: {ex.Message}");
+            Console.WriteLine($@"销毁页面时出错: {ex.Message}");
         }
     }
 
