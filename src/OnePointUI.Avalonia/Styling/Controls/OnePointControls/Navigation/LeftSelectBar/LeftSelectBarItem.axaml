@@ -4,7 +4,7 @@
         xmlns:onePointControls="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls">
     <Design.PreviewWith>
         <controls:LeftSelectBar>
-            <controls:LeftSelectBarItem ItemText="111" />
+            <controls:LeftSelectBarItem ItemText="111111111111" />
             <controls:LeftSelectBarItem ItemText="111" />
             <controls:LeftSelectBarItem ItemText="111" />
         </controls:LeftSelectBar>
@@ -62,13 +62,14 @@
 
                     <Border CornerRadius="{TemplateBinding CornerRadius}"
                             Padding="0,0">
-                        <Grid>
+                        <StackPanel Orientation="Horizontal"
+                                    Spacing="8"
+                                    Margin="8">
                             <onePointControls:FontIcon Glyph="{TemplateBinding Glyph}"
                                                        Name="PART_Icon"
                                                        FontSize="18"
                                                        VerticalAlignment="Center"
-                                                       HorizontalAlignment="Center"
-                                                       Margin="18,10,18,21">
+                                                       HorizontalAlignment="Center">
                                 <onePointControls:FontIcon.Transitions>
                                     <Transitions>
                                         <DoubleTransition Property="FontSize"
@@ -81,11 +82,9 @@
 
                             <TextBlock Text="{TemplateBinding ItemText}"
                                        Name="PART_Text"
-                                       FontSize="8"
-                                       Margin="0,0,0,2"
                                        HorizontalAlignment="Center"
-                                       VerticalAlignment="Bottom" />
-                        </Grid>
+                                       VerticalAlignment="Center" />
+                        </StackPanel>
                     </Border>
                 </Panel>
             </ControlTemplate>
