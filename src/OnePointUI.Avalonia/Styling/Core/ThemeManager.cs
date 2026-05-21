@@ -53,11 +53,6 @@ public class ThemeManager
     /// </summary>
     public ThemeVariant CurrentTheme => CurrentThemeVariant;
 
-    /// <summary>
-    ///     获取当前主题色
-    /// </summary>
-    public Color CurrentAccentColor => AccentColor;
-
     public static void Initialize(Application application)
     {
         // 如果已经初始化，则不再重复初始化
