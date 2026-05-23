@@ -15,7 +15,6 @@
     </Design.PreviewWith>
 
     <Style Selector="controls|SettingCard">
-        <!-- Set Defaults -->
         <Setter Property="Template">
             <ControlTemplate>
                 <Button Name="PATH_Button">
@@ -77,7 +76,8 @@
                                     <StackPanel Orientation="Horizontal"
                                                 HorizontalAlignment="Right"
                                                 VerticalAlignment="Center">
-                                        <ContentControl Content="{TemplateBinding Content}"
+                                        <ContentControl Name="ActionContentControl" 
+                                                        Content="{TemplateBinding Content}"
                                                         Margin="0,0,6,0" />
 
                                         <Border IsVisible="{TemplateBinding IsShowActionIcon}">
@@ -121,7 +121,6 @@
     </Style>
 
     <Style Selector="controls|SettingCard.Item">
-        <!-- Set Defaults -->
         <Setter Property="Template">
             <ControlTemplate>
                 <Button Name="PATH_Button">
@@ -183,7 +182,8 @@
                                     <StackPanel Orientation="Horizontal"
                                                 HorizontalAlignment="Right"
                                                 VerticalAlignment="Center">
-                                        <ContentControl Content="{TemplateBinding Content}"
+                                        <ContentControl Name="ActionContentControl"
+                                                        Content="{TemplateBinding Content}"
                                                         Margin="0,0,12,0" />
 
                                         <Border IsVisible="{TemplateBinding IsShowActionIcon}">

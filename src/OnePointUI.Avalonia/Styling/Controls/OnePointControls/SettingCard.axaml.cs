@@ -1,5 +1,7 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Primitives; // 引入 TemplatedControl 相关的命名空间
+using Avalonia.Input;
 using Avalonia.Media;
 
 namespace OnePointUI.Avalonia.Styling.Controls.OnePointControls;
@@ -66,7 +68,6 @@ public class SettingCard : Button
         set
         {
             SetValue(IsFontIconProperty, value);
-            // 当 IsFontIcon 改变时，自动更新 IsNotFontIcon
             SetValue(IsNotFontIconProperty, !value);
         }
     }
@@ -83,12 +84,26 @@ public class SettingCard : Button
         set => SetValue(ImageIconProperty, value);
     }
 
-    // 重写属性改变通知方法
+    protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
+    {
+        base.OnApplyTemplate(e);
+
+        // 查找模板中的内容控制组件（通过我们在 XAML 中指定的 Name）
+        var contentPresenter = e.NameScope.Find<ContentControl>("ActionContentControl");
+        if (contentPresenter != null)
+        {
+            // 订阅指针按下事件，并直接标记为已处理
+            contentPresenter.PointerPressed += (sender, args) =>
+            {
+                args.Handled = true; 
+            };
+        }
+    }
+
     protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
     {
         base.OnPropertyChanged(change);
 
-        // 当 IsFontIcon 属性改变时，自动更新 IsNotFontIcon
         if (change.Property == IsFontIconProperty) SetValue(IsNotFontIconProperty, !(bool)change.NewValue!);
     }
 }
