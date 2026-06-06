@@ -61,7 +61,7 @@ public class OnePointTheme : Styles, IResourceProvider
             catch (Exception ex)
             {
                 // 处理异常
-                Console.WriteLine($"主题资源应用失败: {ex.Message}");
+                Console.WriteLine($@"主题资源应用失败: {ex.Message}");
             }
 
         ThemeManager.Instance.SetAccentColor(AccentColor);
