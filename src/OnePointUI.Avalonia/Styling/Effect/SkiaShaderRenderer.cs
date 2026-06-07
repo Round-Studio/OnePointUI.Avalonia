@@ -9,6 +9,7 @@ public sealed class SkiaShaderRenderer : Control
 {
     private CompositionCustomVisual _customVisual;
     private SkiaEffect _sukiEffect;
+    private bool _isRunning;
 
     protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
     {
@@ -20,7 +21,8 @@ public sealed class SkiaShaderRenderer : Control
         var visualHandler = new ShaderDraw();
         _customVisual = comp.CreateCustomVisual(visualHandler);
         ElementComposition.SetElementChildVisual(this, _customVisual);
-        _customVisual.SendHandlerMessage(EffectDrawBase.StartAnimations);
+        // 仅在 IsVisible 状态下才启动动画，避免后台/不可见时持续占用 GPU
+        if (IsVisible) SendStart();
         if (_sukiEffect != null)
             _customVisual.SendHandlerMessage(_sukiEffect);
 
@@ -36,15 +38,27 @@ public sealed class SkiaShaderRenderer : Control
     public void Stop()
     {
         IsVisible = false;
-        if (_customVisual != null)
-            _customVisual.SendHandlerMessage(EffectDrawBase.StopAnimations);
+        SendStop();
     }
 
     public void Start()
     {
         IsVisible = true;
-        if (_customVisual != null)
-            _customVisual.SendHandlerMessage(EffectDrawBase.StartAnimations);
+        SendStart();
+    }
+
+    private void SendStart()
+    {
+        if (_isRunning || _customVisual == null) return;
+        _customVisual.SendHandlerMessage(EffectDrawBase.StartAnimations);
+        _isRunning = true;
+    }
+
+    private void SendStop()
+    {
+        if (!_isRunning || _customVisual == null) return;
+        _customVisual.SendHandlerMessage(EffectDrawBase.StopAnimations);
+        _isRunning = false;
     }
 
     public void SetEffect(SkiaEffect effect)
@@ -58,7 +72,22 @@ public sealed class SkiaShaderRenderer : Control
         base.OnPropertyChanged(change);
 
         if (change.Property == BoundsProperty)
+        {
             Update();
+        }
+        else if (change.Property == IsVisibleProperty)
+        {
+            // 跟随 IsVisible 自动启停动画，避免后台 60fps 空转
+            if (IsVisible) SendStart();
+            else SendStop();
+        }
+    }
+
+    protected override void OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs e)
+    {
+        // 控件从视觉树卸载时强制停止动画，防止后台帧回调持续触发
+        SendStop();
+        base.OnDetachedFromVisualTree(e);
     }
 
     private class ShaderDraw : EffectDrawBase

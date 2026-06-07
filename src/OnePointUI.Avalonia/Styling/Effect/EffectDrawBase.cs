@@ -95,12 +95,26 @@ public abstract class EffectDrawBase : CompositionCustomVisualHandler
     public override void OnAnimationFrameUpdate()
     {
         if (!AnimationEnabled) return;
+
+        // 当 visual 被分离（窗口最小化、控件不可见、Compositor 暂停）时跳过渲染
+        if (!IsAttachedToVisualTree)
+        {
+            RegisterForNextAnimationFrameUpdate();
+            return;
+        }
+
         if (_invalidateRect)
             Invalidate(GetRenderBounds());
         else
             Invalidate();
         RegisterForNextAnimationFrameUpdate();
     }
+
+    private bool IsAttachedToVisualTree =>
+        // CompositionCustomVisualHandler 没有直接的 IsAttached 暴露，依赖外部 Start/Stop 即可
+        // 当窗口最小化 / 控件被卸载时，OnAnimationFrameUpdate 仍会被调用但渲染目标已失效
+        // 因此用 RenderBounds 是否为 0 来判定，不为 0 才进行 Invalidate
+        EffectiveSize.X > 0 && EffectiveSize.Y > 0;
 
     //protected abstract void InvalidateInternal();
 
