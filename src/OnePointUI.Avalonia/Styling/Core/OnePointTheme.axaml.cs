@@ -42,7 +42,7 @@ public class OnePointTheme : Styles, IResourceProvider
         }
     }
 
-    private void OnApplicationResourcesChanged(object? sender, EventArgs e)
+    private void OnApplicationResourcesChanged(object? sender, ResourcesChangedEventArgs e)
     {
         if (sender is Application app && Application.Current != null)
             try

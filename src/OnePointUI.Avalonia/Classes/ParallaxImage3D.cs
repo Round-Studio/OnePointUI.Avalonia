@@ -3,7 +3,6 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Media;
-using Avalonia.VisualTree;
 
 namespace OnePointUI.Avalonia.Classes;
 
@@ -61,7 +60,7 @@ public sealed class ParallaxImage3D : Image
     /// </summary>
     private void UpdateDynamicScale()
     {
-        if (this.GetVisualRoot() is Window window)
+        if (TopLevel.GetTopLevel(this) is Window window)
         {
             // 获取窗口短边作为参考
             double windowRef = Math.Min(window.Bounds.Width, window.Bounds.Height);
@@ -73,7 +72,7 @@ public sealed class ParallaxImage3D : Image
             // 如果控件占满全屏，缩放倍率要小（如 1.05），否则边缘会出界太多
             // 如果控件很小（如缩略图），缩放倍率可以大一点（如 1.5）
             double ratio = controlRef / windowRef;
-            
+
             // 线性插值计算：ratio 越大，scale 越小
             // 当 ratio=1 (全屏) -> scale=1.05
             // 当 ratio=0.2 (小组件) -> scale=1.3
@@ -97,7 +96,7 @@ public sealed class ParallaxImage3D : Image
     protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
     {
         base.OnAttachedToVisualTree(e);
-        if (this.GetVisualRoot() is Window window)
+        if (TopLevel.GetTopLevel(this) is Window window)
         {
             window.PointerMoved += OnGlobalPointerMoved;
             window.PointerExited += OnGlobalPointerExited;
@@ -115,7 +114,7 @@ public sealed class ParallaxImage3D : Image
     protected override void OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs e)
     {
         base.OnDetachedFromVisualTree(e);
-        if (this.GetVisualRoot() is Window window)
+        if (TopLevel.GetTopLevel(this) is Window window)
         {
             window.PointerMoved -= OnGlobalPointerMoved;
             window.PointerExited -= OnGlobalPointerExited;

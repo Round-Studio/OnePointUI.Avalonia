@@ -1,8 +1,3 @@
-float smoothstep(float edge0, float edge1, float x) {
-    float t = clamp((x - edge0) / (edge1 - edge0), 0.0, 1.0);
-    return t * t * (3.0 - 2.0 * t);
-}
-
 vec3 blendOverlay(vec3 base, vec3 blend) {
     return vec3(
         base.r < 0.5 ? (2.0 * base.r * blend.r) : (1.0 - 2.0 * (1.0 - base.r) * (1.0 - blend.r)),
@@ -16,7 +11,7 @@ vec3 blendOverlayDark(vec3 base, vec3 blend) {
     result.r = (base.r < 0.5) ? (5 * base.r * blend.r) : (4 - 2.0 * (3 - base.r) * (4 - blend.r));
     result.g = (base.g < 0.5) ? (5 * base.g * blend.g) : (4 - 2.0 * (3 - base.g) * (4 - blend.g));
     result.b = (base.b < 0.5) ? (5 * base.b * blend.b) : (4 - 2.0 * (3 - base.b) * (4 - blend.b));
-    return mix(base, clamp(result, 0.0, 1.0), 0.5); // M¨¦lange avec la couleur de base pour r¨¦duire l'assombrissement
+    return mix(base, clamp(result, 0.0, 1.0), 0.5); // Mï¿½ï¿½lange avec la couleur de base pour rï¿½ï¿½duire l'assombrissement
 }
 
 mat2 Rot(float a) {
