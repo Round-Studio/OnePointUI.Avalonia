@@ -37,6 +37,28 @@
     <StyleInclude Source="BasicControls/ProgressBar.axaml" />
     <StyleInclude Source="BasicControls/HyperLink.axaml" />
 
+    <!-- Newly added Avalonia native controls -->
+    <StyleInclude Source="BasicControls/RadioButton.axaml" />
+    <StyleInclude Source="BasicControls/RepeatButton.axaml" />
+    <StyleInclude Source="BasicControls/ToolTip.axaml" />
+    <StyleInclude Source="BasicControls/PathIcon.axaml" />
+    <StyleInclude Source="BasicControls/Separator.axaml" />
+    <StyleInclude Source="BasicControls/Menu.axaml" />
+    <StyleInclude Source="BasicControls/ContextMenu.axaml" />
+    <StyleInclude Source="BasicControls/TreeView.axaml" />
+    <StyleInclude Source="BasicControls/TreeViewItem.axaml" />
+    <StyleInclude Source="BasicControls/GridSplitter.axaml" />
+    <StyleInclude Source="BasicControls/SplitView.axaml" />
+    <StyleInclude Source="BasicControls/Carousel.axaml" />
+    <StyleInclude Source="BasicControls/NumericUpDown.axaml" />
+    <StyleInclude Source="BasicControls/AutoCompleteBox.axaml" />
+    <StyleInclude Source="BasicControls/DatePicker.axaml" />
+    <StyleInclude Source="BasicControls/TimePicker.axaml" />
+    <StyleInclude Source="BasicControls/Calendar.axaml" />
+    <StyleInclude Source="BasicControls/CalendarDatePicker.axaml" />
+    <!-- ColorPicker requires Avalonia.Controls.ColorPicker package; uncomment after adding the package reference -->
+    <!--<StyleInclude Source="BasicControls/ColorPicker.axaml" />-->
+
     <StyleInclude Source="OnePointControls/LineTextBlock.axaml" />
     <StyleInclude Source="OnePointControls/FontIcon.axaml" />
     <StyleInclude Source="OnePointControls/SettingCard.axaml" />

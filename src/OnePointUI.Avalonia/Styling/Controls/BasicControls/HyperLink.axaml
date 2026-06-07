@@ -35,11 +35,11 @@
         </Style>
 
         <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Foreground" Value="{DynamicResource AccentBorderBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource AccentBorderHoverBrush}" />
         </Style>
 
         <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Foreground" Value="{DynamicResource AccentBackgroundOverBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource AccentBackgroundPressedBrush}" />
         </Style>
 
         <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
@@ -53,12 +53,12 @@
             </Style>
 
             <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource AccentBorderBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource AccentBorderHoverBrush}" />
                 <Setter Property="Opacity" Value="0.7" />
             </Style>
 
             <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource AccentBackgroundOverBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource AccentBackgroundPressedBrush}" />
                 <Setter Property="Opacity" Value="0.7" />
             </Style>
         </Style>

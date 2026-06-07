@@ -1,0 +1,75 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <StackPanel Spacing="10" Width="220">
+                <NumericUpDown Value="0" Minimum="0" Maximum="100" />
+                <NumericUpDown Value="50" Minimum="0" Maximum="100" IsEnabled="False" />
+                <NumericUpDown Value="10" Minimum="0" Maximum="100" Increment="5" FormatString="N0" />
+            </StackPanel>
+        </Border>
+    </Design.PreviewWith>
+
+    <Style Selector="NumericUpDown">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="6" />
+        <Setter Property="MinHeight" Value="32" />
+        <Setter Property="Padding" Value="10,0" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="PART_RootBorder"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        MinHeight="{TemplateBinding MinHeight}">
+                    <Grid ColumnDefinitions="*,Auto,Auto">
+                        <TextBox Name="PART_TextBox"
+                                 Grid.Column="0"
+                                 Background="Transparent"
+                                 BorderBrush="Transparent"
+                                 BorderThickness="0"
+                                 Padding="{TemplateBinding Padding}"
+                                 Foreground="{TemplateBinding Foreground}"
+                                 Watermark="{TemplateBinding Watermark}"
+                                 Text="{TemplateBinding Text}"
+                                 CornerRadius="{TemplateBinding CornerRadius}"
+                                 MinHeight="0" />
+                        <Button Name="PART_DecreaseButton"
+                                Grid.Column="1"
+                                Classes="NoBorder"
+                                Width="32"
+                                Padding="0"
+                                VerticalAlignment="Stretch"
+                                HorizontalContentAlignment="Center"
+                                VerticalContentAlignment="Center"
+                                Foreground="{DynamicResource PrimaryForegroundSecondaryBrush}">
+                            <TextBlock Text="-" FontSize="14" />
+                        </Button>
+                        <Button Name="PART_IncreaseButton"
+                                Grid.Column="2"
+                                Classes="NoBorder"
+                                Width="32"
+                                Padding="0"
+                                VerticalAlignment="Stretch"
+                                HorizontalContentAlignment="Center"
+                                VerticalContentAlignment="Center"
+                                Foreground="{DynamicResource PrimaryForegroundSecondaryBrush}">
+                            <TextBlock Text="+" FontSize="14" />
+                        </Button>
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="0.55" />
+        </Style>
+        <Style Selector="^:focus Border#PART_RootBorder">
+            <Setter Property="BorderBrush" Value="{DynamicResource AccentBorderBrush}" />
+        </Style>
+    </Style>
+</Styles>

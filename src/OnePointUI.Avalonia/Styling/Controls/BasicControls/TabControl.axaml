@@ -87,7 +87,7 @@
                                 CornerRadius="10"
                                 Height="0"
                                 Name="PART_SelectedPipe"
-                                Background="{DynamicResource PrimaryForegroundBrush}" />
+                                Background="{DynamicResource AccentBackgroundBrush}" />
                     </Panel>
                 </Border>
             </ControlTemplate>

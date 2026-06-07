@@ -46,7 +46,7 @@ public partial class BreadcrumbBar : UserControl
                 if (app.TryFindResource("PrimaryForegroundBrush", out var resourceValue))
                     return resourceValue as IBrush;
 
-            return new SolidColorBrush(Colors.Gray);
+            return new SolidColorBrush(global::Avalonia.Media.Colors.Gray);
         }
 
         ItemsBar.Children.Clear();

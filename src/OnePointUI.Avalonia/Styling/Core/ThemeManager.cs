@@ -2,10 +2,14 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Media;
 using Avalonia.Styling;
+using OnePointUI.Avalonia.Styling.Colors;
 using OnePointUI.Avalonia.Styling.Effect;
 
 namespace OnePointUI.Avalonia.Style.Core;
 
+/// <summary>
+///     主题管理器：负责加载主题色/中性色资源，并提供从一个主题色自动衍生完整调色板的能力
+/// </summary>
 public class ThemeManager
 {
     private static ThemeManager? _instance;
@@ -14,21 +18,13 @@ public class ThemeManager
     private readonly Application _application;
 
     private bool _isApplyingThemeResources;
-
     private bool _isLoadingThemeColors;
-
-    /// <summary>
-    ///     设置主题色
-    /// </summary>
-    /// <param name="color">主题色</param>
     private bool _isUpdatingAccentColors;
 
     private ThemeManager(Application application)
     {
         Console.WriteLine(@"初始化主题");
         _application = application;
-
-        // 加载主题颜色资源
         LoadThemeColors();
         Console.WriteLine(@"主题初始化完毕");
     }
@@ -55,52 +51,78 @@ public class ThemeManager
 
     public static void Initialize(Application application)
     {
-        // 如果已经初始化，则不再重复初始化
         if (_instance != null) return;
-
         _instance = new ThemeManager(application);
     }
 
+    /// <summary>
+    ///     加载主题中性色资源（深/浅色），主题色资源在 <see cref="UpdateAccentColors" /> 中按需生成
+    /// </summary>
     private void LoadThemeColors()
     {
         if (_isLoadingThemeColors) return;
-
         _isLoadingThemeColors = true;
         try
         {
-            // 创建深色主题资源
+            // ==== 深色主题 ====
             var darkTheme = new ResourceDictionary();
 
-            // 添加深色主题资源
-            darkTheme["BackgroundBrush"] = new SolidColorBrush(Color.Parse("#161616"));
+            // 背景与画布
+            darkTheme["BackgroundBrush"] = new SolidColorBrush(Color.Parse("#1B1B1B"));
+            darkTheme["BackgroundSecondaryBrush"] = new SolidColorBrush(Color.Parse("#232323"));
+            darkTheme["BackgroundTertiaryBrush"] = new SolidColorBrush(Color.Parse("#2C2C2C"));
+            darkTheme["BackgroundHoverBrush"] = new SolidColorBrush(Color.Parse("#2F2F2F"));
+            darkTheme["BackgroundSubtleBrush"] = new SolidColorBrush(Color.Parse("#1F1F1F"));
+
+            // 前景/文字
             darkTheme["PrimaryForegroundBrush"] = new SolidColorBrush(Colors.White);
-            darkTheme["PrimaryDisabledForegroundBrush"] = new SolidColorBrush(Color.Parse("#858585"));
-            darkTheme["PrimaryDisabled2ForegroundBrush"] = new SolidColorBrush(Color.Parse("#C4C4C4"));
+            darkTheme["PrimaryForegroundSecondaryBrush"] = new SolidColorBrush(Color.Parse("#D6D6D6"));
+            darkTheme["PrimaryDisabledForegroundBrush"] = new SolidColorBrush(Color.Parse("#7A7A7A"));
+            darkTheme["PrimaryDisabled2ForegroundBrush"] = new SolidColorBrush(Color.Parse("#A8A8A8"));
+            darkTheme["PrimaryAccentForegroundBrush"] = new SolidColorBrush(Color.Parse("#FFBB00"));
 
-            darkTheme["PrimaryBorderBrush"] = new SolidColorBrush(Color.Parse("#454545"));
-            darkTheme["PrimaryBackgroundBrush"] = new SolidColorBrush(Color.Parse("#343434"));
-            darkTheme["PrimaryBackgroundOverBrush"] = new SolidColorBrush(Color.Parse("#121212"));
+            // 主控件背景/边框
+            darkTheme["PrimaryBackgroundBrush"] = new SolidColorBrush(Color.Parse("#2D2D2D"));
+            darkTheme["PrimaryBackgroundOverBrush"] = new SolidColorBrush(Color.Parse("#383838"));
+            darkTheme["PrimaryBackgroundPressedBrush"] = new SolidColorBrush(Color.Parse("#1A1A1A"));
+            darkTheme["PrimaryBorderBrush"] = new SolidColorBrush(Color.Parse("#3F3F3F"));
+            darkTheme["PrimaryBorderHoverBrush"] = new SolidColorBrush(Color.Parse("#525252"));
+            darkTheme["PrimaryBorderPressedBrush"] = new SolidColorBrush(Color.Parse("#2A2A2A"));
+            darkTheme["PrimaryDisabledBackgroundBrush"] = new SolidColorBrush(Color.Parse("#262626"));
+            darkTheme["PrimaryDisabledBorderBrush"] = new SolidColorBrush(Color.Parse("#333333"));
+            darkTheme["PrimarySubtleBackgroundBrush"] = new SolidColorBrush(Color.Parse("#22FFFFFF"));
 
-            darkTheme["AccentBorderBrush"] = new SolidColorBrush(Color.Parse("#C97612"));
-            darkTheme["AccentBackgroundBrush"] = new SolidColorBrush(Color.Parse("#FFBB00"));
-            darkTheme["AccentBackgroundOverBrush"] = new SolidColorBrush(Color.Parse("#6E3D0E"));
+            // 阴影/光晕
+            darkTheme["ShadowBrush"] = new SolidColorBrush(Color.Parse("#80000000"));
+            darkTheme["GlowBrush"] = new SolidColorBrush(Color.Parse("#40000000"));
 
-            // 创建浅色主题资源
+            // ==== 浅色主题 ====
             var lightTheme = new ResourceDictionary();
 
-            // 添加浅色主题资源
-            lightTheme["BackgroundBrush"] = new SolidColorBrush(Color.Parse("#F5F5F5"));
+            lightTheme["BackgroundBrush"] = new SolidColorBrush(Color.Parse("#F7F7F7"));
+            lightTheme["BackgroundSecondaryBrush"] = new SolidColorBrush(Color.Parse("#FFFFFF"));
+            lightTheme["BackgroundTertiaryBrush"] = new SolidColorBrush(Color.Parse("#EFEFEF"));
+            lightTheme["BackgroundHoverBrush"] = new SolidColorBrush(Color.Parse("#EDEDED"));
+            lightTheme["BackgroundSubtleBrush"] = new SolidColorBrush(Color.Parse("#FAFAFA"));
+
             lightTheme["PrimaryForegroundBrush"] = new SolidColorBrush(Colors.Black);
-            lightTheme["PrimaryDisabledForegroundBrush"] = new SolidColorBrush(Color.Parse("#A0A0A0"));
-            lightTheme["PrimaryDisabled2ForegroundBrush"] = new SolidColorBrush(Color.Parse("#707070"));
+            lightTheme["PrimaryForegroundSecondaryBrush"] = new SolidColorBrush(Color.Parse("#404040"));
+            lightTheme["PrimaryDisabledForegroundBrush"] = new SolidColorBrush(Color.Parse("#A8A8A8"));
+            lightTheme["PrimaryDisabled2ForegroundBrush"] = new SolidColorBrush(Color.Parse("#7C7C7C"));
+            lightTheme["PrimaryAccentForegroundBrush"] = new SolidColorBrush(Color.Parse("#B66B00"));
 
-            lightTheme["PrimaryBorderBrush"] = new SolidColorBrush(Color.Parse("#DDDDDD"));
-            lightTheme["PrimaryBackgroundBrush"] = new SolidColorBrush(Color.Parse("#EEEEEE"));
-            lightTheme["PrimaryBackgroundOverBrush"] = new SolidColorBrush(Color.Parse("#E0E0E0"));
+            lightTheme["PrimaryBackgroundBrush"] = new SolidColorBrush(Color.Parse("#F0F0F0"));
+            lightTheme["PrimaryBackgroundOverBrush"] = new SolidColorBrush(Color.Parse("#E6E6E6"));
+            lightTheme["PrimaryBackgroundPressedBrush"] = new SolidColorBrush(Color.Parse("#D8D8D8"));
+            lightTheme["PrimaryBorderBrush"] = new SolidColorBrush(Color.Parse("#D4D4D4"));
+            lightTheme["PrimaryBorderHoverBrush"] = new SolidColorBrush(Color.Parse("#BDBDBD"));
+            lightTheme["PrimaryBorderPressedBrush"] = new SolidColorBrush(Color.Parse("#C4C4C4"));
+            lightTheme["PrimaryDisabledBackgroundBrush"] = new SolidColorBrush(Color.Parse("#F5F5F5"));
+            lightTheme["PrimaryDisabledBorderBrush"] = new SolidColorBrush(Color.Parse("#E2E2E2"));
+            lightTheme["PrimarySubtleBackgroundBrush"] = new SolidColorBrush(Color.Parse("#10000000"));
 
-            lightTheme["AccentBorderBrush"] = new SolidColorBrush(Color.Parse("#C97612"));
-            lightTheme["AccentBackgroundBrush"] = new SolidColorBrush(Color.Parse("#FFBB00"));
-            lightTheme["AccentBackgroundOverBrush"] = new SolidColorBrush(Color.Parse("#FFC933"));
+            lightTheme["ShadowBrush"] = new SolidColorBrush(Color.Parse("#33000000"));
+            lightTheme["GlowBrush"] = new SolidColorBrush(Color.Parse("#22000000"));
 
             // 将主题资源添加到应用程序资源中
             _application.Resources["DarkTheme"] = darkTheme;
@@ -128,10 +150,7 @@ public class ThemeManager
     {
         CurrentThemeVariant = themeVariant;
         _application.RequestedThemeVariant = themeVariant;
-
         SkiaEffect.UpdateColor();
-
-        // 应用主题资源
         ApplyThemeResources();
     }
 
@@ -145,21 +164,14 @@ public class ThemeManager
     private void ApplyThemeResources()
     {
         if (_isApplyingThemeResources) return;
-
         _isApplyingThemeResources = true;
         try
         {
-            // 获取当前主题的资源字典
             var themeDictKey = CurrentThemeVariant == ThemeVariant.Dark ? "DarkTheme" : "LightTheme";
-
-            // 从应用程序资源中查找主题资源字典
             if (_application.Resources.TryGetValue(themeDictKey, out var themeDict) &&
                 themeDict is ResourceDictionary resourceDict)
             {
-                // 将主题资源应用到应用程序资源中
                 foreach (var key in resourceDict.Keys) _application.Resources[key] = resourceDict[key];
-
-                // 更新主题色
                 UpdateAccentColors();
             }
         }
@@ -169,23 +181,65 @@ public class ThemeManager
         }
     }
 
+    /// <summary>
+    ///     根据当前 <see cref="AccentColor" /> 重新生成所有主题色画笔
+    /// </summary>
     private void UpdateAccentColors()
     {
         if (_isUpdatingAccentColors) return;
-
         _isUpdatingAccentColors = true;
         try
         {
-            // 更新主题色相关的资源
-            _application.Resources["AccentBackgroundBrush"] = new SolidColorBrush(AccentColor);
+            var isDark = CurrentThemeVariant == ThemeVariant.Dark;
+            var accent = AccentColor;
+            var luminance = accent.GetLuminance();
 
-            // 创建边框色（稍暗的主题色）
-            var borderColor = AccentColor.Darken(0.3);
-            _application.Resources["AccentBorderBrush"] = new SolidColorBrush(borderColor);
+            // 主色及其明度变化
+            var lighter = accent.Lighten(0.35);
+            var light = accent.Lighten(0.18);
+            var dark = accent.Darken(0.18);
+            var darker = accent.Darken(0.35);
+            var darkest = accent.Darken(0.55);
 
-            // 创建悬停色（根据当前主题决定是变亮还是变暗）
-            var hoverColor = AccentColor.Darken(0.5);
-            _application.Resources["AccentBackgroundOverBrush"] = new SolidColorBrush(hoverColor);
+            // Hover/Pressed：在深色主题中变亮，在浅色主题中变暗
+            var hover = isDark ? accent.Lighten(0.12) : accent.Darken(0.08);
+            var pressed = isDark ? accent.Lighten(0.20) : accent.Darken(0.16);
+
+            // 边框色：在深色主题中变暗，在浅色主题中变暗（保持一致）
+            var border = isDark ? accent.Darken(0.25) : accent.Darken(0.15);
+            var borderHover = isDark ? accent.Darken(0.15) : accent.Darken(0.05);
+
+            // 前景/文字：基于主色亮度自适应
+            var foreground = luminance > 0.6 ? Colors.Black : Colors.White;
+            var foregroundSecondary = isDark
+                ? accent.Lighten(0.25).WithAlpha(0.85)
+                : accent.Darken(0.10).WithAlpha(0.85);
+
+            // 微妙的背景（用作 selected/hover 底色）
+            var subtle = accent.WithAlpha(isDark ? 0.18 : 0.12);
+            var subtleHover = accent.WithAlpha(isDark ? 0.28 : 0.18);
+            var subtlePressed = accent.WithAlpha(isDark ? 0.36 : 0.24);
+
+            _application.Resources["AccentBackgroundBrush"] = new SolidColorBrush(accent);
+            _application.Resources["AccentBackgroundHoverBrush"] = new SolidColorBrush(hover);
+            _application.Resources["AccentBackgroundPressedBrush"] = new SolidColorBrush(pressed);
+            _application.Resources["AccentBorderBrush"] = new SolidColorBrush(border);
+            _application.Resources["AccentBorderHoverBrush"] = new SolidColorBrush(borderHover);
+            _application.Resources["AccentForegroundBrush"] = new SolidColorBrush(foreground);
+            _application.Resources["AccentForegroundSecondaryBrush"] = new SolidColorBrush(foregroundSecondary);
+
+            _application.Resources["AccentLightBrush"] = new SolidColorBrush(light);
+            _application.Resources["AccentLighterBrush"] = new SolidColorBrush(lighter);
+            _application.Resources["AccentDarkBrush"] = new SolidColorBrush(dark);
+            _application.Resources["AccentDarkerBrush"] = new SolidColorBrush(darker);
+            _application.Resources["AccentDarkestBrush"] = new SolidColorBrush(darkest);
+
+            _application.Resources["AccentSubtleBrush"] = new SolidColorBrush(subtle);
+            _application.Resources["AccentSubtleHoverBrush"] = new SolidColorBrush(subtleHover);
+            _application.Resources["AccentSubtlePressedBrush"] = new SolidColorBrush(subtlePressed);
+
+            // 向后兼容：保留旧名称，等价映射到新画笔
+            _application.Resources["AccentBackgroundOverBrush"] = new SolidColorBrush(pressed);
         }
         finally
         {

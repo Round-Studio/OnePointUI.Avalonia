@@ -21,11 +21,13 @@
                            Orientation="Horizontal">
                         <Track.DecreaseButton>
                             <RepeatButton
+                                Height="8"
                                 Name="PART_DecreaseButton"
                                 Focusable="False" />
                         </Track.DecreaseButton>
                         <Track.IncreaseButton>
                             <RepeatButton
+                                Height="8"
                                 Name="PART_IncreaseButton"
                                 Focusable="False" />
                         </Track.IncreaseButton>
@@ -74,11 +76,13 @@
                            Orientation="Horizontal">
                         <Track.DecreaseButton>
                             <RepeatButton
+                                Height="8"
                                 Name="PART_DecreaseButton"
                                 Focusable="False" />
                         </Track.DecreaseButton>
                         <Track.IncreaseButton>
                             <RepeatButton
+                                Height="8"
                                 Name="PART_IncreaseButton"
                                 Focusable="False" />
                         </Track.IncreaseButton>
@@ -116,6 +120,7 @@
     </Style>
     <Style Selector="Slider:disabled Border#PART_Thumb_Border">
         <Setter Property="Background" Value="{DynamicResource PrimaryDisabled2ForegroundBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryDisabledBorderBrush}" />
     </Style>
     <Style Selector="Slider:pointerover Border#PART_Thumb_Border">
         <Setter Property="BorderThickness" Value="3" />
@@ -141,7 +146,7 @@
             <ControlTemplate>
                 <Border Height="5" Width="{TemplateBinding Width}" CornerRadius="6"
                         Margin="-5,5,0,5"
-                        Background="{DynamicResource PrimaryDisabledForegroundBrush}" />
+                        Background="{DynamicResource PrimaryBorderBrush}" />
             </ControlTemplate>
         </Setter>
     </Style>

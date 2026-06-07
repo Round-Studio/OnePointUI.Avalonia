@@ -5,6 +5,7 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Media;
 using Avalonia.Styling;
 using OnePointUI.Avalonia.Style.Core;
+using OnePointUI.Avalonia.Styling.Colors;
 using SkiaSharp;
 
 namespace OnePointUI.Avalonia.Styling.Effect;
@@ -68,7 +69,7 @@ public class SkiaEffect
         else if (ThemeManager.CurrentThemeVariant == ThemeVariant.Light)
         {
             var color = ThemeManager.AccentColor;
-            _backgroundPrimaryAlloc = new[] { Colors.White.R / 255f, Colors.White.G / 255f, Colors.White.B / 255f };
+            _backgroundPrimaryAlloc = new[] { global::Avalonia.Media.Colors.White.R / 255f, global::Avalonia.Media.Colors.White.G / 255f, global::Avalonia.Media.Colors.White.B / 255f };
             _backgroundAlloc = new[]
                 { color.Lighten(0.3).R / 255f, color.Lighten(0.3).G / 255f, color.Lighten(0.3).B / 255f };
             _backgroundAccentAlloc = new[]

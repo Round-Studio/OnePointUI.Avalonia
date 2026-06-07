@@ -75,6 +75,7 @@
         </Style>
 
         <Style Selector="^:pointerover Border#Path_Border">
+            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBorderHoverBrush}" />
             <Setter Property="BorderThickness" Value="2,2,2,4" />
         </Style>
 
@@ -88,11 +89,11 @@
 
         <Style Selector="^:pressed">
             <Style Selector="^:checked Border#Path_Background">
-                <Setter Property="Background" Value="{DynamicResource AccentBackgroundOverBrush}" />
+                <Setter Property="Background" Value="{DynamicResource AccentBackgroundPressedBrush}" />
                 <Setter Property="Opacity" Value="1" />
             </Style>
             <Style Selector="^:unchecked Border#Path_Background">
-                <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundOverBrush}" />
+                <Setter Property="Background" Value="{DynamicResource AccentSubtleBrush}" />
                 <Setter Property="Opacity" Value="1" />
             </Style>
         </Style>

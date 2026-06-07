@@ -76,6 +76,10 @@
         </Style>
         <Style Selector="^:checked Border#Path_BackgroundBorder">
             <Setter Property="Background" Value="{DynamicResource AccentBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource AccentBorderBrush}" />
+        </Style>
+        <Style Selector="^:checked onePointControls|FontIcon#Path_Check">
+            <Setter Property="Foreground" Value="{DynamicResource AccentForegroundBrush}" />
         </Style>
         <Style Selector="^:checked Grid#Path_Check">
             <Setter Property="IsVisible" Value="True" />

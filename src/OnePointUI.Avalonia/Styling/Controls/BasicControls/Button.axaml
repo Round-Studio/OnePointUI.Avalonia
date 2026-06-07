@@ -15,6 +15,9 @@
                         Background="DeepPink">
                     Button
                 </Button>
+                <onePointControls:LineTextBlock Text="主题色按钮" />
+                <Button Margin="5" Width="200" Height="40" Classes="Subtle">Subtle</Button>
+                <Button Margin="5" Width="200" Height="40" Classes="Subtle" IsEnabled="False">Subtle Disabled</Button>
             </StackPanel>
         </Border>
     </Design.PreviewWith>
@@ -69,6 +72,7 @@
         </Style>
 
         <Style Selector="^:pointerover Border#Path_Border">
+            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBorderHoverBrush}" />
             <Setter Property="BorderThickness" Value="1,1,1,2" />
         </Style>
 
@@ -77,10 +81,12 @@
         </Style>
 
         <Style Selector="^:pressed Border#Path_Border">
+            <Setter Property="BorderBrush" Value="{DynamicResource AccentBorderBrush}" />
             <Setter Property="BorderThickness" Value="1" />
         </Style>
 
         <Style Selector="^:pressed Border#Path_Background">
+            <Setter Property="Background" Value="{DynamicResource AccentSubtleBrush}" />
             <Setter Property="Opacity" Value="1" />
         </Style>
 
@@ -88,6 +94,7 @@
             <Setter Property="Transitions">
                 <Transitions>
                     <ThicknessTransition Property="BorderThickness" Duration="0:0:0.18" Easing="BackEaseOut" />
+                    <BrushTransition Property="BorderBrush" Duration="0:0:0.18" />
                 </Transitions>
             </Setter>
         </Style>
@@ -113,7 +120,7 @@
                                     HorizontalAlignment="Stretch"
                                     VerticalAlignment="Stretch"
                                     CornerRadius="{TemplateBinding CornerRadius}"
-                                    Background="{DynamicResource AccentBackgroundOverBrush}"
+                                    Background="{DynamicResource AccentBackgroundHoverBrush}"
                                     Opacity="0">
                                 <Border.Transitions>
                                     <Transitions>
@@ -135,24 +142,106 @@
         <Setter Property="CornerRadius" Value="6" />
         <Setter Property="Foreground" Value="{DynamicResource AccentForegroundBrush}" />
 
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="0.55" />
+        </Style>
+
         <Style Selector="^:disabled Border#Path_Border">
             <Setter Property="Background" Value="{DynamicResource PrimaryDisabledForegroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryDisabledBorderBrush}" />
         </Style>
 
         <Style Selector="^:pointerover Border#Path_Border">
+            <Setter Property="BorderBrush" Value="{DynamicResource AccentBorderHoverBrush}" />
             <Setter Property="BorderThickness" Value="1,1,1,2" />
         </Style>
 
         <Style Selector="^:pointerover Border#Path_Background">
-            <Setter Property="Opacity" Value="0.3" />
+            <Setter Property="Opacity" Value="1" />
         </Style>
 
         <Style Selector="^:pressed Border#Path_Border">
+            <Setter Property="Background" Value="{DynamicResource AccentBackgroundPressedBrush}" />
             <Setter Property="BorderThickness" Value="1" />
         </Style>
 
         <Style Selector="^:pressed Border#Path_Background">
+            <Setter Property="Opacity" Value="0" />
+        </Style>
+
+        <Style Selector="^ /template/ Border#Path_Border">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <BrushTransition Property="Background" Duration="0:0:0.18" />
+                    <BrushTransition Property="BorderBrush" Duration="0:0:0.18" />
+                    <ThicknessTransition Property="BorderThickness" Duration="0:0:0.18" Easing="BackEaseOut" />
+                </Transitions>
+            </Setter>
+        </Style>
+    </Style>
+
+
+    <!--
+        Subtle: 轻量主题色按钮（半透明底 + 主题色文字），常用于次级强调
+    -->
+    <Style Selector="Button.Subtle">
+        <Setter Property="Background" Value="{DynamicResource AccentSubtleBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource AccentSubtleBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource AccentBackgroundBrush}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="CornerRadius" Value="6" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid>
+                    <Border Name="Path_Border"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            BorderThickness="1"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}">
+                        <Border Name="Path_Background"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                Background="{DynamicResource AccentSubtleHoverBrush}"
+                                Opacity="0">
+                            <Border.Transitions>
+                                <Transitions>
+                                    <DoubleTransition Property="Opacity" Duration="0:0:0.18" Easing="QuinticEaseOut" />
+                                </Transitions>
+                            </Border.Transitions>
+                        </Border>
+                    </Border>
+
+                    <ContentPresenter Content="{TemplateBinding Content}"
+                                      Foreground="{TemplateBinding Foreground}"
+                                      Padding="{TemplateBinding Padding}"
+                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="0.5" />
+        </Style>
+
+        <Style Selector="^:pointerover Border#Path_Background">
             <Setter Property="Opacity" Value="1" />
+        </Style>
+
+        <Style Selector="^:pressed Border#Path_Border">
+            <Setter Property="Background" Value="{DynamicResource AccentSubtlePressedBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource AccentSubtlePressedBrush}" />
+        </Style>
+
+        <Style Selector="^ /template/ Border#Path_Border">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <BrushTransition Property="Background" Duration="0:0:0.18" />
+                    <BrushTransition Property="BorderBrush" Duration="0:0:0.18" />
+                </Transitions>
+            </Setter>
         </Style>
     </Style>
 
