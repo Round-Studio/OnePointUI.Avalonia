@@ -1,5 +1,6 @@
 ﻿<Styles xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:behaviors="using:OnePointUI.Avalonia.Behaviors">
     <Design.PreviewWith>
         <ScrollViewer Width="200" Height="200"
                       HorizontalScrollBarVisibility="Auto">
@@ -19,6 +20,8 @@
 
     <Style Selector="ScrollViewer">
         <Setter Property="Background" Value="Transparent" />
+        <Setter Property="IsScrollInertiaEnabled" Value="True" />
+        <Setter Property="behaviors:ScrollViewerSmoothScroll.EnableSmoothScroll" Value="True" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid ColumnDefinitions="*,Auto" RowDefinitions="*,Auto">
