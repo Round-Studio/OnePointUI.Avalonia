@@ -1,9 +1,11 @@
 ﻿<Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:behaviors="clr-namespace:OnePointUI.Avalonia.Behaviors"
         x:ClassModifier="internal">
     <Style Selector="PopupRoot">
         <Setter Property="Background" Value="{x:Null}" />
         <Setter Property="TransparencyLevelHint" Value="Transparent" />
+        <Setter Property="behaviors:PopupDismissBehavior.EnableDismiss" Value="True" />
         <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="FontStyle" Value="Normal" />
         <Setter Property="Template">
@@ -22,5 +24,8 @@
                 </LayoutTransformControl>
             </ControlTemplate>
         </Setter>
+    </Style>
+    <Style Selector="OverlayLayer">
+        <Setter Property="IsHitTestVisible" Value="True" />
     </Style>
 </Styles>
