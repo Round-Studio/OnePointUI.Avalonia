@@ -85,7 +85,7 @@
     <Style Selector="ToggleSwitch:checked Border#PART_Knob_Net">
         <Setter Property="Height" Value="20" />
         <Setter Property="Width" Value="20" />
-        <Setter Property="Background" Value="{DynamicResource AccentBackgroundPressedBrush}" />
+        <Setter Property="Background" Value="{DynamicResource AccentDarkestBrush}" />
     </Style>
     <Style Selector="ToggleSwitch:checked Border#Path_Background">
         <Setter Property="Background" Value="{DynamicResource AccentBackgroundBrush}" />
