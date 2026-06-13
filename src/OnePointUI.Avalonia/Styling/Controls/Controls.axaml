@@ -77,6 +77,7 @@
     <StyleInclude Source="OnePointControls/Notice/InfoCard.axaml" />
     <StyleInclude Source="OnePointControls/Notice/LoadCard.axaml" />
     <StyleInclude Source="OnePointControls/Items/BorderCard.axaml" />
+    <StyleInclude Source="OnePointControls/Items/SteamCard.axaml" />
     <StyleInclude Source="OnePointControls/Navigation/CornerSelectBar/CornerSelectBar.axaml" />
     <StyleInclude Source="OnePointControls/Navigation/CornerSelectBar/CornerSelectBarItem.axaml" />
 </Styles>

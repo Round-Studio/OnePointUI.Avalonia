@@ -36,6 +36,9 @@
             <DependentUpon>NoticePanel.axaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>
+        <Compile Update="Styling\Controls\OnePointControls\Items\SteamCard.axaml.cs">
+          <DependentUpon>SteamCard.axaml</DependentUpon>
+        </Compile>
     </ItemGroup>
 
     <ItemGroup>
