@@ -1,5 +1,6 @@
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Media;
 
@@ -94,6 +95,8 @@ public class SteamCard : ContentControl
     private readonly Rotate3DTransform _rotateTransform;
     private readonly ScaleTransform _scaleTransform;
     private bool _isHovered;
+    private Image? _image;
+    private Border? _titleOverlay;
 
     public SteamCard()
     {
@@ -108,6 +111,14 @@ public class SteamCard : ContentControl
         };
 
         ClipToBounds = false;
+    }
+
+    protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
+    {
+        base.OnApplyTemplate(e);
+        _image = e.NameScope.Find<Image>("PART_Image");
+        _titleOverlay = e.NameScope.Find<Border>("PART_TitleOverlay");
+        UpdateVisualState();
     }
 
     protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
@@ -126,22 +137,54 @@ public class SteamCard : ContentControl
         }
         else if (change.Property == ParallaxDepthProperty)
         {
-            // 可选：当视差深度改变时，可以重新计算当前变换
             if (_isHovered)
             {
-                // 触发热更新 - 可以选择重新应用当前鼠标位置的效果
             }
         }
+        else if (change.Property == SourceProperty)
+            UpdateImageVisibility();
+        else if (change.Property == TitleProperty)
+            UpdateTitleVisibility();
+    }
+
+    private void UpdateVisualState()
+    {
+        UpdateImageVisibility();
+        UpdateTitleVisibility();
+    }
+
+    private void UpdateImageVisibility()
+    {
+        if (_image is not null)
+            _image.IsVisible = Source is not null;
+    }
+
+    private void UpdateTitleVisibility()
+    {
+        if (_titleOverlay is not null)
+            _titleOverlay.IsVisible = Title is not null;
     }
 
     protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
     {
         base.OnAttachedToVisualTree(e);
 
+        DisableAncestorClip();
+
         if (TopLevel.GetTopLevel(this) is Window window)
         {
             window.PointerMoved += OnGlobalPointerMoved;
             window.PointerExited += OnGlobalPointerExited;
+        }
+    }
+
+    private void DisableAncestorClip()
+    {
+        var parent = Parent as Visual;
+        while (parent is not null)
+        {
+            parent.ClipToBounds = false;
+            parent = parent.Parent as Visual;
         }
     }
 

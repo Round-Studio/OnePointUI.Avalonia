@@ -9,10 +9,11 @@
         <!-- Set Defaults -->
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
         <Setter Property="Background" Value="{DynamicResource AccentBackgroundBrush}" />
+        <Setter Property="Padding" Value="4,2"></Setter>
         <Setter Property="FontSize" Value="9" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Padding="4,2"
+                <Border Padding="{TemplateBinding Padding}"
                         Background="{TemplateBinding Background}"
                         CornerRadius="3">
                     <TextBlock Text="{TemplateBinding Text}"

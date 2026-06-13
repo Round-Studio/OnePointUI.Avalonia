@@ -31,8 +31,7 @@
                     <Border Name="PART_CardBorder"
                             CornerRadius="{TemplateBinding CardCornerRadius}"
                             Background="{TemplateBinding Background}"
-                            BorderThickness="1"
-                            BorderBrush="{DynamicResource PrimaryBorderBrush}"
+                            BorderThickness="0"
                             ClipToBounds="True">
                         <Grid>
                             <Image Name="PART_Image"
