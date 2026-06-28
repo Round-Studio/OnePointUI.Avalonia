@@ -31,7 +31,7 @@
                 <ComboBox SelectedIndex="0">
                     <ComboBox.SelectionBoxItemTemplate>
                         <DataTemplate>
-                            <Border Padding="20" BorderBrush="Red" BorderThickness="1">
+                            <Border Padding="20" BorderBrush="{DynamicResource AccentBackgroundBrush}" BorderThickness="1">
                                 <TextBlock Text="{ReflectionBinding}" />
                             </Border>
                         </DataTemplate>
