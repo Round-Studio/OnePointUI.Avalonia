@@ -22,12 +22,14 @@
 
                     <TextBlock Text="{TemplateBinding Text}"
                                FontSize="{TemplateBinding FontSize}"
+                               FontWeight="{TemplateBinding FontWeight}"
                                Margin="5,0"
                                VerticalAlignment="Center"
                                Name="PATH_TextBlock1" />
 
                     <TextBlock Text="{TemplateBinding Text}"
                                FontSize="{TemplateBinding FontSize}"
+                               FontWeight="{TemplateBinding FontWeight}"
                                Margin="5,0"
                                Opacity="0"
                                Foreground="White"
