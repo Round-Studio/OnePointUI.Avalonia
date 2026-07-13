@@ -159,6 +159,7 @@
                                 HorizontalAlignment="Right" />
 
                         <Popup Name="PART_Popup"
+                               OverlayInputPassThroughElement="{x:Null}"
                                WindowManagerAddShadowHint="False"
                                IsOpen="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
                                MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
@@ -193,6 +194,7 @@
                                     </Style>
                                 </Border.Styles>
                                 <ScrollViewer
+                                    Focusable="True"
                                     HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
                                     VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"
                                     IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}">

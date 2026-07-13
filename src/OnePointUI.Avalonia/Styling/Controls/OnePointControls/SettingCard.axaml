@@ -17,7 +17,7 @@
     <Style Selector="controls|SettingCard">
         <Setter Property="Template">
             <ControlTemplate>
-                <Button Name="PATH_Button">
+                <Border Name="PART_Root">
                     <items:BorderCard
                         ClipToBounds="True"
                         Padding="0"
@@ -96,7 +96,7 @@
                             </Border>
                         </Grid>
                     </items:BorderCard>
-                </Button>
+                </Border>
             </ControlTemplate>
         </Setter>
         <Setter Property="MinHeight" Value="58" />

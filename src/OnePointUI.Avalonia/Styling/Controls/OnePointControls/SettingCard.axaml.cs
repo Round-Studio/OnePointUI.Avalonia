@@ -2,11 +2,12 @@
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives; // 引入 TemplatedControl 相关的命名空间
 using Avalonia.Input;
+using Avalonia.Interactivity;
 using Avalonia.Media;
 
 namespace OnePointUI.Avalonia.Styling.Controls.OnePointControls;
 
-public class SettingCard : Button
+public class SettingCard : ContentControl
 {
     public static readonly StyledProperty<string> GlyphProperty =
         AvaloniaProperty.Register<SettingCard, string>(nameof(Glyph), "");
@@ -31,6 +32,7 @@ public class SettingCard : Button
 
     public static readonly StyledProperty<IImage> ImageIconProperty =
         AvaloniaProperty.Register<SettingCard, IImage>(nameof(ImageIcon));
+    public event EventHandler<RoutedEventArgs> Click;
 
     public string Glyph
     {
@@ -84,18 +86,24 @@ public class SettingCard : Button
         set => SetValue(ImageIconProperty, value);
     }
 
+    private Border _rootBorder;
+
     protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
     {
         base.OnApplyTemplate(e);
 
-        // 查找模板中的内容控制组件（通过我们在 XAML 中指定的 Name）
+        _rootBorder = e.NameScope.Find<Border>("PART_Root");
+        if (_rootBorder != null)
+        {
+            _rootBorder.PointerPressed += RootBorder_PointerPressed;
+        }
+
         var contentPresenter = e.NameScope.Find<ContentControl>("ActionContentControl");
         if (contentPresenter != null)
         {
-            // 订阅指针按下事件，并直接标记为已处理
             contentPresenter.PointerPressed += (sender, args) =>
             {
-                args.Handled = true; 
+                args.Handled = true;
             };
         }
     }
@@ -105,5 +113,11 @@ public class SettingCard : Button
         base.OnPropertyChanged(change);
 
         if (change.Property == IsFontIconProperty) SetValue(IsNotFontIconProperty, !(bool)change.NewValue!);
+    }
+    
+    private void RootBorder_PointerPressed(object sender, PointerPressedEventArgs e)
+    {
+        // 触发 Click 事件，这样外部就可以像订阅 Button.Click 一样订阅 SettingCard.Click
+        Click?.Invoke(this, new RoutedEventArgs());
     }
 }
