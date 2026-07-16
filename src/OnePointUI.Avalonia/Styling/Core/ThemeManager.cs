@@ -20,12 +20,12 @@ public class ThemeManager
     private bool _isApplyingThemeResources;
     private bool _isLoadingThemeColors;
     private bool _isUpdatingAccentColors;
+    private bool _themeColorsLoaded;
 
     private ThemeManager(Application application)
     {
         Console.WriteLine(@"初始化主题");
         _application = application;
-        LoadThemeColors();
         Console.WriteLine(@"主题初始化完毕");
     }
 
@@ -127,6 +127,7 @@ public class ThemeManager
             // 将主题资源添加到应用程序资源中
             _application.Resources["DarkTheme"] = darkTheme;
             _application.Resources["LightTheme"] = lightTheme;
+            _themeColorsLoaded = true;
         }
         finally
         {
@@ -167,6 +168,8 @@ public class ThemeManager
         _isApplyingThemeResources = true;
         try
         {
+            if (!_themeColorsLoaded) LoadThemeColors();
+
             var themeDictKey = CurrentThemeVariant == ThemeVariant.Dark ? "DarkTheme" : "LightTheme";
             if (_application.Resources.TryGetValue(themeDictKey, out var themeDict) &&
                 themeDict is ResourceDictionary resourceDict)
