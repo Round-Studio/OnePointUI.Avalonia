@@ -6,7 +6,7 @@
         <StackPanel Width="500" Height="300">
             <controls:SettingCard Header="111"
                                   Description="介绍"
-                                  IsFontIcon="False"
+                                  IsFontIcon="True"
                                   ImageIcon="../../../Assets/OnePointUI.Icon.png"
                                   IsClickable="True">
                 <ToggleSwitch />
@@ -36,10 +36,10 @@
                                 <Grid>
                                     <controls:FontIcon Glyph="{TemplateBinding Glyph}"
                                                        FontSize="24"
-                                                       Margin="10,0,0,0"
+                                                       Margin="10,9,0,0"
                                                        IsVisible="{TemplateBinding IsFontIcon}"
                                                        HorizontalAlignment="Left"
-                                                       VerticalAlignment="Center" />
+                                                       VerticalAlignment="Top" />
                                     
                                     <Border Width="32" Height="32"
                                             CornerRadius="4"
