@@ -1,4 +1,5 @@
-﻿using Avalonia;
+﻿using System.Runtime.InteropServices.JavaScript;
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives; // 引入 TemplatedControl 相关的命名空间
 using Avalonia.Input;
@@ -87,6 +88,13 @@ public class SettingCard : ContentControl
     }
 
     private Border _rootBorder;
+
+    protected override void OnUnloaded(RoutedEventArgs e)
+    {
+        base.OnUnloaded(e);
+
+        ImageIcon = null;
+    }
 
     protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
     {
