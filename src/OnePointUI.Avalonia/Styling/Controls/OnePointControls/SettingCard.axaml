@@ -4,12 +4,12 @@
         xmlns:items="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls.Items">
     <Design.PreviewWith>
         <StackPanel Width="500" Height="300">
-            <controls:SettingCard Header="111"
+            <controls:SettingCard Header="你好"
+                                  Glyph="&#xEB9F;"
                                   Description="介绍"
-                                  IsFontIcon="False"
+                                  IsFontIcon="True"
                                   ImageIcon="../../../Assets/OnePointUI.Icon.png"
                                   IsClickable="True">
-                <ToggleSwitch />
             </controls:SettingCard>
         </StackPanel>
     </Design.PreviewWith>
@@ -17,7 +17,7 @@
     <Style Selector="controls|SettingCard">
         <Setter Property="Template">
             <ControlTemplate>
-                <Button Name="PATH_Button">
+                <Border Name="PART_Root">
                     <items:BorderCard
                         ClipToBounds="True"
                         Padding="0"
@@ -36,10 +36,10 @@
                                 <Grid>
                                     <controls:FontIcon Glyph="{TemplateBinding Glyph}"
                                                        FontSize="24"
-                                                       Margin="10,0,0,0"
+                                                       Margin="10,9,0,0"
                                                        IsVisible="{TemplateBinding IsFontIcon}"
                                                        HorizontalAlignment="Left"
-                                                       VerticalAlignment="Center" />
+                                                       VerticalAlignment="Top" />
                                     
                                     <Border Width="32" Height="32"
                                             CornerRadius="4"
@@ -53,8 +53,8 @@
                                                Source="{TemplateBinding ImageIcon}"/>
                                     </Border>
 
-                                    <StackPanel VerticalAlignment="Center"
-                                                Margin="50,0,0,0">
+                                    <StackPanel VerticalAlignment="Top"
+                                                Margin="50,3,0,0">
                                         <ContentPresenter Content="{TemplateBinding Header}"
                                                           FontSize="16">
                                             <ContentPresenter.Styles>
@@ -96,7 +96,7 @@
                             </Border>
                         </Grid>
                     </items:BorderCard>
-                </Button>
+                </Border>
             </ControlTemplate>
         </Setter>
         <Setter Property="MinHeight" Value="58" />
