@@ -89,13 +89,6 @@ public class SettingCard : ContentControl
 
     private Border _rootBorder;
 
-    protected override void OnUnloaded(RoutedEventArgs e)
-    {
-        base.OnUnloaded(e);
-
-        ImageIcon = null;
-    }
-
     protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
     {
         base.OnApplyTemplate(e);
