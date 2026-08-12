@@ -1,21 +1,29 @@
 ﻿<Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:behaviors="using:OnePointUI.Avalonia.Behaviors">
+        xmlns:behaviors="using:OnePointUI.Avalonia.Behaviors"
+        xmlns:converters="using:OnePointUI.Avalonia.Converters">
+
+    <Styles.Resources>
+        <converters:ScrollViewerOpacityMaskConverter x:Key="ScrollViewerOpacityMaskConverter" FadeSize="32" />
+    </Styles.Resources>
+
     <Design.PreviewWith>
-        <ScrollViewer Width="200" Height="200"
-                      HorizontalScrollBarVisibility="Auto">
-            <StackPanel Spacing="20" Width="210">
-                <TextBlock>Item 1</TextBlock>
-                <TextBlock>Item 2</TextBlock>
-                <TextBlock>Item 3</TextBlock>
-                <TextBlock>Item 4</TextBlock>
-                <TextBlock>Item 5</TextBlock>
-                <TextBlock>Item 6</TextBlock>
-                <TextBlock>Item 7</TextBlock>
-                <TextBlock>Item 8</TextBlock>
-                <TextBlock>Item 9</TextBlock>
-            </StackPanel>
-        </ScrollViewer>
+        <Border Background="Teal" Padding="20">
+            <ScrollViewer Width="200" Height="200"
+                          HorizontalScrollBarVisibility="Disabled">
+                <StackPanel Spacing="20" Width="210">
+                    <TextBlock Foreground="White">Item 1</TextBlock>
+                    <TextBlock Foreground="White">Item 2</TextBlock>
+                    <TextBlock Foreground="White">Item 3</TextBlock>
+                    <TextBlock Foreground="White">Item 4</TextBlock>
+                    <TextBlock Foreground="White">Item 5</TextBlock>
+                    <TextBlock Foreground="White">Item 6</TextBlock>
+                    <TextBlock Foreground="White">Item 7</TextBlock>
+                    <TextBlock Foreground="White">Item 8</TextBlock>
+                    <TextBlock Foreground="White">Item 9</TextBlock>
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
     </Design.PreviewWith>
 
     <Style Selector="ScrollViewer">
@@ -25,6 +33,7 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid ColumnDefinitions="*,Auto" RowDefinitions="*,Auto">
+                    
                     <ScrollContentPresenter
                         Name="PART_ContentPresenter"
                         Grid.Row="0"
@@ -37,7 +46,18 @@
                         HorizontalSnapPointsAlignment="{TemplateBinding HorizontalSnapPointsAlignment}"
                         VerticalSnapPointsAlignment="{TemplateBinding VerticalSnapPointsAlignment}"
                         Padding="{TemplateBinding Padding}"
-                        ScrollViewer.IsScrollInertiaEnabled="{TemplateBinding IsScrollInertiaEnabled}" />
+                        ScrollViewer.IsScrollInertiaEnabled="{TemplateBinding IsScrollInertiaEnabled}">
+                        
+                        <ScrollContentPresenter.OpacityMask>
+                            <MultiBinding Converter="{StaticResource ScrollViewerOpacityMaskConverter}">
+                                <Binding Path="Offset.Y" RelativeSource="{RelativeSource TemplatedParent}" />
+                                <Binding Path="Extent.Height" RelativeSource="{RelativeSource TemplatedParent}" />
+                                <Binding Path="Viewport.Height" RelativeSource="{RelativeSource TemplatedParent}" />
+                            </MultiBinding>
+                        </ScrollContentPresenter.OpacityMask>
+                        
+                    </ScrollContentPresenter>
+
                     <ScrollBar Name="PART_HorizontalScrollBar"
                                Orientation="Horizontal"
                                Margin="0,0,0,2"
