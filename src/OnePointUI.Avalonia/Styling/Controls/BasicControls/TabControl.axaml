@@ -28,12 +28,15 @@
                 <Border Margin="{TemplateBinding Margin}"
                         Background="{TemplateBinding Background}"
                         HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
-                        VerticalAlignment="{TemplateBinding VerticalAlignment}">
+                        VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                        ClipToBounds="True">
                     <DockPanel>
                         <ItemsPresenter Name="PART_ItemsPresenter"
+                                        ClipToBounds="True"
                                         ItemsPanel="{TemplateBinding ItemsPanel}"
                                         DockPanel.Dock="{TemplateBinding TabStripPlacement}" />
                         <ContentPresenter Name="PART_SelectedContentHost"
+                                          ClipToBounds="True"
                                           Margin="{TemplateBinding Padding}"
                                           HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
@@ -61,7 +64,7 @@
         <Setter Property="FontWeight" Value="ExtraLight" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
-        <Setter Property="Padding" Value="12 4" />
+        <Setter Property="Padding" Value="0 4,12,0" />
         <Setter Property="Margin" Value="0" />
         <Setter Property="MinHeight" Value="36" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
