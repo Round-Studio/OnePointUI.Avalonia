@@ -23,6 +23,9 @@
                 <TabItem Header="OnePointUI Controls">
                     <pages:OnePointUIControls />
                 </TabItem>
+                <TabItem Header="TabView">
+                    <pages:TabViewDemo />
+                </TabItem>
                 <TabItem Header="Settings">
                     <StackPanel Margin="20">
                         <onePointControls:LineTextBlock Text="主题切换" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"

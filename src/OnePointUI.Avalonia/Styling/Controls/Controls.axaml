@@ -80,4 +80,6 @@
     <StyleInclude Source="OnePointControls/Items/SteamCard.axaml" />
     <StyleInclude Source="OnePointControls/Navigation/CornerSelectBar/CornerSelectBar.axaml" />
     <StyleInclude Source="OnePointControls/Navigation/CornerSelectBar/CornerSelectBarItem.axaml" />
+    <StyleInclude Source="OnePointControls/Navigation/TabView/TabView.axaml" />
+    <StyleInclude Source="OnePointControls/Navigation/TabView/TabViewItem.axaml" />
 </Styles>

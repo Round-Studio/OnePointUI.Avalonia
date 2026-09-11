@@ -1,0 +1,28 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:tabView="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls.Navigation.TabView;assembly=OnePointUI.Avalonia"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="OnePointUI.Avalonia.Test.Pages.TabViewDemo">
+    <tabView:TabView Name="DemoTabView"
+                     SelectedIndex="0"
+                     AddTabClick="DemoTabView_OnAddTabClick">
+        <tabView:TabViewItem Header="Welcome" Glyph="&#xE80F;">
+            <StackPanel Margin="20" Spacing="8">
+                <TextBlock Text="TabView" FontSize="22" FontWeight="Bold" />
+                <TextBlock Text="点击 + 动态开页，点击标签关闭按钮关页。" />
+                <TextBlock Text="拖拽标签可排序；拖出窗口外会拆成新窗口，再拖回可合并。" />
+            </StackPanel>
+        </tabView:TabViewItem>
+        <tabView:TabViewItem Header="Editor">
+            <TextBox AcceptsReturn="True"
+                     TextWrapping="Wrap"
+                     Margin="12"
+                     Watermark="在此编辑..." />
+        </tabView:TabViewItem>
+        <tabView:TabViewItem Header="Pinned" IsClosable="False">
+            <TextBlock Margin="20" Text="这个标签不能关闭。" />
+        </tabView:TabViewItem>
+    </tabView:TabView>
+</UserControl>
