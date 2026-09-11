@@ -8,16 +8,12 @@
         xmlns:navigation="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls.Navigation"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="OnePointUI.Avalonia.Styling.Controls.OnePointControls.WindowFrame.OnePointWindow"
-        ExtendClientAreaToDecorationsHint="False"
+        ExtendClientAreaToDecorationsHint="True"
         ExtendClientAreaTitleBarHeightHint="-1"
-        WindowDecorations="BorderOnly"
+        WindowDecorations="Full"
         WindowStartupLocation="CenterScreen"
         FontFamily="resm:OnePointUI.Avalonia.Assets.Fonts.DinPro.ttf?assembly=OnePointUI.Avalonia#DINPro"
         Title="OnePointUI.Avalonia">
-    <!--<Border RenderTransformOrigin="0.5,0.5">-->
-    <!--<Border.RenderTransform>
-            <ScaleTransform ScaleX="1" ScaleY="1" />
-        </Border.RenderTransform>-->
     <Border>
         <Grid>
             <ContentControl Content="Hello OnePointUI.Avalonia!"
