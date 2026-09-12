@@ -3,7 +3,7 @@
         xmlns:controls="using:OnePointUI.Avalonia.Styling.Controls.OnePointControls"
         xmlns:items="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls.Items">
     <Design.PreviewWith>
-        <StackPanel Width="500" Height="300">
+        <StackPanel Width="500" Height="300" Background="White">
             <controls:SettingCard Header="你好"
                                   Glyph="&#xEB9F;"
                                   Description="介绍"
@@ -105,13 +105,13 @@
             <Setter Property="Transitions">
                 <Transitions>
                     <DoubleTransition Property="Opacity"
-                                      Duration="0:0:0.08" />
+                                      Duration="0:0:0.09" />
                 </Transitions>
             </Setter>
         </Style>
 
         <Style Selector="^:pointerover /template/ Border#PATH_Background">
-            <Setter Property="Opacity" Value="0.1" />
+            <Setter Property="Opacity" Value="0.05" />
         </Style>
 
         <Style Selector="^ /template/ Button#PATH_Button">

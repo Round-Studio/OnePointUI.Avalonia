@@ -13,14 +13,14 @@
             <ControlTemplate>
                 <Panel>
                     <Border BorderThickness="1"
-                            BorderBrush="{DynamicResource PrimaryBackgroundBrush}"
+                            BorderBrush="{DynamicResource GeneralBorderBrush}"
                             CornerRadius="{TemplateBinding CornerRadius}"
-                            Opacity="0.8" />
+                            Opacity="{DynamicResource GeneralBorderBrushOpacity}" />
 
                     <Border Background="{DynamicResource PrimaryBorderBrush}"
                             CornerRadius="{TemplateBinding CornerRadius}"
                             Margin="1"
-                            Opacity="0.78" />
+                            Opacity="0.45" />
 
                     <ContentPresenter Content="{TemplateBinding Content}"
                                       Padding="{TemplateBinding Padding}" />
