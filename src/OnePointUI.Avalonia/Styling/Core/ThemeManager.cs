@@ -67,7 +67,7 @@ public class ThemeManager
             #region 深色主题
             // ==== 深色主题 ====
             var darkTheme = new ResourceDictionary();
-            darkTheme["GeneralBorderBrush"] = new SolidColorBrush(Color.Parse("#0a0a0a"));
+            darkTheme["GeneralBorderBrush"] = new SolidColorBrush(Color.Parse("#323234"));
             darkTheme["GeneralBorderBrushOpacity"] = 0.25;
 
             // 填充

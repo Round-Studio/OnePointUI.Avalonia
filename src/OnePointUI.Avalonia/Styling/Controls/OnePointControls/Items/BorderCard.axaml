@@ -20,7 +20,7 @@
                     <Border Background="{DynamicResource GeneralBorderBrush}"
                             CornerRadius="{TemplateBinding CornerRadius}"
                             Margin="1"
-                            Opacity="0.45" />
+                            Opacity="{DynamicResource GeneralBorderBrushOpacity}" />
 
                     <ContentPresenter Content="{TemplateBinding Content}"
                                       Padding="{TemplateBinding Padding}" />
