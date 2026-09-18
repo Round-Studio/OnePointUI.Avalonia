@@ -34,6 +34,7 @@
                             BorderBrush="{DynamicResource PrimaryBorderBrush}"
                             CornerRadius="{TemplateBinding CornerRadius}"
                             Background="{DynamicResource PrimaryBackgroundBrush}"
+                            Opacity="{DynamicResource GeneralBorderBrushOpacity}"
                             Width="{TemplateBinding Width}"
                             Height="{TemplateBinding Height}">
                         <Border Name="Path_Background"

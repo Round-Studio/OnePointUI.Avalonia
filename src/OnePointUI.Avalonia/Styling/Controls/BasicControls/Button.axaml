@@ -24,7 +24,7 @@
 
     <!-- Add Styles Here -->
     <Style Selector="Button">
-        <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundOpacityBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBorderBrush}" />
         <Setter Property="CornerRadius" Value="6" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />

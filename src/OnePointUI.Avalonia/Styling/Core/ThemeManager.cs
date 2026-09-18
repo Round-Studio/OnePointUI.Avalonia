@@ -92,6 +92,7 @@ public class ThemeManager
 
             // 主控件背景/边框
             darkTheme["PrimaryBackgroundBrush"] = new SolidColorBrush(Color.Parse("#2D2D2D"));
+            darkTheme["PrimaryBackgroundOpacityBrush"] = new SolidColorBrush(Color.Parse("#2D2D2D50"));
             darkTheme["PrimaryBackgroundOverBrush"] = new SolidColorBrush(Color.Parse("#383838"));
             darkTheme["PrimaryBackgroundPressedBrush"] = new SolidColorBrush(Color.Parse("#1A1A1A"));
             darkTheme["PrimaryBorderBrush"] = new SolidColorBrush(Color.Parse("#3F3F3F"));
