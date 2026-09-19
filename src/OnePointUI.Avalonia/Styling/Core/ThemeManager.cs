@@ -69,7 +69,7 @@ public class ThemeManager
             // ==== 深色主题 ====
             var darkTheme = new ResourceDictionary();
             darkTheme["GeneralBorderBrush"] = new SolidColorBrush(Color.Parse("#0a0a0a"));
-            darkTheme["GeneralBorderBrushOpacity"] = 0.25;
+            darkTheme["GeneralBorderBrushOpacity"] = 0.45;
 
             // 填充
             darkTheme["SystemFillColorCriticalBrush"] = new SolidColorBrush(Color.Parse("#FF99A4"));
