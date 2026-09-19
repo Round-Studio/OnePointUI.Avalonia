@@ -65,9 +65,10 @@ public class ThemeManager
         try
         {
             #region 深色主题
+
             // ==== 深色主题 ====
             var darkTheme = new ResourceDictionary();
-            darkTheme["GeneralBorderBrush"] = new SolidColorBrush(Color.Parse("#323234"));
+            darkTheme["GeneralBorderBrush"] = new SolidColorBrush(Color.Parse("#0a0a0a"));
             darkTheme["GeneralBorderBrushOpacity"] = 0.25;
 
             // 填充
@@ -105,12 +106,15 @@ public class ThemeManager
             // 阴影/光晕
             darkTheme["ShadowBrush"] = new SolidColorBrush(Color.Parse("#80000000"));
             darkTheme["GlowBrush"] = new SolidColorBrush(Color.Parse("#40000000"));
+
             #endregion
+
             #region 浅色主题
+
             var lightTheme = new ResourceDictionary();
             lightTheme["GeneralBorderBrush"] = new SolidColorBrush(Color.Parse("#fbfbfb"));
-            lightTheme["GeneralBorderBrushOpacity"] = 0.25; 
-            
+            lightTheme["GeneralBorderBrushOpacity"] = 0.55;
+
             lightTheme["SystemFillColorCriticalBrush"] = new SolidColorBrush(Color.Parse("#C42B1C"));
             lightTheme["SystemFillColorSuccessBrush"] = new SolidColorBrush(Color.Parse("#0F7B0F"));
             lightTheme["SystemFillColorCautionBrush"] = new SolidColorBrush(Color.Parse("#9D5D00"));
@@ -140,6 +144,7 @@ public class ThemeManager
 
             lightTheme["ShadowBrush"] = new SolidColorBrush(Color.Parse("#33000000"));
             lightTheme["GlowBrush"] = new SolidColorBrush(Color.Parse("#22000000"));
+
             #endregion
 
             // 将主题资源添加到应用程序资源中
