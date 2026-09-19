@@ -98,31 +98,33 @@
                 </Grid>
             </Border>
 
-            <ContentControl Grid.Row="1"
-                            Name="ContentBox"
-                            Margin="20,0,20,20">
-                <ContentControl.Styles>
-                    <Style Selector="ContentControl#ContentBox">
-                        <Style.Animations>
-                            <Animation Duration="0:0:1"
-                                       Easing="ExponentialEaseOut">
-                                <KeyFrame Cue="0%">
-                                    <Setter Property="ScaleTransform.ScaleX" Value="1.1" />
-                                    <Setter Property="ScaleTransform.ScaleY" Value="1.1" />
-                                </KeyFrame>
-                                <KeyFrame Cue="40%">
-                                    <Setter Property="ScaleTransform.ScaleX" Value="1.1" />
-                                    <Setter Property="ScaleTransform.ScaleY" Value="1.1" />
-                                </KeyFrame>
-                                <KeyFrame Cue="100%">
-                                    <Setter Property="ScaleTransform.ScaleX" Value="1" />
-                                    <Setter Property="ScaleTransform.ScaleY" Value="1" />
-                                </KeyFrame>
-                            </Animation>
-                        </Style.Animations>
-                    </Style>
-                </ContentControl.Styles>
-            </ContentControl>
+            <ScrollViewer Grid.Row="1"
+                          Margin="0,0,5,0">
+                <ContentControl Name="ContentBox"
+                                Margin="20,0,15,20">
+                    <ContentControl.Styles>
+                        <Style Selector="ContentControl#ContentBox">
+                            <Style.Animations>
+                                <Animation Duration="0:0:1"
+                                           Easing="ExponentialEaseOut">
+                                    <KeyFrame Cue="0%">
+                                        <Setter Property="ScaleTransform.ScaleX" Value="1.1" />
+                                        <Setter Property="ScaleTransform.ScaleY" Value="1.1" />
+                                    </KeyFrame>
+                                    <KeyFrame Cue="40%">
+                                        <Setter Property="ScaleTransform.ScaleX" Value="1.1" />
+                                        <Setter Property="ScaleTransform.ScaleY" Value="1.1" />
+                                    </KeyFrame>
+                                    <KeyFrame Cue="100%">
+                                        <Setter Property="ScaleTransform.ScaleX" Value="1" />
+                                        <Setter Property="ScaleTransform.ScaleY" Value="1" />
+                                    </KeyFrame>
+                                </Animation>
+                            </Style.Animations>
+                        </Style>
+                    </ContentControl.Styles>
+                </ContentControl>
+            </ScrollViewer>
         </Grid>
     </Grid>
 </UserControl>
