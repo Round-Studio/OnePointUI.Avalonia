@@ -13,7 +13,7 @@
 
     <Style Selector="TextBox">
         <Setter Property="CornerRadius" Value="6" />
-        <Setter Property="Height" Value="32" />
+        <Setter Property="MinHeight" Value="32" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
         <Setter Property="CaretBrush" Value="{DynamicResource PrimaryForegroundBrush}" />
         <Setter Property="SelectionBrush" Value="{DynamicResource AccentBackgroundBrush}" />
@@ -34,8 +34,7 @@
                             BorderBrush="{DynamicResource PrimaryBorderBrush}"
                             CornerRadius="{TemplateBinding CornerRadius}"
                             Background="{DynamicResource PrimaryBackgroundBrush}"
-                            Width="{TemplateBinding Width}"
-                            Height="{TemplateBinding Height}">
+                            Width="{TemplateBinding Width}">
                         <Border Name="Path_Background"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
