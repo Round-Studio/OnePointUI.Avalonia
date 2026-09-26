@@ -79,8 +79,9 @@ public class ThemeManager
 
             // 背景与画布
             darkTheme["BackgroundBrush"] = new SolidColorBrush(Color.Parse("#1B1B1B"));
-            darkTheme["BackgroundBrushOpacity"] = new SolidColorBrush(Color.Parse("#1B1B1B75"));
+            darkTheme["BackgroundBrushOpacity"] = new SolidColorBrush(Color.Parse("#751B1B1B"));
             darkTheme["BackgroundSecondaryBrush"] = new SolidColorBrush(Color.Parse("#232323"));
+            darkTheme["BackgroundSecondaryBrushOpacity"] = new SolidColorBrush(Color.Parse("#2d2d2d"));
             darkTheme["BackgroundTertiaryBrush"] = new SolidColorBrush(Color.Parse("#2C2C2C"));
             darkTheme["BackgroundHoverBrush"] = new SolidColorBrush(Color.Parse("#2F2F2F"));
             darkTheme["BackgroundSubtleBrush"] = new SolidColorBrush(Color.Parse("#1F1F1F"));
