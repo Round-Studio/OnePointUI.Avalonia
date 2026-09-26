@@ -32,7 +32,7 @@
                         Background="{TemplateBinding Background}">
                     <Grid Background="#01000000">
                         <Border Name="PATH_Background"
-                                Background="{DynamicResource PrimaryBackgroundBrush}"
+                                Background="{DynamicResource PrimaryBackgroundOverBrush}"
                                 ClipToBounds="True"
                                 Opacity="0" />
 
@@ -69,16 +69,16 @@
         </Style>
 
         <Style Selector="^:pointerover /template/ Border#PATH_Background">
-            <Setter Property="Opacity" Value="0.5" />
+            <Setter Property="Opacity" Value="0.3" />
         </Style>
 
         <Style Selector="^:pressed /template/ Border#PATH_Background">
-            <Setter Property="Opacity" Value="0.8" />
+            <Setter Property="Opacity" Value="1" />
         </Style>
 
         <Style Selector="^:selected">
             <Style Selector="^  /template/ Border#PATH_Background">
-                <Setter Property="Opacity" Value="0.5" />
+                <Setter Property="Opacity" Value="0.8" />
             </Style>
         </Style>
 
