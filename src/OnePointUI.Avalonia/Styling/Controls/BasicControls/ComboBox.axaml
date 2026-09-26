@@ -49,8 +49,8 @@
         <Setter Property="FocusAdorner" Value="{x:Null}" />
         <Setter Property="MaxDropDownHeight" Value="504" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
-        <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBorderBrush}" />
+        <Setter Property="Background" Value="{DynamicResource BackgroundBrushOpacity}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BackgroundBrushOpacity}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="CornerRadius" Value="6" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
@@ -168,8 +168,8 @@
                                IsLightDismissEnabled="True"
                                InheritsTransform="True">
                             <Border Name="PopupBorder"
-                                    Background="{DynamicResource PrimaryBackgroundBrush}"
-                                    BorderBrush="{DynamicResource PrimaryBorderBrush}"
+                                    Background="{DynamicResource BackgroundSecondaryBrushOpacity}"
+                                    BorderBrush="{DynamicResource BackgroundBrush}"
                                     BorderThickness="1"
                                     Padding="0"
                                     ClipToBounds="True"

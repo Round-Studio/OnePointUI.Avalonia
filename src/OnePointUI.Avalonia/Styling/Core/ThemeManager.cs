@@ -79,6 +79,7 @@ public class ThemeManager
 
             // 背景与画布
             darkTheme["BackgroundBrush"] = new SolidColorBrush(Color.Parse("#1B1B1B"));
+            darkTheme["BackgroundBrushOpacity"] = new SolidColorBrush(Color.Parse("#1B1B1B75"));
             darkTheme["BackgroundSecondaryBrush"] = new SolidColorBrush(Color.Parse("#232323"));
             darkTheme["BackgroundTertiaryBrush"] = new SolidColorBrush(Color.Parse("#2C2C2C"));
             darkTheme["BackgroundHoverBrush"] = new SolidColorBrush(Color.Parse("#2F2F2F"));
@@ -113,14 +114,16 @@ public class ThemeManager
 
             var lightTheme = new ResourceDictionary();
             lightTheme["GeneralBorderBrush"] = new SolidColorBrush(Color.Parse("#fbfbfb"));
-            lightTheme["GeneralBorderBrushOpacity"] = 0.55;
+            lightTheme["GeneralBorderBrushOpacity"] = 0.25;
 
             lightTheme["SystemFillColorCriticalBrush"] = new SolidColorBrush(Color.Parse("#C42B1C"));
             lightTheme["SystemFillColorSuccessBrush"] = new SolidColorBrush(Color.Parse("#0F7B0F"));
             lightTheme["SystemFillColorCautionBrush"] = new SolidColorBrush(Color.Parse("#9D5D00"));
             lightTheme["SystemFillColorNeutralBrush"] = new SolidColorBrush(Color.Parse("#5A5A5A"));
 
-            lightTheme["BackgroundBrush"] = new SolidColorBrush(Color.Parse("#F7F7F7"));
+            lightTheme["BackgroundBrush"] = new SolidColorBrush(Color.Parse("#e8e8e7"));
+            lightTheme["BackgroundBrushOpacity"] = new SolidColorBrush(Color.Parse("#85f4f4f4"));
+            lightTheme["BackgroundSecondaryBrushOpacity"] = new SolidColorBrush(Color.Parse("#e9e9e9"));
             lightTheme["BackgroundSecondaryBrush"] = new SolidColorBrush(Color.Parse("#FFFFFF"));
             lightTheme["BackgroundTertiaryBrush"] = new SolidColorBrush(Color.Parse("#EFEFEF"));
             lightTheme["BackgroundHoverBrush"] = new SolidColorBrush(Color.Parse("#EDEDED"));
