@@ -33,7 +33,7 @@
                             BorderThickness="1"
                             BorderBrush="{DynamicResource PrimaryBorderBrush}"
                             CornerRadius="{TemplateBinding CornerRadius}"
-                            Background="{DynamicResource PrimaryBackgroundBrush}"
+                            Background="{DynamicResource BackgroundBrushOpacity}"
                             Width="{TemplateBinding Width}">
                         <Border Name="Path_Background"
                                 HorizontalAlignment="Stretch"
@@ -46,7 +46,7 @@
                     <TextBlock Name="PART_Watermark"
                                Text="{TemplateBinding Watermark}"
                                VerticalAlignment="Center"
-                               Foreground="Gray"
+                               Foreground="{DynamicResource PrimaryForegroundBrush}"
                                Opacity="0"
                                Margin="7"
                                TextTrimming="CharacterEllipsis"
