@@ -67,6 +67,7 @@
 
                         <Grid HorizontalAlignment="Right" VerticalAlignment="Bottom"
                               Name="PART_CheckIcon"
+                              IsVisible="False"
                               Width="24" Height="24"
                               ClipToBounds="True">
                             <Border Width="34" Height="34"
