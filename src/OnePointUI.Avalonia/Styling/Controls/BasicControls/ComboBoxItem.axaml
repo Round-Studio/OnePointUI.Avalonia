@@ -42,7 +42,7 @@
                                 CornerRadius="1"
                                 ClipToBounds="True"
                                 Margin="1,0,0,0"
-                                Background="{DynamicResource GeneralBorderBrush}"
+                                Background="{DynamicResource AccentBackgroundBrush}"
                                 IsVisible="{TemplateBinding IsSelected}" />
 
                         <ContentPresenter Name="PART_ContentPresenter"
