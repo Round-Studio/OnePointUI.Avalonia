@@ -8,19 +8,22 @@
     <Style Selector="controls|BorderCard">
         <Setter Property="CornerRadius" Value="6" />
         <Setter Property="Padding" Value="8" />
-        <!-- Set Defaults -->
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{DynamicResource GeneralBorderBrush}" />
+        <Setter Property="Background" Value="{DynamicResource GeneralBorderBrush}" />
+        <Setter Property="BorderOpacity" Value="{DynamicResource GeneralBorderBrushOpacity}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
-                    <Border BorderThickness="1"
-                            BorderBrush="{DynamicResource GeneralBorderBrush}"
+                    <Border BorderThickness="{TemplateBinding BorderThickness}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
                             CornerRadius="{TemplateBinding CornerRadius}"
-                            Opacity="{DynamicResource GeneralBorderBrushOpacity}" />
+                            Opacity="{TemplateBinding BorderOpacity}" />
 
-                    <Border Background="{DynamicResource GeneralBorderBrush}"
+                    <Border Background="{TemplateBinding Background}"
                             CornerRadius="{TemplateBinding CornerRadius}"
-                            Margin="1"
-                            Opacity="{DynamicResource GeneralBorderBrushOpacity}" />
+                            Margin="{TemplateBinding InnerMargin}"
+                            Opacity="{TemplateBinding BorderOpacity}" />
 
                     <ContentPresenter Content="{TemplateBinding Content}"
                                       Padding="{TemplateBinding Padding}" />
