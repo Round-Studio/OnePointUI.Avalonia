@@ -10,10 +10,11 @@ using Avalonia.Reactive;
 namespace OnePointUI.Avalonia.Styling.Controls.OnePointControls;
 
 /// <summary>
-/// DM: 该组件为大肥鱼生成
+/// 【DM: 该组件为大肥鱼生成】<br/>
 /// 一组自动为首尾子元素设置圆角的 ItemsControl。
-/// Horizontal：第一个元素左侧圆角、最后一个元素右侧圆角，中间元素平角。
-/// Vertical  ：第一个元素顶部圆角、最后一个元素底部圆角，中间元素平角。
+/// <param name="Orientation">设置内部元素排列方向<br/>
+/// Horizontal：第一个元素左侧圆角、最后一个元素右侧圆角，中间元素平角。<br/>
+/// Vertical  ：第一个元素顶部圆角、最后一个元素底部圆角，中间元素平角。</param>
 /// </summary>
 public class ElementGroup : ItemsControl
 {

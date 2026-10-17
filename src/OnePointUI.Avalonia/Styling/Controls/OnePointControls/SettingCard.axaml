@@ -29,7 +29,7 @@
                                     IsVisible="{TemplateBinding IsClickable}"
                                     CornerRadius="6"
                                     ClipToBounds="True"
-                                    Background="{DynamicResource PrimaryForegroundBrush}"
+                                    Background="{DynamicResource MouseHighlightColor}"
                                     Opacity="0" />
 
                             <Border Padding="8">
@@ -111,7 +111,7 @@
         </Style>
 
         <Style Selector="^:pointerover /template/ Border#PATH_Background">
-            <Setter Property="Opacity" Value="0.05" />
+            <Setter Property="Opacity" Value="0.25" />
         </Style>
 
         <Style Selector="^ /template/ Button#PATH_Button">
