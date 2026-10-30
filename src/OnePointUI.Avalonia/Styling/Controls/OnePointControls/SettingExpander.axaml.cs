@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
+using System.Diagnostics;
 using Avalonia;
-using Avalonia.Animation;
 using Avalonia.Animation.Easings;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Layout;
 using Avalonia.Media;
-using Avalonia.Styling;
 
 namespace OnePointUI.Avalonia.Styling.Controls.OnePointControls;
 
@@ -38,7 +35,7 @@ public class SettingExpander : Expander
 
     private Border _contentClip;
     private Border _header;
-    private CancellationTokenSource _animationCts;
+    private int _animationGeneration;
     private bool _isPointerPressed;
     private bool _templateReady;
 
@@ -156,85 +153,94 @@ public class SettingExpander : Expander
         }
     }
 
-    private async void AnimateContent(bool expand)
+    private void AnimateContent(bool expand)
     {
         var clip = _contentClip;
         if (clip == null)
             return;
 
-        _animationCts?.Cancel();
-        _animationCts = new CancellationTokenSource();
-        var token = _animationCts.Token;
+        StopHeightAnimation();
 
-        try
+        if (expand)
         {
-            if (expand)
-            {
-                var from = clip.Bounds.Height;
+            var from = clip.Bounds.Height;
 
-                // 临时解除固定高度，测量内容的自然高度，再回到当前可见高度开始展开
-                clip.Height = double.NaN;
-                clip.UpdateLayout();
-                var target = clip.Bounds.Height;
+            // 临时解除固定高度，测量内容的自然高度
+            clip.Height = double.NaN;
+            clip.UpdateLayout();
+            var target = clip.Bounds.Height;
 
-                if (target <= 0)
-                    return; // 尚未完成布局，保持自然高度直接展示
+            if (target <= 0)
+                return; // 尚未完成布局，保持自然高度直接展示
 
-                // 固定起点：在动画首帧应用前不闪现完整内容
-                clip.Height = Math.Clamp(from, 0, target);
-
-                if (from < target)
-                    await RunHeightAnimationAsync(clip, from, target, ExpandDuration, token);
-
-                if (!token.IsCancellationRequested)
-                    clip.Height = double.NaN; // 动画结束后交还布局自适应
-            }
-            else
-            {
-                var from = clip.Bounds.Height;
-                if (from <= 0)
-                {
-                    clip.Height = 0;
-                    return;
-                }
-
-                // 固定起点高度，动画结束后归 0
-                clip.Height = from;
-
-                await RunHeightAnimationAsync(clip, from, 0, CollapseDuration, token);
-
-                if (!token.IsCancellationRequested)
-                    clip.Height = 0;
-            }
+            StartHeightAnimation(clip, Math.Clamp(from, 0, target), target, ExpandDuration,
+                () => clip.Height = double.NaN); // 结束后交还布局自适应
         }
-        catch (OperationCanceledException)
+        else
         {
-            // 动画被新的展开/收起操作接管
+            var from = clip.Bounds.Height;
+            if (from <= 0)
+            {
+                clip.Height = 0;
+                return;
+            }
+
+            StartHeightAnimation(clip, from, 0, CollapseDuration, () => clip.Height = 0);
         }
     }
 
-    private static async Task RunHeightAnimationAsync(
-        Layoutable target, double from, double to, TimeSpan duration, CancellationToken token)
+    private void StopHeightAnimation()
     {
-        var animation = new Animation
-        {
-            Duration = duration,
-            Easing = new SplineEasing(0.1, 0.9, 0.2, 1.0),
-            Children =
-            {
-                new KeyFrame
-                {
-                    Cue = new Cue(0),
-                    Setters = { new Setter(Layoutable.HeightProperty, from) }
-                },
-                new KeyFrame
-                {
-                    Cue = new Cue(1),
-                    Setters = { new Setter(Layoutable.HeightProperty, to) }
-                }
-            }
-        };
+        // 使进行中的帧回调失效（RequestAnimationFrame 无法取消，靠代际号丢弃旧帧）
+        _animationGeneration++;
+    }
 
-        await animation.RunAsync(target, token);
+    private void StartHeightAnimation(Layoutable target, double from, double to, TimeSpan duration, Action finished)
+    {
+        var topLevel = TopLevel.GetTopLevel(this);
+
+        if (topLevel == null)
+        {
+            // 不在可视树上（如正在关闭），直接落到终态
+            target.Height = to;
+            finished();
+            return;
+        }
+
+        var generation = ++_animationGeneration;
+        var easing = new SplineEasing(0.1, 0.9, 0.2, 1.0);
+        var stopwatch = Stopwatch.StartNew();
+
+        // 起点立即生效：动画首帧前不闪现完整内容
+        target.Height = from;
+
+        void Frame(TimeSpan _)
+        {
+            if (generation != _animationGeneration)
+                return; // 已被新的动画接管，不再写入
+
+            if (this.VisualRoot == null)
+            {
+                _animationGeneration++;
+                target.Height = to;
+                finished();
+                return;
+            }
+
+            var progress = stopwatch.Elapsed.TotalMilliseconds / duration.TotalMilliseconds;
+
+            if (progress >= 1)
+            {
+                // 最后一帧同步写入精确终值，随后不再有任何回调，避免终值回跳闪烁
+                target.Height = to;
+                finished();
+                return;
+            }
+
+            target.Height = from + (to - from) * easing.Ease(progress);
+            topLevel.RequestAnimationFrame(Frame);
+        }
+
+        topLevel.RequestAnimationFrame(Frame);
     }
 }
