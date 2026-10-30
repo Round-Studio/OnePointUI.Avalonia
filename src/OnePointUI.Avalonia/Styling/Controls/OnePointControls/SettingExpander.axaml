@@ -96,7 +96,7 @@
                                                     VerticalAlignment="Center">
                                             <ContentControl Name="ActionContentControl"
                                                             Content="{TemplateBinding RightContent}"
-                                                            Margin="0,0,6,0" />
+                                                            Margin="0,0,12,0" />
 
                                             <controls:FontIcon Name="PART_Chevron"
                                                                Glyph="&#xE70D;"
