@@ -38,6 +38,25 @@
                     </Border>
                     <onePointControls:SettingCard />
 
+                    <onePointControls:SettingExpander Header="SettingExpander"
+                                                      Glyph="&#xEB9F;"
+                                                      Description="点我展开"
+                                                      RightContent="3 项"
+                                                      Width="300">
+                        <StackPanel>
+                            <onePointControls:SettingCard Header="子设置项"
+                                                          Glyph="&#xE71E;"
+                                                          Description="说明文字" />
+                            <onePointControls:SettingCard Header="可点击子项"
+                                                          Glyph="&#xE71E;"
+                                                          IsClickable="True" />
+                            <onePointControls:SettingCard Header="带开关的子项"
+                                                          Glyph="&#xE71E;">
+                                <ToggleSwitch IsChecked="True" />
+                            </onePointControls:SettingCard>
+                        </StackPanel>
+                    </onePointControls:SettingExpander>
+
                     <onePointControls:LabelBox Text="LabelBox" />
                     <onePointControls:ProgressRing HorizontalAlignment="Left"
                                                    VerticalAlignment="Top"
