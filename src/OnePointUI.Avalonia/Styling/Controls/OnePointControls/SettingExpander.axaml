@@ -7,6 +7,7 @@
             <controls:SettingExpander Header="展开器"
                                       Glyph="&#xEB9F;"
                                       Description="点击展开下方的设置项"
+                                      IsExpanded="True"
                                       RightContent="3 项">
                 <StackPanel>
                     <controls:SettingCard Header="子设置项"
@@ -14,6 +15,7 @@
                                           Description="说明文字" />
                     <controls:SettingCard Header="可点击子项"
                                           Glyph="&#xE71E;"
+                                          Description="aaa"
                                           IsClickable="True" />
                     <controls:SettingCard Header="图片图标"
                                           IsFontIcon="False"
@@ -27,7 +29,8 @@
     </Design.PreviewWith>
 
     <Style Selector="controls|SettingExpander">
-        <Setter Property="MinHeight" Value="58" />
+        <Setter Property="MinHeight" Value="52" />
+        <Setter Property="VerticalAlignment" Value="Top" />
         <Setter Property="Template">
             <ControlTemplate>
                 <items:BorderCard
@@ -47,29 +50,29 @@
                                         Background="{DynamicResource MouseHighlightColor}"
                                         Opacity="0" />
 
-                                <Border Padding="8">
+                                <Border Padding="8,12,8,12">
                                     <Grid>
                                         <controls:FontIcon Glyph="{TemplateBinding Glyph}"
                                                            FontSize="24"
-                                                           Margin="10,9,0,0"
+                                                           Margin="10,0,0,0"
                                                            IsVisible="{TemplateBinding IsFontIcon}"
                                                            HorizontalAlignment="Left"
-                                                           VerticalAlignment="Top" />
+                                                           VerticalAlignment="Center" />
 
                                         <Border Width="32" Height="32"
                                                 CornerRadius="4"
-                                                Margin="5,5,0,0"
+                                                Margin="5,0,0,0"
                                                 IsVisible="{TemplateBinding IsNotFontIcon}"
                                                 HorizontalAlignment="Left"
-                                                VerticalAlignment="Top"
+                                                VerticalAlignment="Center"
                                                 ClipToBounds="True">
                                             <Image Width="32" Height="32"
                                                    Stretch="UniformToFill"
                                                    Source="{TemplateBinding ImageIcon}" />
                                         </Border>
 
-                                        <StackPanel VerticalAlignment="Top"
-                                                    Margin="50,3,0,0">
+                                        <StackPanel VerticalAlignment="Center"
+                                                    Margin="50,0,0,0">
                                             <ContentPresenter Content="{TemplateBinding Header}">
                                                 <ContentPresenter.Styles>
                                                     <Style Selector="TextBlock">
@@ -188,6 +191,12 @@
                 <Border Name="PART_Root"
                         Background="Transparent">
                     <Panel>
+                        <Border Name="PATH_Background"
+                                IsHitTestVisible="False"
+                                IsVisible="{TemplateBinding IsClickable}"
+                                Background="{DynamicResource MouseHighlightColor}"
+                                Opacity="0" />
+
                         <Border Name="PATH_Divider"
                                 Height="1"
                                 VerticalAlignment="Top"
@@ -195,13 +204,7 @@
                                 Background="{DynamicResource GeneralBorderBrush}"
                                 Opacity="{DynamicResource GeneralBorderBrushOpacity}" />
 
-                        <Border Name="PATH_Background"
-                                IsHitTestVisible="False"
-                                IsVisible="{TemplateBinding IsClickable}"
-                                Background="{DynamicResource MouseHighlightColor}"
-                                Opacity="0" />
-
-                        <Border Padding="8">
+                        <Border Padding="8,12,8,12">
                             <Grid>
                                 <controls:FontIcon Glyph="{TemplateBinding Glyph}"
                                                    FontSize="16"
