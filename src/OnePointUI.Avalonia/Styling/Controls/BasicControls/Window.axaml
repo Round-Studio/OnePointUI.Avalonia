@@ -6,7 +6,38 @@
         </Border>
     </Design.PreviewWith>
 
-    <!-- Add Styles Here -->
+    <Styles.Resources>
+        <!--
+          Window 必须提供包含 VisualLayerManager 的 ControlTheme：
+          Avalonia 的弹层轻扫关闭（LightDismissOverlayLayer）与 Adorner 层
+          都挂在主窗口的 VisualLayerManager 上，缺少它时所有 Popup、Flyout、
+          ComboBox 下拉等在点击窗口内其他区域时都不会自动关闭（issue #83）。
+        -->
+        <ControlTheme x:Key="{x:Type Window}" TargetType="Window">
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Panel>
+                        <Border Name="PART_TransparencyFallback"
+                                IsHitTestVisible="False"
+                                Background="{TemplateBinding TransparencyBackgroundFallback}" />
+                        <Border Background="{TemplateBinding Background}"
+                                IsHitTestVisible="False" />
+                        <Panel Margin="{TemplateBinding WindowDecorationMargin}">
+                            <VisualLayerManager>
+                                <ContentPresenter Name="PART_ContentPresenter"
+                                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                  Content="{TemplateBinding Content}"
+                                                  Padding="{TemplateBinding Padding}"
+                                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            </VisualLayerManager>
+                        </Panel>
+                    </Panel>
+                </ControlTemplate>
+            </Setter>
+        </ControlTheme>
+    </Styles.Resources>
+
     <Style Selector="Window">
         <Setter Property="Background" Value="{DynamicResource BackgroundBrush}" />
     </Style>
