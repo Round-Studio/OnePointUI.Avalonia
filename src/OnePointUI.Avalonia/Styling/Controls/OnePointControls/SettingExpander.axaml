@@ -279,4 +279,116 @@
             <Setter Property="Opacity" Value="0.15" />
         </Style>
     </Style>
+    
+    <Style Selector="controls|SettingExpander controls|SettingCard.People">
+        <Setter Property="MinHeight" Value="44" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="PART_Root"
+                        Background="Transparent">
+                    <Panel>
+                        <Border Name="PATH_Background"
+                                IsHitTestVisible="False"
+                                IsVisible="{TemplateBinding IsClickable}"
+                                Background="{DynamicResource MouseHighlightColor}"
+                                Opacity="0" />
+
+                        <Border Name="PATH_Divider"
+                                Height="1"
+                                VerticalAlignment="Top"
+                                IsHitTestVisible="False"
+                                Background="{DynamicResource GeneralBorderBrush}"
+                                Opacity="{DynamicResource GeneralBorderBrushOpacity}" />
+                        
+                        <Border VerticalAlignment="Stretch" 
+                                HorizontalAlignment="Left">
+                            <Grid>
+                                <Image Width="125"
+                                       Height="60"
+                                       Opacity="0.8"
+                                       Margin="-16,0,0,0"
+                                       Stretch="UniformToFill"
+                                       Source="{TemplateBinding ImageIcon}"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Stretch">
+                                    <Image.OpacityMask>
+                                        <LinearGradientBrush StartPoint="0%,50%" EndPoint="100%,50%">
+                                            <GradientStop Color="Black" Offset="0"/>
+                                            <GradientStop Color="Transparent" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Image.OpacityMask>
+                                </Image>
+                            </Grid>
+                            
+                        </Border>
+
+                        <Border Padding="8,12,8,12">
+                            <Grid>
+                                <controls:FontIcon Glyph="{TemplateBinding Glyph}"
+                                                   FontSize="16"
+                                                   Margin="10,0,0,0"
+                                                   IsVisible="{TemplateBinding IsFontIcon}"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Center" />
+
+                                <StackPanel VerticalAlignment="Center"
+                                            Margin="50,0,0,0">
+                                    <ContentPresenter Content="{TemplateBinding Header}">
+                                        <ContentPresenter.Styles>
+                                            <Style Selector="TextBlock">
+                                                <Setter Property="FontSize"
+                                                        Value="14" />
+                                                <Setter Property="Foreground"
+                                                        Value="White" />
+                                            </Style>
+                                        </ContentPresenter.Styles>
+                                    </ContentPresenter>
+
+                                    <ContentPresenter Content="{TemplateBinding Description}">
+                                        <ContentPresenter.Styles>
+                                            <Style Selector="TextBlock">
+                                                <Setter Property="FontSize"
+                                                        Value="11" />
+                                                <Setter Property="Foreground"
+                                                        Value="White" />
+                                            </Style>
+                                        </ContentPresenter.Styles>
+                                    </ContentPresenter>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal"
+                                            HorizontalAlignment="Right"
+                                            VerticalAlignment="Center">
+                                    <ContentControl Name="ActionContentControl"
+                                                    Content="{TemplateBinding Content}"
+                                                    Margin="0,0,6,0" />
+
+                                    <Border IsVisible="{TemplateBinding IsShowActionIcon}">
+                                        <controls:FontIcon Glyph="&#xE974;"
+                                                           VerticalAlignment="Center"
+                                                           Margin="0,0,4,0"
+                                                           IsVisible="{TemplateBinding IsClickable}"
+                                                           FontSize="14" />
+                                    </Border>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </Panel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^ /template/ Border#PATH_Background">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <DoubleTransition Property="Opacity"
+                                      Duration="0:0:0.09" />
+                </Transitions>
+            </Setter>
+        </Style>
+
+        <Style Selector="^:pointerover /template/ Border#PATH_Background">
+            <Setter Property="Opacity" Value="0.15" />
+        </Style>
+    </Style>
 </Styles>

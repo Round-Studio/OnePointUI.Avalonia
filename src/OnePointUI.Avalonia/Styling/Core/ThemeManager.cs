@@ -71,6 +71,8 @@ public class ThemeManager
             darkTheme["GeneralBorderBrush"] = new SolidColorBrush(Color.Parse("#0a0a0a"));
             darkTheme["GeneralBorderBrushOpacity"] = 0.45;
             darkTheme["MouseHighlightColor"] = new SolidColorBrush(Colors.Black);
+            darkTheme["BaseColor"] = Color.Parse("#FF1B1B1B");
+            darkTheme["HighColor"] = Color.Parse("#001B1B1B");
 
             // 填充
             darkTheme["SystemFillColorCriticalBrush"] = new SolidColorBrush(Color.Parse("#FF99A4"));
@@ -118,6 +120,8 @@ public class ThemeManager
             lightTheme["GeneralBorderBrush"] = new SolidColorBrush(Color.Parse("#fbfbfb"));
             lightTheme["GeneralBorderBrushOpacity"] = 0.25;
             lightTheme["MouseHighlightColor"] = new SolidColorBrush(Colors.White);
+            lightTheme["BaseColor"] = Color.Parse("#FFe8e8e7");
+            lightTheme["HighColor"] = Color.Parse("#00e8e8e7");
 
             lightTheme["SystemFillColorCriticalBrush"] = new SolidColorBrush(Color.Parse("#C42B1C"));
             lightTheme["SystemFillColorSuccessBrush"] = new SolidColorBrush(Color.Parse("#0F7B0F"));
