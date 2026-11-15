@@ -23,7 +23,7 @@
             Name="PATH_Border">
         <Canvas Name="MainCanvas" Background="Transparent" PointerMoved="Canvas_PointerMoved"
                 ClipToBounds="True">
-            <!-- 圆环 (Ellipse with a transparent fill and a stroke) -->
+            <!-- 圆环 (Ellipse with a transparent fill and a stroke)，尺寸随父容器自适应 -->
             <Ellipse Name="MovingRing"
                      Width="160"
                      Opacity="0"
@@ -39,8 +39,8 @@
                     </Style>
                 </Ellipse.Styles>
                 <Ellipse.Fill>
-                    <RadialGradientBrush Center="80,80"
-                                         GradientOrigin="80,80">
+                    <RadialGradientBrush Center="50%,50%"
+                                         GradientOrigin="50%,50%">
                         <GradientStop Color="Gray" Offset="0" />
                         <GradientStop Color="Transparent" Offset="0.8" />
                     </RadialGradientBrush>

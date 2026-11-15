@@ -1,13 +1,59 @@
-﻿using Avalonia.Controls;
+﻿using System;
+using Avalonia;
+using Avalonia.Controls;
 using Avalonia.Input;
 
 namespace OnePointUI.Avalonia.Styling.Controls.OnePointControls;
 
 public partial class PointHalo : UserControl
 {
+    // 光辉直径 = 父容器较大边长 × 0.8
+    private const double HaloScale = 0.8;
+
+    private Visual? _observedParent;
+
     public PointHalo()
     {
         InitializeComponent();
+    }
+
+    protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
+    {
+        base.OnAttachedToVisualTree(e);
+
+        // 跟随父容器尺寸变化调整光辉大小
+        if (Parent is Visual parent)
+        {
+            _observedParent = parent;
+            parent.PropertyChanged += OnParentPropertyChanged;
+            UpdateHaloSize(parent.Bounds);
+        }
+    }
+
+    protected override void OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs e)
+    {
+        base.OnDetachedFromVisualTree(e);
+
+        if (_observedParent != null)
+        {
+            _observedParent.PropertyChanged -= OnParentPropertyChanged;
+            _observedParent = null;
+        }
+    }
+
+    private void OnParentPropertyChanged(object? sender, AvaloniaPropertyChangedEventArgs e)
+    {
+        if (e.Property == BoundsProperty && e.NewValue is Rect bounds)
+            UpdateHaloSize(bounds);
+    }
+
+    private void UpdateHaloSize(Rect bounds)
+    {
+        var size = Math.Max(bounds.Width, bounds.Height) * HaloScale;
+        if (size <= 0) return;
+
+        MovingRing.Width = size;
+        MovingRing.Height = size;
     }
 
     private void Canvas_PointerMoved(object sender, PointerEventArgs e)
