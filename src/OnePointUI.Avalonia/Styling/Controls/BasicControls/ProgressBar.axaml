@@ -25,7 +25,9 @@
     <Style Selector="ProgressBar">
         <Setter Property="CornerRadius" Value="6" />
         <Setter Property="Foreground" Value="{DynamicResource AccentBackgroundBrush}" />
-        <Setter Property="Background" Value="Transparent" />
+        <!-- 轨道底色：Transparent 时 0% 或低百分比看上去像“没有条”，
+             这里给一层极弱主题色做底槽；需要透明轨道的场景显式设 Background 即可覆盖 -->
+        <Setter Property="Background" Value="{DynamicResource AccentSubtleBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ProgressBarBorderThemeThickness}" />
         <Setter Property="BorderBrush" Value="{DynamicResource SystemControlHighlightTransparentBrush}" />
         <Setter Property="MinHeight" Value="{DynamicResource ProgressBarThemeMinHeight}" />
@@ -38,7 +40,11 @@
                         Background="{TemplateBinding Background}"
                         CornerRadius="{TemplateBinding CornerRadius}">
                     <Panel>
-                        <Panel Name="DeterminateRoot" Opacity="1">
+                        <!-- 注意：两个 root 的 Opacity 不要写在模板属性上。
+                             ProgressBar 内部只切换 :indeterminate 伪类，由样式 setter 控制显隐；
+                             一旦模板里写了内联值，伪类切换后再也回不到 determinate 的 1/0，
+                             表现为“切回确定进度后仍只有 indeterminate 层或整层透明”。 -->
+                        <Panel Name="DeterminateRoot">
                             <Panel.Transitions>
                                 <Transitions>
                                     <DoubleTransition Property="Opacity"
@@ -47,22 +53,24 @@
                                 </Transitions>
                             </Panel.Transitions>
 
-                            <Border ClipToBounds="True"
-                                    Name="PART_Indicator"
-                                    HorizontalAlignment="Left"
-                                    Margin="{TemplateBinding Padding}"
-                                    Background="{TemplateBinding Foreground}">
-                                <Border.Transitions>
-                                    <Transitions>
-                                        <DoubleTransition Property="Width"
-                                                          Duration="0:0:.35"
-                                                          Easing="ExponentialEaseOut" />
-                                    </Transitions>
-                                </Border.Transitions>
-                            </Border>
+                            <!-- PART_Indicator 必须有自己稳定的容器：ProgressBar.UpdateIndicator()
+                                 是拿 PART_Indicator 的父级 Bounds 反算填充宽度的，
+                                 所以这里的容器要保持拉伸、只把 Padding 让给它。 -->
+                            <Panel Name="PART_Track"
+                                   ClipToBounds="True"
+                                   Margin="{TemplateBinding Padding}">
+                                <Border Name="PART_Indicator"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Stretch"
+                                        Background="{TemplateBinding Foreground}">
+                                    <!-- 这里不能给 Width 加 DoubleTransition：填充宽度首次是从
+                                         double.NaN 直接赋值的，NaN 参与插值后整条一直是 NaN，
+                                         结果就是“有轨道、没有填充”。 -->
+                                </Border>
+                            </Panel>
                         </Panel>
 
-                        <Panel x:Name="IndeterminateRoot" Opacity="0">
+                        <Panel Name="IndeterminateRoot">
                             <Panel.Transitions>
                                 <Transitions>
                                     <DoubleTransition Property="Opacity" Duration="0:0:0.197" />
@@ -111,6 +119,16 @@
                     <RotateTransform Angle="90" />
                 </Setter.Value>
             </Setter>
+        </Style>
+
+        <!-- determinate / indeterminate 两层的默认显隐放在样式里，
+             这样下面 :indeterminate 的 setter 才能真正覆盖并在伪类移除时回退 -->
+        <Style Selector="^ /template/ Panel#DeterminateRoot">
+            <Setter Property="Opacity" Value="1" />
+        </Style>
+
+        <Style Selector="^ /template/ Panel#IndeterminateRoot">
+            <Setter Property="Opacity" Value="0" />
         </Style>
 
         <Style Selector="^:indeterminate /template/ Panel#DeterminateRoot">
