@@ -1,0 +1,125 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:o="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls;assembly=OnePointUI.Avalonia"
+             xmlns:oi="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls.Items;assembly=OnePointUI.Avalonia"
+             xmlns:view="clr-namespace:OnePointUI.Avalonia.Styling.Controls.OnePointControls.View;assembly=OnePointUI.Avalonia"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="500"
+             x:Class="OnePointUI.Avalonia.Test.Pages.BackdropBlur">
+
+    <!--
+        Backdrop Blur 诊断页(收口"ScrollViewer 包裹不生效"疑点):
+        1. 顶部三卡对照(Radius 20/0/60)+ 强纹理背景(渐变+气泡动画)
+        2. 中部 ScrollViewer 内外同页对照:左列 BorderCard 在外,右列 SettingCard/Expander 在内
+        3. 底部 Cache 矩阵:裸 BlurBorder ×3(compositor 默认 / Volatile / Retained,cs 里设)
+        4. 全局开关/半径循环按钮
+        模糊只对高频纹理可见,验证一律以本页强纹理背景为准。
+    -->
+    <Grid RowDefinitions="Auto,*,Auto" Margin="8">
+
+        <!-- ① 三卡对照 -->
+        <Panel Height="130" Margin="0,0,0,8">
+            <Border CornerRadius="8">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,100%">
+                        <GradientStop Color="#FF1565C0" Offset="0" />
+                        <GradientStop Color="#FFF9A825" Offset="0.5" />
+                        <GradientStop Color="#FFAD1457" Offset="1" />
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+            <view:AnimationBackground BackgroundType="Bubble" />
+            <StackPanel Orientation="Horizontal" Spacing="16"
+                        HorizontalAlignment="Center" VerticalAlignment="Center">
+                <oi:BorderCard Width="180" Height="88" CornerRadius="8" BlurRadius="20">
+                    <TextBlock Text="BorderCard R=20" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </oi:BorderCard>
+                <oi:BorderCard Width="180" Height="88" CornerRadius="8" BlurRadius="0">
+                    <TextBlock Text="BorderCard R=0(关)" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </oi:BorderCard>
+                <oi:BorderCard Width="180" Height="88" CornerRadius="8" BlurRadius="60">
+                    <TextBlock Text="BorderCard R=60" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </oi:BorderCard>
+            </StackPanel>
+        </Panel>
+
+        <!-- ② ScrollViewer 内外同页对照 -->
+        <Panel Margin="0,0,0,8">
+            <Border CornerRadius="8">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0%,100%" EndPoint="100%,0%">
+                        <GradientStop Color="#FF00695C" Offset="0" />
+                        <GradientStop Color="#FF827717" Offset="0.5" />
+                        <GradientStop Color="#FF6A1B9A" Offset="1" />
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+            <view:AnimationBackground BackgroundType="Bubble" />
+            <Grid ColumnDefinitions="*,*" Margin="16">
+                <StackPanel Grid.Column="0" Spacing="10" VerticalAlignment="Top" Margin="0,0,10,0">
+                    <o:LineTextBlock Text="↓ BorderCard(ScrollViewer 外)" FontSize="13" FontWeight="Bold" />
+                    <oi:BorderCard CornerRadius="8" Height="64">
+                        <TextBlock Text="外-上 BorderCard" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </oi:BorderCard>
+                    <oi:BorderCard CornerRadius="8" Height="64">
+                        <TextBlock Text="外-下 BorderCard" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </oi:BorderCard>
+                </StackPanel>
+                <ScrollViewer Grid.Column="1" Margin="10,0,0,0">
+                    <StackPanel Spacing="10" Margin="0,0,12,10">
+                        <o:LineTextBlock Text="↓ SettingCard / Expander(ScrollViewer 内)" FontSize="13" FontWeight="Bold" />
+                        <o:SettingCard Header="内-SettingCard 1" Description="ScrollViewer 包裹" Glyph="&#xE71E;" />
+                        <o:SettingCard Header="内-SettingCard 2" Description="ScrollViewer 包裹" Glyph="&#xE71E;" />
+                        <o:SettingCard Header="内-SettingCard 3" Description="ScrollViewer 包裹" Glyph="&#xE71E;" />
+                        <o:SettingExpander Header="内-SettingExpander" Description="ScrollViewer 包裹" Glyph="&#xEB9F;">
+                            <StackPanel>
+                                <o:SettingCard Header="展开子项" Description="说明" Glyph="&#xE71E;" />
+                            </StackPanel>
+                        </o:SettingExpander>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+        </Panel>
+
+        <!-- ③ Cache 矩阵(放 ScrollViewer 内复现 OpacityMask 层场景)+ 全局控制 -->
+        <StackPanel Orientation="Horizontal" Spacing="12">
+            <Panel Width="430" Height="96">
+                <Border CornerRadius="8">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,100%">
+                            <GradientStop Color="#FF283593" Offset="0" />
+                            <GradientStop Color="#FF00838F" Offset="1" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                </Border>
+                <view:AnimationBackground BackgroundType="Bubble" />
+                <ScrollViewer Width="420" VerticalAlignment="Center" Height="80"
+                              HorizontalScrollBarVisibility="Hidden">
+                    <StackPanel Orientation="Horizontal" Spacing="16" Margin="4">
+                        <oi:BlurBorder Width="160" Height="72" Radius="20" CornerRadius="8"
+                                       Name="CacheDefaultBlur">
+                            <TextBlock Text="自动(null→Volatile)" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </oi:BlurBorder>
+                        <oi:BlurBorder Width="160" Height="72" Radius="20" CornerRadius="8"
+                                       Name="CacheVolatileBlur">
+                            <TextBlock Text="Volatile(显式)" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </oi:BlurBorder>
+                        <oi:BlurBorder Width="160" Height="72" Radius="20" CornerRadius="8"
+                                       Name="CacheRetainedBlur">
+                            <TextBlock Text="Retained(层内=空白)" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </oi:BlurBorder>
+                    </StackPanel>
+                </ScrollViewer>
+            </Panel>
+
+            <StackPanel VerticalAlignment="Center" Spacing="8">
+                <StackPanel Orientation="Horizontal" Spacing="8">
+                    <Button Content="全局开关" Click="ToggleGlobal_Click" Width="110" />
+                    <Button Content="半径 20→40→60→0" Click="CycleRadius_Click" Width="150" />
+                </StackPanel>
+                <TextBlock Name="GlobalStateText" Text="全局: 开 R=20" FontSize="12" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>
