@@ -21,6 +21,7 @@
                     <items:BorderCard
                         ClipToBounds="True"
                         Padding="0"
+                        BlurRadius="{TemplateBinding BlurRadius}"
                         Name="PATH_Border">
                         <Grid>
                             <Border HorizontalAlignment="Stretch"

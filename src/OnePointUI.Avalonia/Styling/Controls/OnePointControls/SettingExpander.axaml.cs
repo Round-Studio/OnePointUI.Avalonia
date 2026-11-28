@@ -75,6 +75,16 @@ public class SettingExpander : Expander
         set => SetValue(RightContentProperty, value);
     }
 
+    public static readonly StyledProperty<double> BlurRadiusProperty =
+        AvaloniaProperty.Register<SettingExpander, double>(nameof(BlurRadius), Items.BlurBorder.FollowGlobal);
+
+    /// <summary>透传给内嵌 BorderCard;-1(FollowGlobal,默认)跟随全局,0 关闭。</summary>
+    public double BlurRadius
+    {
+        get => GetValue(BlurRadiusProperty);
+        set => SetValue(BlurRadiusProperty, value);
+    }
+
     protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
     {
         base.OnApplyTemplate(e);

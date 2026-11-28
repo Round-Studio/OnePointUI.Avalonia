@@ -15,6 +15,9 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
+                    <controls:BlurBorder Name="PART_BlurBorder"
+                                         Radius="{TemplateBinding BlurRadius}"/>
+
                     <Border BorderThickness="{TemplateBinding BorderThickness}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             CornerRadius="{TemplateBinding CornerRadius}"

@@ -34,6 +34,9 @@ public class SettingCard : ContentControl
     public static readonly StyledProperty<IImage> ImageIconProperty =
         AvaloniaProperty.Register<SettingCard, IImage>(nameof(ImageIcon));
 
+    public static readonly StyledProperty<double> BlurRadiusProperty =
+        AvaloniaProperty.Register<SettingCard, double>(nameof(BlurRadius), Items.BlurBorder.FollowGlobal);
+
     public event EventHandler<RoutedEventArgs> Click;
 
     public string Glyph
@@ -86,6 +89,13 @@ public class SettingCard : ContentControl
     {
         get => GetValue(ImageIconProperty);
         set => SetValue(ImageIconProperty, value);
+    }
+
+    /// <summary>透传给内嵌 BorderCard;-1(FollowGlobal,默认)跟随全局,0 关闭。</summary>
+    public double BlurRadius
+    {
+        get => GetValue(BlurRadiusProperty);
+        set => SetValue(BlurRadiusProperty, value);
     }
 
     private Border _rootBorder;

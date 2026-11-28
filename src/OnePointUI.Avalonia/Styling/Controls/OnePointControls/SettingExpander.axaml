@@ -37,6 +37,7 @@
                     ClipToBounds="True"
                     Padding="0"
                     MinHeight="{TemplateBinding MinHeight}"
+                    BlurRadius="{TemplateBinding BlurRadius}"
                     Name="PART_RootCard">
                     <Grid Margin="1" RowDefinitions="Auto,Auto">
 

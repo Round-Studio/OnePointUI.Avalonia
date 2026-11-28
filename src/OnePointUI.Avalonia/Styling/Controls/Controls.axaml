@@ -74,6 +74,7 @@
     <StyleInclude Source="OnePointControls/Navigation/LeftSelectBar/LeftSelectBar.axaml" />
     <StyleInclude Source="OnePointControls/Navigation/LeftSelectBar/LeftSelectBarItem.axaml" />
     <StyleInclude Source="OnePointControls/Items/CardCheckBox.axaml" />
+    <StyleInclude Source="OnePointControls/Items/BlurBorder.axaml" />
     <StyleInclude Source="OnePointControls/Notice/InfoCard.axaml" />
     <StyleInclude Source="OnePointControls/Notice/LoadCard.axaml" />
     <StyleInclude Source="OnePointControls/Items/BorderCard.axaml" />

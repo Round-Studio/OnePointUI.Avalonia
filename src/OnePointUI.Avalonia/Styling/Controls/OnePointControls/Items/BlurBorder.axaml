@@ -1,0 +1,13 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:OnePointUI.Avalonia.Styling.Controls.OnePointControls.Items">
+    <!--
+        BlurBorder 是 Border 子类,自渲染(BackdropEffect 在 code-behind 按 Radius/全局状态设置),
+        无需模板与样式;此文件仅为设计器预览保留,未参与样式合并。
+    -->
+    <Design.PreviewWith>
+        <Panel Width="200" Height="100">
+            <controls:BlurBorder />
+        </Panel>
+    </Design.PreviewWith>
+</Styles>
