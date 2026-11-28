@@ -1,9 +1,28 @@
-﻿using Avalonia;
+﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using OnePointUI.Avalonia.Base.Enum;
 
 namespace OnePointUI.Avalonia.Styling.Controls.OnePointControls.Navigation;
+
+/// <summary>
+/// 定义导航的动画类型
+/// </summary>
+public enum NavigationAnimationType
+{
+    /// <summary>
+    /// 默认的位移加淡入淡出动画
+    /// </summary>
+    Default,
+
+    /// <summary>
+    /// 明暗交替（纯透明度）动画：前一个页面完全淡出到0，再让后一个页面淡入到1
+    /// </summary>
+    FadeThrough
+}
 
 public partial class NavigationFrame : UserControl
 {
@@ -23,7 +42,15 @@ public partial class NavigationFrame : UserControl
         InitializeComponent();
     }
 
+    /// <summary>
+    /// 页面切换的方向
+    /// </summary>
     public NavigationFrameDirection NavigationFrameDirection { get; set; } = NavigationFrameDirection.Top;
+
+    /// <summary>
+    /// 导航动画类型
+    /// </summary>
+    public NavigationAnimationType AnimationType { get; set; } = NavigationAnimationType.Default;
 
     public async void NavigateTo(object page)
     {
@@ -35,6 +62,22 @@ public partial class NavigationFrame : UserControl
         // 销毁上一页
         DestroyPreviousPage();
 
+        // 根据不同的动画类型执行不同的逻辑
+        if (AnimationType == NavigationAnimationType.FadeThrough)
+        {
+            await NavigateFadeThroughAsync(page, token);
+        }
+        else
+        {
+            NavigateDefault(page, token);
+        }
+    }
+
+    /// <summary>
+    /// 默认的位移加淡入淡出动画逻辑
+    /// </summary>
+    private async void NavigateDefault(object page, CancellationToken token)
+    {
         if (!IsOneFrame)
         {
             IsOneFrame = true;
@@ -65,13 +108,12 @@ public partial class NavigationFrame : UserControl
                 if (!token.IsCancellationRequested)
                 {
                     Frame2.IsVisible = false;
-                    // 清空内容
                     ClearFrameContent(Frame2);
                 }
             }
             catch (TaskCanceledException)
             {
-                // 任务被取消是正常现象，这里捕获异常即可，无需处理
+                // 任务被取消是正常现象
             }
         }
         else
@@ -104,7 +146,6 @@ public partial class NavigationFrame : UserControl
                 if (!token.IsCancellationRequested)
                 {
                     Frame1.IsVisible = false;
-                    // 清空内容
                     ClearFrameContent(Frame1);
                 }
             }
@@ -113,6 +154,59 @@ public partial class NavigationFrame : UserControl
                 // 忽略取消异常
             }
         }
+    }
+
+    /// <summary>
+    /// 明暗交替动画类型：先将当前页面透明度设为0（跑完动画），再将下一个页面透明度设为1
+    /// </summary>
+    private async Task NavigateFadeThroughAsync(object page, CancellationToken token)
+    {
+        // 如果当前有正在显示的 Frame，先将其淡出到 0
+        ContentControl activeFrame = IsOneFrame ? Frame1 : Frame2;
+        ContentControl targetFrame = IsOneFrame ? Frame2 : Frame1;
+
+        // 如果当前有内容在显示，先做淡出动画
+        if (activeFrame.IsVisible && activeFrame.Content != null)
+        {
+            // 这里假设你的 XAML 中有写好针对 Opacity 的 Transition 动画，只需直接改 Opacity 即可
+            activeFrame.Opacity = 0;
+            
+            try
+            {
+                // 等待淡出动画跑完（例如 200ms）
+                await Task.Delay(200, token);
+                if (token.IsCancellationRequested) return;
+
+                activeFrame.IsVisible = false;
+                ClearFrameContent(activeFrame);
+            }
+            catch (TaskCanceledException)
+            {
+                return;
+            }
+        }
+
+        // 切换标志位
+        IsOneFrame = !IsOneFrame;
+
+        // 设置目标 Frame（无位移差，只做纯透明度过渡）
+        targetFrame.Margin = new Thickness(0);
+        targetFrame.Opacity = 0;
+        targetFrame.IsVisible = true;
+        targetFrame.Content = page;
+
+        // 更新引用
+        _previousPage = activeFrame.Content;
+        _previousFrame = activeFrame;
+        _currentPage = page;
+        _currentFrame = targetFrame;
+
+        // 稍微让出UI渲染帧或直接执行淡入
+        await Task.Delay(20, token);
+        if (token.IsCancellationRequested) return;
+
+        // 淡入到 1
+        targetFrame.Opacity = 1;
     }
 
     /// <summary>
@@ -144,7 +238,6 @@ public partial class NavigationFrame : UserControl
         }
         catch (Exception ex)
         {
-            // 记录错误但不要崩溃
             Console.WriteLine($@"销毁页面时出错: {ex.Message}");
         }
     }
@@ -188,7 +281,6 @@ public partial class NavigationFrame : UserControl
             _hideFrameCts = null;
 
             DestroyPage(_currentPage, _currentFrame);
-
             DestroyPage(_previousPage, _previousFrame);
 
             ClearFrameContent(Frame1);
@@ -215,10 +307,7 @@ public partial class NavigationFrame : UserControl
 
         try
         {
-            // 如果是可释放对象
             if (page is IDisposable disposable) disposable.Dispose();
-
-            // 清理 Frame
             if (frame != null) frame.Content = null;
         }
         catch (Exception ex)
